@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14295c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="description" content="Pingping’s AMC 8 training room. Practice with real past papers, thoughtful hints, and clear explanations.">
+  <title>Pingping’s Math Lab · AMC 8</title>
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to your training</a>
+<svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10H3zM9 20v-7h6v7"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6v15M12 6C9 3 5 3 2 4v15c4-1 7 0 10 2 3-2 6-3 10-2V4c-3-1-7-1-10 2Z"/></symbol>
+  <symbol id="i-note" viewBox="0 0 24 24"><rect x="5" y="3" width="15" height="18" rx="2"/><path d="M2 7h6M2 12h6M2 17h6M11 8h5M11 12h5M11 16h3"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5ZM20 2v4M18 4h4"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M8 5H4v15h15v-4M12 4h8v8M9 15 20 4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+</defs></svg>
+<aside class="sidebar" aria-label="Training navigation">
+  <a class="brand" href="#home" aria-label="Pingping’s Math Lab home"><span class="brand-mark">8<span>+</span></span><span>Pingping’s<span class="brand-sub">MATH LAB</span></span></a>
+  <div class="sidebar-label">YOUR TRAINING ROOM</div>
+  <nav class="nav-list" aria-label="Main navigation">
+    <button class="nav-item active" data-view="home" aria-current="page"><svg class="icon"><use href="#i-home"/></svg>Today’s practice</button>
+    <button class="nav-item" data-view="papers"><svg class="icon"><use href="#i-book"/></svg>Past papers<span class="nav-count">7</span></button>
+    <button class="nav-item" data-view="notebook"><svg class="icon"><use href="#i-note"/></svg>My notebook</button>
+    <button class="nav-item" data-view="coach"><svg class="icon"><use href="#i-spark"/></svg>Coach’s notes</button>
+  </nav>
+  <div class="sidebar-bottom"><div class="sidebar-rule"></div><span class="eyebrow">THE WAY WE PRACTICE</span><p>Try. Reflect.<br>Try again.</p><span class="muted">Good thinking takes practice.</span></div>
+  <div class="profile"><span class="avatar">P</span><span><strong>Pingping</strong><small>Your learning journey</small></span></div>
+</aside>
+<main id="main" tabindex="-1">
+  <header class="topbar"><div class="breadcrumb">MATH LAB <span>/</span> <strong>AMC 8</strong></div><span class="device-note" id="storage-status">Practice stays on this device</span></header>
+  <div class="content">
+    <section id="view-home" class="view" aria-labelledby="home-heading">
+      <div class="welcome"><div><p class="eyebrow" id="today-date">YOUR NEXT GOOD IDEA</p><h1 id="home-heading">Let’s get curious, Pingping<span class="blue">.</span></h1><p>A little practice. A clearer way of thinking.</p></div><span class="course-tag">AMC 8 <span>TRAINING</span></span></div>
+      <div class="dashboard-grid">
+        <article class="challenge-card">
+          <div class="challenge-top"><span class="label-pill"><span class="tiny-star">✦</span> YOUR STARTING POINT</span><span class="problem-id">2026 · PROBLEM 01</span></div>
+          <h2>One problem.<br>A new way to see it.</h2>
+          <p class="challenge-description">Before you calculate, take a moment to notice.</p>
+          <div class="expression-preview" aria-label="1 plus 2 minus 3 plus 4 plus 5 minus 6 plus 7 plus 8 minus 9 plus 10 plus 11 minus 12"><span>1 + 2 − 3 + 4 + 5 − 6</span><span>+ 7 + 8 − 9 + 10 + 11 − 12</span></div>
+          <div class="challenge-bottom"><button class="button button-lime" data-action="practice">Try this problem <svg class="icon"><use href="#i-arrow"/></svg></button><span>Real exam. Room to think.</span></div>
+        </article>
+        <aside class="progress-card" aria-labelledby="progress-heading"><div class="card-kicker"><svg class="icon"><use href="#i-target"/></svg> YOUR PRACTICE</div><div class="progress-ring" id="progress-ring"><div><strong id="completed-count">0</strong><span>problems explored</span></div></div><h2 id="progress-heading">A fresh page.</h2><p id="progress-message">Your learning record begins with your first problem.</p><div class="practice-metrics"><div><strong id="independent-count">0</strong><span>Without hints</span></div><div><strong id="review-count">0</strong><span>To revisit</span></div></div><button class="text-button" data-view="notebook">Open my notebook <svg class="icon"><use href="#i-arrow"/></svg></button></aside>
+      </div>
+      <section class="training-section" aria-labelledby="training-heading"><div class="section-title"><h2 id="training-heading">Make the practice yours</h2><span>Follow your curiosity.</span></div><div class="path-grid">
+        <button class="path-card" data-view="papers"><span class="path-icon blue-surface"><svg class="icon"><use href="#i-book"/></svg></span><span class="path-copy"><strong>Explore past papers</strong><span>Seven real exams. Different ways to think.</span></span><svg class="icon path-arrow"><use href="#i-arrow"/></svg></button>
+        <button class="path-card" data-view="notebook"><span class="path-icon peach-surface"><svg class="icon"><use href="#i-note"/></svg></span><span class="path-copy"><strong>Revisit an idea</strong><span>Turn a tricky moment into a useful lesson.</span></span><svg class="icon path-arrow"><use href="#i-arrow"/></svg></button>
+        <button class="path-card" data-view="coach"><span class="path-icon mint-surface"><svg class="icon"><use href="#i-spark"/></svg></span><span class="path-copy"><strong>Learn a useful technique</strong><span>Understand why a good shortcut works.</span></span><svg class="icon path-arrow"><use href="#i-arrow"/></svg></button>
+      </div></section>
+      <section class="coach-strip"><span class="coach-strip-icon"><svg class="icon"><use href="#i-spark"/></svg></span><div><p class="eyebrow">A NOTE FROM YOUR COACH</p><p>Getting an answer is a step. Understanding your thinking is the progress.</p></div><span class="coach-signature">GPT 6 Astra Ultra</span></section>
+      <section class="archive-section" aria-labelledby="archive-heading"><div class="section-title"><div><p class="eyebrow">THE REAL EXAM COLLECTION</p><h2 id="archive-heading">Seven years of good problems</h2></div><button class="text-button" data-view="papers">View collection <svg class="icon"><use href="#i-arrow"/></svg></button></div><div class="year-strip" id="home-years"></div><div class="archive-footnote"><span>175 original questions in the collection · 1 coaching guide available</span><span>Source: AoPS Wiki</span></div></section>
+    </section>
+    <section id="view-papers" class="view" hidden aria-labelledby="papers-heading"><div class="welcome"><div><p class="eyebrow">THE REAL EXAM COLLECTION</p><h1 id="papers-heading">Find your next challenge<span class="blue">.</span></h1><p>Seven past exams, with the original problems and source solutions on AoPS.</p></div></div><div class="exam-facts"><span><svg class="icon"><use href="#i-book"/></svg>25 questions per exam</span><span><svg class="icon"><use href="#i-clock"/></svg>40 minutes in a full sitting</span><span>No calculator</span></div><div class="paper-grid" id="paper-grid"></div><div class="collection-note"><svg class="icon"><use href="#i-spark"/></svg><p><strong>A growing coaching library.</strong> Our first in-app guide is 2026 Problem 1. The other exam links open the original AoPS collection. The 175-question patterns report will follow after every question has been reviewed.</p></div></section>
+    <section id="view-notebook" class="view" hidden aria-labelledby="notebook-heading"><div class="welcome"><div><p class="eyebrow">YOUR LEARNING RECORD</p><h1 id="notebook-heading">Keep the useful moments<span class="blue">.</span></h1><p>A place for your attempts, discoveries, and ideas to revisit.</p></div></div><div id="notebook-content"></div><p class="storage-detail" id="notebook-storage">This learning record is stored in this browser on this device.</p></section>
+    <section id="view-coach" class="view" hidden aria-labelledby="coach-heading"><div class="welcome"><div><p class="eyebrow">GPT 6 ASTRA ULTRA — TIPS & TRICKS</p><h1 id="coach-heading">Make the idea click<span class="blue">.</span></h1><p>Extra guidance to help you understand, check, and explain your thinking.</p></div></div><article class="coach-feature"><span class="label-pill light-pill">TECHNIQUE 01 · GROUPING</span><h2>Look for structure<br>before doing arithmetic.</h2><p>A repeating pattern can tell you how to organize your work. Pause, look at the signs, and choose a small first step.</p><button class="button button-primary" data-action="practice">Try it in 2026 Problem 1 <svg class="icon"><use href="#i-arrow"/></svg></button></article><div class="principle-grid"><article class="white-card"><span class="principle-number">01</span><h3>Keep the sign attached.</h3><p>When you regroup, a negative term stays negative. Moving −6 does not turn it into +6.</p></article><article class="white-card"><span class="principle-number">02</span><h3>Ask why it works.</h3><p>A shortcut becomes a skill when you can explain why it preserves the original calculation.</p></article><article class="white-card"><span class="principle-number">03</span><h3>Give it another try.</h3><p>After reading a solution, come back later and work through the same problem without the steps.</p></article></div><div class="report-note"><svg class="icon"><use href="#i-book"/></svg><div><h3>Patterns across seven exam editions</h3><p>The full report will compare topic frequency, recurring strategies, and study priorities after all 175 questions are reviewed. No topic rankings have been calculated yet.</p></div><span class="status-label">In preparation</span></div></section>
+    <footer class="footer"><span>Pingping’s Math Lab <span class="footer-dot">·</span> A place to grow your thinking.</span><span>Independent practice resource. Not affiliated with MAA or AoPS.</span></footer>
+  </div>
+</main>
+<dialog id="practice-dialog" aria-labelledby="practice-heading"><div class="dialog-shell"><header class="dialog-header"><span class="eyebrow">YOUR PRACTICE SPACE</span><button class="icon-button" id="close-practice" aria-label="Close practice"><svg class="icon"><use href="#i-close"/></svg></button></header><div class="practice-layout"><div class="problem-column"><span class="label-pill light-pill">2026 AMC 8 · PROBLEM 1</span><h2 id="practice-heading">Take your time.<br>Find your way in.</h2><p class="problem-prompt">Find the value of this expression.</p><div class="practice-expression"><span>1 + 2 − 3 + 4 + 5 − 6</span><span>+ 7 + 8 − 9 + 10 + 11 − 12</span></div><form id="answer-form"><fieldset><legend>Choose your answer</legend><div class="answer-options"><label><input type="radio" name="answer" value="18" required><span><small>A</small>18</span></label><label><input type="radio" name="answer" value="21"><span><small>B</small>21</span></label><label><input type="radio" name="answer" value="24"><span><small>C</small>24</span></label><label><input type="radio" name="answer" value="27"><span><small>D</small>27</span></label><label><input type="radio" name="answer" value="30"><span><small>E</small>30</span></label></div></fieldset><button class="button button-primary check-button" type="submit">Check my answer <svg class="icon"><use href="#i-check"/></svg></button></form><div id="answer-feedback" class="feedback" aria-live="polite" hidden></div><div class="problem-tools"><button class="text-button" id="hint-button"><svg class="icon"><use href="#i-spark"/></svg>Give me a hint</button><button class="text-button" id="reveal-button">Show the solution</button></div><div id="hint-content" class="hint-box" aria-live="polite" hidden></div><a class="source-link" href="https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_1" target="_blank" rel="noopener noreferrer">Original problem & source solutions · AoPS Wiki <svg class="icon"><use href="#i-external"/></svg></a><p class="copyright-note">Original problem © Mathematical Association of America.</p></div><aside class="thinking-column"><div id="before-solution"><svg class="icon big-spark"><use href="#i-spark"/></svg><p class="eyebrow">A LITTLE ROOM TO THINK</p><h3>You don’t have to<br>see it all at once.</h3><p>Try a first step on paper. If you get stuck, take a hint and keep exploring.</p><ol class="thinking-steps"><li><span>1</span>Read carefully.</li><li><span>2</span>Try your own approach.</li><li><span>3</span>Check and explain.</li></ol></div><div id="solution-content" hidden><p class="eyebrow">RECOMMENDED SOLUTION</p><h3>Group three terms<br>at a time.</h3><p>The signs repeat: plus, plus, minus. Split the expression into four small calculations.</p><div class="solution-blocks"><span>1 + 2 − 3 <strong>= 0</strong></span><span>4 + 5 − 6 <strong>= 3</strong></span><span>7 + 8 − 9 <strong>= 6</strong></span><span>10 + 11 − 12 <strong>= 9</strong></span></div><p class="solution-total">0 + 3 + 6 + 9 = <strong>18</strong></p><div class="rating"><strong>9<span>/10</span></strong><div>Teaching suitability<small>AI editorial rating · Clear and accessible</small></div></div><p class="solution-credit">AI-authored explanation of the grouping method in AoPS Solution 4. The rating is our teaching assessment.</p><div class="astra-tip"><p class="eyebrow">GPT 6 ASTRA ULTRA — TIPS & TRICKS</p><strong>Keep the sign with the number.</strong><p>Regroup the terms without changing their signs. Then explain why grouping in threes makes the calculation easier to follow.</p></div><button class="text-button" id="retry-button">Try again without the steps <svg class="icon"><use href="#i-arrow"/></svg></button></div></aside></div></div></dialog>
+<div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>
