@@ -1,0 +1,238 @@
+// Reviewed original AMC problems. Restated wording is labeled in the interface.
+export const problems = {
+  "2026-1": {
+    "id": "2026-1",
+    "year": 2026,
+    "number": 1,
+    "title": "Grouping & patterns",
+    "topic": "Arithmetic",
+    "prompt": "What is the value of the following expression?",
+    "wording": "original",
+    "expression": "1 + 2 − 3 + 4 + 5 − 6 + 7 + 8 − 9 + 10 + 11 − 12",
+    "options": [
+      {
+        "letter": "A",
+        "value": 18,
+        "label": "18"
+      },
+      {
+        "letter": "B",
+        "value": 21,
+        "label": "21"
+      },
+      {
+        "letter": "C",
+        "value": 24,
+        "label": "24"
+      },
+      {
+        "letter": "D",
+        "value": 27,
+        "label": "27"
+      },
+      {
+        "letter": "E",
+        "value": 30,
+        "label": "30"
+      }
+    ],
+    "answer": 18,
+    "answerLabel": "(A) 18",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_1",
+    "hints": [
+      "Look at the signs. What pattern repeats every three terms?",
+      "Try grouping the expression into blocks of three. Keep each number’s sign attached to it.",
+      "The first block is 1 + 2 − 3 = 0. Now simplify the next three blocks."
+    ],
+    "method": "Group three terms at a time.",
+    "score": 9,
+    "ratingReason": "Clear and easy to check. Four small calculations make the repeating structure visible.",
+    "solution": [
+      "Keep every sign attached to its number and split the expression into four blocks.",
+      "1 + 2 − 3 = 0; 4 + 5 − 6 = 3.",
+      "7 + 8 − 9 = 6; 10 + 11 − 12 = 9.",
+      "Add the four block totals: 0 + 3 + 6 + 9 = 18."
+    ],
+    "credit": "AI-authored explanation of the grouping method in AoPS Solution 4.",
+    "tipTitle": "Keep the sign with the number.",
+    "tip": "Explain why grouping in threes preserves the value. A useful shortcut should make your reasoning easier to check.",
+    "tipCredit": "Additional coaching by GPT 6 Astra Ultra.",
+    "commonError": "Moving a negative term and accidentally changing its sign.",
+    "reflection": "Why does regrouping the terms leave the answer unchanged?",
+    "alternative": "You can add all positive terms and then subtract 3 + 6 + 9 + 12. Grouping in threes keeps the arithmetic smaller.",
+    "reviewedAt": "2026-09-10"
+  },
+  "2026-2": {
+    "id": "2026-2",
+    "year": 2026,
+    "number": 2,
+    "title": "Count by value",
+    "topic": "Arithmetic · organized counting",
+    "prompt": "Find the total of this array. Its outside border contains twenty 1s, and its center contains three 3s.",
+    "wording": "restated",
+    "matrix": [
+      [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      [
+        1,
+        2,
+        3,
+        3,
+        3,
+        2,
+        1
+      ],
+      [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    ],
+    "options": [
+      {
+        "letter": "A",
+        "value": 49,
+        "label": "49"
+      },
+      {
+        "letter": "B",
+        "value": 51,
+        "label": "51"
+      },
+      {
+        "letter": "C",
+        "value": 53,
+        "label": "53"
+      },
+      {
+        "letter": "D",
+        "value": 55,
+        "label": "55"
+      },
+      {
+        "letter": "E",
+        "value": 57,
+        "label": "57"
+      }
+    ],
+    "answer": 53,
+    "answerLabel": "(C) 53",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_2",
+    "hints": [
+      "How many positions are in the whole array?",
+      "Remove the positions occupied by 1s and 3s. What value fills the remaining positions?",
+      "Multiply each value by its count, then add the three contributions."
+    ],
+    "method": "Count each value",
+    "score": 9,
+    "ratingReason": "Clear, reusable, and easy to check; it avoids adding 35 entries individually.",
+    "solution": [
+      "There are 5 × 7 = 35 positions.",
+      "The number of 2s is 35 − 20 − 3 = 12.",
+      "Total: 20 × 1 + 12 × 2 + 3 × 3 = 53. Choose C."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 3 and 6.",
+    "tipTitle": "See the same sum in layers.",
+    "tip": "Think in layers: give every position one point, the inner rectangle another point, and the center another. Then 35 + 15 + 3 = 53.",
+    "tipCredit": "Authored explanation of the layer idea in AoPS Solution 5.",
+    "commonError": "Counting positions without weighting their values, or counting border corners twice.",
+    "reflection": "How does 35 + 15 + 3 count every entry correctly?",
+    "alternative": "A row-by-row check gives 7 + 12 + 15 + 12 + 7 = 53. Counting by value uses the counts given in the problem and needs fewer additions.",
+    "reviewedAt": "2026-09-11"
+  },
+  "2026-3": {
+    "id": "2026-3",
+    "year": 2026,
+    "number": 3,
+    "title": "Follow the boundary",
+    "topic": "Geometry · perimeter and area",
+    "prompt": "Haruki reshapes a 24 cm wire into one shape at a time. Which listed shapes are possible?",
+    "wording": "restated",
+    "facts": [
+      "Regular hexagon: each side is 5 cm.",
+      "Square: area is 36 cm².",
+      "Right triangle: perpendicular sides are 6 cm and 8 cm."
+    ],
+    "options": [
+      {
+        "letter": "A",
+        "value": "A",
+        "label": "Triangle only"
+      },
+      {
+        "letter": "B",
+        "value": "B",
+        "label": "Hexagon and square only"
+      },
+      {
+        "letter": "C",
+        "value": "C",
+        "label": "Hexagon and triangle only"
+      },
+      {
+        "letter": "D",
+        "value": "D",
+        "label": "Square and triangle only"
+      },
+      {
+        "letter": "E",
+        "value": "E",
+        "label": "Hexagon, triangle, and square"
+      }
+    ],
+    "answer": "D",
+    "answerLabel": "(D) Square and triangle only",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_3",
+    "hints": [
+      "The wire follows each shape's boundary. Which measurement describes that boundary?",
+      "Find the hexagon's perimeter. For the square, find a side length from its area first.",
+      "For the triangle, calculate the missing side using 6² + 8². Then compare each perimeter with 24."
+    ],
+    "method": "Compare perimeters",
+    "score": 9,
+    "ratingReason": "Explains every shape and reinforces the difference between area and perimeter.",
+    "solution": [
+      "Hexagon: 6 × 5 = 30 cm, so the wire is too short.",
+      "Square: side = √36 = 6 cm; perimeter = 4 × 6 = 24 cm.",
+      "Triangle: missing side = √(6² + 8²) = 10 cm; perimeter = 6 + 8 + 10 = 24 cm.",
+      "The square and triangle both fit. Choose D."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solution 1, with corrected comparison wording.",
+    "tipTitle": "Let the answer choices do some work.",
+    "tip": "Use the choices strategically: ruling out the hexagon leaves A or D. Showing that the square works selects D without calculating the triangle.",
+    "tipCredit": "Authored explanation of the elimination strategy in AoPS Solution 2.",
+    "commonError": "Treating 36 cm² as a length, or forgetting the triangle's third side.",
+    "reflection": "Why must you find the square’s side before its perimeter?",
+    "alternative": "For the quickest test approach, eliminate every choice containing the hexagon. Once you verify the square, only D remains. Checking the triangle explains why that choice is consistent.",
+    "reviewedAt": "2026-09-11"
+  }
+};
