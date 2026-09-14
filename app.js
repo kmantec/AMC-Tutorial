@@ -72,6 +72,7 @@ function renderProblem() {
   $('#exam-name').textContent = p.year + ' AMC 8';
   $('#exam-problem-number').textContent = 'PROBLEM ' + p.number;
   $('#practice-heading').textContent = p.year + ' AMC 8 — Problem ' + p.number;
+  $('#suggested-pace').textContent = 'Suggested pace: within ' + p.suggestedPace;
   $('#problem-prompt').innerHTML = '<strong class="exam-number">' + p.number + '.</strong> ' + escape(p.prompt);
   $('#wording-note').hidden = p.wording !== 'restated';
   $('#problem-data').className = p.expression ? 'practice-expression' : 'problem-data';

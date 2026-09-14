@@ -12,11 +12,13 @@ Read [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) and [AGENTS.md](AGENTS.md) before 
 
 **Three reviewed guides: 2026 AMC 8 Problems 1–3.**
 
-| Problem | Practice focus | Reviewed video segment |
-| --- | --- | --- |
-| 1 | Grouping a repeating arithmetic expression | 0:00–0:29 |
-| 2 | Organized counting in a number array | 0:29–1:03 |
-| 3 | Perimeter, square area, and a right triangle | 1:03–2:22 |
+| Problem | Practice focus | Suggested pace once familiar | Reviewed video segment |
+| --- | --- | --- | --- |
+| 1 | Grouping a repeating arithmetic expression | Within 1 min | 0:00–0:29 |
+| 2 | Organized counting in a number array | Within 1 min 30 sec | 0:29–1:03 |
+| 3 | Perimeter, square area, and a right triangle | Within 2 min | 1:03–2:22 |
+
+Each problem displays a gentle pace suggestion. These are authored coaching estimates for practice after understanding the method, not official MAA per-question limits or measured learner times. Take the time needed when learning. There is no start button, automatic timer, time limit, or elapsed-time recording.
 
 Each guide includes five original answer choices, three staged hints, checked answer feedback, a recommended written solution, an explained subjective teaching rating, an alternative approach, an **“Explain it back”** prompt, and **“GPT 6 Astra Ultra — Tips & Tricks.”**
 
@@ -31,6 +33,8 @@ Selections and hints stay with their question while switching or closing/reopeni
 The target is **175 real questions** from seven editions: **2026, 2025, 2024, 2023, 2022, 2020, 2019**. Archive links are available for all seven, but only three guides are integrated: **172 questions remain**, including 22 from 2026. The next sequential question is 2026 Problem 4.
 
 The parent wants short, reviewable batches and will explicitly authorize a full-year run later. Firebase authentication and cross-device progress, complete in-app papers, timed practice, and the 175-question topic/strategy report are not implemented. No fabricated mastery, streaks, or completed analyses are displayed.
+
+The current authorized update is the three pace labels above. The parent is interested in a future practice set with changed numbers, so Pingping must reason again instead of remembering answers; timing may be considered with that feature. It is not implemented or authorized for this batch. Such questions must be labeled as adapted practice, kept separate from the original AMC questions, and excluded from the 175-real-question count.
 
 The current priority is personal learning for Pingping. Paid subscriptions and native-store apps were discussed only as future possibilities and are outside the current scope.
 
