@@ -17,5 +17,6 @@ Read README.md and PROJECT_CONTEXT.md before making changes. Keep them and CHANG
 - For app changes, run node verify.mjs and relevant JavaScript syntax checks. Verify real state transitions when modifying the practice flow. Report any device/video validation gaps honestly.
 - Keep secrets, tokens, personal records, and testing-generated learner data out of Git. Do not expose credentials to work around publishing failures.
 - Publish to the existing repository when the user’s request or session authorizes publication. Verify the resulting deployment before reporting the live site updated.
+- The parent reviews remotely: provide an accessible preview or live website URL, not a local file or review panel as the only deliverable. The 2026-09-14 instruction authorizes publishing the completed three-question pace update to the existing GitHub Pages site. Future publication follows the applicable user/session scope; this does not authorize a full-year batch.
 
 The latest user instruction takes precedence over historical scope decisions in this file.

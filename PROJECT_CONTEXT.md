@@ -39,6 +39,7 @@ Communicate with the parent **in Thai**. Write the app, question explanations, h
 11. Keep source control and publication on GitHub. Firebase is the intended future free-tier approach for identity and cross-device continuity, subject to a real implementation and verification.
 12. No paid membership, subscription billing, native-store packaging, or commercial launch work is authorized now. Those possibilities were discussed only as future options. The parent explicitly returned the focus to Pingping first.
 13. Display a gentle pace suggestion only: Q1 **within 1 min**, Q2 **within 1 min 30 sec**, Q3 **within 2 min**. Attribute the values to coaching judgment after familiarity with the method. Do not add start controls, automatic timing, deadlines, timing records, or time-based grading. The parent prefers low-pressure learning and may consider timing later alongside adapted practice.
+14. The parent reviews remotely and cannot inspect the agent's local machine. Deliver an accessible preview or live website URL; local files and review panels alone are insufficient. The parent's 2026-09-14 instruction authorizes publishing the completed three-question pace update to the existing GitHub Pages site. For future work, follow the applicable user/session scope for publication; this does not expand authorization to a full-year batch.
 
 ## Learning flow to preserve
 
