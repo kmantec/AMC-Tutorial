@@ -1,5 +1,5 @@
 export function newAttempt() {
-  return { hints: 0, revealed: false, wrong: false, submitted: false, video: false, selectedAnswer: null, feedback: null };
+  return { hints: 0, revealed: false, wrong: false, submitted: false, video: false, coached: false, selectedAnswer: null, feedback: null };
 }
 
 export function gradeAnswer(problem, attempt, answer) {
@@ -8,7 +8,7 @@ export function gradeAnswer(problem, attempt, answer) {
   if (attempt.submitted) throw new Error('This attempt is complete. Use Try again to begin a new attempt.');
   attempt.selectedAnswer = String(selected.value);
   const correct = String(selected.value) === String(problem.answer);
-  const independent = correct && attempt.hints === 0 && !attempt.revealed && !attempt.wrong && !attempt.video;
+  const independent = correct && attempt.hints === 0 && !attempt.revealed && !attempt.wrong && !attempt.video && !attempt.coached;
   if (correct) attempt.submitted = true;
   else attempt.wrong = true;
   attempt.feedback = { correct, independent };
@@ -18,7 +18,7 @@ export function gradeAnswer(problem, attempt, answer) {
 export function validRecords(saved, problems) {
   if (!Array.isArray(saved)) return [];
   return saved.filter((record) => record && Object.hasOwn(problems, record.problem)
-    && ['correct', 'incorrect', 'revealed', 'video', 'hint'].includes(record.result)
+    && ['correct', 'incorrect', 'revealed', 'video', 'hint', 'coach'].includes(record.result)
     && Number.isInteger(record.hints) && record.hints >= 0 && record.hints <= problems[record.problem].hints.length
     && typeof record.at === 'string' && Number.isFinite(Date.parse(record.at))).slice(-200);
 }

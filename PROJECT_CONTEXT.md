@@ -2,11 +2,15 @@
 
 This document is the project memory for continuing work without the original chat. The repository should contain the implementation, learning goals, reviewed-content evidence, remaining work, and current verification status. Read this document and the README before making changes.
 
-## Current update — 2026-09-14
+## Current update — 2026-09-27
 
-The app integrates three reviewed coaching guides: 2026 AMC 8 Problems 1–3. The current update adds only a suggested pace to those three problems: within 1 minute for Q1, 1 minute 30 seconds for Q2, and 2 minutes for Q3. These are editorial coaching estimates for a learner who is familiar with the method, not official MAA per-question rules or recorded learner times. There is no start button, automatic timer, enforced deadline, or elapsed-time recording. Understanding remains the priority; taking longer while learning is welcome. The target remains 175 real questions; 172 are not integrated yet.
+The app integrates three reviewed originals: 2026 AMC 8 Problems 1–3. This batch replaces the repeated generic footer with problem-specific Coach’s Corner checks: two short questions per original, two choices per question, and an explanation for either choice. Targeted checks stay hidden until requested; opening them before completing the original counts as support. After completing or reviewing the original, the learner can open one separately labeled changed-number practice and a two-choice reasoning check. There are three adaptations, excluded from the original-exam count of 3 of 175 (172 remain).
 
-The 2026-09-11 content batch added Problems 2 and 3, per-question navigation and progress, reviewed video segments, and these continuation documents. That batch checked mathematical data, static assets, grading isolation, invalid and duplicate submissions, prior-record compatibility, and local browser-agent actions. For the 2026-09-14 pace update, `node verify.mjs`, syntax checks for `app.js`, `problems.js`, and `serve.cjs`, and `git diff --check` passed. The pre-update live HTML, app module, and problem data matched the checked-out main revision. No browser was connected for this update, so its visual layout and physical iPad behavior have not been verified. Use the deployment history below for publication status. A direct YouTube fallback is retained. Firebase sign-in and cross-device progress are not configured.
+Parent preview is now the default until the parent explicitly starts saved learning. The URL `?preview=1` always starts a temporary preview without writing saved learner records. Start learning offers an explicit fresh notebook, or continuing existing saved records. Fresh start clears only this app’s original and coaching record lists in the current browser. Earlier records are preserved until that explicit choice, so the parent should choose Start fresh on Pingping’s iPad before her first lesson if it contains trial activity.
+
+The existing pace suggestions remain within 1 minute for Q1, 1 minute 30 seconds for Q2, and 2 minutes for Q3. These are coaching estimates after familiarity, not official MAA limits. There are no timer controls, automatic timing, deadlines, or elapsed-time records.
+
+The 2026-09-11 batch added Problems 2 and 3 and the existing reviewed video segments. The 2026-09-14 batch added informational pace labels. The 2026-09-27 coaching batch verifies original and adapted mathematics, coaching transitions, independent/assisted grading, separate question state, preview with zero storage writes, explicit clear/resume, legacy records, reload, cross-tab reset, and storage failure handling. `node verify.mjs` includes the pure state/storage tests; `node ui-check.mjs` exercises actual app DOM handlers with isolated synthetic data. Relevant syntax and whitespace checks also apply. The browser connection was unavailable, so these are not visual layout or physical iPad/video-playback checks. Existing video segments and fallback links remain unchanged. Use the deployment history below for publication status. Firebase sign-in and cross-device progress are not configured.
 
 Use the repository commit history and [GitHub Pages workflow history](https://github.com/kmantec/AMC-Tutorial/actions) for the exact published revision and deployment result. This document intentionally avoids a self-referential commit hash. Future sessions should compare the checked-out revision with the live deployment before changing content.
 
@@ -26,7 +30,7 @@ Communicate with the parent **in Thai**. Write the app, question explanations, h
 
 ## Agreed scope and durable preferences
 
-1. Use **real past AMC problems**, with source links, for the original-exam library. Do not replace them with invented questions. On 2026-09-14 the parent raised a separate future possibility: adapted practice with changed numbers to encourage fresh reasoning. That future possibility does not authorize implementing adaptations now or counting them as real AMC questions.
+1. Use **real past AMC problems**, with source links, for the original-exam library. Do not replace them with invented questions. On 2026-09-27 the parent authorized a separate changed-number practice for each of the existing three originals. Keep these adaptations labeled and excluded from real AMC counts.
 2. Initial collection: seven AMC 8 exam editions, **2026, 2025, 2024, 2023, 2022, 2020, and 2019**. Each edition has 25 questions: **175 questions total**. Treat this as a target collection, not a completed library or analysis.
 3. Preserve the original mathematical data, diagram relationships, and A–E choices. Follow the actual AMC presentation where practical. Keep an expression on one line when it fits; allow horizontal scrolling for a long mathematical expression on a narrow screen. Normal prose and long answer choices may wrap to remain readable.
 4. Distinguish verbatim source wording from a faithful restatement. The existing Q1 uses original wording; Q2 and Q3 are prepared as clearly labeled restatements with original-source links. Do not call restated wording “exact” or imply an adaptation is an official exam facsimile.
@@ -34,12 +38,14 @@ Communicate with the parent **in Thai**. Write the app, question explanations, h
 6. Recommend a suitable solution method and explain the recommendation. Method scores are **subjective teaching-suitability ratings**, not official AMC difficulty ratings, empirical mastery scores, or proof that one method is universally best.
 7. Provide **1–3 actually reviewed YouTube recommendations per question** where suitable sources are available. One strong reviewed recommendation is sufficient. Do not add weak or unreviewed videos to reach three.
 8. Embed the recommended YouTube segment in the app and keep a direct YouTube link as a fallback. The learner should be able to return to the same problem without losing the selected answer or leaving audio playing.
-9. Distinguish supported practice from independent attempts. Hints, solution reveals, earlier wrong submissions in an attempt, and opening a walkthrough before completion must not become an “independent” success.
-10. Work in short, reviewable batches while the parent evaluates the approach. The Q2/Q3 content batch and initial handoff are complete. The current authorized batch is **suggested-pace text for the existing 2026 Problems 1–3**, plus aligned documentation. **Do not silently expand to new problems or the rest of the year.** The parent said they will explicitly confirm when they want a full-year run.
+9. Distinguish supported practice from independent attempts. Hints, guided coach checks, solution reveals, earlier wrong submissions in an attempt, and opening a walkthrough before completion must not become an “independent” success. Post-answer review does not rewrite a completed result.
+10. Work in short, reviewable batches while the parent evaluates the approach. The current authorized batch is **two-choice Coach’s Corner, three labeled adaptations, and a clean preview-to-learning handoff for the existing 2026 Problems 1–3**, plus aligned documentation. **Do not silently expand to new originals or the rest of the year.** The parent said they will explicitly confirm when they want a full-year run.
 11. Keep source control and publication on GitHub. Firebase is the intended future free-tier approach for identity and cross-device continuity, subject to a real implementation and verification.
 12. No paid membership, subscription billing, native-store packaging, or commercial launch work is authorized now. Those possibilities were discussed only as future options. The parent explicitly returned the focus to Pingping first.
-13. Display a gentle pace suggestion only: Q1 **within 1 min**, Q2 **within 1 min 30 sec**, Q3 **within 2 min**. Attribute the values to coaching judgment after familiarity with the method. Do not add start controls, automatic timing, deadlines, timing records, or time-based grading. The parent prefers low-pressure learning and may consider timing later alongside adapted practice.
-14. The parent reviews remotely and cannot inspect the agent's local machine. Deliver an accessible preview or live website URL; local files and review panels alone are insufficient. The parent's 2026-09-14 instruction authorizes publishing the completed three-question pace update to the existing GitHub Pages site. For future work, follow the applicable user/session scope for publication; this does not expand authorization to a full-year batch.
+13. Display a gentle pace suggestion only: Q1 **within 1 min**, Q2 **within 1 min 30 sec**, Q3 **within 2 min**. Attribute the values to coaching judgment after familiarity with the method. Do not add start controls, automatic timing, deadlines, timing records, or time-based grading. The parent prefers low-pressure learning. Adapted practice is now available, but timing still requires a later request.
+14. The parent reviews remotely and cannot inspect the agent's local machine. Deliver an accessible preview or live website URL; local files and review panels alone are insufficient. The parent’s remote-review preference and 2026-09-27 go-ahead authorize publishing this completed three-question coaching/preview batch to the existing GitHub Pages site. For future work, follow the applicable user/session scope for publication; this does not authorize a full-year batch.
+15. Pingping studies independently. Use short, two-choice or True/False reasoning checks with explanatory feedback. Keep questions optional and reveal one at a time. A correct choice can result from guessing; do not present it as proof of understanding or a mastery score.
+16. Parent testing must not become Pingping’s learner history. Preview never writes records. Offer an explicit fresh start and a non-destructive resume option; never silently clear saved history on deployment or reload.
 
 ## Learning flow to preserve
 
@@ -47,7 +53,7 @@ The intended flow is: attempt the real problem, request progressively stronger h
 
 Keep the distinction between an attempt event and mastery. A correct answer on one attempt does not establish durable mastery. The notebook must reflect actual stored interactions. No initial fake streaks, mock statistics, invented student activity, or claims that all 175 questions were analyzed.
 
-The pace suggestion is informational text; it never starts an attempt, changes independent/assisted credit, or records duration. Show it with reassurance that learning can take longer. If the parent later authorizes practice with changed numbers, label it as adapted practice and keep it separate from the source AMC question and its attempt history. Independently check any changed numbers, resulting diagrams, answer choices, and solution before use. Such practice does not count toward the 175 original questions; its timer design remains future work.
+The pace suggestion is informational text; it never starts an attempt, changes independent/assisted credit, or records duration. Show it with reassurance that learning can take longer. Each original now has one checked adaptation, labeled separately and recorded outside original AMC attempts. An adaptation appears only after the original is completed or its solution is requested. Its answer and short reasoning check appear after a response. Feedback explains either choice without red failure scoring. A retry after seeing feedback is a revisit, not a new first response; retained coaching history carries this distinction across reloads. These records are capped, so they are not lifetime mastery evidence. Timing remains future work.
 
 ## Reviewed content in the first two batches
 
@@ -88,6 +94,18 @@ The pace suggestion is informational text; it never starts an attempt, changes i
 - Source review caught wording in **AoPS Solution 1** saying “less than 24”; the two successful shapes have perimeter **exactly 24 cm**. Use the corrected comparison.
 - The app uses a labeled restatement with preserved numerical facts and choices.
 
+## Authored coaching and adapted practice — 2026-09-27
+
+Each original has two guided checks. Q1 checks valid grouping and preserving signed terms. Q2 checks remaining positions and count × value. Q3 checks perimeter versus area and converting square area into a side length. The adapted practice then offers a short reasoning check with two choices. Original questions, numerical data, choices, videos, and pace estimates are unchanged.
+
+| Based on | Adaptation and independently checked answer |
+| --- | --- |
+| 2026 Q1 | `2 + 3 − 4 + 5 + 6 − 7 + 8 + 9 − 10 + 11 + 12 − 13`; block totals 1 + 4 + 7 + 10 = **22**, choice B. |
+| 2026 Q2 | Same 5-by-7 arrangement with twenty 2s, twelve 3s, and three 4s; **40 + 36 + 12 = 88**, choice A. Row sums independently total 88. |
+| 2026 Q3 | Full 36 cm wire: regular hexagon with side 6 has perimeter 36; square of area 100 has perimeter 40; right triangle with legs 9 and 12 has hypotenuse 15 and perimeter 36. **Hexagon and triangle only**, choice A. Full length, no overlap, cutting, or leftover wire is explicit. |
+
+All adaptations are authored coaching, not official AMC questions. Source links credit the original methods; the requested GPT 6 Astra Ultra attribution remains. No separate video recommendation or time estimate is claimed for these adaptations.
+
 ## Reviewed video evidence
 
 All three current recommendations use different segments of the same verified video:
@@ -120,7 +138,12 @@ The current project is a static website: **HTML, CSS, and browser JavaScript mod
 | `app.js` | Rendering, navigation, learner interactions, video lifecycle, and optional browser-agent tools. |
 | `problems.js` | Reviewed question data, suggested pace, choices, hints, solutions, ratings, source attribution, and reflection prompts. |
 | `videos.js` | Curated recommendations and review metadata, keyed by problem ID. |
-| `practice-state.js` | Attempt state, grading rules, saved-record validation, and progress summaries. |
+| `practice-state.js` | Original attempt state, grading rules including coach support, legacy validation, and original progress. |
+| `coach-content.js` | Authored two-choice checks, three checked adaptations, feedback, and source credits. |
+| `coaching-state.js` | Per-question check/adaptation transitions, duplicate-answer protection, and exposure state. |
+| `learning-store.js` | Preview/saved-learning modes, compatible storage, separate coaching records, explicit fresh start/resume. |
+| `verify.mjs`, `coaching-state.test.mjs`, `learning-store.test.mjs` | Dependency-free checks using synthetic fixtures. |
+| `ui-check.mjs` | Optional jsdom interaction checks of actual app markup and handlers, without real learner data. |
 | `manifest.webmanifest`, `icon.svg` | App metadata and icon. A manifest by itself does not establish offline support or a native-store app. |
 | `.nojekyll` | Static GitHub Pages serving. |
 | `README.md` | Current availability, setup, limitations, and sources. |
@@ -143,17 +166,21 @@ Open http://127.0.0.1:8791/. Stop the server with Ctrl+C. An optional port argum
     node --check app.js
     node --check serve.cjs
 
-The verifier checks local assets and UI targets, all three problem datasets, video IDs and timestamps, grading isolation, invalid/duplicate answers, and legacy records. It does not simulate actual YouTube playback or physical iPad behavior.
+The verifier checks local assets and UI targets, all original/adapted mathematics, video metadata, grading isolation, coaching state, invalid/duplicate answers, legacy records, preview isolation, reset/resume, and storage errors. For actual app DOM interaction checks, follow the optional jsdom installation instructions in README, then run `node ui-check.mjs`. No runtime dependency is added to the app. These checks do not render visual layout or simulate YouTube playback or physical iPad behavior.
 
 Optional browser-agent tools: read_practice_progress, start_practice_problem (opens/resumes), submit_practice_answer, request_practice_hint, reveal_practice_solution, retry_practice_problem, open_recommended_walkthrough, and return_to_practice_problem. They call the same functions as the visible controls. Unsupported browsers still use the normal UI.
 
-Current selections and hint state are kept separately for each problem in page memory. Switching questions or closing/reopening the dialog preserves them. Reloading begins fresh attempts while keeping the saved learning history. Try again resets only the active question.
+Selections, hints, guided checks, and adapted practice state are kept separately for each problem in page memory. Switching questions or closing/reopening the dialog preserves them. Reloading begins fresh attempts; saved-learning mode retains history, while preview activity disappears. Try again resets only the active question. Entering preview or starting/resuming learning clears all active attempts so trial state cannot cross modes.
 
 AGENTS.md contains concise continuation instructions. CHANGELOG.md records completed batches. Update both the current-state summary and the change history after a future batch.
 
 ## Progress storage and Firebase goal
 
-Current learning records use browser **localStorage**, key **`pingping-amc8-practice-v1`**, with a maximum of 200 records. Keep this key unless a deliberate, tested migration preserves existing progress. Moving between pages of the same GitHub Pages origin can share the same storage; another device cannot.
+Original learning records use browser **localStorage**, key **`pingping-amc8-practice-v1`**, with a maximum of 200 records. Keep this key unless a deliberate, tested migration preserves existing progress. Older Q1 records remain compatible. Coaching checks, adaptations, and reflections use a separate **`pingping-amc8-coaching-v1`** list capped at 200; saved-learning opt-in uses **`pingping-amc8-mode-v1`**. Original progress counts only original events.
+
+Before opt-in, or when opened with `?preview=1`, the page uses temporary empty lists and performs no storage writes. Existing saved records are not shown in preview and remain intact. Start learning offers Start fresh (explicitly clear the two app record lists) or Continue saved learning (restore retained history). Both discard preview interactions. Once saved learning is enabled, the normal URL restores it; the parent should keep using the preview URL for later tests.
+
+Writes reread retained records to preserve sequential changes from other tabs. Storage events in learning mode refresh records and discard active attempts, preventing attempts from before a cross-tab reset from being submitted as new work. Storage failure leaves session-only learning with a visible notice; the app does not claim unavailable persistence. The store is not a transactional multi-user database. Records never enter Git. Moving between pages of the same GitHub Pages origin can share storage; another device cannot. A fresh start affects only the browser where it is confirmed, not all devices.
 
 The notebook is not an account system. Signing in and cross-device synchronization are **not implemented** at this stage. The app does not call a live AI model and does not need a model API key for its reviewed static coaching content.
 
@@ -175,11 +202,11 @@ The parent’s preference is to stay faithful to real AMC questions. If a rights
 
 ## Remaining work and order of operations
 
-1. The Q2/Q3 content batch and initial handoff are complete. The 2026-09-14 update is limited to pace suggestions for the existing three questions. Preserve their content and learner records; verify the checked-out/live revision when beginning a new Project.
+1. The first three original guides, pace suggestions, and 2026-09-27 coaching/adaptation/preview batch are complete. Preserve original content, honest grading, preview isolation, and saved learner records; verify the checked-out/live revision when beginning a new Project.
 2. Let the parent review the three-question experience. Continue in another short batch after they request it. The next sequential content begins at **2026 Problem 4**.
 3. Before a new question is shown as available, inspect its real source, independently verify calculations and choices, author progressive hints and explanations, document source discrepancies, and review at least one suitable video if available. If no video has passed review, report that limitation honestly instead of inventing a recommendation.
 4. Keep the library count tied to integrated reviewed guides, not merely archive links. The current integrated count is **3 of 175**, leaving **172** target questions, including **22** in the 2026 edition.
-5. Broader product work still includes Firebase sign-in and cross-device progress, a complete in-app paper experience, and deeper revisit planning. On 2026-09-14 the parent suggested future adapted practice with changed numbers, followed by considering timing at that stage. These are future possibilities, not existing capabilities or authorization for this batch. Keep adaptations visibly separate from the original exams and exclude them from the 175-question count. Prioritize the next feature using actual feedback from Pingping and the parent.
+5. Broader product work still includes Firebase sign-in and cross-device progress, a complete in-app paper experience, deeper revisit planning, and possible timing only after a later request. The three current adaptations are fixed, reviewed examples; random generation and larger practice sets are not implemented. Keep adaptations separate from original exams and their 175-question count. Prioritize future work using actual feedback from Pingping and the parent.
 6. A seven-exam topic and strategy report is due only after **all 175 questions have actually been reviewed and consistently classified**. The user wants to know what AMC 8 often tests and welcomes scores. Track topics, recurring techniques, representations, and common traps per question to support that later analysis.
 
 For the eventual report, state the collection, denominator, and whether questions can carry multiple tags. Separate observed frequency from editorial learning priority and difficulty. Explain subjective scores. A pattern across seven editions is historical evidence, not a guarantee of what a future exam will contain. Interim observations from three questions must be labeled as a tiny sample and must not be presented as the 175-question report.
@@ -190,7 +217,9 @@ For the eventual report, state the collection, denominator, and whether question
 - Restatement labels and original-source links are correct; no helper text accidentally gives away the intended task.
 - Hints progress in strength; recommended method and AI additions are attributed.
 - Suggested pace is labeled as coaching judgment, encourages taking time while learning, and does not create a timer or affect grading and records.
-- Wrong answers, hints, reveals, and video use produce honest attempt records.
+- Wrong answers, hints, guided coach checks, reveals, and video use produce honest attempt records.
+- Every new reasoning check has two clear choices and explanatory feedback. Adaptations are labeled and independently checked; retries do not create new first-response credit.
+- Preview writes no records, mode changes discard temporary attempts, and only explicit Start fresh clears saved app history. Resume and Cancel preserve learner history.
 - Returning from video stops playback and preserves the current selection; changing question does not contaminate another problem’s state.
 - Long expressions and choices remain usable on the intended screen sizes, with keyboard access and readable labels.
 - Unsupported or unavailable video embeds still have a working direct link.

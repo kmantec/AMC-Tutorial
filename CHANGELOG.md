@@ -1,5 +1,15 @@
 # Change history
 
+## 2026-09-27 — Coach’s Corner, three adaptations, and clean learner handoff
+
+- Replaced the generic practice footer with problem-specific Coach’s Corner for 2026 Q1–Q3. Each has two short, two-choice reasoning checks and feedback explaining either response. Targeted guidance is requested explicitly and counts as support before completion.
+- Added one checked changed-number practice and one two-choice reasoning check per original. Adaptations appear after completing or reviewing the original, carry a clear non-official label and source credits, and are excluded from original AMC progress and the 175-question target. No timers were added.
+- Kept check/adaptation state separate per problem and protected first responses from duplicate submissions. Repeating an adaptation after feedback is recorded as a revisit while history is retained.
+- Added Parent preview, including `?preview=1`, which writes no learner records. Added explicit Start learning, Start fresh, and Continue saved learning controls. Fresh start clears only the two app record lists in this browser; older records are preserved until that choice. Preview interactions never transfer to learning.
+- Preserved the original storage key and added a separate coaching history. Covered reload, cross-tab reset, unavailable storage, duplicate answers, and legacy compatibility with synthetic-data tests. No real learner records or credentials are included.
+- Verified original and adapted math, pure state/storage tests through `node verify.mjs`, actual DOM interactions through `node ui-check.mjs`, relevant syntax, and whitespace. The DOM test uses optional development-only jsdom; no app build step or runtime dependency was introduced. Browser connection was unavailable, so visual layout and physical iPad/video playback remain unverified.
+- Updated README, project context, and AGENTS instructions for this authorized batch. GitHub Pages deployment history identifies the published revision.
+
 ## 2026-09-14 — Gentle pace suggestions for the existing three guides
 
 - Added informational pace suggestions for 2026 Q1 (within 1 min), Q2 (within 1 min 30 sec), and Q3 (within 2 min), with reassurance to take the time needed while learning.

@@ -2,7 +2,7 @@
 
 An English mathematics practice app for Pingping, designed around iPad learning and real AMC problems.
 
-**[Open the app](https://kmantec.github.io/AMC-Tutorial/)** · **[Project context and continuation guide](PROJECT_CONTEXT.md)** · **[Change history](CHANGELOG.md)**
+**[Open the app](https://kmantec.github.io/AMC-Tutorial/)** · **[Parent preview — nothing saved](https://kmantec.github.io/AMC-Tutorial/?preview=1)** · **[Project context and continuation guide](PROJECT_CONTEXT.md)** · **[Change history](CHANGELOG.md)**
 
 ## Start here in a new Project
 
@@ -20,13 +20,23 @@ Read [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) and [AGENTS.md](AGENTS.md) before 
 
 Each problem displays a gentle pace suggestion. These are authored coaching estimates for practice after understanding the method, not official MAA per-question limits or measured learner times. Take the time needed when learning. There is no start button, automatic timer, time limit, or elapsed-time recording.
 
-Each guide includes five original answer choices, three staged hints, checked answer feedback, a recommended written solution, an explained subjective teaching rating, an alternative approach, an **“Explain it back”** prompt, and **“GPT 6 Astra Ultra — Tips & Tricks.”**
+Each guide preserves five original answer choices, three staged hints, checked answer feedback, a recommended written solution, an explained subjective teaching rating, an alternative approach, and **“GPT 6 Astra Ultra — Tips & Tricks.”** Its **Coach’s Corner** now has two short reasoning checks, each with only two choices and feedback explaining either answer. Targeted checks appear after the learner asks for guidance; opening them before completing the original counts as support.
+
+After completing or reviewing the original, the learner may try **one changed-number problem**, then one two-choice reasoning check. These three adaptations are labeled **“Adapted practice — not an official AMC question”** and are separate from original-exam progress. They test grouping and signs (Q1), counting values in an array (Q2), and perimeter (Q3). A two-choice response is a learning check, not proof of mastery.
 
 The current video recommendations are three reviewed segments of one Daily Dose of Math video, not three different videos. Each question opens at its own timestamp inside the app, with a direct YouTube fallback. Returning or switching questions removes the player. A walkthrough opened before completion counts as support.
 
 Question 1 retains its original short wording. Questions 2 and 3 use clearly labeled concise restatements; the mathematical data and A–E choices remain unchanged. Every guide links to the original question and source solutions. Expressions stay on one mathematical line, with horizontal scrolling on narrow screens; longer prose and text choices wrap.
 
-Selections and hints stay with their question while switching or closing/reopening the practice dialog in the same page session. **Try again** resets only that question. Learning records persist in this browser, including compatible older Q1 records. Reloading starts fresh attempts while retaining saved history.
+Selections, hints, and coaching checks stay with their question while switching or closing/reopening the practice dialog in the same page session. **Try again** resets only that question. Repeating an adaptation after feedback does not earn first-response credit again while that history is retained.
+
+## Parent testing and Pingping’s first session
+
+The app starts in **Parent preview** until saved learning is explicitly enabled. Preview interactions stay in page memory: they are never saved or copied into Pingping’s notebook. The [parent preview link](https://kmantec.github.io/AMC-Tutorial/?preview=1) also works after learning has been enabled and preserves saved learner history.
+
+On Pingping’s iPad, choose **Start learning → Start fresh for Pingping**. If older records exist, the confirmation says **Start fresh · Clear saved practice** and explains that it clears only this app’s saved practice in that browser. This removes earlier test records before her first lesson. **Continue saved learning** preserves existing learner records instead; Cancel makes no changes. Publication does not silently delete anyone’s history.
+
+After starting learning, subsequent visits to the normal app link save and restore learning on that browser. Reloading starts fresh attempts while retaining history. Storage failures are labeled as session-only learning. Firebase accounts and cross-device sync are not available yet.
 
 ## Scope and unfinished work
 
@@ -34,7 +44,7 @@ The target is **175 real questions** from seven editions: **2026, 2025, 2024, 20
 
 The parent wants short, reviewable batches and will explicitly authorize a full-year run later. Firebase authentication and cross-device progress, complete in-app papers, timed practice, and the 175-question topic/strategy report are not implemented. No fabricated mastery, streaks, or completed analyses are displayed.
 
-The current authorized update is the three pace labels above. The parent is interested in a future practice set with changed numbers, so Pingping must reason again instead of remembering answers; timing may be considered with that feature. It is not implemented or authorized for this batch. Such questions must be labeled as adapted practice, kept separate from the original AMC questions, and excluded from the 175-real-question count.
+The 2026-09-27 batch adds Coach’s Corner to the existing three questions, three checked adaptations, and a clean handoff from parent testing to learner records. Adaptations do not increase the count of integrated real questions: it remains **3 of 175**. Timers, additional originals, and a full-year content run remain outside this batch.
 
 The current priority is personal learning for Pingping. Paid subscriptions and native-store apps were discussed only as future possibilities and are outside the current scope.
 
@@ -54,13 +64,22 @@ Run the checks:
     node --check app.js
     node --check serve.cjs
 
-Verification checks assets and UI targets, the reviewed mathematical data, video metadata, independent/assisted grading, question isolation, duplicate-answer protection, and compatibility with older records. Browser-agent contract checks were also exercised in a local preview. These checks do not establish physical iPad playback or visual testing.
+Verification checks assets and UI targets, original and adapted mathematics, video metadata, independent/assisted grading, question isolation, coaching transitions, duplicate-answer protection, legacy records, preview isolation, explicit resets, and storage failure handling. It uses synthetic records only.
+
+For the optional DOM interaction check, install the development-only dependency and run:
+
+    npm install --no-save --package-lock=false --ignore-scripts --no-audit --no-fund jsdom@26.1.0
+    node ui-check.mjs
+
+This exercises the actual app markup and handlers, including choices, feedback, mode changes, reload, and cross-tab reset. It does not render layout or play video. The browser connection was unavailable for this batch, so visual layout and physical iPad playback remain unverified. The app itself still requires no package installation or build step.
 
 ## Hosting and data
 
 - Repository: [kmantec/AMC-Tutorial](https://github.com/kmantec/AMC-Tutorial).
 - GitHub Pages: main branch, repository root, HTTPS. Keep asset URLs relative.
-- Browser storage key: pingping-amc8-practice-v1; up to 200 learning records.
+- Original records: `pingping-amc8-practice-v1`; up to 200 compatible learning records.
+- Separate coaching/adapted records: `pingping-amc8-coaching-v1`; up to 200 events. Saved-learning opt-in: `pingping-amc8-mode-v1`.
+- Parent preview performs no storage writes; explicit Start fresh clears only the two record lists in this browser.
 - No Firebase configuration, server credentials, API keys, or live AI calls are bundled.
 - Existing metadata does not imply offline caching: no service worker is implemented.
 

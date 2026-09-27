@@ -36,6 +36,42 @@
 @media(max-width:650px){.video-section{padding:26px 21px}.video-heading-row{flex-direction:column;gap:8px}.video-heading-row h3{font-size:22px}.video-player-footer{flex-direction:column;align-items:flex-start;gap:6px}.video-card{padding:20px}.video-recommendations{grid-template-columns:1fr}.video-card h4{font-size:18px}}
 
 /* Three reviewed questions share the original paper-like practice surface. */
+/* Self-study coaching: one small choice at a time, with explicit preview mode. */
+.learning-mode-bar{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:18px 21px;margin-bottom:25px;background:#edf4fb;border:1px solid #d5e2f2;border-radius:12px;color:#29415f}
+.learning-mode-bar strong{font-family:Manrope,sans-serif;font-size:1rem}.learning-mode-bar p{font-size:.875rem;line-height:1.6;max-width:650px;margin-top:4px;color:#425b79}
+.mode-actions,.coach-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px 22px}.mode-actions .button{min-height:44px}.mode-actions .text-button{min-height:44px}
+.practice-mode{display:block;font-size:.75rem;color:#425b79;line-height:1.6;margin-top:5px}
+.coach-heading{display:flex;gap:14px;align-items:flex-start}.coach-heading>.icon{width:29px;height:29px;flex-shrink:0;margin-top:5px;color:#6584be}
+#coaching-area .coach-heading h3{font-size:1.4rem;margin-top:7px;line-height:1.4}
+#coaching-area .coach-intro{color:#425b79;font-size:1rem;line-height:1.7;margin:16px 0 8px}
+#coaching-area .coach-status{color:#425b79;font-size:.875rem;line-height:1.7;margin:0 0 20px}
+.coach-actions .text-button{min-height:44px}.coach-actions{margin:17px 0}
+.coach-check{background:#fff;border:1px solid #d5dfed;border-radius:12px;padding:23px;margin:22px 0}
+.coach-check h4,#similar-explanation h4{font-family:Manrope,sans-serif;font-size:1.1rem;color:#213856;line-height:1.7;margin:10px 0 17px}
+.two-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0 20px}
+.coach-choice,.similar-options label>span{display:block;width:100%;min-height:60px;border:1px solid #bacce3;border-radius:9px;padding:16px;text-align:left;background:#fff;color:#233d61;font-size:1rem;font-family:inherit;line-height:1.7;overflow-wrap:anywhere}
+.coach-choice:not(:disabled):hover{background:#f0f5ff;border-color:#527bd1}.coach-choice:disabled{cursor:default;opacity:1}
+.coach-choice[aria-pressed="true"]{background:#edf3ff;border:2px solid #4069c9;padding:15px}
+.coach-choice[aria-pressed="true"]::before{content:"Your choice · ";font-weight:700}
+#coaching-area .coach-feedback{background:#fff5df;color:#53452c;border-left:3px solid #c99944;padding:15px 18px;font-size:1rem;line-height:1.8;margin:16px 0}
+#coaching-area .coach-feedback.correct-choice{background:#edf6f2;color:#295847;border-left-color:#43826b}
+#coaching-area #solution-content{border-top:1px solid #d5dfed;padding-top:26px;margin-top:28px}
+.similar-entry{border-top:1px solid #ccd9ea;margin-top:28px;padding-top:27px}
+#coaching-area .similar-entry>p:not(.eyebrow){color:#425b79;font-size:1rem;line-height:1.7;margin:10px 0 19px}
+#coaching-area .similar-entry h3{font-size:1.4rem;line-height:1.5}
+#similar-content{margin-top:22px;padding-top:8px}#coaching-area .adapted-label{font-size:.875rem;color:#49617f;background:#e9eff8;padding:9px 12px;line-height:1.6;display:inline-block;margin:0 0 15px;border-radius:6px}
+#similar-form fieldset{border:0;padding:0;margin:0;min-width:0}.similar-options label{position:relative;cursor:pointer;min-width:0}
+.similar-options input{position:absolute;opacity:0;width:1px;height:1px}.similar-options label>span{height:100%}
+.similar-options input:checked+span{border:2px solid #4069c9;padding:15px;background:#edf3ff}
+.similar-options input:focus-visible+span{outline:3px solid #365eae;outline-offset:3px}.similar-options input:disabled+span{cursor:default}
+.similar-options small{font-weight:700;margin-right:7px}
+#similar-explanation .coach-check{background:#f8faff}#coaching-area #similar-credit{color:#526681;font-size:.8rem;line-height:1.7;margin-top:19px}
+.coaching-history-note{font-size:.875rem;line-height:1.7;color:#526681;margin:8px 0 14px}
+#learning-dialog{width:min(92vw,560px);height:auto;max-height:90dvh;border-radius:16px;margin:auto}
+.learning-dialog-content{padding:28px}.learning-dialog-content h2{font-size:1.5rem;line-height:1.4}.learning-dialog-content p{font-size:1rem;line-height:1.75;color:#425b79;margin:15px 0}
+.learning-dialog-content .mode-actions{margin-top:23px;align-items:flex-start;flex-direction:column}.learning-dialog-content .clear-note{background:#fff5df;padding:12px 14px;color:#614d28;border-radius:8px}
+@media(max-width:560px){.two-options{grid-template-columns:1fr}.learning-mode-bar{padding:16px;gap:12px}.learning-mode-bar .mode-actions{gap:8px 18px}.coach-check{padding:18px}.coach-actions{align-items:flex-start}.coach-heading{gap:10px}.coach-choice,.similar-options label>span{font-size:1rem}#coaching-area .coach-heading h3{font-size:1.2rem}.learning-dialog-content{padding:23px}#learning-dialog{width:calc(100vw - 24px)}}
+
 .pace-note{margin:-8px 0 24px;font-family:Manrope,sans-serif;font-size:.875rem;line-height:1.6;color:#425877}.pace-note p{margin:0}.pace-label{display:flex;align-items:center;gap:8px;font-weight:600}.pace-label .icon{flex-shrink:0;width:17px;height:17px}.pace-note .pace-context{margin-top:5px;color:#526681}
 .practice-library{margin-top:28px}.available-practice{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.practice-pick{position:relative;text-align:left;background:#fff;border:1px solid #dce5f3;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px;min-height:128px}.practice-pick:hover{border-color:#6488dc}.practice-pick .eyebrow{font-size:.75rem;color:#6e83a8}.practice-pick strong{font-family:Manrope,sans-serif;font-size:1.2rem}.practice-pick>span:last-of-type{font-size:.875rem;line-height:1.6;color:#687b99;padding-right:18px}.practice-pick>.icon{position:absolute;right:17px;top:24px;width:18px;color:#6d87b6}
 .problem-navigation{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:10px 25px;border-bottom:1px solid #e3e9f3}.problem-navigation .text-button{font-size:.875rem;min-height:44px}.problem-navigation>span{font-size:.875rem;color:#6e819f;text-align:center}.problem-navigation button:disabled{opacity:.5}.wording-note{font-family:system-ui,sans-serif;font-size:.875rem;line-height:1.6;color:#6c7e98;margin-bottom:16px}.wording-note a{text-underline-offset:3px}
