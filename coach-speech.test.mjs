@@ -14,6 +14,7 @@ for (const guide of Object.values(coachGuides)) {
   assert.ok(guide.checks[0].options.every((option) => !question.includes(option.feedback)));
   assert.ok(!spokenProblem(guide.similar).join(' ').includes(guide.similar.solution[0]));
 }
+assert.equal(spokenMath('50% of 80 = 40; 120% of 100'),'50 percent of 80 equals 40; 120 percent of 100');
 const words = 'Read one small step. '.repeat(80);
 assert.equal(speechChunks([words]).join(' '),words.trim());
 assert.ok(speechChunks([words]).every((chunk) => chunk.length <= 220));

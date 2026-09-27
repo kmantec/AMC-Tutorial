@@ -1,4 +1,4 @@
-// Authored coaching and checked adaptations of the three reviewed originals.
+// Authored coaching and checked adaptations of the reviewed originals.
 // These checks teach reasoning; a two-choice response is not a mastery score.
 // The app reveals targeted checks only after help is requested or the original
 // has been completed/revealed. Adaptations are not part of the 175 AMC originals.
@@ -251,6 +251,93 @@ export const coachGuides = {
       },
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_3",
       credit: "Changed-number practice and coaching authored by GPT 6 Astra Ultra, using the perimeter comparisons in AoPS Solution 1 for the original problem."
+    }
+  },
+  "2026-4": {
+    "intro": "Two changes happen in this story. Try following the savings from one month to the next; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "percent-base",
+        "prompt": "Suppose Brynn began with 100 units and has 80 after July. Which amount is the base for August’s 50% increase?",
+        "options": [
+          {
+            "id": "a",
+            "label": "100 units: the original savings.",
+            "correct": false,
+            "feedback": "August starts with the 80 units remaining after July. Its increase is half of 80, which is 40 units. Using half of 100 would use the wrong starting amount for August."
+          },
+          {
+            "id": "b",
+            "label": "80 units: the savings after July.",
+            "correct": true,
+            "feedback": "Yes. August’s 50% increase uses the current 80 units. Half of 80 is 40, so add 40 to the 80 already there."
+          }
+        ]
+      },
+      {
+        "id": "final-versus-increase",
+        "prompt": "If the savings start at 100 units and finish at 120 units, what does 120% describe?",
+        "options": [
+          {
+            "id": "a",
+            "label": "All the final savings, compared with the original savings.",
+            "correct": true,
+            "feedback": "Exactly. The entire 120 units are 120% of the original 100. Only the extra 20 units represent the 20% increase. Match your answer to what the question asks."
+          },
+          {
+            "id": "b",
+            "label": "Only the extra savings gained.",
+            "correct": false,
+            "feedback": "The extra savings are 120 − 100 = 20 units, a 20% increase. The final total includes both the original amount and that increase, so it is 120% of the original."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-4-a",
+      "sourceProblem": "2026-4",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "A savings balance falls by 25% one month, then rises by 20% the next month. The final balance is what percent of its original amount?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 95,
+          "label": "95"
+        },
+        {
+          "letter": "B",
+          "value": 90,
+          "label": "90"
+        }
+      ],
+      "answer": 90,
+      "answerLabel": "(B) 90",
+      "solution": [
+        "Choose an original balance of 100 units.",
+        "The first month removes 25% of 100, leaving 75 units.",
+        "The next increase is 20% of 75: 75 ÷ 5 = 15 units. Add 15 to 75 to get 90 units.",
+        "The final 90 units are 90% of the original 100. The calculation 100 − 25 + 20 would incorrectly take the second percentage from the original balance."
+      ],
+      "reflection": {
+        "id": "adapted-percent-meaning",
+        "prompt": "True or false: finishing with 90% of the original balance means an overall decrease of 10%.",
+        "options": [
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "90% is the part still there. Compared with the original 100%, the missing part is 10%. Starting at 100 and ending at 90 shows a loss of 10 units."
+          },
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Yes. 90% remains, so 100% − 90% = 10% was lost overall. Keep the final amount and the amount of change separate."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_4",
+      "credit": "Changed-number practice and coaching authored by GPT 6 Astra Ultra. The choose-100 method is also illustrated in the written solution for the original problem at LIVE by Po-Shen Loh."
     }
   }
 };

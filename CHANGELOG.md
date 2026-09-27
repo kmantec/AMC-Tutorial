@@ -1,5 +1,14 @@
 # Change history
 
+## 2026-09-27 — 2026 Problem 4: successive percentages
+
+- Added only the requested fourth original guide, with a labeled faithful restatement, unchanged numbers and A–E choices, three hints, authored explanations, a subjective 9/10 teaching rating, source attribution, and informational 1 min 30 sec pace.
+- Checked the problem, choices, answer E/120, and choose-100 method against LIVE by Po-Shen Loh. Direct AoPS access failed; the app retains the archive link and adds the actual checked source. Distinguished 120% of the original from a 20% increase.
+- Added two binary Coach checks and one labeled adapted practice: a 25% decrease followed by a 20% increase gives 90% of the original. Included feedback for both choices and a True/False reasoning check.
+- Supported prose-only problem/adaptation displays, percent pronunciation, a direct `?preview=1&problem=2026-4` review link, and four-guide counts/layout. Original history and grading remain intact; adaptations stay outside the 175-real-question count. There are now 4 originals, with 171 still to integrate.
+- Kept Q4’s video list empty with a visible written/voice guidance notice because actual segment review was blocked by the unavailable browser connection. Existing Q1–Q3 segments and fallbacks are unchanged; Q4 video review remains outstanding.
+- Passed mathematical/state verification, original choices and retained history checks, Q4 DOM flows, voice simulation, syntax, and whitespace checks. No physical iPad, actual new audio, visual layout, or Q4 video playback validation is claimed. Updated README, project context, and continuation instructions.
+
 ## 2026-09-27 — Browser voice for Coach’s Corner
 
 - Added a voice picker populated from the browser/device, an automatic English default, Listen again, Stop speaking, and Mute/Unmute coach in the practice header.

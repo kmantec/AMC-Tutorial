@@ -29,7 +29,8 @@ for (const p of Object.values(problems)) {
   assert.ok(p.options.some((option) => option.value === p.answer));
   assert.equal(p.hints.length,3);
   const videos = recommendedVideos[p.id];
-  assert.ok(videos.length >= 1 && videos.length <= 3);
+  assert.ok(Array.isArray(videos) && videos.length <= 3);
+  assert.ok(videos.length > 0 || (typeof p.videoNote === 'string' && p.videoNote.length > 20),'Missing video review must be stated explicitly');
   for (const video of videos) {
     assert.match(video.id,/^[A-Za-z0-9_-]{11}$/);
     assert.ok(video.startSeconds >= 0 && video.endSeconds > video.startSeconds);
@@ -44,6 +45,21 @@ assert.deepEqual([1,2,3].map((value) => matrix.flat().filter((cell) => cell === 
 assert.equal(matrix.flat().reduce((total,value) => total+value,0),problems['2026-2'].answer);
 assert.deepEqual([6*5,4*Math.sqrt(36),6+8+Math.hypot(6,8)],[30,24,24]);
 assert.equal(problems['2026-3'].answer,'D');
+assert.deepEqual(Object.keys(problems),['2026-1','2026-2','2026-3','2026-4']);
+const fourth = problems['2026-4'];
+assert.match(fourth.prompt,/20%/);
+assert.match(fourth.prompt,/50%/);
+assert.deepEqual(fourth.options.map((option) => [option.letter,option.value]),[['A',80],['B',90],['C',100],['D',110],['E',120]]);
+assert.equal(fourth.answer,120);
+assert.equal(fourth.wording,'restated');
+assert.equal(fourth.checkedSourceUrl,'https://live.poshenloh.com/past-contests/amc8/2026/problem/4');
+for (const original of [40,100,250,800]) {
+  const july = original - original / 5;
+  const august = july + july / 2;
+  assert.ok(Math.abs(august / original * 100 - fourth.answer) < 1e-10);
+}
+const fourthAttempt = newAttempt();
+assert.equal(gradeAnswer(fourth,fourthAttempt,120).independent,true);
 // Wrong answers, hints and video support must stay local to their question.
 const second = newAttempt(), third = newAttempt();
 gradeAnswer(problems['2026-2'],second,49);
@@ -62,10 +78,10 @@ const videoOnly = newAttempt(); videoOnly.video = true;
 assert.equal(gradeAnswer(problems['2026-2'],videoOnly,53).independent,false);
 // Retain v1 learning records and aggregate the latest record for each problem.
 const old = {problem:'2026-1',result:'correct',hints:0,independent:true,at:'2026-09-10T13:30:48.705Z'};
-const history = validRecords([old,{...old,problem:'2026-2',independent:false},{...old,problem:'2026-3'},{...old,problem:'2026-4'}],problems);
+const history = validRecords([old,{...old,problem:'2026-2',independent:false},{...old,problem:'2026-3'},{...old,problem:'2026-5'}],problems);
 assert.equal(history.length,3);
 assert.deepEqual(history[0],old);
 const summary = summarizeProgress(history);
 assert.deepEqual([summary.explored,summary.independent,summary.revisit],[3,2,1]);
 assert.equal(validRecords([{...old,hints:-1},{...old,at:'invalid'}],problems).length,0);
-console.log('Verified: assets, UI targets, three problem datasets, video metadata, grading isolation, and legacy records.');
+console.log('Verified: assets, UI targets, four problem datasets, video metadata, grading isolation, and legacy records.');

@@ -47,5 +47,7 @@ export const recommendedVideos = {
       "reviewedAt": "2026-09-11",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_3"
     }
-  ]
+  ],
+  // No recommendation until an actual Problem 4 segment can be reviewed.
+  "2026-4": []
 };

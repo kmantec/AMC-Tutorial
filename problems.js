@@ -237,5 +237,71 @@ export const problems = {
     "reflection": "Why must you find the square’s side before its perimeter?",
     "alternative": "For the quickest test approach, eliminate every choice containing the hexagon. Once you verify the square, only D remains. Checking the triangle explains why that choice is consistent.",
     "reviewedAt": "2026-09-11"
+  },
+  "2026-4": {
+    "id": "2026-4",
+    "year": 2026,
+    "number": 4,
+    "suggestedPace": "1 min 30 sec",
+    "title": "Follow the changing whole",
+    "topic": "Arithmetic · successive percent changes",
+    "prompt": "In July, Brynn lost 20% of her savings. In August, her savings grew by 50%. Express her final savings as a percentage of the amount she started with.",
+    "wording": "restated",
+    "options": [
+      {
+        "letter": "A",
+        "value": 80,
+        "label": "80"
+      },
+      {
+        "letter": "B",
+        "value": 90,
+        "label": "90"
+      },
+      {
+        "letter": "C",
+        "value": 100,
+        "label": "100"
+      },
+      {
+        "letter": "D",
+        "value": 110,
+        "label": "110"
+      },
+      {
+        "letter": "E",
+        "value": 120,
+        "label": "120"
+      }
+    ],
+    "answer": 120,
+    "answerLabel": "(E) 120",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_4",
+    "checkedSourceUrl": "https://live.poshenloh.com/past-contests/amc8/2026/problem/4",
+    "checkedSourceName": "LIVE by Po-Shen Loh",
+    "hints": [
+      "Ask what amount each percentage is based on. The savings change between the two months.",
+      "Use 100 units as a convenient starting amount. A 20% decrease leaves 80 units after July.",
+      "August adds half of the 80 units now present. Add that increase to 80, then compare the final amount with the original 100."
+    ],
+    "method": "Use 100 to track each change",
+    "score": 9,
+    "ratingReason": "A concrete starting amount makes the changing base visible and separates the final percentage from the percentage gained.",
+    "solution": [
+      "The question asks for a ratio, so choose 100 units for the original savings. Any positive starting amount gives the same final percentage.",
+      "July removes 20% of 100, which is 20 units. The savings become 100 − 20 = 80 units.",
+      "August's increase is 50% of the current 80 units: half of 80 is 40. The new savings are 80 + 40 = 120 units.",
+      "120 units compared with the original 100 units is 120%. Choose E, 120.",
+      "The extra savings are 20% of the original amount. The question asks for the entire final savings as a percent of the original, so the answer is 120, not 20."
+    ],
+    "credit": "Authored explanation of the choose-100 method also shown in LIVE by Po-Shen Loh’s written solution. The original numerical information and choices were checked there.",
+    "tipTitle": "Name the whole before taking a percent.",
+    "tip": "Label the base at each step: July uses the original savings; August uses the savings after July. A percent describes a part of its base, so update the base before calculating the next change.",
+    "tipCredit": "Additional coaching by GPT 6 Astra Ultra.",
+    "commonError": "Adding or subtracting the two percentage rates as though both changes used the original savings.",
+    "reflection": "What amount is the whole for the second percentage change?",
+    "alternative": "Let the original savings be x. A 20% decrease keeps 0.8x. Increasing that amount by 50% multiplies it by 1.5, so the final savings are 0.8 × 1.5 × x = 1.2x, or 120% of the original. Multiplying the factors also checks the choose-100 calculation.",
+    "videoNote": "A video walkthrough is not available here yet. You can listen to the written steps after opening the solution.",
+    "reviewedAt": "2026-09-27"
   }
 };

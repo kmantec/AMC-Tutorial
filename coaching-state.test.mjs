@@ -58,7 +58,7 @@ for (const [id,g] of Object.entries(coachGuides)) {
   assert.equal(retry.firstTry,false);
   assert.equal(answerReflection(g,state,reflection.id).firstTry,false);
 }
-assert.equal(adaptationIds.size,3);
+assert.equal(adaptationIds.size,4);
 const expression = coachGuides['2026-1'].similar.expression;
 const terms = expression.replaceAll('−','-').replaceAll(' ','').match(/[+-]?\d+/g).map(Number);
 assert.equal(terms.length,12);
@@ -71,6 +71,12 @@ assert.equal(matrix.flat().reduce((sum,value) => sum+value,0),88);
 assert.equal(coachGuides['2026-2'].similar.answer,88);
 assert.deepEqual([6*6,4*Math.sqrt(100),9+12+Math.hypot(9,12)],[36,40,36]);
 assert.equal(coachGuides['2026-3'].similar.answer,'A');
+const percentPractice = coachGuides['2026-4'].similar;
+assert.match(percentPractice.prompt,/25%/);
+assert.match(percentPractice.prompt,/20%/);
+assert.equal((100 - 25) + (100 - 25) / 5,90);
+assert.equal(percentPractice.answer,90);
+assert.deepEqual(percentPractice.options.map((option) => option.value),[95,90]);
 const attempt = newAttempt();
 attempt.coached = true;
 assert.equal(gradeAnswer(problems['2026-1'],attempt,18).independent,false);
@@ -79,4 +85,4 @@ assert.equal(gradeAnswer(problems['2026-2'],untouched,53).independent,true);
 const saved = validRecords([{problem:'2026-1',result:'coach',hints:0,independent:false,coached:true,at:'2026-09-27T00:00:00Z'}],problems);
 assert.equal(saved.length,1);
 assert.equal(summarizeProgress(saved).independent,0);
-console.log('Verified coaching: six binary checks, three checked adaptations, reflection feedback, gated state, duplicate protection, retries, and assisted original grading.');
+console.log('Verified coaching: eight binary checks, four checked adaptations, reflection feedback, gated state, duplicate protection, retries, and assisted original grading.');

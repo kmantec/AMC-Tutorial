@@ -7,7 +7,7 @@ export function spokenMath(text) {
     .replace(/√/g, ' the square root of ')
     .replace(/−/g, ' minus ').replace(/(\d)\s*-\s*(?=\d)/g, '$1 minus ')
     .replace(/\+/g, ' plus ').replace(/×/g, ' times ')
-    .replace(/÷/g, ' divided by ').replace(/=/g, ' equals ')
+    .replace(/÷/g, ' divided by ').replace(/=/g, ' equals ').replace(/%/g, ' percent ')
     .replace(/\(/g, ' open bracket ').replace(/\)/g, ' close bracket ')
     .replace(/—/g, ', ').replace(/\s+/g, ' ').trim();
 }

@@ -92,7 +92,7 @@ function practiceButton(id, label, className = 'text-button') {
 $('#today-date').textContent = new Intl.DateTimeFormat('en', {weekday:'long',month:'long',day:'numeric'}).format(new Date()).toUpperCase();
 $('#home-years').innerHTML = YEARS.map((year) => '<a class="year-card" href="' + source(year) + '" target="_blank" rel="noopener noreferrer" aria-label="Open ' + year + ' AMC 8 on AoPS"><strong>' + year + '</strong><small>25 problems</small>' + icon('external') + '</a>').join('');
 $('#paper-grid').innerHTML = YEARS.map((year) => '<article class="paper-card"><div class="paper-year"><h2>' + year + '</h2><span>AMC 8</span></div><p>25 original problems<br>Source solutions on AoPS</p><a href="' + source(year) + '" target="_blank" rel="noopener noreferrer">Explore this exam ' + icon('external') + '</a>' + (year === 2026 ? '<div class="paper-practice-links">' + ids.map((id) => practiceButton(id, 'Practice Problem ' + problems[id].number)).join('') + '</div>' : '') + '</article>').join('');
-$('#available-practice').innerHTML = ids.map((id) => '<button class="practice-pick" data-action="practice" data-problem="' + id + '"><span class="eyebrow">2026 AMC 8</span><strong>Problem ' + problems[id].number + '</strong><span>' + (id === '2026-1' ? 'First guide' : 'New guide') + ' · Hints, explanation & video</span>' + icon('arrow') + '</button>').join('');
+$('#available-practice').innerHTML = ids.map((id) => '<button class="practice-pick" data-action="practice" data-problem="' + id + '"><span class="eyebrow">2026 AMC 8</span><strong>Problem ' + problems[id].number + '</strong><span>' + (id === '2026-1' ? 'First guide' : 'New guide') + ' · Hints, coach & similar practice</span>' + icon('arrow') + '</button>').join('');
 $('#coach-techniques').innerHTML = ids.map((id) => '<article class="white-card"><span class="eyebrow">PROBLEM ' + problems[id].number + '</span><h3>' + escape(problems[id].title) + '</h3><p>' + escape(problems[id].topic) + '</p>' + practiceButton(id, 'Open this practice') + '</article>').join('');
 
 function navigate(view, focus = false) {
@@ -141,11 +141,17 @@ function renderProblem() {
   $('#problem-data').className = p.expression ? 'practice-expression' : 'problem-data';
   if (p.expression) $('#problem-data').innerHTML = '<span class="math-line">' + escape(p.expression) + '</span>';
   else if (p.matrix) $('#problem-data').innerHTML = '<table class="number-array" aria-label="Number array, 5 rows and 7 columns"><tbody>' + p.matrix.map((row) => '<tr>' + row.map((value) => '<td>' + value + '</td>').join('') + '</tr>').join('') + '</tbody></table>';
-  else $('#problem-data').innerHTML = '<ol class="shape-facts" type="I">' + p.facts.map((fact) => '<li>' + escape(fact) + '</li>').join('') + '</ol>';
+  else $('#problem-data').innerHTML = p.facts?.length ? '<ol class="shape-facts" type="I">' + p.facts.map((fact) => '<li>' + escape(fact) + '</li>').join('') + '</ol>' : '';
+  $('#problem-data').hidden = !$('#problem-data').innerHTML;
   $('#answer-options').classList.toggle('long-options',p.options.some((option) => option.label.length > 8));
   $('#answer-options').innerHTML = p.options.map((option,i) => '<label><input type="radio" name="answer" value="' + escape(option.value) + '"' + (i === 0 ? ' required' : '') + (state.selectedAnswer === String(option.value) ? ' checked' : '') + (state.submitted ? ' disabled' : '') + '><span><small>(' + option.letter + ')</small>' + escape(option.label) + '</span></label>').join('');
   $('#check-answer').disabled = state.submitted;
   $('#problem-source').href = p.sourceUrl;
+  $('#checked-source').hidden = !p.checkedSourceUrl;
+  if (p.checkedSourceUrl) {
+    $('#checked-source').href = p.checkedSourceUrl;
+    $('#checked-source').textContent = 'Source checked for this guide · ' + p.checkedSourceName;
+  }
   $('#problem-position').textContent = 'Problem ' + p.number + ' · ' + ids.length + ' guides available';
   $('#previous-problem').disabled = ids.indexOf(activeId) === 0;
   $('#next-problem').disabled = ids.indexOf(activeId) === ids.length - 1;
@@ -311,7 +317,7 @@ function showCoachFeedback(selector, result) {
 function renderMathData(p) {
   if (p.expression) return '<div class="practice-expression"><span class="math-line">' + escape(p.expression) + '</span></div>';
   if (p.matrix) return '<table class="number-array" aria-label="Number array, ' + p.matrix.length + ' rows and ' + p.matrix[0].length + ' columns"><tbody>' + p.matrix.map((row) => '<tr>' + row.map((value) => '<td>' + value + '</td>').join('') + '</tr>').join('') + '</tbody></table>';
-  return '<ol class="shape-facts" type="I">' + p.facts.map((fact) => '<li>' + escape(fact) + '</li>').join('') + '</ol>';
+  return p.facts?.length ? '<ol class="shape-facts" type="I">' + p.facts.map((fact) => '<li>' + escape(fact) + '</li>').join('') + '</ol>' : '';
 }
 function renderCoach() {
   const g = guide(), c = coachState(), state = attempt();
@@ -345,6 +351,7 @@ function renderCoach() {
   $('#similar-label').textContent = p.label;
   $('#similar-prompt').textContent = p.prompt;
   $('#similar-data').innerHTML = renderMathData(p);
+  $('#similar-data').hidden = !$('#similar-data').innerHTML;
   $('#similar-options').innerHTML = p.options.map((option,i) => '<label><input type="radio" name="similar-answer" value="' + escape(option.value) + '"' + (i === 0 ? ' required' : '') + (String(c.similarSelection) === String(option.value) ? ' checked' : '') + (result ? ' disabled' : '') + '><span><small>(' + option.letter + ')</small> ' + escape(option.label) + '</span></label>').join('');
   $('#similar-submit').disabled = Boolean(result);
   $('#similar-feedback').hidden = !result;
@@ -436,6 +443,8 @@ function markVideoSupport() {
 function renderVideos() {
   const videos = recommendedVideos[activeId] || [];
   $('#video-button').hidden = !videos.length;
+  $('#video-unavailable').hidden = videos.length > 0;
+  $('#video-unavailable').textContent = videos.length ? '' : problem().videoNote;
   $('#video-recommendations').replaceChildren();
   for (const video of videos) {
     const card = document.createElement('article'); card.className = 'video-card';
@@ -539,6 +548,8 @@ window.addEventListener('pagehide',() => { coachSpeech.stop(); stopVideo(); });
 document.addEventListener('visibilitychange',() => { if (document.hidden) coachSpeech.stop(); });
 renderProgress();
 navigate(location.hash.slice(1));
+const requestedProblem = new URL(location.href).searchParams.get('problem');
+if (requestedProblem && Object.hasOwn(problems,requestedProblem)) openPractice(requestedProblem);
 
 const modelContext = document.modelContext;
 if (modelContext?.registerTool) {
