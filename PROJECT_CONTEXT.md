@@ -4,7 +4,7 @@ This document is the project memory for continuing work without the original cha
 
 ## Current update — 2026-09-27
 
-The latest authorized batch adds **2026 Problem 4 only**: successive percent changes, a gentle 1 min 30 sec pace suggestion, three hints, written methods, two guided checks, one adapted problem with a reasoning check, and existing browser voice. Its original data and choices were checked against LIVE by Po-Shen Loh; direct AoPS access failed. No Q4 video is recommended because the actual segment could not be reviewed. A visible notice offers written/spoken guidance. The library now contains **4 of 175 real questions** and four separate adaptations. Problem 5 onward is not authorized.
+The latest authorized batch adds **2026 Problem 4 only**: successive percent changes, a gentle 1 min 30 sec pace suggestion, three hints, written methods, two guided checks, one adapted problem with a reasoning check, and existing browser voice. Its original data and choices were checked against LIVE by Po-Shen Loh; direct AoPS access failed. The parent subsequently supplied Q4’s video range, **2:21–3:06**. It is now available as a clearly labeled **Parent’s selection**, with coach review pending. Browser access still failed, so it is not a coach-reviewed recommendation. The library now contains **4 of 175 real questions** and four separate adaptations. Problem 5 onward is not authorized.
 
 The preceding voice request added browser-provided speech to the existing Coach’s Corner. Voice selection, replay, stop, and a header mute control are available. Coaching is spoken only after an interaction and only from already revealed content. Voice controls do not create learner records; preferences last for the page session. No microphone, paid TTS backend, Firebase, or new original questions were added. See Coach voice below for behavior and validation limits.
 
@@ -120,7 +120,7 @@ Technical references: [MDN getVoices](https://developer.mozilla.org/en-US/docs/W
 - Recommended choose-100 method is also shown by LIVE by Po-Shen Loh and is credited accordingly. The independently authored explanation emphasizes the changing base. Alternative: `(1 − 0.20) × (1 + 0.50) = 1.20`. Tests check the same ratio for several starting balances.
 - Teaching-suitability rating: **9/10**, subjective and explained. Suggested pace: **within 1 min 30 sec** once familiar, with no timer.
 - Coach checks distinguish the base for August’s increase and final percentage versus percentage gained. Common error: combining percentage rates as if both used the same original base.
-- Video review could not proceed because browser connection failed before opening the player. Keep the recommendation list empty and show the no-video notice until an actual segment passes review; Q3’s transition frame is not sufficient evidence.
+- Video review could not proceed because browser connection failed before opening the player. The parent then supplied 2:21–3:06 and asked to continue. That segment is available separately as Parent’s selection, with pending coach review stated before playback. Keep Q4’s reviewed recommendation list empty until actual review; Q3’s transition frame and the parent’s timestamps are not evidence of an agent review.
 
 ## Authored coaching and adapted practice — 2026-09-27
 
@@ -137,20 +137,24 @@ All adaptations are authored coaching, not official AMC questions. Source links 
 
 ## Reviewed video evidence
 
-Q4 currently has no reviewed recommendation. Q1–Q3 retain three different segments of the same verified video:
+Q1–Q3 retain reviewed segments of the video below. Q4 uses the parent-provided 2:21–3:06 range separately from reviewed recommendations; actual coach review remains pending.
 
 - Title: **AMC 8 2026: Problems 1-20 Breakdown**.
 - Channel: **Daily Dose of Math**.
 - Video ID: `gzXlOkLl24U`.
 - Canonical link: <https://www.youtube.com/watch?v=gzXlOkLl24U>.
 - Review basis: actual video frames and visible English captions. Transcript export was unavailable. Do not claim a complete transcript or an independent audio-quality review.
-- Only the listed problem segments have been reviewed. The title does not make the remaining video content reviewed or recommended.
+- Only Q1–Q3 have been reviewed by the agent. The title does not make the remaining video content reviewed or recommended. The parent supplied Q4’s range on 2026-09-27; browser setup failed again and a direct web fetch returned no content. No Q4 frames, captions, audio, or player behavior were newly verified.
 
 | Problem | Suggested segment | Review findings and limitation |
 | --- | --- | --- |
 | 2026-1 | 0:00–0:29 (`start=0`, `end=29`) | The visible grouping matches the recommended triple-grouping method. Fast explanation; pausing is useful. |
 | 2026-2 | 0:29–1:03 (`start=29`, `end=63`) | Frames show four groups of five 1s, four groups of 2s with sum six each, and three 3s. At 1:02, C/53 is circled. Grouping is useful, but annotations become crowded. |
 | 2026-3 | 1:03–2:22 (`start=63`, `end=142`) | Correct perimeter calculations for all shapes. The presenter states the 6–8–10 triangle rather than deriving the missing side; the app’s written solution supplies that step. |
+
+Q4 is configured as `start=141`, `end=186`, labeled **Problem 4 · 2:21–3:06**. It is stored in `parentSelectedVideos`, while `recommendedVideos['2026-4']` stays empty. The app renders their combined `walkthroughVideos` list with distinct provenance labels. No reviewed date or review basis is invented. Its non-spoiling card states that coach review is pending. The direct YouTube fallback starts at 141 seconds and can continue past 186 seconds. Both embedded and external playback retain the existing assisted-attempt rules and stop Coach speech. Opening the page does not load a video or autoplay.
+
+Synthetic DOM checks passed for Q4’s iframe bounds, fallback URL, visible pending-review label, no answer in the card, pre-answer support, post-answer independent credit preservation, player removal on return/navigation, and zero-write preview with earlier records retained. Actual Q4 playback, visual layout, and physical iPad behavior remain unverified.
 
 Segment boundaries are approximate. Rolling captions may retain a prior conclusion or the screen may briefly transition to the next question. At 2:21, captions conclude Q3’s answer while the picture has begun Q4. Do not describe these as frame-exact edits.
 
@@ -166,7 +170,7 @@ The current project is a static website: **HTML, CSS, and browser JavaScript mod
 | `styles.css` | Responsive layout and paper-like mathematics presentation. |
 | `app.js` | Rendering, navigation, learner interactions, video lifecycle, and optional browser-agent tools. |
 | `problems.js` | Reviewed question data, suggested pace, choices, hints, solutions, ratings, source attribution, and reflection prompts. |
-| `videos.js` | Reviewed recommendations and metadata by problem ID; an empty list requires an explicit availability note. |
+| `videos.js` | Reviewed recommendations, separately stored parent-selected segments, and their combined display list by problem ID; no available clip requires an explicit availability note. |
 | `practice-state.js` | Original attempt state, grading rules including coach support, legacy validation, and original progress. |
 | `coach-content.js` | Authored two-choice checks, four checked adaptations, feedback, and source credits. |
 | `coaching-state.js` | Per-question check/adaptation transitions, duplicate-answer protection, and exposure state. |
@@ -235,7 +239,7 @@ The parent’s preference is to stay faithful to real AMC questions. If a rights
 
 ## Remaining work and order of operations
 
-1. Four original guides (2026 Q1–Q4), their pace suggestions and adaptations, preview controls, and browser voice are integrated. Q4’s video review remains outstanding. Preserve original content, honest grading, preview isolation, and saved learner records; verify the checked-out/live revision when beginning a new Project.
+1. Four original guides (2026 Q1–Q4), their pace suggestions and adaptations, preview controls, and browser voice are integrated. Q4’s parent-selected 2:21–3:06 clip is available; coach review remains outstanding. Preserve original content, honest grading, preview isolation, and saved learner records; verify the checked-out/live revision when beginning a new Project.
 2. Let the parent review the four-question experience. Continue in another short batch after they request it. The next sequential content begins at **2026 Problem 5**, only after authorization. Complete Q4’s actual video review when browser access permits.
 3. Before a new question is shown as available, inspect its real source, independently verify calculations and choices, author progressive hints and explanations, document source discrepancies, and review at least one suitable video if available. If no video has passed review, report that limitation honestly instead of inventing a recommendation.
 4. Keep the library count tied to integrated reviewed guides, not merely archive links. The current integrated count is **4 of 175**, leaving **171** target questions, including **21** in the 2026 edition.

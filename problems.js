@@ -301,7 +301,6 @@ export const problems = {
     "commonError": "Adding or subtracting the two percentage rates as though both changes used the original savings.",
     "reflection": "What amount is the whole for the second percentage change?",
     "alternative": "Let the original savings be x. A 20% decrease keeps 0.8x. Increasing that amount by 50% multiplies it by 1.5, so the final savings are 0.8 × 1.5 × x = 1.2x, or 120% of the original. Multiplying the factors also checks the choose-100 calculation.",
-    "videoNote": "A video walkthrough is not available here yet. You can listen to the written steps after opening the solution.",
     "reviewedAt": "2026-09-27"
   }
 };

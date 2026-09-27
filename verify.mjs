@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { problems } from './problems.js';
-import { recommendedVideos } from './videos.js';
+import { recommendedVideos, parentSelectedVideos, walkthroughVideos } from './videos.js';
 import { newAttempt, gradeAnswer, validRecords, summarizeProgress } from './practice-state.js';
 import './coaching-state.test.mjs';
 import './learning-store.test.mjs';
@@ -28,15 +28,30 @@ for (const p of Object.values(problems)) {
   assert.equal(new Set(p.options.map((option) => String(option.value))).size,5);
   assert.ok(p.options.some((option) => option.value === p.answer));
   assert.equal(p.hints.length,3);
-  const videos = recommendedVideos[p.id];
+  const videos = walkthroughVideos[p.id];
   assert.ok(Array.isArray(videos) && videos.length <= 3);
-  assert.ok(videos.length > 0 || (typeof p.videoNote === 'string' && p.videoNote.length > 20),'Missing video review must be stated explicitly');
+  assert.ok(videos.length > 0 || (typeof p.videoNote === 'string' && p.videoNote.length > 20),'Missing video availability must be stated explicitly');
   for (const video of videos) {
     assert.match(video.id,/^[A-Za-z0-9_-]{11}$/);
     assert.ok(video.startSeconds >= 0 && video.endSeconds > video.startSeconds);
-    assert.ok(video.reviewBasis && video.sourceUrl === p.sourceUrl);
+    assert.equal(video.sourceUrl,p.sourceUrl);
+    const watch = new URL(video.watchUrl);
+    assert.equal(watch.origin,'https://www.youtube.com');
+    assert.equal(watch.searchParams.get('v'),video.id);
+    assert.equal(watch.searchParams.get('t'),video.startSeconds + 's');
+    if (recommendedVideos[p.id].includes(video)) {
+      assert.ok(video.reviewBasis && video.reviewedAt);
+      assert.equal(video.selectionBasis,undefined);
+    } else {
+      assert.ok(parentSelectedVideos[p.id].includes(video) && video.selectionBasis);
+      assert.equal(video.reviewedAt,undefined,'Parent timestamps are not a coach review');
+      assert.equal(video.reviewBasis,undefined);
+      assert.match(video.reason,/review is still pending/);
+    }
   }
 }
+assert.equal(recommendedVideos['2026-4'].length,0,'Unreviewed segments must not become coach recommendations');
+assert.deepEqual(walkthroughVideos['2026-4'].map((video) => [video.startSeconds,video.endSeconds]),[[141,186]]);
 assert.equal(1+2-3+4+5-6+7+8-9+10+11-12,problems['2026-1'].answer);
 const matrix = problems['2026-2'].matrix;
 assert.equal(matrix.length,5);

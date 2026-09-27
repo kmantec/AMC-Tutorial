@@ -48,6 +48,28 @@ export const recommendedVideos = {
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_3"
     }
   ],
-  // No recommendation until an actual Problem 4 segment can be reviewed.
+  // Coach recommendation remains pending actual segment review.
   "2026-4": []
 };
+
+// Supplied by the parent on 2026-09-27, separately from reviewed recommendations.
+export const parentSelectedVideos = {
+  "2026-4": [{
+    "id": "gzXlOkLl24U",
+    "title": "AMC 8 2026: Problems 1-20 Breakdown",
+    "channel": "Daily Dose of Math",
+    "watchUrl": "https://www.youtube.com/watch?v=gzXlOkLl24U&t=141s",
+    "startSeconds": 141,
+    "endSeconds": 186,
+    "segmentLabel": "Problem 4 · 2:21–3:06",
+    "reason": "Your parent selected this segment for Problem 4. Coach review is still pending. Pause whenever you need time to think.",
+    "reviewNote": "The 2:21–3:06 timestamps were provided by your parent. This segment has not yet been reviewed by the coach. The YouTube link starts at 2:21 and may continue beyond this question.",
+    "selectionBasis": "Parent-provided Problem 4 timestamps",
+    "suppliedAt": "2026-09-27",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_4"
+  }]
+};
+
+export const walkthroughVideos = Object.fromEntries(
+  Object.keys(recommendedVideos).map((id) => [id, [...recommendedVideos[id], ...(parentSelectedVideos[id] || [])]])
+);

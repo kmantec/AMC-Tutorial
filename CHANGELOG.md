@@ -1,5 +1,13 @@
 # Change history
 
+## 2026-09-27 — Parent-selected Problem 4 video
+
+- Added the parent-provided 2:21–3:06 segment of Daily Dose of Math’s existing video for Q4. Configured the embedded player with start 141/end 186 and a direct YouTube fallback at 141 seconds; the fallback can continue beyond the question.
+- Kept parent-selected metadata separate from reviewed recommendations. The Q4 card clearly states Parent’s selection and pending coach review before playback. Q1–Q3 recommendations and timestamps are unchanged; no unperformed Q4 review is claimed.
+- Preserved support grading, post-answer independent credit, speech cancellation, return/navigation cleanup, and zero-write preview. No learner data is cleared and no new question, timer, or storage format is added.
+- Passed node verification, synthetic DOM flows, relevant JavaScript syntax checks, and whitespace checks. The browser connection still failed; actual Q4 playback, content review, visual layout, and physical iPad validation remain pending.
+- Updated README, project context, and continuation instructions for this narrow follow-up.
+
 ## 2026-09-27 — 2026 Problem 4: successive percentages
 
 - Added only the requested fourth original guide, with a labeled faithful restatement, unchanged numbers and A–E choices, three hints, authored explanations, a subjective 9/10 teaching rating, source attribution, and informational 1 min 30 sec pace.

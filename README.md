@@ -14,12 +14,12 @@ Read [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) and [AGENTS.md](AGENTS.md) before 
 
 [Preview Problem 4 without saving records](https://kmantec.github.io/AMC-Tutorial/?preview=1&problem=2026-4).
 
-| Problem | Practice focus | Suggested pace once familiar | Reviewed video segment |
+| Problem | Practice focus | Suggested pace once familiar | Video segment and review status |
 | --- | --- | --- | --- |
 | 1 | Grouping a repeating arithmetic expression | Within 1 min | 0:00–0:29 |
 | 2 | Organized counting in a number array | Within 1 min 30 sec | 0:29–1:03 |
 | 3 | Perimeter, square area, and a right triangle | Within 2 min | 1:03–2:22 |
-| 4 | Successive percent changes and the changing base | Within 1 min 30 sec | Not yet reviewed; written and spoken coaching available |
+| 4 | Successive percent changes and the changing base | Within 1 min 30 sec | 2:21–3:06 · Parent-selected; coach review pending |
 
 Each problem displays a gentle pace suggestion. These are authored coaching estimates for practice after understanding the method, not official MAA per-question limits or measured learner times. Take the time needed when learning. There is no start button, automatic timer, time limit, or elapsed-time recording.
 
@@ -27,7 +27,7 @@ Each guide preserves five original answer choices, three staged hints, checked a
 
 After completing or reviewing the original, the learner may try **one changed-number problem**, then one two-choice reasoning check. These four adaptations are labeled **“Adapted practice — not an official AMC question”** and are separate from original-exam progress. They test grouping and signs (Q1), counting values in an array (Q2), perimeter (Q3), and successive percent changes (Q4). A two-choice response is a learning check, not proof of mastery.
 
-The current video recommendations are three reviewed segments of one Daily Dose of Math video, not three different videos. Q1–Q3 open at their own timestamps inside the app, with direct YouTube fallbacks. Q4 has no recommended video yet because an actual segment could not be reviewed; its visible notice points to the written steps and Coach voice. Returning or switching questions removes the player. A walkthrough opened before completion counts as support.
+All four guides link to segments of one Daily Dose of Math video. Q1–Q3 retain their reviewed coach recommendations. For Q4, the parent supplied **2:21–3:06**; its card says **Parent’s selection** and makes clear that coach review is pending. This is not presented as a reviewed recommendation. The embedded player is configured with start 141 and end 186 seconds, and the fallback YouTube link starts at 2:21 (it may continue past the question). Returning or switching questions removes the player. Any walkthrough opened before completion counts as support.
 
 Question 1 retains its original short wording. Questions 2–4 use clearly labeled concise restatements; the mathematical data and A–E choices remain unchanged. Every guide links to the original question and source solutions. Q4 additionally links to the [LIVE by Po-Shen Loh source actually checked](https://live.poshenloh.com/past-contests/amc8/2026/problem/4); direct AoPS access was unavailable during this batch. Expressions stay on one mathematical line, with horizontal scrolling on narrow screens; longer prose and text choices wrap.
 
@@ -85,7 +85,7 @@ For the optional DOM interaction check, install the development-only dependency 
     npm install --no-save --package-lock=false --ignore-scripts --no-audit --no-fund jsdom@26.1.0
     node ui-check.mjs
 
-This exercises actual app markup and handlers, including choices, feedback, mode changes, reload, cross-tab reset, and speech controls. Voice interaction checks use a simulated engine to verify spoiler gates, no record changes from audio controls, and cancellation on navigation, video, backgrounding, and reset. Problem 4 coverage also checks its original choices, prose-only layout state, explicit video gap, percent narration, direct preview link, wrong/correct and assisted attempts, adaptation retries, and retained Q1–Q3 history. These checks do not render layout, produce real audio, or play video. The browser connection was unavailable for this batch, so visual layout, actual voice quality, and physical iPad playback remain unverified. The app itself still requires no package installation or build step.
+This exercises actual app markup and handlers, including choices, feedback, mode changes, reload, cross-tab reset, and speech controls. Voice interaction checks use a simulated engine to verify spoiler gates, no record changes from audio controls, and cancellation on navigation, video, backgrounding, and reset. Problem 4 coverage also checks its original choices, prose-only layout state, parent-selected video bounds and honest review labels, percent narration, direct preview link, wrong/correct and assisted attempts, adaptation retries, and retained Q1–Q3 history. These checks do not render layout, produce real audio, or play video. The browser connection was unavailable for this batch, so visual layout, actual voice quality, and physical iPad playback remain unverified. The app itself still requires no package installation or build step.
 
 ## Hosting and data
 

@@ -1,5 +1,5 @@
 import { problems } from './problems.js';
-import { recommendedVideos } from './videos.js';
+import { walkthroughVideos } from './videos.js';
 import { newAttempt, gradeAnswer, summarizeProgress } from './practice-state.js';
 import { coachGuides } from './coach-content.js';
 import { newCoachState, answerCoachCheck, nextCoachCheck, answerSimilar, retrySimilar, answerReflection } from './coaching-state.js';
@@ -441,14 +441,15 @@ function markVideoSupport() {
   if (!attempt().video && !attempt().submitted) { attempt().video = true; persist('video'); }
 }
 function renderVideos() {
-  const videos = recommendedVideos[activeId] || [];
+  const videos = walkthroughVideos[activeId] || [];
   $('#video-button').hidden = !videos.length;
   $('#video-unavailable').hidden = videos.length > 0;
   $('#video-unavailable').textContent = videos.length ? '' : problem().videoNote;
   $('#video-recommendations').replaceChildren();
   for (const video of videos) {
     const card = document.createElement('article'); card.className = 'video-card';
-    card.innerHTML = '<span class="eyebrow">COACH’S PICK · ' + escape(video.segmentLabel) + '</span><h4>' + escape(video.title) + '</h4><p class="video-channel">' + escape(video.channel) + '</p><p>' + escape(video.reason) + '</p>';
+    const label = video.selectionBasis ? 'PARENT’S SELECTION' : 'COACH’S PICK';
+    card.innerHTML = '<span class="eyebrow">' + label + ' · ' + escape(video.segmentLabel) + '</span><h4>' + escape(video.title) + '</h4><p class="video-channel">' + escape(video.channel) + '</p><p>' + escape(video.reason) + '</p>';
     const actions = document.createElement('div'); actions.className = 'video-card-actions';
     const play = document.createElement('button'); play.type = 'button'; play.className = 'button button-primary'; play.textContent = 'Watch here';
     play.addEventListener('click',() => loadWalkthrough(video.id));
@@ -463,12 +464,12 @@ function openVideoSection() {
   $('#video-section').hidden = false;
   $('#video-button').setAttribute('aria-expanded','true');
   $('#video-section').scrollIntoView({behavior:'instant',block:'start'});
-  return {problem:activeId,availableVideos:(recommendedVideos[activeId] || []).map((video) => ({id:video.id,title:video.title,channel:video.channel}))};
+  return {problem:activeId,availableVideos:(walkthroughVideos[activeId] || []).map((video) => ({id:video.id,title:video.title,channel:video.channel}))};
 }
 function loadWalkthrough(videoId) {
   requirePractice();
-  const video = (recommendedVideos[activeId] || []).find((item) => item.id === videoId);
-  if (!video) throw new Error('Choose a reviewed walkthrough for this problem.');
+  const video = (walkthroughVideos[activeId] || []).find((item) => item.id === videoId);
+  if (!video) throw new Error('Choose an available walkthrough for this problem.');
   openVideoSection(); stopVideo(); markVideoSupport();
   const embed = new URL('https://www.youtube-nocookie.com/embed/' + video.id);
   for (const [key,value] of Object.entries({playsinline:1,rel:0,autoplay:0,start:video.startSeconds || 0})) embed.searchParams.set(key,String(value));
@@ -563,7 +564,7 @@ if (modelContext?.registerTool) {
     mode:learning.mode,records:learning.records,coachingRecords:learning.coachingRecords,activeProblem:activeId,practiceOpen:$('#practice-dialog').open,
     submitted:attempt().submitted,selectedAnswer:attempt().selectedAnswer,hintsUsed:attempt().hints,
     coachUsed:attempt().coached,videoUsed:attempt().video,videoOpen:$('#practice-dialog').open && !$('#video-section').hidden,activeEmbed:$('#video-player iframe')?.src || null,
-    choices:problem().options,videos:(recommendedVideos[activeId] || []).map((video) => ({id:video.id,segment:video.segmentLabel}))
+    choices:problem().options,videos:(walkthroughVideos[activeId] || []).map((video) => ({id:video.id,segment:video.segmentLabel,reviewStatus:video.selectionBasis ? 'parent-selected; coach review pending' : 'coach-reviewed'}))
   }));
   register('start_practice_problem','Open a reviewed AMC 8 problem','Open or resume a reviewed question, preserving each question’s attempt while switching. Use retry_practice_problem to reset.',objectSchema({problemId:{type:'string',enum:ids}},['problemId']),false,(input) => { if (!ids.includes(input?.problemId)) throw new Error('Choose an available reviewed problem.'); return openPractice(input.problemId); });
   register('submit_practice_answer','Submit a practice answer','Check a current choice and record the attempt. Use a numeric value for numeric choices, or A–E for text choices.',objectSchema({answer:{type:['integer','string']}},['answer']),false,(input) => {
@@ -573,7 +574,7 @@ if (modelContext?.registerTool) {
   register('request_practice_hint','Show the next hint','Show and record the next staged hint for the current question.',objectSchema(),false,showHint);
   register('reveal_practice_solution','Reveal the solution','Reveal the explanation and record solution support for an unfinished attempt.',objectSchema(),false,showSolution);
   register('retry_practice_problem','Start a new attempt','Reset only the current question’s attempt. Keep saved learning records and other questions unchanged.',objectSchema(),false,retryPractice);
-  register('open_recommended_walkthrough','Open a reviewed video walkthrough','Load the reviewed segment for the current question and record support for an unfinished attempt. The learner presses play to begin.',objectSchema({videoId:{type:'string'}},['videoId']),false,(input) => loadWalkthrough(input?.videoId));
+  register('open_recommended_walkthrough','Open a video walkthrough','Load an available segment for the current question and record support for an unfinished attempt. The card distinguishes coach-reviewed and parent-selected videos. The learner presses play to begin.',objectSchema({videoId:{type:'string'}},['videoId']),false,(input) => loadWalkthrough(input?.videoId));
   register('return_to_practice_problem','Return from video to the problem','Stop and remove the video while preserving the current answer and attempt state.',objectSchema(),false,backToProblem);
   window.addEventListener('pagehide',() => lifecycle.abort(),{once:true});
 }
