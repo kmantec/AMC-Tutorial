@@ -36,6 +36,16 @@
 @media(max-width:650px){.video-section{padding:26px 21px}.video-heading-row{flex-direction:column;gap:8px}.video-heading-row h3{font-size:22px}.video-player-footer{flex-direction:column;align-items:flex-start;gap:6px}.video-card{padding:20px}.video-recommendations{grid-template-columns:1fr}.video-card h4{font-size:18px}}
 
 /* Three reviewed questions share the original paper-like practice surface. */
+/* Browser voice controls remain separate from learning records. */
+.dialog-header-actions{display:flex;align-items:center;gap:18px}.dialog-header-actions .text-button{min-height:44px;font-size:.875rem}
+.coach-voice-tools{margin:18px 0 23px;padding:17px 19px;border:1px solid #cbd9eb;border-radius:10px;background:#f8faff;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:10px 14px}
+.coach-voice-tools label{font-weight:600;font-size:.875rem;color:#29415f}
+.coach-voice-tools select{width:100%;min-width:0;min-height:44px;border:1px solid #bacce3;border-radius:7px;background:#fff;color:#233d61;font:inherit;font-size:1rem;padding:9px;touch-action:manipulation}
+.coach-voice-tools select:focus-visible{outline:3px solid #517ee9;outline-offset:3px}
+.coach-voice-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px 24px}.coach-voice-actions .text-button{min-height:44px}
+#coaching-area #coach-voice-help,#coaching-area #coach-voice-status{grid-column:1/-1;font-size:.875rem;line-height:1.6;margin:0;color:#425b79}
+#coach-voice-status{font-weight:550}
+@media(max-width:560px){.coach-voice-tools{grid-template-columns:minmax(0,1fr);padding:15px}.dialog-header-actions{gap:9px}.dialog-header-actions .text-button{font-size:.8rem}.dialog-header .eyebrow{letter-spacing:.6px}}
 /* Self-study coaching: one small choice at a time, with explicit preview mode. */
 .learning-mode-bar{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:18px 21px;margin-bottom:25px;background:#edf4fb;border:1px solid #d5e2f2;border-radius:12px;color:#29415f}
 .learning-mode-bar strong{font-family:Manrope,sans-serif;font-size:1rem}.learning-mode-bar p{font-size:.875rem;line-height:1.6;max-width:650px;margin-top:4px;color:#425b79}

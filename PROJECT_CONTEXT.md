@@ -4,6 +4,8 @@ This document is the project memory for continuing work without the original cha
 
 ## Current update — 2026-09-27
 
+The follow-up voice request adds browser-provided speech to the existing Coach’s Corner. Voice selection, replay, stop, and a header mute control are available. Coaching is spoken only after an interaction and only from already revealed content. Voice controls do not create learner records; preferences last for the page session. No microphone, paid TTS backend, Firebase, or new original questions were added. See Coach voice below for behavior and validation limits.
+
 The app integrates three reviewed originals: 2026 AMC 8 Problems 1–3. This batch replaces the repeated generic footer with problem-specific Coach’s Corner checks: two short questions per original, two choices per question, and an explanation for either choice. Targeted checks stay hidden until requested; opening them before completing the original counts as support. After completing or reviewing the original, the learner can open one separately labeled changed-number practice and a two-choice reasoning check. There are three adaptations, excluded from the original-exam count of 3 of 175 (172 remain).
 
 Parent preview is now the default until the parent explicitly starts saved learning. The URL `?preview=1` always starts a temporary preview without writing saved learner records. Start learning offers an explicit fresh notebook, or continuing existing saved records. Fresh start clears only this app’s original and coaching record lists in the current browser. Earlier records are preserved until that explicit choice, so the parent should choose Start fresh on Pingping’s iPad before her first lesson if it contains trial activity.
@@ -39,13 +41,14 @@ Communicate with the parent **in Thai**. Write the app, question explanations, h
 7. Provide **1–3 actually reviewed YouTube recommendations per question** where suitable sources are available. One strong reviewed recommendation is sufficient. Do not add weak or unreviewed videos to reach three.
 8. Embed the recommended YouTube segment in the app and keep a direct YouTube link as a fallback. The learner should be able to return to the same problem without losing the selected answer or leaving audio playing.
 9. Distinguish supported practice from independent attempts. Hints, guided coach checks, solution reveals, earlier wrong submissions in an attempt, and opening a walkthrough before completion must not become an “independent” success. Post-answer review does not rewrite a completed result.
-10. Work in short, reviewable batches while the parent evaluates the approach. The current authorized batch is **two-choice Coach’s Corner, three labeled adaptations, and a clean preview-to-learning handoff for the existing 2026 Problems 1–3**, plus aligned documentation. **Do not silently expand to new originals or the rest of the year.** The parent said they will explicitly confirm when they want a full-year run.
+10. Work in short, reviewable batches while the parent evaluates the approach. The current authorized batch is **two-choice Coach’s Corner, three labeled adaptations, and a clean preview-to-learning handoff for the existing 2026 Problems 1–3**, plus the subsequently requested browser voice controls and aligned documentation. **Do not silently expand to new originals or the rest of the year.** The parent said they will explicitly confirm when they want a full-year run.
 11. Keep source control and publication on GitHub. Firebase is the intended future free-tier approach for identity and cross-device continuity, subject to a real implementation and verification.
 12. No paid membership, subscription billing, native-store packaging, or commercial launch work is authorized now. Those possibilities were discussed only as future options. The parent explicitly returned the focus to Pingping first.
 13. Display a gentle pace suggestion only: Q1 **within 1 min**, Q2 **within 1 min 30 sec**, Q3 **within 2 min**. Attribute the values to coaching judgment after familiarity with the method. Do not add start controls, automatic timing, deadlines, timing records, or time-based grading. The parent prefers low-pressure learning. Adapted practice is now available, but timing still requires a later request.
-14. The parent reviews remotely and cannot inspect the agent's local machine. Deliver an accessible preview or live website URL; local files and review panels alone are insufficient. The parent’s remote-review preference and 2026-09-27 go-ahead authorize publishing this completed three-question coaching/preview batch to the existing GitHub Pages site. For future work, follow the applicable user/session scope for publication; this does not authorize a full-year batch.
+14. The parent reviews remotely and cannot inspect the agent's local machine. Deliver an accessible preview or live website URL; local files and review panels alone are insufficient. The parent’s remote-review preference and 2026-09-27 go-ahead authorize publishing the three-question coaching/preview batch and the subsequently requested voice update to the existing GitHub Pages site. For future work, follow the applicable user/session scope for publication; this does not authorize a full-year batch.
 15. Pingping studies independently. Use short, two-choice or True/False reasoning checks with explanatory feedback. Keep questions optional and reveal one at a time. A correct choice can result from guessing; do not present it as proof of understanding or a mastery score.
 16. Parent testing must not become Pingping’s learner history. Preview never writes records. Offer an explicit fresh start and a non-destructive resume option; never silently clear saved history on deployment or reload.
+17. The parent requested spoken coaching with browser-provided selectable voices and Mute. Keep speech optional, driven by the learner’s interactions, and limited to visible/revealed content. Audio controls must not modify grading, create records, or bypass support/reveal gates. Cancel earlier speech on context changes and keep the text flow usable without a speech engine.
 
 ## Learning flow to preserve
 
@@ -54,6 +57,18 @@ The intended flow is: attempt the real problem, request progressively stronger h
 Keep the distinction between an attempt event and mastery. A correct answer on one attempt does not establish durable mastery. The notebook must reflect actual stored interactions. No initial fake streaks, mock statistics, invented student activity, or claims that all 175 questions were analyzed.
 
 The pace suggestion is informational text; it never starts an attempt, changes independent/assisted credit, or records duration. Show it with reassurance that learning can take longer. Each original now has one checked adaptation, labeled separately and recorded outside original AMC attempts. An adaptation appears only after the original is completed or its solution is requested. Its answer and short reasoning check appear after a response. Feedback explains either choice without red failure scoring. A retry after seeing feedback is a revisit, not a new first response; retained coaching history carries this distinction across reloads. These records are capped, so they are not lifetime mastery evidence. Timing remains future work.
+
+## Coach voice
+
+`coach-speech.js` uses `speechSynthesis`, `SpeechSynthesisUtterance`, `getVoices()`, and `voiceschanged`. It prefers English for the automatic voice while permitting selection from the actual device list. Speech is initiated synchronously from coaching interactions or an explicit Listen button, never from initial page render, voice discovery, unmute, or returning from the background. Requested coach questions, both options, selected feedback, hints, revealed solution steps, and adapted practice are spoken. The app does not read hidden solutions or unchosen feedback. Math notation such as minus, times, square root, brackets, and square centimeters is converted into spoken words without changing the displayed math.
+
+Listen again repeats the last coach message in the active problem. Listen to these steps is gated by the original solution’s revealed state. Stop speaking cancels the current utterance and queue. Mute coach, in the practice header, cancels speech and suppresses future spoken coaching until unmuted. Starting another spoken message replaces earlier speech. Changing problems, retrying, closing practice, changing learning modes, cross-tab reset, video actions, and background/page exit cancel queued speech. Canceled events cannot finish or fail a newer request. Starting voice playback also removes an embedded video so they do not overlap.
+
+Voice and mute settings are page-session preferences; they persist while switching problems but reset on reload. They do not write to storage or create learning events, so Parent preview remains entirely free of storage writes. Existing help/reveal actions still have their normal assisted-attempt effects. Speech failures display a readable status and leave the text flow working. The feature requests no microphone permission and adds no TTS backend or API key. Available voices, pronunciation, network requirements, and real playback depend on the browser/device; do not promise identical voices across devices or offline speech.
+
+`coach-speech.test.mjs` uses `speech-fixture.mjs` to check the browser API contract, late voice loading, language fallback, spoken math, mute, queue replacement, failures, and stale callbacks. `ui-check.mjs` exercises actual app handlers with the simulated engine, including spoiler gates, replay without learner events, and lifecycle cancellation. These tests passed but produce no audible speech. The browser connection failed in this environment; actual voice quality, visual layout, and physical iPad/Safari playback remain unverified. A real-device review should try Guide me, voice selection, both answer paths, Mute/Unmute, Listen again, a long solution, switching questions, video, and returning from background.
+
+Technical references: [MDN getVoices](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/getVoices), [voiceschanged](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/voiceschanged_event), [cancel](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/cancel), and [speech error events](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance/error_event).
 
 ## Reviewed content in the first two batches
 
@@ -141,6 +156,8 @@ The current project is a static website: **HTML, CSS, and browser JavaScript mod
 | `practice-state.js` | Original attempt state, grading rules including coach support, legacy validation, and original progress. |
 | `coach-content.js` | Authored two-choice checks, three checked adaptations, feedback, and source credits. |
 | `coaching-state.js` | Per-question check/adaptation transitions, duplicate-answer protection, and exposure state. |
+| `coach-speech.js` | Browser voice list, speech formatting, selected voice, mute, cancellation, and error handling. |
+| `coach-speech.test.mjs`, `speech-fixture.mjs` | Synthetic speech API checks; no real device audio or learner data. |
 | `learning-store.js` | Preview/saved-learning modes, compatible storage, separate coaching records, explicit fresh start/resume. |
 | `verify.mjs`, `coaching-state.test.mjs`, `learning-store.test.mjs` | Dependency-free checks using synthetic fixtures. |
 | `ui-check.mjs` | Optional jsdom interaction checks of actual app markup and handlers, without real learner data. |
@@ -166,7 +183,7 @@ Open http://127.0.0.1:8791/. Stop the server with Ctrl+C. An optional port argum
     node --check app.js
     node --check serve.cjs
 
-The verifier checks local assets and UI targets, all original/adapted mathematics, video metadata, grading isolation, coaching state, invalid/duplicate answers, legacy records, preview isolation, reset/resume, and storage errors. For actual app DOM interaction checks, follow the optional jsdom installation instructions in README, then run `node ui-check.mjs`. No runtime dependency is added to the app. These checks do not render visual layout or simulate YouTube playback or physical iPad behavior.
+The verifier checks local assets and UI targets, all original/adapted mathematics, video metadata, grading isolation, coaching state, invalid/duplicate answers, legacy records, preview isolation, reset/resume, and storage errors. For actual app DOM interaction checks, follow the optional jsdom installation instructions in README, then run `node ui-check.mjs`. No runtime dependency is added to the app. Speech coverage also checks voice discovery, mute, replay, hidden-content gates, and queue cancellation using a simulated engine. These checks do not render visual layout, produce actual audio, or simulate YouTube playback or physical iPad behavior.
 
 Optional browser-agent tools: read_practice_progress, start_practice_problem (opens/resumes), submit_practice_answer, request_practice_hint, reveal_practice_solution, retry_practice_problem, open_recommended_walkthrough, and return_to_practice_problem. They call the same functions as the visible controls. Unsupported browsers still use the normal UI.
 
@@ -202,7 +219,7 @@ The parent’s preference is to stay faithful to real AMC questions. If a rights
 
 ## Remaining work and order of operations
 
-1. The first three original guides, pace suggestions, and 2026-09-27 coaching/adaptation/preview batch are complete. Preserve original content, honest grading, preview isolation, and saved learner records; verify the checked-out/live revision when beginning a new Project.
+1. The first three original guides, pace suggestions, 2026-09-27 coaching/adaptation/preview batch, and requested browser voice controls are complete. Preserve original content, honest grading, preview isolation, and saved learner records; verify the checked-out/live revision when beginning a new Project.
 2. Let the parent review the three-question experience. Continue in another short batch after they request it. The next sequential content begins at **2026 Problem 4**.
 3. Before a new question is shown as available, inspect its real source, independently verify calculations and choices, author progressive hints and explanations, document source discrepancies, and review at least one suitable video if available. If no video has passed review, report that limitation honestly instead of inventing a recommendation.
 4. Keep the library count tied to integrated reviewed guides, not merely archive links. The current integrated count is **3 of 175**, leaving **172** target questions, including **22** in the 2026 edition.
@@ -223,6 +240,7 @@ For the eventual report, state the collection, denominator, and whether question
 - Returning from video stops playback and preserves the current selection; changing question does not contaminate another problem’s state.
 - Long expressions and choices remain usable on the intended screen sizes, with keyboard access and readable labels.
 - Unsupported or unavailable video embeds still have a working direct link.
+- Speech reads only permitted content; voice loading never autoplays; mute and context changes cancel all queued narration. Speech controls never create learner events. Distinguish simulated speech checks from actual device audio testing.
 - Reloaded progress remains valid, and old Q1 records remain compatible with the expanded library.
 - The deployment succeeds and the actual live URL serves the new assets. Record what was tested and distinguish browser checks from physical iPad testing.
 - Update README and this document to match the published state, including counts and unfinished work.

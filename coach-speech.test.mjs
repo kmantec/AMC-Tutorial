@@ -1,0 +1,74 @@
+import assert from 'node:assert/strict';
+import { createCoachSpeech, spokenMath, spokenCheck, spokenProblem, speechChunks } from './coach-speech.js';
+import { fakeSpeech, sampleVoices } from './speech-fixture.mjs';
+import { coachGuides } from './coach-content.js';
+
+assert.equal(spokenMath('36 cm²; 4 × 6 = 24 cm; √(9² + 12²); −7 ÷ 2'),
+  '36 square centimeters ; 4 times 6 equals 24 centimeters ; the square root of open bracket 9 squared plus 12 squared close bracket ; minus 7 divided by 2');
+assert.equal(spokenMath('(1 + 2 − 3) − (4 + 5 − 6)'),
+  'open bracket 1 plus 2 minus 3 close bracket minus open bracket 4 plus 5 minus 6 close bracket');
+for (const guide of Object.values(coachGuides)) {
+  const question = spokenCheck(guide.checks[0]).join(' ');
+  assert.ok(question.includes(guide.checks[0].prompt));
+  assert.ok(guide.checks[0].options.every((option) => question.includes(option.label)));
+  assert.ok(guide.checks[0].options.every((option) => !question.includes(option.feedback)));
+  assert.ok(!spokenProblem(guide.similar).join(' ').includes(guide.similar.solution[0]));
+}
+const words = 'Read one small step. '.repeat(80);
+assert.equal(speechChunks([words]).join(' '),words.trim());
+assert.ok(speechChunks([words]).every((chunk) => chunk.length <= 220));
+
+const fake = fakeSpeech(), speech = createCoachSpeech(fake.host);
+assert.equal(fake.calls.length,0,'Setup never speaks');
+assert.equal(speech.state.supported,true);
+speech.speak(['A first step.']);
+assert.equal(fake.pending[0].lang,'en-US','Empty voice lists still request English');
+assert.equal(fake.pending[0].voice,undefined);
+fake.changeVoices(sampleVoices);
+assert.equal(fake.calls.length,1,'Loading voices does not autoplay');
+assert.ok(speech.state.voices[0].lang.startsWith('en'));
+speech.speak(['A second step.','Choose an idea.']);
+assert.equal(fake.pending.length,2,'A new request replaces, rather than accumulates, prior speech');
+assert.equal(fake.pending[0].voice.lang,'en-US','A non-English system default must not override English coaching');
+const old = fake.pending.at(-1);
+fake.pending[0].onstart();
+assert.equal(speech.state.status,'speaking');
+speech.setMuted(true);
+assert.equal(fake.pending.length,0);
+speech.speak(['This must stay silent.']);
+assert.equal(fake.pending.length,0);
+assert.equal(speech.state.muted,true);
+const mutedCount = fake.calls.length;
+speech.setMuted(false);
+assert.equal(fake.calls.length,mutedCount,'Unmute does not replay old text');
+const englishTwo = speech.state.voices.find((voice) => voice.lang === 'en-GB');
+speech.setVoice(englishTwo.id);
+speech.speak(['Read with the selected voice.']);
+assert.equal(fake.pending[0].voice.lang,'en-GB');
+old.onend(); old.onerror({error:'interrupted'});
+assert.equal(speech.state.status,'starting','Late canceled callbacks cannot finish or fail new speech');
+fake.finish();
+assert.equal(speech.state.status,'idle');
+speech.speak(['Can you read this?']);
+fake.fail('not-allowed');
+assert.equal(speech.state.status,'error');
+assert.match(speech.state.error,/Listen again/);
+assert.equal(fake.pending.length,0);
+speech.speak(['Retry after a tap.']);
+assert.equal(speech.state.status,'starting');
+speech.setVoice('');
+assert.equal(fake.pending.length,0,'Changing voice stops old speech');
+fake.changeVoices([sampleVoices[0]]);
+speech.speak(['Let the browser pick an English voice.']);
+assert.equal(fake.pending[0].voice,undefined);
+assert.equal(fake.pending[0].lang,'en-US');
+fake.throwOnSpeak(true);
+assert.doesNotThrow(() => speech.speak(['The engine is unavailable.']));
+assert.equal(speech.state.status,'error');
+speech.stop();
+assert.equal(speech.state.status,'idle');
+const unsupported = createCoachSpeech({});
+assert.equal(unsupported.state.supported,false);
+assert.equal(unsupported.speak(['Text is still available.']),false);
+unsupported.setMuted(true); unsupported.stop();
+console.log('Verified speech: voice discovery/defaults, math reading, no hidden feedback, queue replacement, mute, errors, and stale callback protection.');

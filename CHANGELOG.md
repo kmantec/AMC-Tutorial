@@ -1,5 +1,14 @@
 # Change history
 
+## 2026-09-27 — Browser voice for Coach’s Corner
+
+- Added a voice picker populated from the browser/device, an automatic English default, Listen again, Stop speaking, and Mute/Unmute coach in the practice header.
+- Spoken coaching follows learner actions: guided questions with two choices, selected feedback, requested hints/solutions, and adapted practice. Hidden solutions and unchosen feedback are excluded; revealed original steps have an explicit Listen button.
+- Added spoken forms for mathematical symbols and measurements while preserving displayed content. Short queued utterances are replaced on the next request; stale completion/error callbacks cannot affect newer speech.
+- Stop/mute, question changes, retry, close, mode changes, cross-tab reset, video, backgrounding, and page exit cancel narration. Page loading, voice-list updates, unmute, and returning to the page do not start audio.
+- Kept voice settings in page memory with no storage writes or learning events. Existing records, grading, and Parent preview behavior are unchanged. No microphone, paid TTS service, or new runtime dependency was added.
+- Passed state/speech verification and actual DOM interaction checks using a simulated browser speech engine, plus relevant syntax and whitespace checks. Browser connection was unavailable; actual audio, visual layout, and physical iPad/Safari playback remain unverified. Updated README, project context, and continuation instructions.
+
 ## 2026-09-27 — Coach’s Corner, three adaptations, and clean learner handoff
 
 - Replaced the generic practice footer with problem-specific Coach’s Corner for 2026 Q1–Q3. Each has two short, two-choice reasoning checks and feedback explaining either response. Targeted guidance is requested explicitly and counts as support before completion.

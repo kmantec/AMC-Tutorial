@@ -4,6 +4,7 @@ import { newAttempt, gradeAnswer, summarizeProgress } from './practice-state.js'
 import { coachGuides } from './coach-content.js';
 import { newCoachState, answerCoachCheck, nextCoachCheck, answerSimilar, retrySimilar, answerReflection } from './coaching-state.js';
 import { createLearningStore, learningStorageKeys } from './learning-store.js';
+import { createCoachSpeech, spokenCheck, spokenProblem } from './coach-speech.js';
 
 const YEARS = [2026, 2025, 2024, 2023, 2022, 2020, 2019];
 const ids = Object.keys(problems);
@@ -42,6 +43,49 @@ function coachState() {
 }
 syncRecords();
 
+let renderedVoiceOptions = '';
+function renderSpeechControls(state) {
+  const select = $('#coach-voice');
+  const options = '<option value="">Automatic English voice</option>' + state.voices.map((voice) =>
+    '<option value="' + escape(voice.id) + '">' + escape(voice.name + ' · ' + voice.lang) + '</option>').join('');
+  if (renderedVoiceOptions !== options) { select.innerHTML = options; renderedVoiceOptions = options; }
+  select.value = state.selected;
+  select.disabled = !state.supported;
+  $('#coach-mute').disabled = !state.supported;
+  $('#coach-mute').setAttribute('aria-pressed',String(state.muted));
+  $('#coach-mute').textContent = state.muted ? 'Unmute coach' : 'Mute coach';
+  $('#coach-listen').disabled = !state.supported || state.muted;
+  $('#solution-listen').disabled = !state.supported || state.muted;
+  $('#coach-stop').disabled = !state.supported || !['starting','speaking'].includes(state.status);
+  $('#coach-voice-status').textContent = !state.supported
+    ? 'Voice is unavailable in this browser. All coach text and choices still work.'
+    : state.muted ? 'Coach is muted. You can keep reading and choosing.'
+    : state.status === 'error' ? state.error
+    : state.status === 'starting' ? 'Starting the coach voice…'
+    : state.status === 'speaking' ? 'Coach is speaking. You can stop or mute at any time.'
+    : 'Sound is on. Coach speaks when you ask for guidance or choose an answer.';
+}
+const coachSpeech = createCoachSpeech(window,{onChange:renderSpeechControls});
+let coachNarration = [];
+renderSpeechControls(coachSpeech.state);
+function sayCoach(parts) {
+  coachNarration = parts;
+  if ($('#practice-dialog').open && !document.hidden) {
+    stopVideo();
+    coachSpeech.speak(parts);
+  }
+}
+function currentCheckSpeech() {
+  const c = coachState(), check = guide().checks[c.checkIndex], result = c.answers[c.checkIndex];
+  return result ? [...spokenCheck(check),result.feedback] : spokenCheck(check);
+}
+function prepareCoachNarration() {
+  // A fresh dialog context can only replay text already revealed in that context.
+  coachSpeech.stop();
+  const c = coachState();
+  coachNarration = c.open ? currentCheckSpeech() : [guide().intro];
+}
+
 function practiceButton(id, label, className = 'text-button') {
   return '<button class="' + className + '" data-action="practice" data-problem="' + id + '">' + escape(label) + '</button>';
 }
@@ -52,6 +96,7 @@ $('#available-practice').innerHTML = ids.map((id) => '<button class="practice-pi
 $('#coach-techniques').innerHTML = ids.map((id) => '<article class="white-card"><span class="eyebrow">PROBLEM ' + problems[id].number + '</span><h3>' + escape(problems[id].title) + '</h3><p>' + escape(problems[id].topic) + '</p>' + practiceButton(id, 'Open this practice') + '</article>').join('');
 
 function navigate(view, focus = false) {
+  coachSpeech.stop();
   if (!['home','papers','notebook','coach'].includes(view)) view = 'home';
   document.querySelectorAll('.view').forEach((node) => { node.hidden = node.id !== 'view-' + view; });
   document.querySelectorAll('.nav-item').forEach((node) => {
@@ -105,7 +150,7 @@ function renderProblem() {
   $('#previous-problem').disabled = ids.indexOf(activeId) === 0;
   $('#next-problem').disabled = ids.indexOf(activeId) === ids.length - 1;
   $('#next-problem').textContent = ids.indexOf(activeId) === ids.length - 1 ? 'Last available problem' : 'Next problem';
-  renderSolution(); renderAttempt(); renderVideos();
+  renderSolution(); renderAttempt(); renderVideos(); prepareCoachNarration();
 }
 function renderSolution() {
   const p = problem();
@@ -150,6 +195,7 @@ function showHint() {
   if (state.hints < problem().hints.length) { state.hints++; persist('hint'); }
   renderAttempt();
   $('#hint-content').scrollIntoView({behavior:'instant',block:'nearest'});
+  sayCoach([problem().hints[state.hints-1]]);
   return {problem:activeId,hint:problem().hints[state.hints-1],count:state.hints};
 }
 function showSolution() {
@@ -158,6 +204,7 @@ function showSolution() {
   if (!state.revealed && !state.submitted) { state.revealed = true; persist('revealed'); }
   state.revealed = true;
   renderAttempt();
+  sayCoach([problem().method,...problem().solution]);
   return {problem:activeId,solution:problem().method,answer:problem().answer};
 }
 function checkAnswer(answer) {
@@ -171,6 +218,8 @@ function checkAnswer(answer) {
   });
   $('#check-answer').disabled = attempt().submitted;
   renderAttempt();
+  coachSpeech.stop();
+  coachNarration = [$('#answer-feedback').textContent];
   return {problem:activeId,...result};
 }
 function retryPractice() {
@@ -220,6 +269,7 @@ function renderLearningMode() {
   $('#practice-mode').textContent = preview ? 'Parent preview · Not saved' : learning.storageAvailable ? 'Learning · Saved on this device' : 'Learning · Session only';
 }
 function showLearningSetup() {
+  coachSpeech.stop();
   $('#continue-learning').hidden = !learning.hasSavedRecords;
   $('#learning-clear-note').hidden = !learning.hasSavedRecords;
   $('#confirm-fresh').textContent = learning.hasSavedRecords ? 'Start fresh · Clear saved practice' : 'Start fresh for Pingping';
@@ -230,6 +280,7 @@ function showLearningSetup() {
 }
 function setLearningMode(fresh) {
   learning.startLearning({fresh});
+  coachSpeech.stop(); coachNarration = [];
   attempts.clear(); coachStates.clear(); hideVideos();
   const url = new URL(location.href); url.searchParams.delete('preview');
   history.replaceState(null, '', url.href);
@@ -240,6 +291,7 @@ function setLearningMode(fresh) {
 }
 function enterPreview() {
   learning.enterPreview();
+  coachSpeech.stop(); coachNarration = [];
   attempts.clear(); coachStates.clear(); hideVideos();
   const url = new URL(location.href); url.searchParams.set('preview','1');
   history.replaceState(null, '', url.href);
@@ -317,6 +369,7 @@ function openCoach() {
   renderCoach();
   $('#coach-question').focus({preventScroll:true});
   $('#coach-check').scrollIntoView({behavior:'instant',block:'nearest'});
+  sayCoach(currentCheckSpeech());
 }
 function saveCoachResult(kind,result) {
   const alreadyAnswered = learning.coachingRecords.some((record) => record.problem === activeId && record.kind === kind && record.id === result.id);
@@ -330,6 +383,7 @@ function submitCoachAnswer(answer) {
   saveCoachResult('check',result);
   renderCoach();
   $('#coach-feedback').scrollIntoView({behavior:'instant',block:'nearest'});
+  sayCoach([result.feedback]);
   return result;
 }
 function openSimilar() {
@@ -337,6 +391,7 @@ function openSimilar() {
   if (!attempt().revealed) throw new Error('Complete or review the original problem first.');
   hideVideos(); coachState().similarOpen = true; renderCoach();
   $('#similar-content').scrollIntoView({behavior:'instant',block:'start'});
+  sayCoach(spokenProblem(guide().similar));
 }
 function submitSimilarAnswer(answer) {
   requirePractice();
@@ -346,6 +401,7 @@ function submitSimilarAnswer(answer) {
   saveCoachResult('similar',result);
   renderCoach();
   $('#similar-feedback').scrollIntoView({behavior:'instant',block:'nearest'});
+  sayCoach([$('#similar-feedback').textContent,...guide().similar.solution,...spokenCheck(guide().similar.reflection)]);
   return result;
 }
 function submitReflection(answer) {
@@ -354,6 +410,7 @@ function submitReflection(answer) {
   saveCoachResult('reflection',result);
   renderCoach();
   $('#reflection-feedback').scrollIntoView({behavior:'instant',block:'nearest'});
+  sayCoach([result.feedback]);
   return result;
 }
 function renderCoachingHistory() {
@@ -373,6 +430,7 @@ function requirePractice() {
   if (!$('#practice-dialog').open) throw new Error('Start a practice problem first.');
 }
 function markVideoSupport() {
+  coachSpeech.stop();
   if (!attempt().video && !attempt().submitted) { attempt().video = true; persist('video'); }
 }
 function renderVideos() {
@@ -392,6 +450,7 @@ function renderVideos() {
 }
 function openVideoSection() {
   requirePractice();
+  coachSpeech.stop();
   $('#video-section').hidden = false;
   $('#video-button').setAttribute('aria-expanded','true');
   $('#video-section').scrollIntoView({behavior:'instant',block:'start'});
@@ -417,7 +476,7 @@ function loadWalkthrough(videoId) {
   return {problem:activeId,id:video.id,embedUrl:embed.href,fallbackUrl:video.watchUrl,assistedAttempt:attempt().video};
 }
 function backToProblem() {
-  requirePractice(); hideVideos();
+  requirePractice(); coachSpeech.stop(); hideVideos();
   $('.problem-column').scrollIntoView({behavior:'instant',block:'start'});
   $('#video-button').focus({preventScroll:true});
   return {problem:activeId,selectedAnswer:attempt().selectedAnswer,videoStopped:true};
@@ -437,7 +496,7 @@ $('#answer-form').addEventListener('submit',(event) => {
 $('#previous-problem').addEventListener('click',() => openPractice(ids[ids.indexOf(activeId)-1]));
 $('#next-problem').addEventListener('click',() => openPractice(ids[ids.indexOf(activeId)+1]));
 $('#close-practice').addEventListener('click',() => $('#practice-dialog').close());
-$('#practice-dialog').addEventListener('close',() => { hideVideos(); document.body.classList.remove('dialog-open'); });
+$('#practice-dialog').addEventListener('close',() => { coachSpeech.stop(); coachNarration = []; hideVideos(); document.body.classList.remove('dialog-open'); });
 $('#hint-button').addEventListener('click',showHint);
 $('#reveal-button').addEventListener('click',showSolution);
 $('#retry-button').addEventListener('click',retryPractice);
@@ -446,13 +505,18 @@ $('#back-to-problem').addEventListener('click',backToProblem);
 $('#visit-coach').addEventListener('click',() => { $('#coaching-area').scrollIntoView({behavior:'instant',block:'start'}); $('#coach-open').hidden ? $('#coach-question').focus({preventScroll:true}) : $('#coach-open').focus({preventScroll:true}); });
 $('#coach-open').addEventListener('click',openCoach);
 $('#coach-options').addEventListener('click',(event) => { const button = event.target.closest('[data-coach-answer]'); if (button && !button.disabled) submitCoachAnswer(button.dataset.coachAnswer); });
-$('#coach-next').addEventListener('click',() => { nextCoachCheck(guide(),coachState()); renderCoach(); $('#coach-question').focus({preventScroll:true}); });
-$('#coach-back').addEventListener('click',() => { $('.problem-column').scrollIntoView({behavior:'instant',block:'start'}); $('#practice-heading').focus({preventScroll:true}); });
+$('#coach-next').addEventListener('click',() => { nextCoachCheck(guide(),coachState()); renderCoach(); $('#coach-question').focus({preventScroll:true}); sayCoach(currentCheckSpeech()); });
+$('#coach-back').addEventListener('click',() => { coachSpeech.stop(); $('.problem-column').scrollIntoView({behavior:'instant',block:'start'}); $('#practice-heading').focus({preventScroll:true}); });
 $('#similar-open').addEventListener('click',openSimilar);
 $('#similar-form').addEventListener('change',(event) => { if (event.target.name === 'similar-answer') coachState().similarSelection = event.target.value; });
 $('#similar-form').addEventListener('submit',(event) => { event.preventDefault(); const choice = new FormData(event.currentTarget).get('similar-answer'); if (choice !== null) submitSimilarAnswer(choice); });
 $('#reflection-options').addEventListener('click',(event) => { const button = event.target.closest('[data-reflection-answer]'); if (button && !button.disabled) submitReflection(button.dataset.reflectionAnswer); });
-$('#similar-retry').addEventListener('click',() => { retrySimilar(coachState()); coachState().similarSelection = null; renderCoach(); $('#similar-options input').focus(); });
+$('#similar-retry').addEventListener('click',() => { retrySimilar(coachState()); coachState().similarSelection = null; renderCoach(); $('#similar-options input').focus(); sayCoach(spokenProblem(guide().similar)); });
+$('#coach-voice').addEventListener('change',(event) => coachSpeech.setVoice(event.target.value));
+$('#coach-mute').addEventListener('click',() => coachSpeech.setMuted(!coachSpeech.state.muted));
+$('#coach-listen').addEventListener('click',() => { requirePractice(); sayCoach(coachNarration.length ? coachNarration : [guide().intro]); });
+$('#coach-stop').addEventListener('click',() => coachSpeech.stop());
+$('#solution-listen').addEventListener('click',() => { requirePractice(); if (attempt().revealed) sayCoach([problem().method,...problem().solution]); });
 $('#start-learning-button').addEventListener('click',showLearningSetup);
 $('#reset-learning-button').addEventListener('click',showLearningSetup);
 $('#enter-preview-button').addEventListener('click',enterPreview);
@@ -466,11 +530,13 @@ window.addEventListener('storage',(event) => {
   if (learning.mode === 'preview') return;
   learning.refresh();
   // Never submit an attempt begun before a fresh start in another tab.
+  coachSpeech.stop(); coachNarration = [];
   attempts.clear(); coachStates.clear(); hideVideos();
   renderProgress();
   if ($('#practice-dialog').open) renderProblem();
 });
-window.addEventListener('pagehide',stopVideo);
+window.addEventListener('pagehide',() => { coachSpeech.stop(); stopVideo(); });
+document.addEventListener('visibilitychange',() => { if (document.hidden) coachSpeech.stop(); });
 renderProgress();
 navigate(location.hash.slice(1));
 

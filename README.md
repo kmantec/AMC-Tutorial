@@ -30,6 +30,17 @@ Question 1 retains its original short wording. Questions 2 and 3 use clearly lab
 
 Selections, hints, and coaching checks stay with their question while switching or closing/reopening the practice dialog in the same page session. **Try again** resets only that question. Repeating an adaptation after feedback does not earn first-response credit again while that history is retained.
 
+## Coach voice
+
+Coach’s Corner can speak using the browser’s **Web Speech API**. Choose a voice from **Coach voice**; Automatic English voice prefers an available English voice. The list updates when the browser finishes loading its voices. Available names and pronunciation depend on the device and browser.
+
+- Tap **Guide me** to hear the current question and its two choices. Choosing an answer reads the displayed feedback; **Next small step** reads the next check.
+- Requested hints, revealed solutions, and adapted practice can also be read. Hidden answers and unchosen feedback are never included. **Listen to these steps** reads an original solution only after it is revealed.
+- **Listen again** repeats the current coach message; **Stop speaking** stops it. **Mute coach**, in the practice header, stops speech and keeps later coaching silent until **Unmute coach** is pressed.
+- Loading the page or opening an original problem is silent. Changing problems, retrying, closing practice, switching learning modes, starting a video, or leaving the page stops earlier speech. Returning or unmuting does not automatically replay it.
+
+Voice and mute choices last for the current page session, including when switching problems. They are not saved to storage and never add learning records. There is no microphone use, speech recognition, or paid TTS service added. The browser’s voices may require a connection; offline playback is not guaranteed. Unsupported or failed speech leaves the text activities usable and displays a notice. On a device that blocks playback, tap **Listen again** or select another available voice.
+
 ## Parent testing and Pingping’s first session
 
 The app starts in **Parent preview** until saved learning is explicitly enabled. Preview interactions stay in page memory: they are never saved or copied into Pingping’s notebook. The [parent preview link](https://kmantec.github.io/AMC-Tutorial/?preview=1) also works after learning has been enabled and preserves saved learner history.
@@ -44,7 +55,7 @@ The target is **175 real questions** from seven editions: **2026, 2025, 2024, 20
 
 The parent wants short, reviewable batches and will explicitly authorize a full-year run later. Firebase authentication and cross-device progress, complete in-app papers, timed practice, and the 175-question topic/strategy report are not implemented. No fabricated mastery, streaks, or completed analyses are displayed.
 
-The 2026-09-27 batch adds Coach’s Corner to the existing three questions, three checked adaptations, and a clean handoff from parent testing to learner records. Adaptations do not increase the count of integrated real questions: it remains **3 of 175**. Timers, additional originals, and a full-year content run remain outside this batch.
+The 2026-09-27 batch adds Coach’s Corner to the existing three questions, three checked adaptations, and a clean handoff from parent testing to learner records. The subsequent authorized voice update adds selectable browser speech, replay, stop, and mute to these existing guides. Adaptations do not increase the count of integrated real questions: it remains **3 of 175**. Timers, additional originals, and a full-year content run remain outside this batch.
 
 The current priority is personal learning for Pingping. Paid subscriptions and native-store apps were discussed only as future possibilities and are outside the current scope.
 
@@ -64,14 +75,14 @@ Run the checks:
     node --check app.js
     node --check serve.cjs
 
-Verification checks assets and UI targets, original and adapted mathematics, video metadata, independent/assisted grading, question isolation, coaching transitions, duplicate-answer protection, legacy records, preview isolation, explicit resets, and storage failure handling. It uses synthetic records only.
+Verification checks assets and UI targets, original and adapted mathematics, video metadata, independent/assisted grading, question isolation, coaching transitions, duplicate-answer protection, legacy records, preview isolation, explicit resets, and storage failure handling. Speech tests check voice loading and selection, mathematical symbols, queue replacement, mute, errors, and stale callbacks. All tests use synthetic records and simulated speech only.
 
 For the optional DOM interaction check, install the development-only dependency and run:
 
     npm install --no-save --package-lock=false --ignore-scripts --no-audit --no-fund jsdom@26.1.0
     node ui-check.mjs
 
-This exercises the actual app markup and handlers, including choices, feedback, mode changes, reload, and cross-tab reset. It does not render layout or play video. The browser connection was unavailable for this batch, so visual layout and physical iPad playback remain unverified. The app itself still requires no package installation or build step.
+This exercises actual app markup and handlers, including choices, feedback, mode changes, reload, cross-tab reset, and speech controls. Voice interaction checks use a simulated engine to verify spoiler gates, no record changes from audio controls, and cancellation on navigation, video, backgrounding, and reset. They do not render layout, produce real audio, or play video. The browser connection was unavailable for this batch, so visual layout, actual voice quality, and physical iPad playback remain unverified. The app itself still requires no package installation or build step.
 
 ## Hosting and data
 
@@ -92,5 +103,7 @@ Only source code and public documentation belong in Git. Keep private learner re
 - [2026 Problem 2](https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_2)
 - [2026 Problem 3](https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_3)
 - [Daily Dose of Math walkthrough](https://www.youtube.com/watch?v=gzXlOkLl24U)
+- [Browser voice discovery (MDN)](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/getVoices)
+- [Speech cancellation (MDN)](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/cancel)
 
 Original AMC material belongs to MAA; AoPS contains community solutions. Coaching here is separately authored and attributed. This independent practice resource is not endorsed by MAA, AoPS, or the video creator. Commercial reuse rights have not been established. See the project context for source discrepancies and video review limitations.

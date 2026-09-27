@@ -5,6 +5,7 @@ import { recommendedVideos } from './videos.js';
 import { newAttempt, gradeAnswer, validRecords, summarizeProgress } from './practice-state.js';
 import './coaching-state.test.mjs';
 import './learning-store.test.mjs';
+import './coach-speech.test.mjs';
 
 const root = new URL('./', import.meta.url);
 const read = (file) => fs.readFileSync(new URL(file, root), 'utf8');
@@ -13,7 +14,7 @@ const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
 assert.equal(new Set(ids).size, ids.length, 'HTML IDs must be unique');
 for (const [,asset] of html.matchAll(/(?:href|src)="(\.[^"#?]+)"/g)) assert.ok(fs.existsSync(new URL(asset, root)), 'Missing asset: ' + asset);
 for (const [,id] of html.matchAll(/<use href="#([^"]+)"/g)) assert.ok(ids.includes(id), 'Missing icon: ' + id);
-for (const file of ['app.js','problems.js','videos.js','practice-state.js','coach-content.js','coaching-state.js','learning-store.js']) {
+for (const file of ['app.js','problems.js','videos.js','practice-state.js','coach-content.js','coaching-state.js','learning-store.js','coach-speech.js']) {
   const code = read(file);
   assert.ok(!/[\u0e00-\u0e7f]/.test(code), 'Learner content must be English');
   for (const [,dependency] of code.matchAll(/from '(\.[^']+)'/g)) assert.ok(fs.existsSync(new URL(dependency,root)));

@@ -71,7 +71,7 @@
   </div>
 </main>
 <dialog id="practice-dialog" aria-labelledby="practice-heading"><div class="dialog-shell">
-<header class="dialog-header"><div><span class="eyebrow">YOUR PRACTICE SPACE</span><span id="practice-mode" class="practice-mode">Parent preview · Not saved</span></div><button class="icon-button" id="close-practice" aria-label="Close practice"><svg class="icon"><use href="#i-close"/></svg></button></header>
+<header class="dialog-header"><div><span class="eyebrow">YOUR PRACTICE SPACE</span><span id="practice-mode" class="practice-mode">Parent preview · Not saved</span></div><div class="dialog-header-actions"><button class="text-button" id="coach-mute" type="button" aria-pressed="false">Mute coach</button><button class="icon-button" id="close-practice" aria-label="Close practice"><svg class="icon"><use href="#i-close"/></svg></button></div></header>
 <nav class="problem-navigation" aria-label="Available practice problems"><button class="text-button" id="previous-problem">Previous problem</button><span id="problem-position"></span><button class="text-button" id="next-problem">Next problem</button></nav>
 <div class="practice-layout"><div class="problem-column">
 <div class="exam-paper-header"><span id="exam-name">2026 AMC 8</span><span id="exam-problem-number">PROBLEM 1</span></div>
@@ -85,7 +85,9 @@
 <a class="source-link" id="problem-source" href="https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_1" target="_blank" rel="noopener noreferrer">Original wording & source solutions · AoPS Wiki <svg class="icon"><use href="#i-external"/></svg></a><p class="copyright-note">Original problem © Mathematical Association of America.</p></div>
 <aside class="thinking-column" id="coaching-area" aria-labelledby="coach-corner-heading">
 <div class="coach-heading"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg><div><p class="eyebrow">COACH’S CORNER</p><h3 id="coach-corner-heading">One small step together.</h3></div></div>
-<p id="coach-intro" class="coach-intro"></p><p id="coach-status" class="coach-status" aria-live="polite"></p>
+<p id="coach-intro" class="coach-intro"></p>
+<section class="coach-voice-tools" aria-label="Coach voice"><label for="coach-voice">Coach voice</label><select id="coach-voice" aria-describedby="coach-voice-help"><option value="">Automatic English voice</option></select><div class="coach-voice-actions"><button class="text-button" id="coach-listen" type="button">Listen again</button><button class="text-button" id="coach-stop" type="button" disabled>Stop speaking</button></div><p id="coach-voice-help">Choose a voice available on this device. If you cannot hear it, tap Listen again.</p><p id="coach-voice-status" role="status"></p></section>
+<p id="coach-status" class="coach-status" aria-live="polite"></p>
 <div class="coach-actions"><button class="button button-primary" id="coach-open">Guide me with two choices</button><button class="text-button" id="hint-button">Give me a hint</button><button class="text-button" id="reveal-button">Show the solution</button><button class="text-button" id="video-button" aria-controls="video-section" aria-expanded="false">Watch a walkthrough</button></div>
 <div id="hint-content" class="hint-box" aria-live="polite" hidden></div>
 <section id="coach-check" class="coach-check" aria-labelledby="coach-question" hidden>
@@ -93,7 +95,7 @@
 <p id="coach-feedback" class="coach-feedback" aria-live="polite" hidden></p>
 <div class="coach-actions"><button class="button button-primary" id="coach-next" hidden>Next small step</button><button class="text-button" id="coach-back">Back to my answer</button></div></section>
 
-<div id="solution-content" hidden><p class="eyebrow">RECOMMENDED SOLUTION</p><h3 id="solution-title"></h3><ol id="solution-steps" class="solution-steps"></ol><p class="solution-total" id="solution-answer"></p>
+<div id="solution-content" hidden><p class="eyebrow">RECOMMENDED SOLUTION</p><button class="text-button" id="solution-listen" type="button">Listen to these steps</button><h3 id="solution-title"></h3><ol id="solution-steps" class="solution-steps"></ol><p class="solution-total" id="solution-answer"></p>
 <div class="rating"><strong><span id="method-score"></span><span>/10</span></strong><div>Teaching suitability<small id="rating-reason"></small></div></div><p class="solution-credit" id="solution-credit"></p>
 <details class="alternative-method" id="alternative-method"><summary>Compare another approach</summary><p id="alternative-text"></p></details>
 <div class="astra-tip"><p class="eyebrow">GPT 6 ASTRA ULTRA — TIPS & TRICKS</p><strong id="tip-title"></strong><p id="tip-text"></p><p class="solution-credit" id="tip-credit"></p></div>
