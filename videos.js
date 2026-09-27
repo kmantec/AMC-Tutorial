@@ -49,7 +49,9 @@ export const recommendedVideos = {
     }
   ],
   // Coach recommendation remains pending actual segment review.
-  "2026-4": []
+  "2026-4": [],
+  // No Problem 5 segment has been reviewed or supplied by the parent yet.
+  "2026-5": []
 };
 
 // Supplied by the parent on 2026-09-27, separately from reviewed recommendations.

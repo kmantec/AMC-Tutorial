@@ -302,5 +302,71 @@ export const problems = {
     "reflection": "What amount is the whole for the second percentage change?",
     "alternative": "Let the original savings be x. A 20% decrease keeps 0.8x. Increasing that amount by 50% multiplies it by 1.5, so the final savings are 0.8 × 1.5 × x = 1.2x, or 120% of the original. Multiplying the factors also checks the choose-100 calculation.",
     "reviewedAt": "2026-09-27"
+  },
+  "2026-5": {
+    "id": "2026-5",
+    "year": 2026,
+    "number": 5,
+    "suggestedPace": "1 min 30 sec",
+    "title": "Separate driving time from total time",
+    "topic": "Rates · distance, driving time, and unit conversion",
+    "prompt": "Casey travels 100 miles on a road trip and stops only once, for lunch. From start to finish, the trip lasts 3 hours. Her average speed during the driving portions is 40 miles per hour. How many minutes does she spend at lunch?",
+    "wording": "restated",
+    "options": [
+      {
+        "letter": "A",
+        "value": 15,
+        "label": "15"
+      },
+      {
+        "letter": "B",
+        "value": 30,
+        "label": "30"
+      },
+      {
+        "letter": "C",
+        "value": 40,
+        "label": "40"
+      },
+      {
+        "letter": "D",
+        "value": 45,
+        "label": "45"
+      },
+      {
+        "letter": "E",
+        "value": 60,
+        "label": "60"
+      }
+    ],
+    "answer": 30,
+    "answerLabel": "(B) 30 minutes",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_5",
+    "checkedSourceUrl": "https://live.poshenloh.com/past-contests/amc8/2026/problem/5",
+    "checkedSourceName": "LIVE by Po-Shen Loh",
+    "hints": [
+      "The 3 hours include both driving and lunch. The given speed describes only the time spent driving.",
+      "Driving time equals distance divided by average driving speed. Use 100 ÷ 40 to find that time in hours.",
+      "Subtract the driving time from 3 hours. Then multiply the remaining hours by 60 to express the lunch break in minutes."
+    ],
+    "method": "Find the driving time, then the time left over",
+    "score": 9,
+    "ratingReason": "Separating driving from the full trip makes the meaning of the rate clear. Keeping units beside each step helps prevent decimal-hour mistakes.",
+    "solution": [
+      "The full 3 hours consist of driving time plus the lunch break. Since lunch is the only stop, any time left after driving belongs to lunch.",
+      "Find the driving time using the average speed while moving: 100 miles ÷ 40 miles per hour = 2.5 hours.",
+      "Subtract from the full trip: 3 − 2.5 = 0.5 hour for lunch.",
+      "One hour has 60 minutes, so 0.5 × 60 = 30 minutes. Choose B.",
+      "Check: 2.5 hours of driving cover 100 miles at an average of 40 miles per hour. Adding half an hour for lunch gives the stated 3-hour trip."
+    ],
+    "credit": "Authored explanation of the driving-time subtraction method also shown in LIVE by Po-Shen Loh’s written solution. The original numbers, choices, and answer were checked there.",
+    "tipTitle": "Keep a label beside every time.",
+    "tip": "Write total time = driving time + stopped time, and label the units before calculating. A decimal hour is a fraction of 60 minutes: 2.5 hours means 2 hours 30 minutes, not 2 hours 50 minutes.",
+    "tipCredit": "Additional coaching by GPT 6 Astra Ultra.",
+    "commonError": "Using 40 miles per hour for all 3 hours, even though lunch is included, or treating 0.5 hour as 50 minutes.",
+    "reflection": "Which time does the given average speed describe, and which time does the question ask for?",
+    "alternative": "Use a distance-equivalent check. At the given average driving rate, 3 hours of driving would cover 3 × 40 = 120 miles. The actual distance is 20 miles less. Covering that 20 miles at 40 miles per hour would take half an hour, so the lunch break accounts for 30 minutes. This uses the average rate; the car need not travel at exactly 40 miles per hour at every instant.",
+    "videoNote": "A video walkthrough is not available here yet. You can listen to the written steps after opening the solution.",
+    "reviewedAt": "2026-09-27"
   }
 };

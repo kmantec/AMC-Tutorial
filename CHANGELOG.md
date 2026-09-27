@@ -1,5 +1,15 @@
 # Change history
 
+## 2026-09-27 — 2026 Problem 5: driving time and a lunch stop
+
+- Added the requested fifth original guide with a labeled faithful restatement, unchanged 100-mile/3-hour/40-mile-per-hour data and A–E choices, three hints, written methods, a subjective 9/10 teaching rating, and an informational 1 min 30 sec pace.
+- Checked source data and answer B/30 against LIVE by Po-Shen Loh. Credited its driving-time subtraction method; added independently authored unit-labeling guidance and a distance-equivalent alternative. Direct AoPS access failed, so both the archive and checked source are linked.
+- Added two binary Coach checks on driving-only speed and decimal hours, plus one labeled changed-number practice: 150 miles at 60 miles per hour in a 3-hour-15-minute trip gives a 45-minute lunch break. Its True/False reflection tests whether 0.75 hour means 75 minutes.
+- Expanded navigation and library counts to five originals and five separate adaptations, leaving 170 real questions to integrate. Preserved the approved colors, earlier content/video metadata, speech behavior, records, preview isolation, and timing policy.
+- Q5 video review remains pending after browser setup failed. Its empty list has a visible written/voice guidance note; Q4’s supplied endpoint was not used to invent Q5 timestamps.
+- Passed mathematical/state verification, JavaScript syntax, synthetic DOM checks including Q5 speech gates and adaptation exposure across reload, preserved Q1–Q4 history, zero-write preview, and whitespace checks. Actual Q5 video playback, new rendered layout, and physical iPad audio remain unverified.
+- Updated README, project context, and continuation instructions. Problem 6 onward requires another request.
+
 ## 2026-09-27 — Calmer colors and clearer controls
 
 - Introduced a consistent visual hierarchy: muted blue primary actions, white outlined secondary buttons, active menu indicators, neutral information labels, and underlined source links.

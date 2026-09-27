@@ -339,5 +339,92 @@ export const coachGuides = {
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_4",
       "credit": "Changed-number practice and coaching authored by GPT 6 Astra Ultra. The choose-100 method is also illustrated in the written solution for the original problem at LIVE by Po-Shen Loh."
     }
+  },
+  "2026-5": {
+    "intro": "Keep track of what each number in the story describes. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "driving-versus-total",
+        "prompt": "Which part of Casey’s trip does the average speed of 40 miles per hour describe?",
+        "options": [
+          {
+            "id": "a",
+            "label": "The time she is driving, leaving out lunch.",
+            "correct": true,
+            "feedback": "Yes. The speed is measured during driving. Divide the distance by that speed to find driving time, then compare it with the full 3 hours."
+          },
+          {
+            "id": "b",
+            "label": "All 3 hours, including the lunch break.",
+            "correct": false,
+            "feedback": "The 3 hours include lunch, but the given speed applies only while she is driving. Find driving time from distance ÷ speed; the remaining time is the stop."
+          }
+        ]
+      },
+      {
+        "id": "decimal-hour",
+        "prompt": "A calculation leaves 0.5 hour for the stop. How many minutes is 0.5 hour?",
+        "options": [
+          {
+            "id": "a",
+            "label": "50 minutes.",
+            "correct": false,
+            "feedback": "An hour contains 60 minutes, not 100. The decimal 0.5 means half, so half of 60 is 30 minutes. Keep the unit beside the number."
+          },
+          {
+            "id": "b",
+            "label": "30 minutes.",
+            "correct": true,
+            "feedback": "Yes. Multiply hours by 60: 0.5 × 60 = 30 minutes. Half an hour is 30 minutes, so match that value to the original choices."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-5-a",
+      "sourceProblem": "2026-5",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "A driver covers 150 miles and stops only for lunch. The whole trip lasts 3 hours 15 minutes, and the average speed while driving is 60 miles per hour. How many minutes is the lunch break?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 45,
+          "label": "45 minutes"
+        },
+        {
+          "letter": "B",
+          "value": 75,
+          "label": "75 minutes"
+        }
+      ],
+      "answer": 45,
+      "answerLabel": "(A) 45 minutes",
+      "solution": [
+        "Driving time is 150 ÷ 60 = 2.5 hours, or 150 minutes.",
+        "The whole trip lasts 3 × 60 + 15 = 195 minutes.",
+        "Lunch takes the remaining time: 195 − 150 = 45 minutes.",
+        "Equivalently, 3.25 − 2.5 = 0.75 hour. Multiply 0.75 by 60 to get 45 minutes; 0.75 hour is not 75 minutes."
+      ],
+      "reflection": {
+        "id": "adapted-decimal-hour",
+        "prompt": "True or false: 0.75 hour is the same as 75 minutes.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": false,
+            "feedback": "The decimal is part of an hour, so use 60 minutes per hour: 0.75 × 60 = 45 minutes. A 75-minute stop would be 1 hour 15 minutes."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": true,
+            "feedback": "Exactly. 0.75 is three quarters, and three quarters of 60 minutes is 45 minutes. A decimal hour does not use 100 minutes as its whole."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_5",
+      "credit": "Changed-number practice and coaching authored by GPT 6 Astra Ultra. The driving-time subtraction method is also illustrated in LIVE by Po-Shen Loh’s written solution to the original."
+    }
   }
 };

@@ -10,9 +10,9 @@ Read [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) and [AGENTS.md](AGENTS.md) before 
 
 ## Available now
 
-**Four reviewed guides: 2026 AMC 8 Problems 1–4.**
+**Five reviewed guides: 2026 AMC 8 Problems 1–5.**
 
-[Preview Problem 4 without saving records](https://kmantec.github.io/AMC-Tutorial/?preview=1&problem=2026-4).
+[Preview Problem 5 without saving records](https://kmantec.github.io/AMC-Tutorial/?preview=1&problem=2026-5).
 
 | Problem | Practice focus | Suggested pace once familiar | Video segment and review status |
 | --- | --- | --- | --- |
@@ -20,16 +20,17 @@ Read [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) and [AGENTS.md](AGENTS.md) before 
 | 2 | Organized counting in a number array | Within 1 min 30 sec | 0:29–1:03 |
 | 3 | Perimeter, square area, and a right triangle | Within 2 min | 1:03–2:22 |
 | 4 | Successive percent changes and the changing base | Within 1 min 30 sec | 2:21–3:06 · Parent-selected; coach review pending |
+| 5 | Driving versus total time; hours and minutes | Within 1 min 30 sec | Not yet reviewed; written and spoken guidance available |
 
 Each problem displays a gentle pace suggestion. These are authored coaching estimates for practice after understanding the method, not official MAA per-question limits or measured learner times. Take the time needed when learning. There is no start button, automatic timer, time limit, or elapsed-time recording.
 
 Each guide preserves five original answer choices, three staged hints, checked answer feedback, a recommended written solution, an explained subjective teaching rating, an alternative approach, and **“GPT 6 Astra Ultra — Tips & Tricks.”** Its **Coach’s Corner** now has two short reasoning checks, each with only two choices and feedback explaining either answer. Targeted checks appear after the learner asks for guidance; opening them before completing the original counts as support.
 
-After completing or reviewing the original, the learner may try **one changed-number problem**, then one two-choice reasoning check. These four adaptations are labeled **“Adapted practice — not an official AMC question”** and are separate from original-exam progress. They test grouping and signs (Q1), counting values in an array (Q2), perimeter (Q3), and successive percent changes (Q4). A two-choice response is a learning check, not proof of mastery.
+After completing or reviewing the original, the learner may try **one changed-number problem**, then one two-choice reasoning check. These five adaptations are labeled **“Adapted practice — not an official AMC question”** and are separate from original-exam progress. They test grouping and signs (Q1), counting values in an array (Q2), perimeter (Q3), successive percent changes (Q4), and driving time with unit conversion (Q5). A two-choice response is a learning check, not proof of mastery.
 
-All four guides link to segments of one Daily Dose of Math video. Q1–Q3 retain their reviewed coach recommendations. For Q4, the parent supplied **2:21–3:06**; its card says **Parent’s selection** and makes clear that coach review is pending. This is not presented as a reviewed recommendation. The embedded player is configured with start 141 and end 186 seconds, and the fallback YouTube link starts at 2:21 (it may continue past the question). Returning or switching questions removes the player. Any walkthrough opened before completion counts as support.
+The first four guides link to segments of one Daily Dose of Math video. Q1–Q3 retain their reviewed coach recommendations. For Q4, the parent supplied **2:21–3:06**; its card says **Parent’s selection** and makes clear that coach review is pending. This is not presented as a reviewed recommendation. The embedded player is configured with start 141 and end 186 seconds, and the fallback YouTube link starts at 2:21 (it may continue past the question). Returning or switching questions removes the player. Any walkthrough opened before completion counts as support. Q5 has no reviewed video yet; its availability notice offers the written steps and Coach voice. The Q4 endpoint is not used to guess Q5’s video range.
 
-Question 1 retains its original short wording. Questions 2–4 use clearly labeled concise restatements; the mathematical data and A–E choices remain unchanged. Every guide links to the original question and source solutions. Q4 additionally links to the [LIVE by Po-Shen Loh source actually checked](https://live.poshenloh.com/past-contests/amc8/2026/problem/4); direct AoPS access was unavailable during this batch. Expressions stay on one mathematical line, with horizontal scrolling on narrow screens; longer prose and text choices wrap.
+Question 1 retains its original short wording. Questions 2–5 use clearly labeled concise restatements; the mathematical data and A–E choices remain unchanged. Every guide links to the original question and source solutions. Q4 and Q5 additionally link to the LIVE by Po-Shen Loh sources actually checked ([Q4](https://live.poshenloh.com/past-contests/amc8/2026/problem/4), [Q5](https://live.poshenloh.com/past-contests/amc8/2026/problem/5)); direct AoPS access was unavailable for these batches. Expressions stay on one mathematical line, with horizontal scrolling on narrow screens; longer prose and text choices wrap.
 
 Selections, hints, and coaching checks stay with their question while switching or closing/reopening the practice dialog in the same page session. **Try again** resets only that question. Repeating an adaptation after feedback does not earn first-response credit again while that history is retained.
 
@@ -62,11 +63,11 @@ After starting learning, subsequent visits to the normal app link save and resto
 
 ## Scope and unfinished work
 
-The target is **175 real questions** from seven editions: **2026, 2025, 2024, 2023, 2022, 2020, 2019**. Archive links are available for all seven, four guides are integrated: **171 questions remain**, including 21 from 2026. The next sequential question is 2026 Problem 5.
+The target is **175 real questions** from seven editions: **2026, 2025, 2024, 2023, 2022, 2020, 2019**. Archive links are available for all seven, five guides are integrated: **170 questions remain**, including 20 from 2026. The next sequential question is 2026 Problem 6.
 
 The parent wants short, reviewable batches and will explicitly authorize a full-year run later. Firebase authentication and cross-device progress, complete in-app papers, timed practice, and the 175-question topic/strategy report are not implemented. No fabricated mastery, streaks, or completed analyses are displayed.
 
-The latest authorized batch adds **2026 Problem 4 only**, extending the established hints, two-choice coaching, adapted practice, and selectable browser voice. The earlier preview/start-fresh behavior remains. Adaptations do not increase the original-exam count of **4 of 175**. Timers, Problem 5 onward, and a full-year content run require a later request.
+The latest authorized batch adds **2026 Problem 5 only**, extending the established hints, two-choice coaching, adapted practice, and selectable browser voice. The earlier preview/start-fresh behavior remains. Adaptations do not increase the original-exam count of **5 of 175**. Timers, Problem 6 onward, and a full-year content run require a later request.
 
 The current priority is personal learning for Pingping. Paid subscriptions and native-store apps were discussed only as future possibilities and are outside the current scope.
 
@@ -93,7 +94,7 @@ For the optional DOM interaction check, install the development-only dependency 
     npm install --no-save --package-lock=false --ignore-scripts --no-audit --no-fund jsdom@26.1.0
     node ui-check.mjs
 
-This exercises actual app markup and handlers, including choices, feedback, mode changes, reload, cross-tab reset, and speech controls. Voice interaction checks use a simulated engine to verify spoiler gates, no record changes from audio controls, and cancellation on navigation, video, backgrounding, and reset. Problem 4 coverage also checks its original choices, prose-only layout state, parent-selected video bounds and honest review labels, percent narration, direct preview link, wrong/correct and assisted attempts, adaptation retries, and retained Q1–Q3 history. These checks do not render layout, produce real audio, or play video. The browser connection was unavailable for this batch, so visual layout, actual voice quality, and physical iPad playback remain unverified. The app itself still requires no package installation or build step.
+This exercises actual app markup and handlers, including choices, feedback, mode changes, reload, cross-tab reset, and speech controls. Voice interaction checks use a simulated engine to verify spoiler gates, no record changes from audio controls, and cancellation on navigation, video, backgrounding, and reset. Problem 4 coverage also checks its original choices, prose-only layout state, parent-selected video bounds and honest review labels, percent narration, direct preview link, wrong/correct and assisted attempts, adaptation retries, and retained Q1–Q3 history. Problem 5 coverage adds exact original choices, independently checked travel-time calculations, both coach checks, adapted practice and retained exposure on reload, audio reveal gates, missing-video behavior, and preservation of Q1–Q4 records. These checks do not render layout, produce real audio, or play video. The browser connection was unavailable for this batch, so visual layout, actual voice quality, and physical iPad playback remain unverified. The app itself still requires no package installation or build step.
 
 ## Hosting and data
 
@@ -115,6 +116,8 @@ Only source code and public documentation belong in Git. Keep private learner re
 - [2026 Problem 3](https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_3)
 - [2026 Problem 4 — AoPS archive](https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_4)
 - [2026 Problem 4 — checked problem, choices, and written method](https://live.poshenloh.com/past-contests/amc8/2026/problem/4)
+- [2026 Problem 5 — AoPS archive](https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_5)
+- [2026 Problem 5 — checked problem, choices, and written method](https://live.poshenloh.com/past-contests/amc8/2026/problem/5)
 - [Daily Dose of Math walkthrough](https://www.youtube.com/watch?v=gzXlOkLl24U)
 - [Browser voice discovery (MDN)](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/getVoices)
 - [Speech cancellation (MDN)](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/cancel)
