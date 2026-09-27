@@ -1,5 +1,14 @@
 # Change history
 
+## 2026-09-27 — Calmer colors and clearer controls
+
+- Introduced a consistent visual hierarchy: muted blue primary actions, white outlined secondary buttons, active menu indicators, neutral information labels, and underlined source links.
+- Gave Coach’s Corner its own sage-green container, white voice/check/solution cards, and a matching green coaching action color. Arranged its help buttons in two columns with a single column on narrow phones.
+- Improved control boundaries, disabled states, keyboard focus, and touch targets while preserving the white exam surface and the existing responsive layout.
+- Changed only the app’s CSS. All questions, hints, binary checks, videos, pace text, speech behavior, grading, and stored records are preserved.
+- Passed node verify.mjs, app syntax, the existing jsdom UI checks, stylesheet parsing, selected text/control contrast calculations, and whitespace checks. Browser connection failed again; rendered screenshots and physical iPad visual validation remain pending.
+- Updated README, project context, and design continuation guidance.
+
 ## 2026-09-27 — Parent-selected Problem 4 video
 
 - Added the parent-provided 2:21–3:06 segment of Daily Dose of Math’s existing video for Q4. Configured the embedded player with start 141/end 186 and a direct YouTube fallback at 141 seconds; the fallback can continue beyond the question.

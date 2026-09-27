@@ -33,6 +33,14 @@ Question 1 retains its original short wording. Questions 2–4 use clearly label
 
 Selections, hints, and coaching checks stay with their question while switching or closing/reopening the practice dialog in the same page session. **Try again** resets only that question. Repeating an adaptation after feedback does not earn first-response credit again while that history is retained.
 
+## Visual guide
+
+The interface uses muted blue for primary actions, white outlined secondary buttons, and a sage-green Coach’s Corner with separate white voice and reasoning cards. Navigation has an active indicator, while headings and information labels use neutral surfaces. Disabled controls have a muted fill. External source links are underlined.
+
+Controls have visible keyboard focus and touch targets of at least 44 px in the refreshed areas. Coach actions use two columns, reducing to one on narrow phones. The original question remains on a white paper-like surface. This visual update changes no problem content, pacing, grading, speech behavior, or learner records.
+
+The stylesheet parsed successfully; selected normal-text color pairs exceed 4.5:1 contrast and the refreshed control borders exceed 3:1 against white. Existing verification and DOM interaction checks passed. These checks do not render layout; browser connection failed, so actual screenshots and physical iPad validation remain pending.
+
 ## Coach voice
 
 Coach’s Corner can speak using the browser’s **Web Speech API**. Choose a voice from **Coach voice**; Automatic English voice prefers an available English voice. The list updates when the browser finishes loading its voices. Available names and pronunciation depend on the device and browser.
