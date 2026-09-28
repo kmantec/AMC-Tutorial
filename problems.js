@@ -366,7 +366,6 @@ export const problems = {
     "commonError": "Using 40 miles per hour for all 3 hours, even though lunch is included, or treating 0.5 hour as 50 minutes.",
     "reflection": "Which time does the given average speed describe, and which time does the question ask for?",
     "alternative": "Use a distance-equivalent check. At the given average driving rate, 3 hours of driving would cover 3 × 40 = 120 miles. The actual distance is 20 miles less. Covering that 20 miles at 40 miles per hour would take half an hour, so the lunch break accounts for 30 minutes. This uses the average rate; the car need not travel at exactly 40 miles per hour at every instant.",
-    "videoNote": "A video walkthrough is not available here yet. You can listen to the written steps after opening the solution.",
     "reviewedAt": "2026-09-27"
   }
 };

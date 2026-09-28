@@ -44,7 +44,7 @@ for (const p of Object.values(problems)) {
       assert.equal(video.selectionBasis,undefined);
     } else {
       assert.ok(parentSelectedVideos[p.id].includes(video) && video.selectionBasis);
-      assert.equal(video.reviewedAt,undefined,'Parent timestamps are not a coach review');
+      assert.equal(video.reviewedAt,undefined,'A parent selection is not a coach review');
       assert.equal(video.reviewBasis,undefined);
       assert.match(video.reason,/review is still pending/);
     }
@@ -90,8 +90,9 @@ assert.equal(fifth.answer,30);
 assert.deepEqual(fifth.options.filter((option) => (180 - option.value) / 60 * 40 === 100).map((option) => option.value),[30]);
 assert.equal((3 * 40 - 100) / 40 * 60,fifth.answer,'Distance-equivalent alternative agrees');
 assert.equal(fifth.suggestedPace,'1 min 30 sec');
-assert.equal(walkthroughVideos['2026-5'].length,0);
-assert.match(fifth.videoNote,/not available/);
+assert.equal(recommendedVideos['2026-5'].length,0);
+assert.deepEqual(walkthroughVideos['2026-5'].map(video => [video.id,video.startSeconds,video.endSeconds]),[['gzXlOkLl24U',0,1433]]);
+assert.match(walkthroughVideos['2026-5'][0].segmentLabel,/Full video/);
 assert.equal(gradeAnswer(fifth,newAttempt(),30).independent,true);
 // Wrong answers, hints and video support must stay local to their question.
 const second = newAttempt(), third = newAttempt();

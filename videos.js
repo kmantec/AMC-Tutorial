@@ -50,7 +50,7 @@ export const recommendedVideos = {
   ],
   // Coach recommendation remains pending actual segment review.
   "2026-4": [],
-  // No Problem 5 segment has been reviewed or supplied by the parent yet.
+  // A full-video parent selection is available; no Q5 segment has passed review.
   "2026-5": []
 };
 
@@ -69,7 +69,23 @@ export const parentSelectedVideos = {
     "selectionBasis": "Parent-provided Problem 4 timestamps",
     "suppliedAt": "2026-09-27",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_4"
-  }]
+  }],
+  "2026-5": [
+    {
+      "id": "gzXlOkLl24U",
+      "title": "AMC 8 2026: Problems 1-20 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=gzXlOkLl24U&t=0s",
+      "startSeconds": 0,
+      "endSeconds": 1433,
+      "segmentLabel": "Full video · Problems 1–20",
+      "reason": "The same video used for the earlier problems, made available at your parent’s request. This opens the full video; find Problem 5 in the player. Coach review is still pending.",
+      "reviewNote": "The exact Problem 5 start and end times have not been confirmed. This opens the full 23:53 video, not a reviewed Problem 5 segment. The title and full duration were checked in YouTube’s public metadata; the coach has not reviewed the Problem 5 explanation.",
+      "selectionBasis": "Parent explicitly permitted reuse of the existing video; full duration checked in public YouTube metadata",
+      "suppliedAt": "2026-09-27",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_5"
+    }
+  ]
 };
 
 export const walkthroughVideos = Object.fromEntries(

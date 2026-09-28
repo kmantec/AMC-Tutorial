@@ -1,5 +1,13 @@
 # Change history
 
+## 2026-09-28 — Problem 5 full-video fallback
+
+- At the parent’s explicit allowance to reuse the existing video, added it to Q5 as **Parent’s selection**, labeled **Full video · Problems 1–20**. The card asks the learner to find Problem 5 and clearly states that coach review is pending.
+- Configured start 0 and end 1433 using the public full-video duration of 23:53, with embedded playback and a direct YouTube fallback. These are not claimed Q5 boundaries. Q1–Q4 segments are unchanged; Q5’s reviewed recommendation list remains empty.
+- Browser review was unavailable. Public metadata was readable, but caption responses were empty and there were no chapter markers. Also identified a separate 58-second Q5 candidate from YourFuturePrep; it was not reviewed or selected. No actual Q5 explanation or playback review is claimed.
+- Verified full-video bounds, truthful labels, support before completion, unchanged credit after completion, player cleanup, retained earlier records, and zero-write preview using synthetic DOM checks. Mathematics/state checks, relevant JavaScript syntax, and whitespace checks passed. Actual video playback, rendered layout, and physical iPad audio remain unverified.
+- Updated README and continuation documentation. Preserved approved colors, written/voice coaching, original and adapted content, and storage rules. No new problem or timer was added.
+
 ## 2026-09-27 — 2026 Problem 5: driving time and a lunch stop
 
 - Added the requested fifth original guide with a labeled faithful restatement, unchanged 100-mile/3-hour/40-mile-per-hour data and A–E choices, three hints, written methods, a subjective 9/10 teaching rating, and an informational 1 min 30 sec pace.
