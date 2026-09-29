@@ -34,6 +34,16 @@ Question 1 retains its original short wording. Questions 2–5 use clearly label
 
 Selections, hints, and coaching checks stay with their question while switching or closing/reopening the practice dialog in the same page session. **Try again** resets only that question. Repeating an adaptation after feedback does not earn first-response credit again while that history is retained.
 
+## Your next small win
+
+The home page combines a coach suggestion and a tappable learning map in place of the fixed Problem 1 card and separate progress ring. It suggests unfinished work from the current page session first, then the first unexplored original. Once all available originals have activity, it suggests an idea to revisit, preferring a latest attempt that was not independent and then the oldest latest record. These are transparent rules using this browser’s actual records, not live AI or a skill diagnosis.
+
+Tap any map tile to inspect that problem’s topic and recorded status; the main button opens it. **Continue** preserves choices, wrong-answer history, and help in an unfinished attempt. **Try again** starts a fresh attempt after a completed or revealed solution, without deleting history. A reload retains saved records but does not restore unfinished answers. Suggestions and map selections themselves create no learning records or speech.
+
+The map distinguishes **Not yet tried**, **In progress** (current session), **Exploring** (recorded activity without a correct result), **With support**, and **On my own**. “Explored” includes requesting help or checking an answer; these are latest-work descriptions, not mastery scores. Adaptations and binary checks stay outside original progress. Preview uses only its temporary activity, clearly marked **Nothing saved**, and never reads saved history into the map. [Try the new home in Parent preview](https://kmantec.github.io/AMC-Tutorial/?preview=1#home).
+
+The home update passed rule/state and synthetic DOM checks, including map selection, resumed assistance, fresh revisits, reload, mode changes, and cross-tab clearing. Rendered layout and physical iPad validation remain pending: no Browser connection was available, and desktop Chrome launch approval timed out.
+
 ## Visual guide
 
 The interface uses muted blue for primary actions, white outlined secondary buttons, and a sage-green Coach’s Corner with separate white voice and reasoning cards. Navigation has an active indicator, while headings and information labels use neutral surfaces. Disabled controls have a muted fill. External source links are underlined.

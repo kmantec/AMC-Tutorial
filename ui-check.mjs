@@ -480,4 +480,71 @@ assert.equal(fifthReload.snapshot().unrelated,'keep');
 fifthReload.close();
 console.log('Verified Problem 5: choices, rates/units, guided checks, adaptation/revisit, speech gates, full-video fallback and truthful review labels, preview isolation, and saved Q1–Q4 history.');
 
+// Home suggestions read actual records and never create learner events themselves.
+const homeSaved={
+  [keys.original]:JSON.stringify([legacy,{problem:'2026-2',result:'correct',hints:1,independent:false,at:'2026-09-20T00:00:00Z'}]),
+  [keys.mode]:'learning',unrelated:'keep'
+};
+const homePreview=await setup(homeSaved);
+assert.equal(homePreview.q('#home-practice').dataset.problem,'2026-1');
+assert.equal(homePreview.q('#completed-count').textContent,'0');
+assert.equal(homePreview.w.document.querySelectorAll('.map-problem').length,5);
+const fifthMap=homePreview.q('[data-home-problem="2026-5"]');
+fifthMap.focus(); fifthMap.click();
+assert.equal(homePreview.w.document.activeElement,fifthMap,'Map selection preserves keyboard focus');
+assert.equal(fifthMap.getAttribute('aria-pressed'),'true');
+assert.equal(homePreview.q('#home-selection-label').textContent,'YOUR CHOICE');
+assert.equal(homePreview.q('#practice-dialog').open,false,'Choosing a map tile previews a next step, not an attempt');
+assert.equal(homePreview.read().records.length,0);
+homePreview.click('#home-practice');
+assert.equal(homePreview.read().activeProblem,'2026-5');
+homePreview.answer(45);
+homePreview.click('#close-practice');
+assert.equal(homePreview.q('#home-practice').textContent,'Continue Problem 5');
+homePreview.click('#home-practice');
+assert.equal(homePreview.read().selectedAnswer,'45');
+assert.equal(homePreview.answer(30).independent,false,'Home continue preserves a prior wrong answer');
+homePreview.click('#close-practice');
+assert.equal(homePreview.q('[data-home-problem="2026-5"]').dataset.status,'supported');
+homePreview.click('[data-home-problem="2026-5"]');
+assert.equal(homePreview.q('#home-practice').textContent,'Try Problem 5 again');
+const recordCount=homePreview.read().records.length;
+homePreview.click('#home-practice');
+assert.equal(homePreview.read().submitted,false,'An explicit home revisit starts a fresh attempt after completion');
+assert.equal(homePreview.read().records.length,recordCount,'Opening a fresh try does not write a result');
+assert.equal(homePreview.writes.length,0,'Entire home preview remains free of storage writes');
+assert.deepEqual(homePreview.snapshot(),homeSaved,'Saved learning remains untouched');
+homePreview.close();
+
+const homeLearning=await setup(homeSaved,'https://kmantec.github.io/AMC-Tutorial/');
+assert.equal(homeLearning.q('#home-practice').dataset.problem,'2026-3');
+assert.equal(homeLearning.q('[data-home-problem="2026-1"]').dataset.status,'independent');
+assert.equal(homeLearning.q('[data-home-problem="2026-2"]').dataset.status,'supported');
+assert.match(homeLearning.q('#home-secondary').textContent,/Revisit Problem 2/);
+homeLearning.click('#home-secondary');
+assert.equal(homeLearning.q('#home-practice').dataset.problem,'2026-2');
+assert.match(homeLearning.q('#home-coach-message').textContent,/correct with support/);
+assert.equal(homeLearning.writes.length,0,'Reading and selecting suggestions creates no saved activity');
+homeLearning.click('#enter-preview-button');
+assert.equal(homeLearning.q('#home-practice').dataset.problem,'2026-1');
+assert.equal(homeLearning.q('#completed-count').textContent,'0');
+assert.match(homeLearning.q('#home-record-mode').textContent,/Nothing saved/);
+homeLearning.click('#start-learning-button');
+homeLearning.click('#continue-learning');
+assert.equal(homeLearning.q('#home-practice').dataset.problem,'2026-3');
+assert.equal(homeLearning.q('#completed-count').textContent,'2');
+homeLearning.close();
+
+const allExplored=['2026-1','2026-2','2026-3','2026-4','2026-5'].map((id,i)=>({...legacy,problem:id,independent:i!==3,at:'2026-09-'+(10+i)+'T00:00:00Z'}));
+const homeReview=await setup({[keys.original]:JSON.stringify(allExplored),[keys.mode]:'learning'},'https://kmantec.github.io/AMC-Tutorial/');
+assert.equal(homeReview.q('#home-practice').dataset.problem,'2026-4');
+assert.match(homeReview.q('#next-win-heading').textContent,/fresh try/);
+assert.equal(homeReview.q('#completed-count').textContent,'5');
+assert.equal(homeReview.writes.length,0);
+homeReview.w.localStorage.setItem(keys.original,'[]');
+homeReview.w.dispatchEvent(new homeReview.w.StorageEvent('storage',{key:keys.original}));
+assert.equal(homeReview.q('#home-practice').dataset.problem,'2026-1');
+assert.equal(homeReview.q('#completed-count').textContent,'0','Cross-tab clearing also refreshes the map');
+homeReview.close();
+console.log('Verified home UI: map selection, suggestions, continuing without lost assistance, explicit revisits, saved/preview separation, reload, and cross-tab refresh.');
 console.log('Verified actual app DOM interactions: all five guides and adaptations, feedback, gating, isolation, video lifecycle, no-write preview, explicit fresh start, saved reload, and cross-tab reset. Layout and physical iPad playback are not simulated.');

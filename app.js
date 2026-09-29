@@ -5,6 +5,7 @@ import { coachGuides } from './coach-content.js';
 import { newCoachState, answerCoachCheck, nextCoachCheck, answerSimilar, retrySimilar, answerReflection } from './coaching-state.js';
 import { createLearningStore, learningStorageKeys } from './learning-store.js';
 import { createCoachSpeech, spokenCheck, spokenProblem } from './coach-speech.js';
+import { homePlan } from './home-plan.js';
 
 const YEARS = [2026, 2025, 2024, 2023, 2022, 2020, 2019];
 const ids = Object.keys(problems);
@@ -18,6 +19,7 @@ let activeId = ids[0];
 let records = [];
 let storageAvailable = true;
 let toastTimer;
+let homeSelection = null;
 const problem = () => problems[activeId];
 const attempt = () => {
   if (!attempts.has(activeId)) attempts.set(activeId, newAttempt());
@@ -92,7 +94,7 @@ function practiceButton(id, label, className = 'text-button') {
 $('#today-date').textContent = new Intl.DateTimeFormat('en', {weekday:'long',month:'long',day:'numeric'}).format(new Date()).toUpperCase();
 $('#home-years').innerHTML = YEARS.map((year) => '<a class="year-card" href="' + source(year) + '" target="_blank" rel="noopener noreferrer" aria-label="Open ' + year + ' AMC 8 on AoPS"><strong>' + year + '</strong><small>25 problems</small>' + icon('external') + '</a>').join('');
 $('#paper-grid').innerHTML = YEARS.map((year) => '<article class="paper-card"><div class="paper-year"><h2>' + year + '</h2><span>AMC 8</span></div><p>25 original problems<br>Source solutions on AoPS</p><a href="' + source(year) + '" target="_blank" rel="noopener noreferrer">Explore this exam ' + icon('external') + '</a>' + (year === 2026 ? '<div class="paper-practice-links">' + ids.map((id) => practiceButton(id, 'Practice Problem ' + problems[id].number)).join('') + '</div>' : '') + '</article>').join('');
-$('#available-practice').innerHTML = ids.map((id) => '<button class="practice-pick" data-action="practice" data-problem="' + id + '"><span class="eyebrow">2026 AMC 8</span><strong>Problem ' + problems[id].number + '</strong><span>' + (id === '2026-1' ? 'First guide' : 'New guide') + ' · Hints, coach & similar practice</span>' + icon('arrow') + '</button>').join('');
+$('#available-practice').innerHTML = ids.map(id => '<button type="button" class="map-problem" data-home-problem="' + id + '" aria-pressed="false" aria-controls="home-selection"><span class="map-number">' + problems[id].number + '</span><span class="map-copy"><strong>Problem ' + problems[id].number + '</strong><span class="map-topic"></span></span><span class="map-status"></span></button>').join('');
 $('#coach-techniques').innerHTML = ids.map((id) => '<article class="white-card"><span class="eyebrow">PROBLEM ' + problems[id].number + '</span><h3>' + escape(problems[id].title) + '</h3><p>' + escape(problems[id].topic) + '</p>' + practiceButton(id, 'Open this practice') + '</article>').join('');
 
 function navigate(view, focus = false) {
@@ -105,7 +107,7 @@ function navigate(view, focus = false) {
     if (active) node.setAttribute('aria-current', 'page'); else node.removeAttribute('aria-current');
   });
   if (location.hash !== '#' + view) { const url = new URL(location.href); url.hash = view; history.replaceState(null, '', url.href); }
-  if (view === 'notebook') renderProgress();
+  if (view === 'notebook' || view === 'home') renderProgress();
   if (focus) { $('#main').focus({preventScroll:true}); window.scrollTo({top:0,behavior:'instant'}); }
   return {view};
 }
@@ -245,10 +247,7 @@ function renderProgress() {
   $('#completed-count').textContent = String(explored);
   $('#independent-count').textContent = String(independent);
   $('#review-count').textContent = String(revisit);
-  const degrees = explored / ids.length * 360;
-  $('#progress-ring').style.background = 'conic-gradient(#8daaeb 0deg ' + degrees + 'deg, #edf1f8 ' + degrees + 'deg 360deg)';
-  $('#progress-heading').textContent = explored ? revisit ? 'Ideas to revisit.' : 'Good steps forward.' : 'A fresh page.';
-  $('#progress-message').textContent = explored ? explored + ' of ' + ids.length + ' available problems explored. “On my own” reflects your latest attempt, not mastery.' : 'Your learning record begins with your first problem.';
+  renderHome();
   $('#storage-status').textContent = learning.mode === 'preview' ? 'Parent preview · Not saved' : storageAvailable ? 'Learning saved on this device' : 'Learning for this session only';
   $('#notebook-storage').textContent = learning.mode === 'preview' ? 'Preview activities are temporary. They will not be copied into Pingping’s learning notebook.' : storageAvailable ? 'Saved in this browser on this device. Reloading begins fresh attempts and retains your learning history.' : 'Saving is unavailable. Your learning record lasts for this session.';
   const date = (at) => new Intl.DateTimeFormat('en',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}).format(new Date(at));
@@ -261,6 +260,41 @@ function renderProgress() {
     const record = latest.get(id), count = records.filter((item) => item.problem === id).length;
     return '<article class="notebook-card"><div><span class="eyebrow">2026 AMC 8 · PROBLEM ' + problems[id].number + '</span><h2>' + escape(problems[id].title) + '</h2><p>' + resultText(record) + '</p><p>' + count + ' learning ' + (count === 1 ? 'moment' : 'moments') + ' recorded</p></div>' + practiceButton(id,'Return to this problem','button button-primary') + '</article>';
   }).join('') + '<section class="notebook-history"><h3>Your recent learning moments</h3>' + records.slice(-12).reverse().map((record) => '<div class="history-row"><span>Problem ' + problems[record.problem].number + ' · ' + resultText(record) + '</span><small>' + date(record.at) + '</small></div>').join('') + '</section>';
+}
+function renderHome() {
+  const plan = homePlan(problems,records,attempts,activeId);
+  const selected = plan.items.find(item => item.id === homeSelection) || plan.next;
+  const suggested = selected.id === plan.next.id;
+  $('#next-win-heading').textContent = plan.explored === ids.length ? 'A familiar idea. A fresh try.' : 'A little practice. A new idea.';
+  $('#home-record-mode').textContent = learning.mode === 'preview' ? 'Preview · Nothing saved' : storageAvailable ? 'Saved on this device' : 'This session only';
+  $('#home-selection-label').textContent = suggested ? 'COACH’S SUGGESTION' : 'YOUR CHOICE';
+  $('#home-problem-status').textContent = selected.label;
+  $('#home-problem-meta').textContent = problems[selected.id].year + ' AMC 8 · Problem ' + selected.number;
+  $('#next-problem-title').textContent = selected.title;
+  $('#home-reason').textContent = suggested ? plan.reason : selected.continuing
+    ? 'Your unfinished attempt is ready to continue.'
+    : selected.record ? 'Return to a familiar idea. Take a fresh look when you are ready.'
+    : 'Choose your own route. This problem is ready whenever you are.';
+  $('#home-practice').textContent = selected.action;
+  $('#home-practice').dataset.problem = selected.id;
+  const alternative = suggested ? plan.review.find(item => item.id !== selected.id) : plan.next;
+  $('#home-secondary').hidden = !alternative;
+  if (alternative) {
+    $('#home-secondary').textContent = suggested ? 'Revisit Problem ' + alternative.number : 'Coach’s suggestion · Problem ' + alternative.number;
+    $('#home-secondary').dataset.problem = alternative.id;
+  }
+  $('#home-coach-message').textContent = selected.record || selected.continuing ? selected.detail
+    : 'Try your own approach first. A hint or a guided check is here whenever you want help. You can choose any problem on the map.';
+  $('#available-count').textContent = String(ids.length);
+  for (const item of plan.items) {
+    const button = $('#available-practice').querySelector('[data-home-problem="' + item.id + '"]');
+    button.dataset.status = item.status;
+    button.setAttribute('aria-pressed',String(item.id === selected.id));
+    button.setAttribute('aria-label','Problem ' + item.number + ', ' + item.topic + ', ' + item.label);
+    button.querySelector('.map-topic').textContent = item.topic;
+    button.querySelector('.map-status').textContent = item.label;
+    button.querySelector('.map-number').innerHTML = item.status === 'independent' ? icon('check') : String(item.number);
+  }
 }
 function renderLearningMode() {
   const preview = learning.mode === 'preview';
@@ -288,6 +322,7 @@ function setLearningMode(fresh) {
   learning.startLearning({fresh});
   coachSpeech.stop(); coachNarration = [];
   attempts.clear(); coachStates.clear(); hideVideos();
+  homeSelection = null;
   const url = new URL(location.href); url.searchParams.delete('preview');
   history.replaceState(null, '', url.href);
   $('#learning-dialog').close();
@@ -299,6 +334,7 @@ function enterPreview() {
   learning.enterPreview();
   coachSpeech.stop(); coachNarration = [];
   attempts.clear(); coachStates.clear(); hideVideos();
+  homeSelection = null;
   const url = new URL(location.href); url.searchParams.set('preview','1');
   history.replaceState(null, '', url.href);
   renderProgress();
@@ -497,6 +533,26 @@ document.addEventListener('click',(event) => {
   if (target.dataset.view) navigate(target.dataset.view,true);
   else if (target.dataset.action === 'practice') openPractice(target.dataset.problem || ids[0]);
 });
+$('#available-practice').addEventListener('click',event => {
+  const button = event.target.closest('[data-home-problem]');
+  if (!button) return;
+  homeSelection = button.dataset.homeProblem;
+  renderHome();
+});
+$('#home-secondary').addEventListener('click',() => {
+  homeSelection = $('#home-secondary').dataset.problem;
+  renderHome();
+  $('#home-practice').focus({preventScroll:true});
+});
+$('#home-practice').addEventListener('click',() => {
+  const id = $('#home-practice').dataset.problem;
+  const state = attempts.get(id);
+  // A completed/revealed attempt needs an explicit fresh try; unfinished help stays attached.
+  const fresh = state?.submitted || state?.revealed;
+  homeSelection = null;
+  openPractice(id);
+  if (fresh) retryPractice();
+});
 $('#answer-form').addEventListener('change',(event) => { if (event.target.name === 'answer') attempt().selectedAnswer = event.target.value; });
 $('#answer-form').addEventListener('submit',(event) => {
   event.preventDefault();
@@ -506,7 +562,7 @@ $('#answer-form').addEventListener('submit',(event) => {
 $('#previous-problem').addEventListener('click',() => openPractice(ids[ids.indexOf(activeId)-1]));
 $('#next-problem').addEventListener('click',() => openPractice(ids[ids.indexOf(activeId)+1]));
 $('#close-practice').addEventListener('click',() => $('#practice-dialog').close());
-$('#practice-dialog').addEventListener('close',() => { coachSpeech.stop(); coachNarration = []; hideVideos(); document.body.classList.remove('dialog-open'); });
+$('#practice-dialog').addEventListener('close',() => { coachSpeech.stop(); coachNarration = []; hideVideos(); document.body.classList.remove('dialog-open'); renderProgress(); });
 $('#hint-button').addEventListener('click',showHint);
 $('#reveal-button').addEventListener('click',showSolution);
 $('#retry-button').addEventListener('click',retryPractice);
@@ -542,6 +598,7 @@ window.addEventListener('storage',(event) => {
   // Never submit an attempt begun before a fresh start in another tab.
   coachSpeech.stop(); coachNarration = [];
   attempts.clear(); coachStates.clear(); hideVideos();
+  homeSelection = null;
   renderProgress();
   if ($('#practice-dialog').open) renderProblem();
 });

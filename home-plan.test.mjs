@@ -1,0 +1,41 @@
+import assert from 'node:assert/strict';
+import { problems } from './problems.js';
+import { newAttempt } from './practice-state.js';
+import { homePlan } from './home-plan.js';
+
+const record = (id,result,independent=false,day=1) => ({problem:id,result,independent,hints:0,at:'2026-09-' + String(day).padStart(2,'0') + 'T00:00:00Z'});
+const ids=Object.keys(problems);
+let plan=homePlan(problems,[]);
+assert.equal(plan.next.id,ids[0]);
+assert.equal(plan.explored,0);
+assert.ok(plan.items.every(item=>item.status==='new'));
+const history=[record(ids[0],'correct',true),record(ids[1],'correct',false,2)];
+const before=JSON.stringify(history);
+plan=homePlan(problems,history);
+assert.equal(plan.next.id,ids[2]);
+assert.equal(plan.independent,1);
+assert.equal(plan.items[1].status,'supported');
+assert.equal(plan.review[0].id,ids[1]);
+assert.equal(JSON.stringify(history),before,'Planning must not modify records');
+for (const result of ['incorrect','hint','coach','video','revealed']) {
+  const item=homePlan(problems,[record(ids[0],result)]).items[0];
+  assert.equal(item.status,'exploring','Opening support does not mean a correct answer');
+  assert.doesNotMatch(item.detail,/was correct|answered on your own/);
+}
+const current=newAttempt();
+current.selectedAnswer='45'; current.wrong=true;
+const attempts=new Map([[ids[4],current]]);
+plan=homePlan(problems,history,attempts,ids[4]);
+assert.equal(plan.next.id,ids[4]);
+assert.equal(plan.next.continuing,true);
+assert.equal(plan.explored,2,'An unsubmitted selection is only session activity');
+assert.equal(current.wrong,true,'Planning never removes help or wrong-answer state');
+current.revealed=true;
+assert.equal(homePlan(problems,history,attempts,ids[4]).next.id,ids[2]);
+const all=ids.map((id,i)=>record(id,'correct',i!==3,10+i));
+assert.equal(homePlan(problems,all).next.id,ids[3],'After all explored, suggest a non-independent problem');
+all[3].independent=true;
+assert.equal(homePlan(problems,all).next.id,ids[0],'Use earliest latest record for an optional revisit');
+const revisitRecords=[...history,record(ids[1],'correct',true,20)];
+assert.equal(homePlan(problems,revisitRecords).items[1].status,'independent','Latest attempt replaces older support for display');
+console.log('Verified home plan: real-record states, unfinished session work, new problems, optional revisits, and read-only planning.');

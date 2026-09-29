@@ -2,7 +2,15 @@
 
 This document is the project memory for continuing work without the original chat. The repository should contain the implementation, learning goals, reviewed-content evidence, remaining work, and current verification status. Read this document and the README before making changes.
 
-## Current update — 2026-09-28
+## Current update — 2026-09-29
+
+The parent approved the **Coach + learning map** home design after reviewing two concepts. The live implementation replaces the fixed Problem 1 hero, separate progress ring, and duplicate chooser with **Your next small win**, a contextual suggestion, a short coach note, and five tappable topic/status tiles. It uses only real records or unfinished work in the current page session. No example history from the concept is included. Approved blue actions and sage coaching colors remain; question content, pacing, video review status, original/adapted counts, and storage formats are unchanged.
+
+Home rules are in `home-plan.js`: prefer the active unfinished attempt (then another unfinished attempt), the first original with no record, a non-independent latest result to revisit, and finally the oldest latest record. Revisit ties use problem order. Opening a map tile only selects a next step; it neither opens a problem nor writes history. Continue opens the existing unfinished attempt with its wrong-answer/help flags intact. An explicit Try again on a completed/revealed attempt opens a fresh attempt via the existing retry flow and retains old records. Unfinished answers do not persist across reload. Mode changes and cross-tab record changes discard the home selection along with the existing transient attempts. Suggestions are authored rules, not live AI or a mastery model.
+
+Map labels distinguish Not yet tried, In progress (session only), Exploring (recorded activity without a correct result), With support, and On my own. Counts keep the established original-record aggregation: hints, videos, coach checks, reveals, and wrong answers can count as exploration but cannot earn independent credit. Adapted/coaching records remain separate. A current unsubmitted selection may show In progress without increasing the explored count. Preview uses temporary activity and never shows retained saved learner records. Home topic text and notes do not expose answers or targeted solution hints.
+
+`node verify.mjs`, JavaScript syntax, `node ui-check.mjs`, and whitespace checks passed. Added tests cover first use, mixed history, all explored, suggested ordering, keyboard focus, selections without events, continuation without erasing support, explicit new attempts, saved reload, preview/resume, and cross-tab clearing. Browser reported no available connection; Computer Use found installed Chrome but launch approval timed out, so no new rendered screenshot or physical iPad validation is claimed. Use the GitHub Pages workflow and live-asset comparison for deployment status.
 
 The parent-approved visual update refines the visual design using the parent’s screenshots: muted blue action buttons, framed secondary buttons, neutral information/navigation, and a separate sage-green Coach’s Corner with white voice and reasoning cards. Active menus have a visible indicator; disabled controls, focus outlines, and underlined source links remain distinct. Coaching actions form two columns and stack on narrow phones. This is a CSS-only app change; no question, timer, grading, speech, storage, or video behavior is added or changed. Existing verification and DOM checks passed. The stylesheet parsed, selected text pairs passed 4.5:1 contrast, and refreshed control borders passed 3:1 against white. Browser connection still failed; these are not rendered screenshots or physical iPad checks.
 
@@ -191,6 +199,7 @@ The current project is a static website: **HTML, CSS, and browser JavaScript mod
 | `index.html` | App structure, navigation, practice dialog, and accessible controls. |
 | `styles.css` | Responsive layout and paper-like mathematics presentation. |
 | `app.js` | Rendering, navigation, learner interactions, video lifecycle, and optional browser-agent tools. |
+| `home-plan.js`, `home-plan.test.mjs` | Read-only home suggestions and status descriptions from original records/current attempts, with synthetic rule checks. |
 | `problems.js` | Reviewed question data, suggested pace, choices, hints, solutions, ratings, source attribution, and reflection prompts. |
 | `videos.js` | Reviewed recommendations, separately stored parent-selected segments, and their combined display list by problem ID; no available clip requires an explicit availability note. |
 | `practice-state.js` | Original attempt state, grading rules including coach support, legacy validation, and original progress. |

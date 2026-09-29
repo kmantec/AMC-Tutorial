@@ -45,17 +45,23 @@
     <section class="learning-mode-bar" aria-label="Learning mode"><div><strong id="learning-mode-name">Parent preview</strong><p id="learning-mode-detail">Try the activities without saving them to Pingping’s notebook.</p></div><div class="mode-actions"><button class="button button-primary" id="start-learning-button">Start learning</button><button class="text-button" id="enter-preview-button" hidden>Parent preview</button><button class="text-button" id="reset-learning-button" hidden>Start fresh</button></div></section>
     <section id="view-home" class="view" aria-labelledby="home-heading">
       <div class="welcome"><div><p class="eyebrow" id="today-date">YOUR NEXT GOOD IDEA</p><h1 id="home-heading">Let’s get curious, Pingping<span class="blue">.</span></h1><p>A little practice. A clearer way of thinking.</p></div><span class="course-tag">AMC 8 <span>TRAINING</span></span></div>
-      <div class="dashboard-grid">
-        <article class="challenge-card">
-          <div class="challenge-top"><span class="label-pill"><span class="tiny-star">✦</span> YOUR STARTING POINT</span><span class="problem-id">2026 · PROBLEM 01</span></div>
-          <h2>One problem.<br>A new way to see it.</h2>
-          <p class="challenge-description">Before you calculate, take a moment to notice.</p>
-          <div class="expression-preview" aria-label="1 plus 2 minus 3 plus 4 plus 5 minus 6 plus 7 plus 8 minus 9 plus 10 plus 11 minus 12"><span class="math-line">1 + 2 − 3 + 4 + 5 − 6 + 7 + 8 − 9 + 10 + 11 − 12</span></div>
-          <div class="challenge-bottom"><button class="button button-lime" data-action="practice">Try this problem <svg class="icon"><use href="#i-arrow"/></svg></button><span>Real exam. Room to think.</span></div>
-        </article>
-        <aside class="progress-card" aria-labelledby="progress-heading"><div class="card-kicker"><svg class="icon"><use href="#i-target"/></svg> YOUR PRACTICE</div><div class="progress-ring" id="progress-ring"><div><strong id="completed-count">0</strong><span>problems explored</span></div></div><h2 id="progress-heading">A fresh page.</h2><p id="progress-message">Your learning record begins with your first problem.</p><div class="practice-metrics"><div><strong id="independent-count">0</strong><span>On my own</span></div><div><strong id="review-count">0</strong><span>To revisit</span></div></div><button class="text-button" data-view="notebook">Open my notebook <svg class="icon"><use href="#i-arrow"/></svg></button></aside>
-      </div>
-      <section class="practice-library" aria-labelledby="practice-library-heading"><div class="section-title"><h2 id="practice-library-heading">Choose your next problem</h2><span>2026 · Problems 1–5</span></div><div id="available-practice" class="available-practice"></div></section>
+      <article class="learning-home" aria-labelledby="next-win-heading">
+        <header class="next-win-header"><div><p class="eyebrow">YOUR NEXT SMALL WIN</p><h2 id="next-win-heading">A little practice. A new idea.</h2></div><span id="home-record-mode" class="home-record-mode">Preview · Nothing saved</span></header>
+        <div class="next-win-layout">
+          <section class="next-problem" aria-labelledby="next-problem-title">
+            <div class="next-problem-top"><span id="home-selection-label" class="eyebrow">COACH’S SUGGESTION</span><span id="home-problem-status"></span></div>
+            <div id="home-selection" aria-live="polite" aria-atomic="true"><p id="home-problem-meta"></p><h3 id="next-problem-title"></h3><p id="home-reason"></p></div>
+            <div class="home-actions"><button id="home-practice" class="button button-primary" type="button">Start Problem 1</button><button id="home-secondary" class="text-button" type="button" hidden></button></div>
+          </section>
+          <aside class="home-coach-note" aria-labelledby="home-coach-heading"><span class="home-coach-icon"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg></span><p class="eyebrow" id="home-coach-heading">A NOTE FROM YOUR COACH</p><p id="home-coach-message"></p><p class="home-coach-signature">GPT 6 Astra Ultra</p></aside>
+        </div>
+        <section class="learning-map" aria-labelledby="practice-library-heading">
+          <div class="learning-map-header"><div><h3 id="practice-library-heading">Your path so far</h3><p>Tap a problem to choose your next step.</p></div><p class="map-count"><strong id="completed-count">0</strong> of <span id="available-count">5</span> explored</p></div>
+          <div id="available-practice" class="learning-map-grid" role="group" aria-label="Choose an original problem"></div>
+          <div class="learning-map-footer"><p><span><strong id="independent-count">0</strong> on my own</span><span><strong id="review-count">0</strong> to revisit</span></p><button class="text-button" data-view="notebook">Open my notebook <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+          <p class="map-explanation">“Explored” includes opening help or checking an answer. Status reflects your latest recorded work, not mastery. Adapted practice stays separate.</p>
+        </section>
+      </article>
       <section class="training-section" aria-labelledby="training-heading"><div class="section-title"><h2 id="training-heading">Make the practice yours</h2><span>Follow your curiosity.</span></div><div class="path-grid">
         <button class="path-card" data-view="papers"><span class="path-icon blue-surface"><svg class="icon"><use href="#i-book"/></svg></span><span class="path-copy"><strong>Explore past papers</strong><span>Seven real exams. Different ways to think.</span></span><svg class="icon path-arrow"><use href="#i-arrow"/></svg></button>
         <button class="path-card" data-view="notebook"><span class="path-icon peach-surface"><svg class="icon"><use href="#i-note"/></svg></span><span class="path-copy"><strong>Revisit an idea</strong><span>Turn a tricky moment into a useful lesson.</span></span><svg class="icon path-arrow"><use href="#i-arrow"/></svg></button>

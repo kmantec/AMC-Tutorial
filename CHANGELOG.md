@@ -1,5 +1,14 @@
 # Change history
 
+## 2026-09-29 — Your next small win: coach and learning map
+
+- Replaced the fixed Problem 1 home card, separate progress ring, and duplicate problem chooser with one responsive home section: a contextual next step, a coach note grounded in actual activity, and five selectable topic/status tiles.
+- Prefer unfinished work in this page session, then an unexplored original, then a gentle revisit. Use separate labels for new, in-progress, exploring, correct with support, and correct independently; retain the established meaning of explored counts and exclude adaptations from original progress. No mastery score or mock history was added.
+- Map selection only changes the suggestion panel. Continue preserves choices and assistance; an explicit fresh try after completion/reveal uses the existing retry flow without clearing history. Preview, mode changes, reload, and cross-tab clearing keep their record boundaries.
+- Preserved the approved colors, original/adapted content, informational pacing, voice/video behavior, and storage keys. Added no new original, timer, paid service, or Firebase integration.
+- Passed `node verify.mjs` (including home-plan rules), relevant JavaScript syntax, `node ui-check.mjs` (including home interactions), and whitespace checks with synthetic records. No Browser connection was available and desktop Chrome launch approval timed out; rendered layout and physical iPad validation remain pending.
+- Updated README, project context, and continuation instructions for this authorized home redesign.
+
 ## 2026-09-28 — Problem 5 full-video fallback
 
 - At the parent’s explicit allowance to reuse the existing video, added it to Q5 as **Parent’s selection**, labeled **Full video · Problems 1–20**. The card asks the learner to find Problem 5 and clearly states that coach review is pending.
