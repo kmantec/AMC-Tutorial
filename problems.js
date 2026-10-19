@@ -836,15 +836,16 @@ export const problems = {
     "prompt": "The diagram shows the number of students at soccer practice each weekday during last week. After computing the mean and median values, Coach discovers that there were actually 21 participants on Wednesday. Which of the following statements describes the change in the mean and median after the correction is made? (Original data: Mon=20, Tue=26, Wed=16, Thu=22, Fri=16)",
     "wording": "original",
     "options": [
-      { "letter": "A", "value": "A", "label": "Mean +1, median unchanged" },
-      { "letter": "B", "value": "B", "label": "Mean +1, median +1" },
-      { "letter": "C", "value": "C", "label": "Mean +1, median +5" },
-      { "letter": "D", "value": "D", "label": "Mean +5, median +1" },
-      { "letter": "E", "value": "E", "label": "Mean +5, median +5" }
+      { "letter": "A", "value": "A", "label": "The mean increases by 1 and the median does not change." },
+      { "letter": "B", "value": "B", "label": "The mean increases by 1 and the median increases by 1." },
+      { "letter": "C", "value": "C", "label": "The mean increases by 1 and the median increases by 5." },
+      { "letter": "D", "value": "D", "label": "The mean increases by 5 and the median increases by 1." },
+      { "letter": "E", "value": "E", "label": "The mean increases by 5 and the median increases by 5." }
     ],
     "answer": "B",
     "answerLabel": "(B) Mean increases by 1 and median increases by 1",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_10",
+    "diagram": "https://latex.artofproblemsolving.com/e/1/7/e1796ef723acbb9a4cfeacf57e69202cddf3e0d3.png",
     "hints": [
       "Original sum = 20+26+16+22+16 = 100. Mean = 100/5 = 20. Median (sorted: 16,16,20,22,26) = 20.",
       "New sum = 100 − 16 + 21 = 105. New mean = 105/5 = 21. New sorted data: 16,20,21,22,26. New median = 21.",
