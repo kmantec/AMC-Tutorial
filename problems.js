@@ -367,5 +367,68 @@ export const problems = {
     "reflection": "Which time does the given average speed describe, and which time does the question ask for?",
     "alternative": "Use a distance-equivalent check. At the given average driving rate, 3 hours of driving would cover 3 × 40 = 120 miles. The actual distance is 20 miles less. Covering that 20 miles at 40 miles per hour would take half an hour, so the lunch break accounts for 30 minutes. This uses the average rate; the car need not travel at exactly 40 miles per hour at every instant.",
     "reviewedAt": "2026-09-27"
+  },
+  "2019-1": {
+    "id": "2019-1",
+    "year": 2019,
+    "number": 1,
+    "suggestedPace": "1 min",
+    "title": "Max out the budget",
+    "topic": "Arithmetic · budgeting",
+    "prompt": "Ike and Mike go into a sandwich shop with a total of $30.00 to spend. Sandwiches cost $4.50 each and soft drinks cost $1.00 each. Ike and Mike plan to buy as many sandwiches as they can, and use any remaining money to buy soft drinks. Counting both sandwiches and soft drinks, how many items will they buy?",
+    "wording": "original",
+    "options": [
+      {
+        "letter": "A",
+        "value": 6,
+        "label": "6"
+      },
+      {
+        "letter": "B",
+        "value": 7,
+        "label": "7"
+      },
+      {
+        "letter": "C",
+        "value": 8,
+        "label": "8"
+      },
+      {
+        "letter": "D",
+        "value": 9,
+        "label": "9"
+      },
+      {
+        "letter": "E",
+        "value": 10,
+        "label": "10"
+      }
+    ],
+    "answer": 9,
+    "answerLabel": "(D) 9",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_1",
+    "hints": [
+      "Find the greatest number of whole sandwiches that fits inside the $30 budget.",
+      "Six sandwiches cost $27.00. How much money remains, and how many soft drinks can it buy?",
+      "Add the sandwich count and the drink count to find the total number of items."
+    ],
+    "method": "Buy as many sandwiches as the budget allows, then spend the remainder on drinks.",
+    "score": 9,
+    "ratingReason": "A clear two-step reasoning path: max out the larger item first, then use the remainder on the smaller item.",
+    "solution": [
+      "Each sandwich costs $4.50. Try 6 sandwiches: 6 × $4.50 = $27.00, which stays within $30.",
+      "Seven sandwiches would cost 7 × $4.50 = $31.50, which exceeds the budget.",
+      "Remaining money after 6 sandwiches: $30.00 − $27.00 = $3.00.",
+      "Each soft drink costs $1.00, so $3.00 buys 3 soft drinks.",
+      "Total items: 6 sandwiches + 3 soft drinks = 9. Choose D."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1–3.",
+    "tipTitle": "Max out the most expensive item first.",
+    "tip": "When you need both items and can choose how many of each to buy, start by buying as many of the more expensive item as the budget allows. The leftover money then stretches further on the cheaper item.",
+    "tipCredit": "Additional coaching by GPT 6 Astra Ultra.",
+    "commonError": "Buying 7 sandwiches without checking that 7 × $4.50 = $31.50 exceeds the budget, or forgetting to add the two item counts together.",
+    "reflection": "Why can't we solve this by dividing $30.00 by $4.50 and rounding the result down to the nearest whole number?",
+    "alternative": "Divide $30.00 by $4.50 to get about 6.67, so at most 6 whole sandwiches. Then $30.00 − 6 × $4.50 = $3.00, which buys 3 drinks. The total is 6 + 3 = 9. The division shortcut gives only the sandwich count; you must still handle the remainder separately.",
+    "reviewedAt": "2026-10-19"
   }
 };

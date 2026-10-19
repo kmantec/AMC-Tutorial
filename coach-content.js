@@ -424,7 +424,91 @@ export const coachGuides = {
         ]
       },
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_5",
-      "credit": "Changed-number practice and coaching authored by GPT 6 Astra Ultra. The driving-time subtraction method is also illustrated in LIVE by Po-Shen Loh’s written solution to the original."
+      "credit": "Changed-number practice and coaching authored by GPT 6 Astra Ultra. The driving-time subtraction method is also illustrated in LIVE by Po-Shen Loh's written solution to the original."
+    }
+  },
+  "2019-1": {
+    intro: "The problem gives you a budget and two items with different prices. Try working out the numbers yourself first; we can check each step together.",
+    checks: [
+      {
+        id: "max-sandwiches",
+        prompt: "Which calculation finds the greatest number of whole sandwiches Ike and Mike can buy?",
+        options: [
+          {
+            id: "a",
+            label: "$30.00 ÷ $4.50 ≈ 6.67, so buy 6 sandwiches.",
+            correct: true,
+            feedback: "Yes. Dividing the budget by the sandwich price shows 6 whole sandwiches fit. Check: 6 × $4.50 = $27.00, which is under $30.00."
+          },
+          {
+            id: "b",
+            label: "Buy 7 sandwiches because 7 × $4.50 = $31.50 is over the budget, so round down.",
+            correct: false,
+            feedback: "7 × $4.50 = $31.50 exceeds the $30.00 budget. Start lower: 6 sandwiches cost $27.00 and stay within the budget. The leftover can then buy drinks."
+          }
+        ]
+      },
+      {
+        id: "remaining-spend",
+        prompt: "After buying 6 sandwiches for $27.00, what should you do next?",
+        options: [
+          {
+            id: "a",
+            label: "Subtract $27.00 from $30.00 to find $3.00 left, then divide by $1.00 per drink to get 3 drinks.",
+            correct: true,
+            feedback: "Yes. The $3.00 remainder buys exactly 3 soft drinks at $1.00 each. Then add: 6 + 3 = 9 items total."
+          },
+          {
+            id: "b",
+            label: "Divide $30.00 by $4.50 to get about 6.67 items and round up to 7.",
+            correct: false,
+            feedback: "6.67 is the number of sandwiches possible if fractional sandwiches existed, not the total item count. You need to handle the remainder separately: 6 sandwiches cost $27.00, leaving $3.00 for drinks."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-1-a",
+      sourceProblem: "2019-1",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "The prices and budget have changed. Use the same reasoning to find the total number of items.",
+      facts: [
+        "Total budget: $40.00",
+        "Each sandwich costs $7.50",
+        "Each soft drink costs $1.00"
+      ],
+      options: [
+        { letter: "A", value: 7, label: "7" },
+        { letter: "B", value: 9, label: "9" }
+      ],
+      answer: 7,
+      answerLabel: "(A) 7",
+      solution: [
+        "Find the greatest number of whole sandwiches: $40.00 ÷ $7.50 ≈ 5.33, so buy 5 sandwiches.",
+        "5 sandwiches cost 5 × $7.50 = $37.50. Remaining money: $40.00 − $37.50 = $2.50.",
+        "Buy soft drinks with the remainder: $2.50 ÷ $1.00 = 2 whole drinks (with $0.50 left over that cannot buy another full item).",
+        "Total items: 5 sandwiches + 2 drinks = 7."
+      ],
+      reflection: {
+        id: "adapted-budget-reason",
+        prompt: "True or false: you could buy 6 sandwiches if the budget were $45.00 instead of $40.00.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Yes. 6 × $7.50 = $45.00 uses the entire $45.00 budget exactly, leaving nothing for drinks. Total items would be 6."
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Check: 6 × $7.50 = $45.00, which exactly matches the new budget. So 6 sandwiches are possible, but no money remains for drinks. The total is 6 items."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_1",
+      credit: "Changed-number practice and coaching authored by GPT 6 Astra Ultra, using the max-out-first method from AoPS Solutions 1–3 for the original problem."
     }
   }
 };

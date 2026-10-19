@@ -51,7 +51,23 @@ export const recommendedVideos = {
   // Coach recommendation remains pending actual segment review.
   "2026-4": [],
   // A full-video parent selection is available; no Q5 segment has passed review.
-  "2026-5": []
+  "2026-5": [],
+  "2019-1": [
+    {
+      "id": "jo7ME7qg4Sg",
+      "title": "AMC 8 2019: Problem 1 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=jo7ME7qg4Sg&t=0s",
+      "startSeconds": 0,
+      "endSeconds": 38,
+      "segmentLabel": "Problem 1 · 0:00–0:38",
+      "reason": "A short focused walkthrough of the sandwich problem. Good for a quick second explanation after your own attempt.",
+      "reviewNote": "GPT 6 Astra Ultra recommendation: the Problem 1 segment was reviewed using video frames and visible English captions. It shows the calculation clearly. The segment ends at 0:38.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-19",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_1"
+    }
+  ]
 };
 
 // Supplied by the parent on 2026-09-27, separately from reviewed recommendations.
