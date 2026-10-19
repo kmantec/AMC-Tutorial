@@ -990,5 +990,148 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_7",
       credit: "Changed-number practice and coaching authored by Hermes Agent."
     }
+  },
+  "2019-8": {
+    intro: "Work step by step: after each gift, multiply by the fraction that remains.",
+    checks: [
+      {
+        id: "after-pedro",
+        prompt: "After giving 20% to Pedro, what percentage of the marbles does Gilda have left?",
+        options: [
+          { id: "a", label: "80%", correct: true, feedback: "Yes. 100% − 20% = 80% remains." },
+          { id: "b", label: "20%", correct: false, feedback: "She gave away 20%, so what's left is 100% − 20% = 80%." }
+        ]
+      },
+      {
+        id: "after-ebony",
+        prompt: "After giving 10% of what's left to Ebony, what fraction of the original does she have?",
+        options: [
+          { id: "a", label: "0.8 × 0.9 = 0.72 = 72%", correct: true, feedback: "Yes. She keeps 90% of the 80% she had: 0.9 × 0.8 = 0.72." },
+          { id: "b", label: "0.8 − 0.1 = 0.7 = 70%", correct: false, feedback: "The 10% is taken from what's left (80%), not from the original. Multiply: 0.9 × 0.8 = 0.72." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-8-a",
+      sourceProblem: "2019-8",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A store has a 30% off sale, then takes an additional 20% off the sale price. What is the total discount percentage?",
+      options: [
+        { letter: "A", value: "A", label: "44%" },
+        { letter: "B", value: "B", label: "50%" }
+      ],
+      answer: "A",
+      answerLabel: "(A) 44%",
+      solution: [
+        "After 30% off, you pay 70% of the original.",
+        "Then 20% off the sale price: you pay 80% of 70% = 0.8 × 0.7 = 0.56 = 56%.",
+        "Total discount = 100% − 56% = 44%."
+      ],
+      reflection: {
+        id: "adapted-percent-reason",
+        prompt: "True or false: A 50% off followed by another 50% off gives a total discount of 75%.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Yes! After 50% off, you pay 50%. Another 50% off: 0.5 × 0.5 = 0.25 = 25% paid. Discount = 100% − 25% = 75%." },
+          { id: "false", label: "False", correct: false, feedback: "Let's check: pay 50%, then 50% of that = 25% of original paid. Discount = 75%. So it's true!" }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_8",
+      credit: "Changed-number practice and coaching authored by Hermes Agent."
+    }
+  },
+  "2019-9": {
+    intro: "Remember the formula for the volume of a cylinder: V = πr²h. Pay attention to radius vs diameter.",
+    checks: [
+      {
+        id: "alex-radius",
+        prompt: "Alex's can has diameter 6 cm. What is its radius?",
+        options: [
+          { id: "a", label: "3 cm", correct: true, feedback: "Yes. Radius = diameter ÷ 2 = 6 ÷ 2 = 3 cm." },
+          { id: "b", label: "6 cm", correct: false, feedback: "Remember radius is half the diameter. 6 ÷ 2 = 3 cm." }
+        ]
+      },
+      {
+        id: "felicia-volume",
+        prompt: "Felicia's can has r = 6 cm, h = 6 cm. What is its volume?",
+        options: [
+          { id: "a", label: "π × 36 × 6 = 216π", correct: true, feedback: "Yes. π × 6² × 6 = π × 36 × 6 = 216π." },
+          { id: "b", label: "π × 6 × 6 = 36π", correct: false, feedback: "Don't forget to square the radius! r² = 6² = 36, not 6." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-9-a",
+      sourceProblem: "2019-9",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Can A has diameter 8 cm and height 10 cm. Can B has diameter 10 cm and height 8 cm. What is the ratio of volume of Can A to Can B?",
+      options: [
+        { letter: "A", value: "A", label: "16:25" },
+        { letter: "B", value: "B", label: "25:16" }
+      ],
+      answer: "A",
+      answerLabel: "(A) 16:25",
+      solution: [
+        "Can A: r = 4, h = 10 → V = π×16×10 = 160π.",
+        "Can B: r = 5, h = 8 → V = π×25×8 = 200π.",
+        "Ratio = 160π : 200π = 160:200 = 16:25."
+      ],
+      reflection: {
+        id: "adapted-cylinder-reason",
+        prompt: "True or false: If both cans had the same height 10 cm, the ratio of A (d=8) to B (d=10) would be 16:25.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Yes! Same height cancels out. Ratio = r² ratios = 4²:5² = 16:25." },
+          { id: "false", label: "False", correct: false, feedback: "Actually it is true. With same height, volume depends only on r². So 4²:5² = 16:25." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_9",
+      credit: "Changed-number practice and coaching authored by Hermes Agent."
+    }
+  },
+  "2019-10": {
+    intro: "Find the original mean and median first, then recalculate with the corrected Wednesday value.",
+    checks: [
+      {
+        id: "original-mean",
+        prompt: "Original data: Mon=20, Tue=26, Wed=16, Thu=22, Fri=16. What is the mean?",
+        options: [
+          { id: "a", label: "100 ÷ 5 = 20", correct: true, feedback: "Yes. Sum = 20+26+16+22+16 = 100. Mean = 100/5 = 20." },
+          { id: "b", label: "20 + 26 + 16 + 22 + 16 = 100, so mean = 100", correct: false, feedback: "Mean = sum ÷ number of values. 100 ÷ 5 = 20, not 100." }
+        ]
+      },
+      {
+        id: "new-mean",
+        prompt: "If Wednesday is corrected to 21, what is the new mean?",
+        options: [
+          { id: "a", label: "(100 − 16 + 21) ÷ 5 = 105 ÷ 5 = 21", correct: true, feedback: "Yes. Sum increased by 5 to 105. Mean = 105/5 = 21. So mean increased by 1." },
+          { id: "b", label: "100 ÷ 5 + 5 = 25", correct: false, feedback: "The correction adds 5 to the total, so the mean increases by 5/5 = 1, not 5. New mean = 20 + 1 = 21." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-10-a",
+      sourceProblem: "2019-10",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A student's quiz scores are 8, 9, 5, 7, 6. She realizes the 5 should have been an 8. What happens to the mean and median?",
+      options: [
+        { letter: "A", value: "A", label: "Mean +0.6, median +1" },
+        { letter: "B", value: "B", label: "Mean +1, median +0.5" }
+      ],
+      answer: "A",
+      answerLabel: "(A) Mean +0.6, median +1",
+      solution: [
+        "Original: 5,6,7,8,9. Sum = 35. Mean = 7. Median = 7.",
+        "Corrected: 6,7,8,8,9. Sum = 38. Mean = 7.6 (+0.6). Median = 8 (+1)."
+      ],
+      reflection: {
+        id: "adapted-stats-reason",
+        prompt: "True or false: If a data value increases by 3 in a set of 5 numbers, the mean always increases by 0.6.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Yes! The sum increases by 3, so mean increases by 3/5 = 0.6 regardless of which value changed." },
+          { id: "false", label: "False", correct: false, feedback: "Actually it's true. Mean = sum ÷ count. An increase of 3 in the sum always increases the mean by 3/5 = 0.6." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_10",
+      credit: "Changed-number practice and coaching authored by Hermes Agent."
+    }
   }
 };

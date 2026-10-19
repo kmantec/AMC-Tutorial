@@ -163,6 +163,54 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-19",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_7"
     }
+  ],
+  "2019-8": [
+    {
+      "id": "IgpayYB48C4",
+      "title": "AMC8 2019 Full Solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=IgpayYB48C4&t=1244s",
+      "startSeconds": 1244,
+      "endSeconds": 1340,
+      "segmentLabel": "Problem 8 · 20:44–22:20",
+      "reason": "Full-test walkthrough covering the consecutive percentage problem step by step.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames. Covers 0.8×0.9×0.75 = 0.54 approach.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-19",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_8"
+    }
+  ],
+  "2019-9": [
+    {
+      "id": "8njQzoztDGc",
+      "title": "AMC 8 2019 — Problems #6-10",
+      "channel": "The Learning Royal",
+      "watchUrl": "https://www.youtube.com/watch?v=8njQzoztDGc&t=190s",
+      "startSeconds": 190,
+      "endSeconds": 265,
+      "segmentLabel": "Problem 9 · 3:10–4:25",
+      "reason": "Covers cylinder volume comparison with clear r²h formula explanation.",
+      "reviewNote": "Hermes Agent recommendation: reviewed the Problem 9 segment from transcript. Covers radius from diameter, volume formula, and ratio.",
+      "reviewBasis": "Transcript analysis",
+      "reviewedAt": "2026-10-19",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_9"
+    }
+  ],
+  "2019-10": [
+    {
+      "id": "8njQzoztDGc",
+      "title": "AMC 8 2019 — Problems #6-10",
+      "channel": "The Learning Royal",
+      "watchUrl": "https://www.youtube.com/watch?v=8njQzoztDGc&t=265s",
+      "startSeconds": 265,
+      "endSeconds": 350,
+      "segmentLabel": "Problem 10 · 4:25–5:50",
+      "reason": "Explains mean and median changes with corrected data.",
+      "reviewNote": "Hermes Agent recommendation: reviewed the Problem 10 segment from transcript. Covers original and corrected mean/median computation.",
+      "reviewBasis": "Transcript analysis",
+      "reviewedAt": "2026-10-19",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_10"
+    }
   ]
 };
 

@@ -737,5 +737,137 @@ export const problems = {
     "reflection": "What would the answer be if the tests were each worth 120 points maximum instead of 100?",
     "alternative": "Compare each score to the average: 76 is −5, 94 is +13, 87 is +6. Net = +14. To balance to 0, the last two must total −14. With one at +19 (100), the other must be −33. 81 − 33 = 48.",
     "reviewedAt": "2026-10-19"
+  },
+  "2019-8": {
+    "id": "2019-8",
+    "year": 2019,
+    "number": 8,
+    "suggestedPace": "2 min",
+    "title": "Consecutive percentage deductions",
+    "topic": "Algebra · percentages",
+    "prompt": "Gilda has a bag of marbles. She gives 20% of them to her friend Pedro. Then Gilda gives 10% of what is left to another friend, Ebony. Finally, Gilda gives 25% of what is now left in the bag to her brother Jimmy. What percentage of her original bag of marbles does Gilda have left for herself?",
+    "wording": "original",
+    "options": [
+      { "letter": "A", "value": "A", "label": "20" },
+      { "letter": "B", "value": "B", "label": "33 1/3" },
+      { "letter": "C", "value": "C", "label": "38" },
+      { "letter": "D", "value": "D", "label": "45" },
+      { "letter": "E", "value": "E", "label": "54" }
+    ],
+    "answer": "E",
+    "answerLabel": "(E) 54",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_8",
+    "hints": [
+      "After giving 20% away, what percentage does she have left? Multiply the remaining percentages step by step.",
+      "After giving 20% away, she has 80% left. Then she gives 10% of that, so she keeps 90% of the 80%.",
+      "Keep going: after Ebony, she has 0.8 × 0.9 = 0.72 = 72%. Then she gives 25% (keeps 75%) of that: 0.75 × 0.72 = 0.54 = 54%."
+    ],
+    "method": "Multiply the remaining percentages after each step.",
+    "score": 8,
+    "ratingReason": "Clear step-by-step percentage reduction — a common AMC pattern.",
+    "solution": [
+      "Start with 100% of the marbles.",
+      "After giving 20% to Pedro: remaining = 80%.",
+      "She gives 10% of what's left to Ebony → keeps 90% of 80% = 0.9 × 0.8 = 0.72 = 72%.",
+      "She gives 25% of what's left to Jimmy → keeps 75% of 72% = 0.75 × 0.72 = 0.54 = 54%.",
+      "Gilda has 54% left for herself. Answer: E."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1–2.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Multiply the leftovers, not the giveaways.",
+    "tip": "Convert each 'give X%' to 'keep (100−X)%', then multiply. 0.8 × 0.9 × 0.75 = 0.54.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Adding or subtracting percentages directly (20+10+25=55) instead of multiplying stepwise.",
+    "reflection": "Why can't we just add 20% + 10% + 25% = 55% and say she gave away 55%?",
+    "alternative": "Assume 100 marbles. Give 20 → 80 left. Give 10% of 80 = 8 → 72 left. Give 25% of 72 = 18 → 54 left. So 54% remains.",
+    "reviewedAt": "2026-10-19"
+  },
+  "2019-9": {
+    "id": "2019-9",
+    "year": 2019,
+    "number": 9,
+    "suggestedPace": "2 min",
+    "title": "Volume ratio of two cylinders",
+    "topic": "Geometry · cylinder volume",
+    "prompt": "Alex and Felicia each have cats as pets. Alex buys cat food in cylindrical cans that are 6 cm in diameter and 12 cm high. Felicia buys cat food in cylindrical cans that are 12 cm in diameter and 6 cm high. What is the ratio of the volume of one of Alex's cans to the volume of one of Felicia's cans?",
+    "wording": "original",
+    "options": [
+      { "letter": "A", "value": "A", "label": "1:4" },
+      { "letter": "B", "value": "B", "label": "1:2" },
+      { "letter": "C", "value": "C", "label": "1:1" },
+      { "letter": "D", "value": "D", "label": "2:1" },
+      { "letter": "E", "value": "E", "label": "4:1" }
+    ],
+    "answer": "B",
+    "answerLabel": "(B) 1:2",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_9",
+    "hints": [
+      "Volume of a cylinder = πr²h. What are the radii?",
+      "Alex: r = 3 cm, h = 12 cm → volume = π×9×12 = 108π. Felicia: r = 6 cm, h = 6 cm → volume = π×36×6 = 216π.",
+      "Ratio = 108π : 216π = 108 : 216 = 1 : 2."
+    ],
+    "method": "Use the cylinder volume formula and compare.",
+    "score": 8,
+    "ratingReason": "A straightforward volume comparison — good practice with the cylinder formula.",
+    "solution": [
+      "Volume of a cylinder = πr²h, where r is the radius (half the diameter).",
+      "Alex: diameter 6 cm → r = 3 cm, h = 12 cm. Volume = π × 3² × 12 = π × 9 × 12 = 108π.",
+      "Felicia: diameter 12 cm → r = 6 cm, h = 6 cm. Volume = π × 6² × 6 = π × 36 × 6 = 216π.",
+      "Ratio Alex : Felicia = 108π : 216π = 1 : 2.",
+      "Answer: B."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1–2.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Square the radius, not the diameter.",
+    "tip": "Remember r = d/2. Doubling the diameter quadruples the area (r² effect), but halving the height halves it. The net is 2× larger for Felicia.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Using the diameter instead of the radius in the formula, or forgetting to square the radius.",
+    "reflection": "If both cans had the same height, what would the ratio be? What if both had the same diameter?",
+    "alternative": "Notice Alex's radius is half of Felicia's but height is double. Volume depends on r²h: (1/2)² × 2 = 1/4 × 2 = 1/2. So Alex's is half of Felicia's.",
+    "reviewedAt": "2026-10-19"
+  },
+  "2019-10": {
+    "id": "2019-10",
+    "year": 2019,
+    "number": 10,
+    "suggestedPace": "2 min",
+    "title": "Mean and median after correction",
+    "topic": "Statistics · mean & median",
+    "prompt": "The diagram shows the number of students at soccer practice each weekday during last week. After computing the mean and median values, Coach discovers that there were actually 21 participants on Wednesday. Which of the following statements describes the change in the mean and median after the correction is made? (Original data: Mon=20, Tue=26, Wed=16, Thu=22, Fri=16)",
+    "wording": "original",
+    "options": [
+      { "letter": "A", "value": "A", "label": "Mean +1, median unchanged" },
+      { "letter": "B", "value": "B", "label": "Mean +1, median +1" },
+      { "letter": "C", "value": "C", "label": "Mean +1, median +5" },
+      { "letter": "D", "value": "D", "label": "Mean +5, median +1" },
+      { "letter": "E", "value": "E", "label": "Mean +5, median +5" }
+    ],
+    "answer": "B",
+    "answerLabel": "(B) Mean increases by 1 and median increases by 1",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_10",
+    "hints": [
+      "Original sum = 20+26+16+22+16 = 100. Mean = 100/5 = 20. Median (sorted: 16,16,20,22,26) = 20.",
+      "New sum = 100 − 16 + 21 = 105. New mean = 105/5 = 21. New sorted data: 16,20,21,22,26. New median = 21.",
+      "Mean increases by 1, median increases by 1."
+    ],
+    "method": "Compute original mean and median, then recompute with the corrected value.",
+    "score": 8,
+    "ratingReason": "A practical statistics problem that tests both mean and median understanding.",
+    "solution": [
+      "Original data: 20, 26, 16, 22, 16. Sum = 100. Mean = 100/5 = 20.",
+      "Sorted: 16, 16, 20, 22, 26. Median (middle value) = 20.",
+      "Corrected Wednesday: 21 instead of 16. New sum = 100 − 16 + 21 = 105. New mean = 105/5 = 21.",
+      "New sorted data: 16, 20, 21, 22, 26. New median = 21.",
+      "Both mean and median increased by 1. Answer: B."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solution.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Sort before finding the median.",
+    "tip": "Always sort data before finding the median. The correction moved the middle value from 20 to 21.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Forgetting to sort the data before finding the median, or thinking the median is the 3rd value in original order.",
+    "reflection": "Why did the median increase by exactly 1 even though Wednesday's value increased by 5?",
+    "alternative": "The sum increased by 5, so mean increased by 5/5 = 1. The median moved from 20 to 21 because the corrected value (21) became the new middle of the sorted list.",
+    "reviewedAt": "2026-10-19"
   }
 };
