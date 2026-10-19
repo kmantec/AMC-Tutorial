@@ -605,5 +605,48 @@ export const problems = {
     "reflection": "Why do the diagonals of a rhombus always bisect each other at right angles, but this is not true for a general parallelogram?",
     "alternative": "Each of the four right triangles has legs 12 and 5, so area = (12×5)/2 = 30 each. Four triangles: 4×30 = 120. Same answer, confirms the formula.",
     "reviewedAt": "2026-10-19"
+  },
+  "2019-5": {
+    "id": "2019-5",
+    "year": 2019,
+    "number": 5,
+    "suggestedPace": "1.5 min",
+    "title": "Tortoise and Hare race graph",
+    "topic": "Logic · graph interpretation",
+    "prompt": "A tortoise challenges a hare to a race. The hare eagerly agrees and quickly runs ahead, leaving the slow-moving tortoise behind. Confident that he will win, the hare stops to take a nap. Meanwhile, the tortoise walks at a slow steady pace for the entire race. The hare awakes and runs to the finish line, only to find the tortoise already there. Which of the following graphs matches the description of the race, showing the distance d traveled by the two animals over time t from start to finish?",
+    "wording": "original",
+    "options": [
+      { "letter": "A", "value": "A", "label": "Tortoise: straight steady line to finish. Hare: steep up, then flat (nap), then steep up — finishes BEFORE tortoise." },
+      { "letter": "B", "value": "B", "label": "Tortoise: straight steady line to finish. Hare: steep up, then flat (nap), then steep up — finishes AFTER tortoise." },
+      { "letter": "C", "value": "C", "label": "Tortoise: straight steady line to finish. Hare: steep up, then dips DOWN (goes backward), then steep up." },
+      { "letter": "D", "value": "D", "label": "Tortoise: CURVED line (accelerating). Hare: steep up, flat, steep up — finishes first." },
+      { "letter": "E", "value": "E", "label": "Tortoise: straight line finishing first. Hare: straight line (no nap), finishes second." }
+    ],
+    "answer": "B",
+    "answerLabel": "(B) Tortoise steady line → finish first; Hare steep-flat-steep → finishes second",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_5",
+    "hints": [
+      "The tortoise walks at a constant speed the whole time. Which graphs show a straight, steady line for the tortoise?",
+      "The hare takes a nap — during that time, its distance does not change. Which graphs show a flat horizontal segment for the hare?",
+      "The tortoise reaches the finish first. In the correct graph, the tortoise's line should reach the top before the hare's line does."
+    ],
+    "method": "Eliminate graphs that contradict each fact: constant speed, nap (flat segment), and tortoise wins.",
+    "score": 8,
+    "ratingReason": "Pure logic: no calculation needed, just careful graph reading and process of elimination.",
+    "solution": [
+      "Tortoise walks at constant speed → its graph is a straight line from start to finish. This rules out D (tortoise curve).",
+      "Hare naps → its distance stays the same (flat horizontal segment). This rules out C (distance decreases) and E (no flat segment).",
+      "Tortoise wins → the tortoise reaches the finish before the hare. In A, the hare finishes first, so rule out A.",
+      "Only B remains: tortoise steady line wins; hare goes fast, naps (flat), goes fast again, but finishes second."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solution.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Read graphs one feature at a time.",
+    "tip": "Eliminate wrong choices by checking one fact at a time: constant speed (straight line), nap (flat segment), who wins (who reaches the top first).",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Mixing up which animal's line is which, or not noticing that the hare's nap means a flat (not downward) segment.",
+    "reflection": "Why does a constant speed produce a straight line on a distance-time graph? What would a curved line mean?",
+    "alternative": "You can also reason forward: tortoise line is a steady diagonal. Hare line is steep diagonal, then flat, then steep diagonal — but must end at a later time than the tortoise. Only B matches this shape.",
+    "reviewedAt": "2026-10-19"
   }
 };

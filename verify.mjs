@@ -61,7 +61,7 @@ assert.deepEqual([1,2,3].map((value) => matrix.flat().filter((cell) => cell === 
 assert.equal(matrix.flat().reduce((total,value) => total+value,0),problems['2026-2'].answer);
 assert.deepEqual([6*5,4*Math.sqrt(36),6+8+Math.hypot(6,8)],[30,24,24]);
 assert.equal(problems['2026-3'].answer,'D');
-assert.deepEqual(Object.keys(problems),['2026-1','2026-2','2026-3','2026-4','2026-5','2019-1','2019-2','2019-3','2019-4']);
+assert.deepEqual(Object.keys(problems),['2026-1','2026-2','2026-3','2026-4','2026-5','2019-1','2019-2','2019-3','2019-4','2019-5']);
 const fourth = problems['2026-4'];
 assert.match(fourth.prompt,/20%/);
 assert.match(fourth.prompt,/50%/);
@@ -127,6 +127,13 @@ assert.equal(fourth2019.answer,'D');
 assert.equal(fourth2019.prompt,'Quadrilateral ABCD is a rhombus with perimeter 52 meters. The length of diagonal AC is 24 meters. What is the area in square meters of rhombus ABCD?');
 assert.equal(recommendedVideos['2019-4'].length,1);
 assert.equal(recommendedVideos['2019-4'][0].id,'IiFFDDITE6Q');
+const fifth2019 = problems['2019-5'];
+assert.equal(fifth2019.year,2019);
+assert.equal(fifth2019.answer,'B');
+assert.match(fifth2019.prompt,/tortoise/);
+assert.match(fifth2019.prompt,/hare/);
+assert.equal(recommendedVideos['2019-5'].length,1);
+assert.equal(recommendedVideos['2019-5'][0].id,'IgpayYB48C4');
 assert.equal(gradeAnswer(fifth,newAttempt(),30).independent,true);
 // Wrong answers, hints and video support must stay local to their question.
 const second = newAttempt(), third = newAttempt();

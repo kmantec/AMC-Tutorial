@@ -115,6 +115,22 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-19",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_4"
     }
+  ],
+  "2019-5": [
+    {
+      "id": "IgpayYB48C4",
+      "title": "AMC8 2019 Full Solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=IgpayYB48C4&t=871s",
+      "startSeconds": 871,
+      "endSeconds": 940,
+      "segmentLabel": "Problem 5 · 14:31–15:40",
+      "reason": "Full-test walkthrough covering the tortoise-and-hare graph with elimination reasoning.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 5 segment was reviewed via video frames and visible English captions. Covers all three elimination criteria clearly.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-19",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_5"
+    }
   ]
 };
 

@@ -753,5 +753,84 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_4",
       credit: "Changed-number practice and coaching authored by Hermes Agent, using the perpendicular-bisector property from AoPS Solution 1."
     }
+  },
+  "2019-5": {
+    intro: "This is a logic puzzle about reading distance-time graphs. Eliminate wrong choices one step at a time.",
+    checks: [
+      {
+        id: "constant-speed",
+        prompt: "The tortoise walks at a constant speed. What shape should the tortoise's graph be?",
+        options: [
+          {
+            id: "a",
+            label: "A straight diagonal line from bottom-left to top-right",
+            correct: true,
+            feedback: "Yes! Constant speed means the distance increases by the same amount each second — that's a straight line."
+          },
+          {
+            id: "b",
+            label: "A curved line that gets steeper over time",
+            correct: false,
+            feedback: "A curved line would mean the tortoise is accelerating (speeding up). The problem says it walks at a 'slow steady pace,' so it must be a straight line."
+          }
+        ]
+      },
+      {
+        id: "nap-shape",
+        prompt: "When the hare takes a nap, what happens to the distance it has traveled?",
+        options: [
+          {
+            id: "a",
+            label: "The distance stays the same (flat horizontal line)",
+            correct: true,
+            feedback: "Yes. The hare is asleep, not moving, so its distance doesn't change during the nap."
+          },
+          {
+            id: "b",
+            label: "The distance keeps increasing, just more slowly",
+            correct: false,
+            feedback: "If the hare is napping, it's not moving at all. The distance stays exactly the same, shown as a flat horizontal line."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-5-a",
+      sourceProblem: "2019-5",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A cheetah and a sloth race. The cheetah sprints ahead, stops to rest, then sprints again but reaches the finish line just after the sloth. Which graph matches?",
+      options: [
+        { letter: "A", value: "A", label: "Sloth: steady diagonal. Cheetah: steep, flat, steep — cheetah finishes first." },
+        { letter: "B", value: "B", label: "Sloth: steady diagonal. Cheetah: steep, flat, steep — sloth finishes first." }
+      ],
+      answer: "B",
+      answerLabel: "(B) Sloth steady → wins; Cheetah steep-flat-steep → second",
+      solution: [
+        "Sloth moves at constant speed → straight diagonal line.",
+        "Cheetah rests → flat segment (distance unchanged).",
+        "Sloth finishes first → sloth's line reaches the top before the cheetah's.",
+        "Only B matches all three conditions."
+      ],
+      reflection: {
+        id: "adapted-race-reason",
+        prompt: "True or false: If the cheetah rested longer and still finished first, the graph would show a longer flat segment for the cheetah but still reaching the top first.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Yes! A longer nap = a longer flat segment. But if the cheetah still finishes first, its line reaches the top before the sloth's — that's what matters."
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Actually, a longer flat segment just means a longer nap. The finishing order is determined by which line reaches the top first, not by the nap length. So it can be true!"
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_5",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the same elimination logic as the AoPS solution."
+    }
   }
 };
