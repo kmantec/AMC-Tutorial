@@ -430,5 +430,68 @@ export const problems = {
     "reflection": "Why can't we solve this by dividing $30.00 by $4.50 and rounding the result down to the nearest whole number?",
     "alternative": "Divide $30.00 by $4.50 to get about 6.67, so at most 6 whole sandwiches. Then $30.00 − 6 × $4.50 = $3.00, which buys 3 drinks. The total is 6 + 3 = 9. The division shortcut gives only the sandwich count; you must still handle the remainder separately.",
     "reviewedAt": "2026-10-19"
+  },
+  "2019-2": {
+    "id": "2019-2",
+    "year": 2019,
+    "number": 2,
+    "suggestedPace": "1 min 30 sec",
+    "title": "Rectangles side by side",
+    "topic": "Geometry · area from a diagram",
+    "prompt": "Three identical rectangles are put together to form rectangle ABCD. Given that the length of the shorter side of each smaller rectangle is 5 feet, what is the area in square feet of rectangle ABCD?",
+    "wording": "original",
+    "options": [
+      {
+        "letter": "A",
+        "value": 45,
+        "label": "45"
+      },
+      {
+        "letter": "B",
+        "value": 75,
+        "label": "75"
+      },
+      {
+        "letter": "C",
+        "value": 100,
+        "label": "100"
+      },
+      {
+        "letter": "D",
+        "value": 125,
+        "label": "125"
+      },
+      {
+        "letter": "E",
+        "value": 150,
+        "label": "150"
+      }
+    ],
+    "answer": 150,
+    "answerLabel": "(E) 150",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_2",
+    "hints": [
+      "Look at the diagram. Two rectangles lie flat on top of each other — what does that tell you about the longer side of each small rectangle?",
+      "The longer side of each small rectangle equals two short sides: 2 × 5 = 10 feet. Now find the dimensions of the big rectangle.",
+      "The big rectangle's width is long side + short side = 10 + 5 = 15. Its height equals the long side = 10. Multiply to find the area."
+    ],
+    "method": "Find each dimension of the big rectangle from the small rectangles.",
+    "score": 9,
+    "ratingReason": "A clear visual reasoning path: the diagram tells you the relationship between the short and long sides without needing formulas.",
+    "solution": [
+      "Each small rectangle has short side = 5 feet.",
+      "Two rectangles stacked vertically match the length of one rectangle horizontally, so the long side of each small rectangle = 2 × 5 = 10 feet.",
+      "The big rectangle's height equals the long side of a small rectangle: 10 feet.",
+      "The big rectangle's width equals one long side plus one short side: 10 + 5 = 15 feet.",
+      "Area = 15 × 10 = 150 square feet. Choose E."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1–5.",
+    "tipTitle": "Let the diagram do the work.",
+    "tip": "When a problem includes a diagram, label every length you can find. The arrangement of the rectangles tells you the relationship between their sides.",
+    "tipCredit": "Additional coaching by GPT 6 Astra Ultra.",
+    "commonError": "Using 5 as the long side too, or forgetting that the big rectangle's width is the sum of a long side and a short side.",
+    "reflection": "Why is the big rectangle's height exactly 10 feet and not 15?",
+    "alternative": "Find the area of one small rectangle first: short side 5, long side 10, area = 50. Three identical rectangles make 3 × 50 = 150. This works because the rectangles fit together without gaps or overlaps.",
+    "reviewedAt": "2026-10-19"
   }
 };

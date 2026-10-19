@@ -507,8 +507,92 @@ export const coachGuides = {
           }
         ]
       },
-      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_1",
-      credit: "Changed-number practice and coaching authored by GPT 6 Astra Ultra, using the max-out-first method from AoPS Solutions 1–3 for the original problem."
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_1",
+      "credit": "Changed-number practice and coaching authored by GPT 6 Astra Ultra, using the max-out-first method from AoPS Solutions 1–3 for the original problem."
+    }
+  },
+  "2019-2": {
+    intro: "The diagram tells you how the rectangles fit together. Try finding the missing side length yourself before we check each step.",
+    checks: [
+      {
+        id: "find-long-side",
+        prompt: "Two small rectangles are stacked on top of each other. What does that tell you about the longer side of each small rectangle?",
+        options: [
+          {
+            id: "a",
+            label: "The longer side equals 2 × 5 = 10 feet, because two short sides stacked match one long side.",
+            correct: true,
+            feedback: "Yes. The height of two stacked rectangles (short side + short side) equals the length of one rectangle lying horizontally, so the long side is 2 × 5 = 10 feet."
+          },
+          {
+            id: "b",
+            label: "The longer side is also 5 feet, because all sides of a rectangle are the same.",
+            correct: false,
+            feedback: "A rectangle has two different side lengths. The short side is 5, but the long side is longer. Two short sides stacked vertically match one long side, so the long side is 2 × 5 = 10 feet."
+          }
+        ]
+      },
+      {
+        id: "big-rectangle-dimensions",
+        prompt: "The big rectangle's height is 10 feet. What is its width?",
+        options: [
+          {
+            id: "a",
+            label: "Width = 10 + 5 = 15 feet (long side of one small rectangle plus short side of another).",
+            correct: true,
+            feedback: "Yes. Across the top, one rectangle lies with its long side (10) and one stands with its short side (5), so the total width is 10 + 5 = 15 feet."
+          },
+          {
+            id: "b",
+            label: "Width = 5 + 5 = 10 feet, because all small rectangles have short side 5.",
+            correct: false,
+            feedback: "Not quite. The top edge of the big rectangle is made of one rectangle's long side (10) plus another rectangle's short side (5), not two short sides. The width is 10 + 5 = 15 feet."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-2-a",
+      sourceProblem: "2019-2",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Four identical rectangles are arranged to form a larger rectangle. The shorter side of each small rectangle is 4 feet. What is the area of the large rectangle?",
+      facts: [
+        "Four identical small rectangles fit together without gaps.",
+        "Two rectangles are stacked vertically on the left, and two are placed side by side horizontally on the right.",
+        "The shorter side of each small rectangle is 4 feet."
+      ],
+      options: [
+        { letter: "A", value: 128, label: "128" },
+        { letter: "B", value: 96, label: "96" }
+      ],
+      answer: 128,
+      answerLabel: "(A) 128",
+      solution: [
+        "Two short sides stacked vertically match one long side: long side = 2 × 4 = 8 feet.",
+        "The big rectangle's height equals the long side: 8 feet.",
+        "The big rectangle's width equals one long side (8) plus two short sides (4 + 4) = 8 + 8 = 16 feet.",
+        "Area = 16 × 8 = 128 square feet."
+      ],
+      reflection: {
+        id: "adapted-rectangle-reason",
+        prompt: "True or false: if the short side were 3 feet instead of 4, the area would be 72 square feet.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Yes. Long side = 2 × 3 = 6. Height = 6. Width = 6 + 3 + 3 = 12. Area = 12 × 6 = 72. The reasoning works the same way."
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Let's check: long side = 2 × 3 = 6. Height = 6. Width = 6 + 3 + 3 = 12. Area = 12 × 6 = 72. So it is true!"
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_2",
+      credit: "Changed-number practice and coaching authored by GPT 6 Astra Ultra, using the diagram-based reasoning from AoPS Solutions 1–5 for the original problem."
     }
   }
 };

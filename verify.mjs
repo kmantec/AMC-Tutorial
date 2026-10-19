@@ -61,7 +61,7 @@ assert.deepEqual([1,2,3].map((value) => matrix.flat().filter((cell) => cell === 
 assert.equal(matrix.flat().reduce((total,value) => total+value,0),problems['2026-2'].answer);
 assert.deepEqual([6*5,4*Math.sqrt(36),6+8+Math.hypot(6,8)],[30,24,24]);
 assert.equal(problems['2026-3'].answer,'D');
-assert.deepEqual(Object.keys(problems),['2026-1','2026-2','2026-3','2026-4','2026-5','2019-1']);
+assert.deepEqual(Object.keys(problems),['2026-1','2026-2','2026-3','2026-4','2026-5','2019-1','2019-2']);
 const fourth = problems['2026-4'];
 assert.match(fourth.prompt,/20%/);
 assert.match(fourth.prompt,/50%/);
@@ -106,6 +106,14 @@ assert.equal(30 - 6 * 4.5,3);
 assert.equal(recommendedVideos['2019-1'].length,1);
 assert.equal(recommendedVideos['2019-1'][0].id,'jo7ME7qg4Sg');
 assert.equal(recommendedVideos['2019-1'][0].endSeconds,38);
+const second2019 = problems['2019-2'];
+assert.equal(second2019.year,2019);
+assert.equal(second2019.answer,150);
+assert.equal(second2019.wording,'original');
+assert.equal(Math.floor(150 / 5 / 10),3);
+assert.equal(5 * 2 * 5 * 3,150);
+assert.equal(recommendedVideos['2019-2'].length,1);
+assert.equal(recommendedVideos['2019-2'][0].id,'LWtH3G0MIkU');
 assert.equal(gradeAnswer(fifth,newAttempt(),30).independent,true);
 // Wrong answers, hints and video support must stay local to their question.
 const second = newAttempt(), third = newAttempt();

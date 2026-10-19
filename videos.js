@@ -67,6 +67,22 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-19",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_1"
     }
+  ],
+  "2019-2": [
+    {
+      "id": "LWtH3G0MIkU",
+      "title": "AMC 8 2019: Problem 2 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=LWtH3G0MIkU&t=0s",
+      "startSeconds": 0,
+      "endSeconds": 50,
+      "segmentLabel": "Problem 2 · 0:00–0:50",
+      "reason": "A quick visual walkthrough showing how the rectangle sides relate. Good for checking your diagram reasoning.",
+      "reviewNote": "GPT 6 Astra Ultra recommendation: the Problem 2 segment was reviewed using video frames and visible English captions. It shows the relationship between the short and long sides clearly.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-19",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_2"
+    }
   ]
 };
 
