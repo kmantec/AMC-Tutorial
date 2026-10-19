@@ -510,9 +510,9 @@ function renderVideos() {
     const label = video.selectionBasis ? 'PARENT’S SELECTION' : 'COACH’S PICK';
     card.innerHTML = '<span class="eyebrow">' + label + ' · ' + escape(video.segmentLabel) + '</span><h4>' + escape(video.title) + '</h4><p class="video-channel">' + escape(video.channel) + '</p><p>' + escape(video.reason) + '</p>';
     const actions = document.createElement('div'); actions.className = 'video-card-actions';
-    const play = document.createElement('button'); play.type = 'button'; play.className = 'button button-primary'; play.textContent = 'Watch here';
+    const play = document.createElement('button'); play.type = 'button'; play.className = 'button button-primary'; play.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-play"/></svg> Watch here';
     play.addEventListener('click',() => loadWalkthrough(video.id));
-    const link = document.createElement('a'); link.className = 'text-button'; link.href = video.watchUrl; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.textContent = 'Open on YouTube ↗';
+    const link = document.createElement('a'); link.className = 'text-button youtube-link'; link.href = video.watchUrl; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-youtube"/></svg> Open on YouTube';
     link.addEventListener('click',markVideoSupport);
     actions.append(play,link); card.append(actions); $('#video-recommendations').append(card);
   }

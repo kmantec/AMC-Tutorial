@@ -26,6 +26,10 @@
   <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
   <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M22.5 6.3a2.8 2.8 0 0 0-2-2C18.9 4 12 4 12 4s-6.9 0-8.5.3a2.8 2.8 0 0 0-2 2A33 33 0 0 0 1 12a33 33 0 0 0 .5 5.7 2.8 2.8 0 0 0 2 2C5.1 20 12 20 12 20s6.9 0 8.5-.3a2.8 2.8 0 0 0 2-2A33 33 0 0 0 23 12a33 33 0 0 0-.5-5.7Z"/><path d="m10 15.5 5.6-3.5L10 8.5Z" fill="#fff"/></symbol>
+  <symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M9 18h6M9 18a4 4 0 0 1-2-3.5 7 7 0 1 1 10 0 4 4 0 0 1-2 3.5"/><path d="M10 22h4"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m10 8 6 4-6 4Z"/></symbol>
 </defs></svg>
 <aside class="sidebar" aria-label="Training navigation">
   <a class="brand" href="#home" aria-label="Pingping’s Math Lab home"><span class="brand-mark">8<span>+</span></span><span>Pingping’s<span class="brand-sub">MATH LAB</span></span></a>
@@ -87,14 +91,14 @@
 <p class="problem-prompt" id="problem-prompt"></p><div id="problem-data" tabindex="0" role="region" aria-label="Problem data; scroll horizontally if needed"></div>
 <form id="answer-form"><fieldset><legend class="visually-hidden">Choose your answer</legend><div class="answer-options" id="answer-options"></div></fieldset><button class="button button-primary check-button" id="check-answer" type="submit">Check my answer <svg class="icon"><use href="#i-check"/></svg></button></form>
 <div id="answer-feedback" class="feedback" aria-live="polite" hidden></div>
-<div class="problem-tools"><button class="text-button" id="visit-coach"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg>Visit Coach’s Corner</button></div>
+<div class="problem-tools"><button class="button button-coach" id="visit-coach"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg>Coach’s Corner</button></div>
 <a class="source-link" id="problem-source" href="https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_1" target="_blank" rel="noopener noreferrer">Original wording & source solutions · AoPS Wiki <svg class="icon"><use href="#i-external"/></svg></a><a class="source-link checked-source" id="checked-source" target="_blank" rel="noopener noreferrer" hidden></a><p class="copyright-note">Original problem © Mathematical Association of America.</p></div>
 <aside class="thinking-column" id="coaching-area" aria-labelledby="coach-corner-heading">
 <div class="coach-heading"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg><div><p class="eyebrow">COACH’S CORNER</p><h3 id="coach-corner-heading">One small step together.</h3></div></div>
 <p id="coach-intro" class="coach-intro"></p>
 <section class="coach-voice-tools" aria-label="Coach voice"><label for="coach-voice">Coach voice</label><select id="coach-voice" aria-describedby="coach-voice-help"><option value="">Automatic English voice</option></select><div class="coach-voice-actions"><button class="text-button" id="coach-listen" type="button">Listen again</button><button class="text-button" id="coach-stop" type="button" disabled>Stop speaking</button></div><p id="coach-voice-help">Choose a voice available on this device. If you cannot hear it, tap Listen again.</p><p id="coach-voice-status" role="status"></p></section>
 <p id="coach-status" class="coach-status" aria-live="polite"></p>
-<div class="coach-actions"><button class="button button-primary" id="coach-open">Guide me with two choices</button><button class="text-button" id="hint-button">Give me a hint</button><button class="text-button" id="reveal-button">Show the solution</button><button class="text-button" id="video-button" aria-controls="video-section" aria-expanded="false">Watch a walkthrough</button></div>
+<div class="coach-actions"><button class="button button-primary" id="coach-open"><svg class="icon" aria-hidden="true"><use href="#i-target"/></svg> Guide me</button><button class="text-button" id="hint-button"><svg class="icon" aria-hidden="true"><use href="#i-lightbulb"/></svg> Hint</button><button class="text-button" id="reveal-button"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg> Solution</button><button class="text-button video-btn" id="video-button" aria-controls="video-section" aria-expanded="false"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg> Walkthrough</button></div>
 <p class="video-unavailable" id="video-unavailable" hidden></p>
 <div id="hint-content" class="hint-box" aria-live="polite" hidden></div>
 <section id="coach-check" class="coach-check" aria-labelledby="coach-question" hidden>
