@@ -168,6 +168,7 @@ function renderSolution() {
   $('#method-score').textContent = String(p.score);
   $('#rating-reason').textContent = p.ratingReason;
   $('#solution-credit').textContent = p.credit + ' Teaching suitability is a subjective AI assessment, not an official AMC rating.';
+  $('#coach-credit-name').textContent = p.creditCoach || 'GPT 6 ASTRA ULTRA';
   $('#tip-title').textContent = p.tipTitle;
   $('#tip-text').textContent = p.tip;
   $('#tip-credit').textContent = p.tipCredit;

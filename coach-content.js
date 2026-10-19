@@ -508,7 +508,7 @@ export const coachGuides = {
         ]
       },
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_1",
-      "credit": "Changed-number practice and coaching authored by GPT 6 Astra Ultra, using the max-out-first method from AoPS Solutions 1–3 for the original problem."
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the max-out-first method from AoPS Solutions 1–3 for the original problem."
     }
   },
   "2019-2": {
@@ -592,7 +592,7 @@ export const coachGuides = {
         ]
       },
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_2",
-      credit: "Changed-number practice and coaching authored by GPT 6 Astra Ultra, using the diagram-based reasoning from AoPS Solutions 1–5 for the original problem."
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the diagram-based reasoning from AoPS Solutions 1–5 for the original problem."
     }
   }
 };

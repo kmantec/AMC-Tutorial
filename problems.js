@@ -423,9 +423,10 @@ export const problems = {
       "Total items: 6 sandwiches + 3 soft drinks = 9. Choose D."
     ],
     "credit": "AI-authored explanation based on AoPS Solutions 1–3.",
+    "creditCoach": "Hermes Agent",
     "tipTitle": "Max out the most expensive item first.",
     "tip": "When you need both items and can choose how many of each to buy, start by buying as many of the more expensive item as the budget allows. The leftover money then stretches further on the cheaper item.",
-    "tipCredit": "Additional coaching by GPT 6 Astra Ultra.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
     "commonError": "Buying 7 sandwiches without checking that 7 × $4.50 = $31.50 exceeds the budget, or forgetting to add the two item counts together.",
     "reflection": "Why can't we solve this by dividing $30.00 by $4.50 and rounding the result down to the nearest whole number?",
     "alternative": "Divide $30.00 by $4.50 to get about 6.67, so at most 6 whole sandwiches. Then $30.00 − 6 × $4.50 = $3.00, which buys 3 drinks. The total is 6 + 3 = 9. The division shortcut gives only the sandwich count; you must still handle the remainder separately.",
@@ -486,9 +487,10 @@ export const problems = {
       "Area = 15 × 10 = 150 square feet. Choose E."
     ],
     "credit": "AI-authored explanation based on AoPS Solutions 1–5.",
+    "creditCoach": "Hermes Agent",
     "tipTitle": "Let the diagram do the work.",
     "tip": "When a problem includes a diagram, label every length you can find. The arrangement of the rectangles tells you the relationship between their sides.",
-    "tipCredit": "Additional coaching by GPT 6 Astra Ultra.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
     "commonError": "Using 5 as the long side too, or forgetting that the big rectangle's width is the sum of a long side and a short side.",
     "reflection": "Why is the big rectangle's height exactly 10 feet and not 15?",
     "alternative": "Find the area of one small rectangle first: short side 5, long side 10, area = 50. Three identical rectangles make 3 × 50 = 150. This works because the rectangles fit together without gaps or overlaps.",

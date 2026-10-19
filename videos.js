@@ -62,7 +62,7 @@ export const recommendedVideos = {
       "endSeconds": 38,
       "segmentLabel": "Problem 1 · 0:00–0:38",
       "reason": "A short focused walkthrough of the sandwich problem. Good for a quick second explanation after your own attempt.",
-      "reviewNote": "GPT 6 Astra Ultra recommendation: the Problem 1 segment was reviewed using video frames and visible English captions. It shows the calculation clearly. The segment ends at 0:38.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 1 segment was reviewed using video frames and visible English captions. It shows the calculation clearly. The segment ends at 0:38.",
       "reviewBasis": "Video frames and visible English captions",
       "reviewedAt": "2026-10-19",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_1"
@@ -78,7 +78,7 @@ export const recommendedVideos = {
       "endSeconds": 50,
       "segmentLabel": "Problem 2 · 0:00–0:50",
       "reason": "A quick visual walkthrough showing how the rectangle sides relate. Good for checking your diagram reasoning.",
-      "reviewNote": "GPT 6 Astra Ultra recommendation: the Problem 2 segment was reviewed using video frames and visible English captions. It shows the relationship between the short and long sides clearly.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 2 segment was reviewed using video frames and visible English captions. It shows the relationship between the short and long sides clearly.",
       "reviewBasis": "Video frames and visible English captions",
       "reviewedAt": "2026-10-19",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_2"
