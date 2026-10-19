@@ -648,5 +648,94 @@ export const problems = {
     "reflection": "Why does a constant speed produce a straight line on a distance-time graph? What would a curved line mean?",
     "alternative": "You can also reason forward: tortoise line is a steady diagonal. Hare line is steep diagonal, then flat, then steep diagonal — but must end at a later time than the tortoise. Only B matches this shape.",
     "reviewedAt": "2026-10-19"
+  },
+  "2019-6": {
+    "id": "2019-6",
+    "year": 2019,
+    "number": 6,
+    "suggestedPace": "2 min",
+    "title": "Lines of symmetry in a square grid",
+    "topic": "Probability · symmetry",
+    "prompt": "There are 81 grid points (uniformly spaced) in the square shown in the diagram below, including the points on the edges. Point P is in the center of the square. Given that point Q is randomly chosen among the other 80 points, what is the probability that the line PQ is a line of symmetry for the square?",
+    "wording": "original",
+    "options": [
+      { "letter": "A", "value": "A", "label": "1/5" },
+      { "letter": "B", "value": "B", "label": "1/4" },
+      { "letter": "C", "value": "C", "label": "2/5" },
+      { "letter": "D", "value": "D", "label": "9/20" },
+      { "letter": "E", "value": "E", "label": "1/2" }
+    ],
+    "answer": "C",
+    "answerLabel": "(C) 2/5",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_6",
+    "hints": [
+      "How many lines of symmetry does a square have? They all pass through the center P.",
+      "Each line of symmetry passes through 9 grid points (including P). So each line has 8 other points besides P.",
+      "4 lines × 8 points = 32 favorable. Total points = 80. Probability = 32/80 = 2/5."
+    ],
+    "method": "Count the grid points that lie on any of the 4 lines of symmetry through P.",
+    "score": 8,
+    "ratingReason": "Visual counting problem: combine geometry (lines of symmetry) with basic probability.",
+    "solution": [
+      "A square has 4 lines of symmetry: horizontal, vertical, and 2 diagonals. All pass through the center P.",
+      "The grid is 9×9 = 81 points. P is at the center. Each line of symmetry contains 9 points (including P).",
+      "On each line, there are 8 points besides P. With 4 lines, total favorable points = 4 × 8 = 32.",
+      "Total points to choose from = 81 − 1 = 80.",
+      "Probability = 32/80 = 2/5. Answer: C."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solution 1.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Draw the lines of symmetry first.",
+    "tip": "A square has 4 lines of symmetry: horizontal, vertical, and both diagonals. Count grid points on each line (excluding the center).",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Counting only 2 lines of symmetry (the diagonals) and forgetting the horizontal and vertical lines.",
+    "reflection": "Why are there 9 points on each line of symmetry in a 9×9 grid?",
+    "alternative": "Divide the grid into 4 quadrants. Each quadrant has 5 points in a row, of which 2 are on symmetry lines. So 2/5 of points are favorable.",
+    "reviewedAt": "2026-10-19"
+  },
+  "2019-7": {
+    "id": "2019-7",
+    "year": 2019,
+    "number": 7,
+    "suggestedPace": "2 min",
+    "title": "Minimum test score for target average",
+    "topic": "Algebra · averages",
+    "prompt": "Shauna takes five tests, each worth a maximum of 100 points. Her scores on the first three tests are 76, 94, and 87. In order to average 81 for all five tests, what is the lowest score she could earn on one of the other two tests?",
+    "wording": "original",
+    "options": [
+      { "letter": "A", "value": "A", "label": "48" },
+      { "letter": "B", "value": "B", "label": "52" },
+      { "letter": "C", "value": "C", "label": "66" },
+      { "letter": "D", "value": "D", "label": "70" },
+      { "letter": "E", "value": "E", "label": "74" }
+    ],
+    "answer": "A",
+    "answerLabel": "(A) 48",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_7",
+    "hints": [
+      "To average 81 over 5 tests, what total score does she need?",
+      "She already has 76 + 94 + 87 = 257. How many more points does she need across the last 2 tests?",
+      "She needs 148 more points. To minimize one test, maximize the other at 100. So the lowest is 148 − 100 = 48."
+    ],
+    "method": "Find the total needed, subtract scores so far, then maximize one test to minimize the other.",
+    "score": 8,
+    "ratingReason": "Straightforward average problem with a minimize-maximize twist.",
+    "solution": [
+      "Target average 81 over 5 tests → total needed = 81 × 5 = 405.",
+      "Scores so far: 76 + 94 + 87 = 257.",
+      "Points remaining for last 2 tests: 405 − 257 = 148.",
+      "To minimize one test score, maximize the other at 100 (maximum possible).",
+      "Lowest possible score = 148 − 100 = 48.",
+      "Answer: A."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1–5.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Work with totals, not averages.",
+    "tip": "Multiply the target average by the number of tests to get the total needed. Then subtract what you already have.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Forgetting to maximize the other test to 100 before subtracting, or thinking both tests must be equal.",
+    "reflection": "What would the answer be if the tests were each worth 120 points maximum instead of 100?",
+    "alternative": "Compare each score to the average: 76 is −5, 94 is +13, 87 is +6. Net = +14. To balance to 0, the last two must total −14. With one at +19 (100), the other must be −33. 81 − 33 = 48.",
+    "reviewedAt": "2026-10-19"
   }
 };

@@ -131,6 +131,38 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-19",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_5"
     }
+  ],
+  "2019-6": [
+    {
+      "id": "8njQzoztDGc",
+      "title": "AMC 8 2019 — Problems #6-10",
+      "channel": "The Learning Royal",
+      "watchUrl": "https://www.youtube.com/watch?v=8njQzoztDGc&t=0s",
+      "startSeconds": 0,
+      "endSeconds": 100,
+      "segmentLabel": "Problem 6 · 0:00–1:40",
+      "reason": "Covers symmetry lines counting approach with on-screen grid explanation.",
+      "reviewNote": "Hermes Agent recommendation: reviewed the Problem 6 segment from transcript. Covers 4 symmetry lines, 9 points per line, probability = 32/80 = 2/5.",
+      "reviewBasis": "Transcript analysis",
+      "reviewedAt": "2026-10-19",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_6"
+    }
+  ],
+  "2019-7": [
+    {
+      "id": "8njQzoztDGc",
+      "title": "AMC 8 2019 — Problems #6-10",
+      "channel": "The Learning Royal",
+      "watchUrl": "https://www.youtube.com/watch?v=8njQzoztDGc&t=100s",
+      "startSeconds": 100,
+      "endSeconds": 190,
+      "segmentLabel": "Problem 7 · 1:40–3:10",
+      "reason": "Explains the total-sum approach and minimize-by-maximizing technique.",
+      "reviewNote": "Hermes Agent recommendation: reviewed the Problem 7 segment from transcript. Covers total needed 405, subtract 257 = 148, set one test to 100, other = 48.",
+      "reviewBasis": "Transcript analysis",
+      "reviewedAt": "2026-10-19",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_7"
+    }
   ]
 };
 

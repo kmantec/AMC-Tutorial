@@ -832,5 +832,163 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_5",
       credit: "Changed-number practice and coaching authored by Hermes Agent, using the same elimination logic as the AoPS solution."
     }
+  },
+  "2019-6": {
+    intro: "A square has 4 lines of symmetry through its center. Count how many grid points lie on those lines.",
+    checks: [
+      {
+        id: "symmetry-lines",
+        prompt: "How many lines of symmetry does a square have?",
+        options: [
+          {
+            id: "a",
+            label: "4 (horizontal, vertical, and 2 diagonals)",
+            correct: true,
+            feedback: "Yes! A square has 4 lines of symmetry, and they all pass through the center point P."
+          },
+          {
+            id: "b",
+            label: "2 (just the diagonals)",
+            correct: false,
+            feedback: "Don't forget the horizontal and vertical lines! A square has 4 lines of symmetry: horizontal, vertical, and both diagonals."
+          }
+        ]
+      },
+      {
+        id: "points-per-line",
+        prompt: "The grid is 9×9 = 81 points. How many grid points are on each line of symmetry (including P)?",
+        options: [
+          {
+            id: "a",
+            label: "9 points on each line",
+            correct: true,
+            feedback: "Yes. A 9×9 grid has 9 points per row and column. The horizontal line goes through 9 points, same for vertical and both diagonals."
+          },
+          {
+            id: "b",
+            label: "8 points on each line",
+            correct: false,
+            feedback: "There are 9 points on each line. For example, the middle row has 9 points from left to right. Count them!"
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-6-a",
+      sourceProblem: "2019-6",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A 7×7 grid has 49 points including edges. Point P is at the center. If Q is chosen randomly from the other 48 points, what is the probability that line PQ is a line of symmetry?",
+      options: [
+        { letter: "A", value: "A", label: "1/2" },
+        { letter: "B", value: "B", label: "1/4" }
+      ],
+      answer: "A",
+      answerLabel: "(A) 1/2",
+      solution: [
+        "A square has 4 lines of symmetry through P.",
+        "In a 7×7 grid, each line has 7 points (including P), so 6 other points per line.",
+        "Favorable = 4 × 6 = 24 points.",
+        "Total = 49 − 1 = 48 points.",
+        "Probability = 24/48 = 1/2."
+      ],
+      reflection: {
+        id: "adapted-symmetry-reason",
+        prompt: "True or false: In a 5×5 grid, the probability would be 1/2 as well.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Check: 5×5 = 25 points. Each symmetry line has 5 points (including P), so 4 others. 4 lines × 4 = 16 favorable. Total = 24. 16/24 = 2/3 — actually not 1/2! So false."
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Right idea to check! In 5×5: 25 points total, 24 others. Each line: 5 points, 4 others. Favorable = 4×4 = 16. Probability = 16/24 = 2/3, not 1/2. So false!"
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_6",
+      credit: "Changed-number practice and coaching authored by Hermes Agent."
+    }
+  },
+  "2019-7": {
+    intro: "Work with the total sum instead of the average — it makes the problem much simpler.",
+    checks: [
+      {
+        id: "total-needed",
+        prompt: "What total score does Shauna need to average 81 over 5 tests?",
+        options: [
+          {
+            id: "a",
+            label: "81 × 5 = 405",
+            correct: true,
+            feedback: "Yes! Average = total ÷ number of tests. So total = average × number of tests = 81 × 5 = 405."
+          },
+          {
+            id: "b",
+            label: "81 + 5 = 86",
+            correct: false,
+            feedback: "Remember: average × number of tests = total. So 81 × 5 = 405 total points needed."
+          }
+        ]
+      },
+      {
+        id: "remaining-points",
+        prompt: "She has 76 + 94 + 87 = 257 so far. How many points remain for the last 2 tests?",
+        options: [
+          {
+            id: "a",
+            label: "405 − 257 = 148",
+            correct: true,
+            feedback: "Yes. Total needed minus what she has = 405 − 257 = 148 points for the last two tests."
+          },
+          {
+            id: "b",
+            label: "405 − 257 = 158",
+            correct: false,
+            feedback: "Check the subtraction: 405 − 257 = 148. She needs 148 more points across the last 2 tests."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-7-a",
+      sourceProblem: "2019-7",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A student takes 4 tests. Her first three scores are 65, 78, and 82. Each test is worth 100 points. What is the lowest score she can get on the 4th test to average 80?",
+      options: [
+        { letter: "A", value: "A", label: "80" },
+        { letter: "B", value: "B", label: "95" }
+      ],
+      answer: "B",
+      answerLabel: "(B) 95",
+      solution: [
+        "Average 80 over 4 tests → total = 80 × 4 = 320.",
+        "Current total: 65 + 78 + 82 = 225.",
+        "Need: 320 − 225 = 95 on the last test."
+      ],
+      reflection: {
+        id: "adapted-average-reason",
+        prompt: "True or false: If she already scored 92 on the first 3 tests (average 92), the lowest she can get on the 4th to keep an 80 average is less than 60.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Check: 92 × 3 = 276. Need total = 80 × 4 = 320. Last test = 320 − 276 = 44. 44 < 60, so true!"
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Let's check: 92 × 3 = 276. Need 80 × 4 = 320. Last test = 320 − 276 = 44. 44 < 60, so it's actually true!"
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_7",
+      credit: "Changed-number practice and coaching authored by Hermes Agent."
+    }
   }
 };
