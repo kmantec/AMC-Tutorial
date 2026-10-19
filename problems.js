@@ -495,5 +495,69 @@ export const problems = {
     "reflection": "Why is the big rectangle's height exactly 10 feet and not 15?",
     "alternative": "Find the area of one small rectangle first: short side 5, long side 10, area = 50. Three identical rectangles make 3 × 50 = 150. This works because the rectangles fit together without gaps or overlaps.",
     "reviewedAt": "2026-10-19"
+  },
+  "2019-3": {
+    "id": "2019-3",
+    "year": 2019,
+    "number": 3,
+    "suggestedPace": "2 min",
+    "title": "Order fractions by a common difference",
+    "topic": "Number theory · comparing fractions",
+    "prompt": "Which of the following is the correct order of the fractions 15/11, 19/15, and 17/13, from least to greatest?",
+    "wording": "original",
+    "options": [
+      {
+        "letter": "A",
+        "value": "A",
+        "label": "15/11 < 17/13 < 19/15"
+      },
+      {
+        "letter": "B",
+        "value": "B",
+        "label": "15/11 < 19/15 < 17/13"
+      },
+      {
+        "letter": "C",
+        "value": "C",
+        "label": "17/13 < 19/15 < 15/11"
+      },
+      {
+        "letter": "D",
+        "value": "D",
+        "label": "19/15 < 15/11 < 17/13"
+      },
+      {
+        "letter": "E",
+        "value": "E",
+        "label": "19/15 < 17/13 < 15/11"
+      }
+    ],
+    "answer": "E",
+    "answerLabel": "(E) 19/15 < 17/13 < 15/11",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_3",
+    "hints": [
+      "Each fraction is greater than 1. Try subtracting 1 from each — what do you notice about the numerators?",
+      "Subtracting 1 gives 4/11, 4/15, and 4/13. When numerators are equal, a larger denominator means a smaller fraction.",
+      "Order the remainders: 4/15 < 4/13 < 4/11. Add back the 1 to each to get the original order."
+    ],
+    "method": "Subtract 1 from each fraction, then compare the remainders.",
+    "score": 9,
+    "ratingReason": "A clean reasoning path: subtracting 1 reveals equal numerators, making comparison straightforward.",
+    "solution": [
+      "Each fraction is greater than 1. Write each as 1 + (remainder).",
+      "15/11 = 1 + 4/11, 19/15 = 1 + 4/15, 17/13 = 1 + 4/13.",
+      "The remainders 4/11, 4/15, and 4/13 all have numerator 4. When numerators are equal, the fraction with the larger denominator is smaller.",
+      "So 4/15 < 4/13 < 4/11. Adding back 1 to each preserves the order.",
+      "Thus 19/15 < 17/13 < 15/11. Choose E."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solution 5 (subtract-1 method).",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Look for a common pattern before calculating.",
+    "tip": "When all fractions are greater than 1 and have the same numerator difference from the denominator, subtract 1 and compare the remainders. No common denominator needed.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Assuming the fraction with the largest numerator and denominator is largest, or comparing numerators without considering denominators.",
+    "reflection": "Why can we add the same number (1) to each remainder without changing the order?",
+    "alternative": "Use a common denominator of 2145: 15/11 = 2925/2145, 19/15 = 2717/2145, 17/13 = 2805/2145. Since 2717 < 2805 < 2925, the order is 19/15 < 17/13 < 15/11. The subtract-1 method is faster because the numbers stay smaller.",
+    "reviewedAt": "2026-10-19"
   }
 };

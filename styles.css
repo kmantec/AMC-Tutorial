@@ -21,8 +21,9 @@
 .expression-preview{display:block;font-family:Cambria,'Times New Roman',serif;font-size:clamp(1rem,1.6vw,1.5rem);letter-spacing:0;overflow-x:auto;overflow-wrap:normal;white-space:nowrap;padding:24px 14px;scrollbar-width:thin;scrollbar-color:#647cac transparent}
 .math-line{display:block!important;width:max-content;min-width:100%;white-space:nowrap!important;text-align:center;line-height:1.8;overflow-wrap:normal}
 #practice-dialog .practice-layout{display:block}.problem-column{max-width:100%;padding:35px 42px 26px}.exam-paper-header{display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #b5c0d1;padding-bottom:18px;margin-bottom:28px;color:#273b5c;font-family:Manrope,sans-serif;font-weight:700;font-size:.875rem;letter-spacing:1px}
-#practice-dialog .problem-prompt{font-family:Georgia,'Times New Roman',serif;font-size:1.2rem;color:#1e2c41;line-height:1.8}.exam-number{margin-right:9px}
+#practice-dialog .problem-prompt{font-family:Georgia,'Times New Roman',serif;font-size:1.2rem;color:#1e2c41;line-height:1.8;margin-bottom:24px}.exam-number{margin-right:9px}
 #practice-dialog .practice-expression{display:block;width:100%;border:0;background:transparent;font-family:Cambria,'Times New Roman',serif;font-size:clamp(1.1rem,2.7vw,1.65rem);font-weight:400;letter-spacing:0;line-height:1.8;padding:22px 0;margin:15px 0 27px;white-space:nowrap;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#8b9fbe #edf2f9}
+#practice-dialog .problem-data{margin-bottom:24px}
 #practice-dialog .answer-options{grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:0 auto 29px;max-width:820px}
 #practice-dialog .answer-options label>span{flex-direction:row;justify-content:center;gap:12px;padding:14px 10px;font-family:Georgia,'Times New Roman',serif;font-size:1.3rem;font-weight:400;border-radius:7px;background:white;min-height:54px}
 #practice-dialog .answer-options small{font-family:Georgia,'Times New Roman',serif;font-size:1.1rem;color:inherit;margin:0;font-weight:700}

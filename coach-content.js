@@ -594,5 +594,84 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_2",
       credit: "Changed-number practice and coaching authored by Hermes Agent, using the diagram-based reasoning from AoPS Solutions 1–5 for the original problem."
     }
+  },
+  "2019-3": {
+    intro: "All three fractions are greater than 1. Try writing each as 1 plus a remainder before we compare them together.",
+    checks: [
+      {
+        id: "subtract-one",
+        prompt: "If you subtract 1 from each fraction, what do you notice about the remainders?",
+        options: [
+          {
+            id: "a",
+            label: "15/11 − 1 = 4/11, 19/15 − 1 = 4/15, 17/13 − 1 = 4/13. All have numerator 4.",
+            correct: true,
+            feedback: "Yes. Each fraction is 1 more than a fraction with numerator 4. Since all three have the same numerator, we can compare them by denominator alone."
+          },
+          {
+            id: "b",
+            label: "15/11 − 1 = 4/11, 19/15 − 1 = 4/15, 17/13 − 1 = 4/13. The numerators are all different.",
+            correct: false,
+            feedback: "Check again: 15 − 11 = 4, 19 − 15 = 4, and 17 − 13 = 4. So each remainder has numerator 4. That shared numerator is the key to comparing them."
+          }
+        ]
+      },
+      {
+        id: "compare-remainders",
+        prompt: "The remainders are 4/11, 4/15, and 4/13. Which is the correct order, smallest to largest?",
+        options: [
+          {
+            id: "a",
+            label: "4/15 < 4/13 < 4/11, because the largest denominator gives the smallest fraction when numerators are equal.",
+            correct: true,
+            feedback: "Yes. When numerators are the same, the fraction with the larger denominator is smaller. So 4/15 < 4/13 < 4/11. Adding back the 1 gives the original order."
+          },
+          {
+            id: "b",
+            label: "4/11 < 4/13 < 4/15, because the smallest numerator gives the smallest fraction.",
+            correct: false,
+            feedback: "The numerators are all 4 — they are equal. When numerators match, compare denominators: a larger denominator means a smaller fraction. So 4/15 (denominator 15) is smallest."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-3-a",
+      sourceProblem: "2019-3",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Order these fractions from least to greatest: 13/9, 17/13, 11/7.",
+      options: [
+        { letter: "A", value: "A", label: "17/13 < 13/9 < 11/7" },
+        { letter: "B", value: "B", label: "11/7 < 13/9 < 17/13" }
+      ],
+      answer: "A",
+      answerLabel: "(A) 17/13 < 13/9 < 11/7",
+      solution: [
+        "Each fraction is greater than 1. Subtract 1 from each:",
+        "13/9 − 1 = 4/9, 17/13 − 1 = 4/13, 11/7 − 1 = 4/7.",
+        "The remainders all have numerator 4. Compare denominators: 4/13 < 4/9 < 4/7.",
+        "Adding back 1: 17/13 < 13/9 < 11/7."
+      ],
+      reflection: {
+        id: "adapted-fraction-reason",
+        prompt: "True or false: if the fractions were 14/10, 18/14, and 16/12, the order would be 18/14 < 16/12 < 14/10.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Yes. Each numerator is 4 more than its denominator, so subtract 1: 4/10, 4/14, 4/12. Order by denominator: 4/14 < 4/12 < 4/10, so 18/14 < 16/12 < 14/10."
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Check: 14 − 10 = 4, 18 − 14 = 4, 16 − 12 = 4. Subtract 1: 4/10, 4/14, 4/12. Since denominators 14 > 12 > 10, the order is 4/14 < 4/12 < 4/10. Adding 1 back: 18/14 < 16/12 < 14/10. So it is true!"
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_3",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the subtract-1 method from AoPS Solution 5 for the original problem."
+    }
   }
 };

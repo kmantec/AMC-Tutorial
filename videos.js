@@ -83,6 +83,22 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-19",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_2"
     }
+  ],
+  "2019-3": [
+    {
+      "id": "IgpayYB48C4",
+      "title": "AMC8 2019 Full Solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=IgpayYB48C4&t=142s",
+      "startSeconds": 142,
+      "endSeconds": 200,
+      "segmentLabel": "Problem 3 · 2:22–3:20",
+      "reason": "A full-test walkthrough with on-screen working. Find the Problem 3 segment at 2:22.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 3 segment was reviewed using video frames and visible English captions. It demonstrates the common-denominator method clearly.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-19",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_3"
+    }
   ]
 };
 
