@@ -673,5 +673,85 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_3",
       credit: "Changed-number practice and coaching authored by Hermes Agent, using the subtract-1 method from AoPS Solution 5 for the original problem."
     }
+  },
+  "2019-4": {
+    intro: "A rhombus has four equal sides and its diagonals are perpendicular bisectors. Use that to find the area.",
+    checks: [
+      {
+        id: "side-length",
+        prompt: "What is the length of each side of the rhombus?",
+        options: [
+          {
+            id: "a",
+            label: "52 ÷ 4 = 13 meters",
+            correct: true,
+            feedback: "Yes. A rhombus has four equal sides, so each side = perimeter/4 = 52/4 = 13."
+          },
+          {
+            id: "b",
+            label: "52 ÷ 2 = 26 meters",
+            correct: false,
+            feedback: "Remember a rhombus has 4 equal sides, not 2. Divide the perimeter by 4: 52/4 = 13."
+          }
+        ]
+      },
+      {
+        id: "half-diagonal",
+        prompt: "If diagonal AC = 24 and the diagonals bisect each other, what is half of AC?",
+        options: [
+          {
+            id: "a",
+            label: "24 ÷ 2 = 12",
+            correct: true,
+            feedback: "Yes. The diagonals bisect each other, so AE = EC = 24/2 = 12."
+          },
+          {
+            id: "b",
+            label: "24 (the diagonals don't bisect in a rhombus)",
+            correct: false,
+            feedback: "In a rhombus, the diagonals are perpendicular bisectors — they cut each other in half. So half of AC is 24/2 = 12."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-4-a",
+      sourceProblem: "2019-4",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A rhombus has perimeter 68 meters and one diagonal measures 30 meters. What is its area?",
+      options: [
+        { letter: "A", value: "A", label: "120" },
+        { letter: "B", value: "B", label: "240" }
+      ],
+      answer: "B",
+      answerLabel: "(B) 240",
+      solution: [
+        "Perimeter = 68, so each side = 68/4 = 17.",
+        "One diagonal = 30, so half = 15.",
+        "Right triangle: hypotenuse 17, leg 15 → other leg = √(289 − 225) = √64 = 8.",
+        "Full second diagonal = 2 × 8 = 16.",
+        "Area = (30 × 16)/2 = 240."
+      ],
+      reflection: {
+        id: "adapted-rhombus-reason",
+        prompt: "True or false: if a rhombus has side 10 and one diagonal 12, its area is 96.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Check: half of 12 is 6. Right triangle: 10² − 6² = 100 − 36 = 64 → other leg = 8. Full diagonal = 16. Area = (12 × 16)/2 = 96. True!"
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Let's check: half of 12 is 6. Right triangle legs: 6 and x, hypotenuse 10. x² = 100 − 36 = 64 → x = 8. Full other diagonal = 16. Area = (12 × 16)/2 = 96. So it is true!"
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_4",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the perpendicular-bisector property from AoPS Solution 1."
+    }
   }
 };

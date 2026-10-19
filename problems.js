@@ -559,5 +559,51 @@ export const problems = {
     "reflection": "Why can we add the same number (1) to each remainder without changing the order?",
     "alternative": "Use a common denominator of 2145: 15/11 = 2925/2145, 19/15 = 2717/2145, 17/13 = 2805/2145. Since 2717 < 2805 < 2925, the order is 19/15 < 17/13 < 15/11. The subtract-1 method is faster because the numbers stay smaller.",
     "reviewedAt": "2026-10-19"
+  },
+  "2019-4": {
+    "id": "2019-4",
+    "year": 2019,
+    "number": 4,
+    "suggestedPace": "2 min",
+    "title": "Area of a rhombus using diagonals",
+    "topic": "Geometry · rhombus area",
+    "prompt": "Quadrilateral ABCD is a rhombus with perimeter 52 meters. The length of diagonal AC is 24 meters. What is the area in square meters of rhombus ABCD?",
+    "wording": "original",
+    "options": [
+      { "letter": "A", "value": "A", "label": "60" },
+      { "letter": "B", "value": "B", "label": "90" },
+      { "letter": "C", "value": "C", "label": "105" },
+      { "letter": "D", "value": "D", "label": "120" },
+      { "letter": "E", "value": "E", "label": "144" }
+    ],
+    "answer": "D",
+    "answerLabel": "(D) 120",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_4",
+    "hints": [
+      "All four sides of a rhombus are equal. What is the length of each side?",
+      "The diagonals of a rhombus bisect each other at right angles. Half of AC is 12. Together with the side, this forms a right triangle.",
+      "Side = 13, one leg = 12 → the other leg is 5 (5-12-13 triple). So BD = 10. Area = (d1 × d2)/2."
+    ],
+    "method": "Use the perpendicular-bisecting property of rhombus diagonals and the Pythagorean theorem.",
+    "score": 9,
+    "ratingReason": "Classic rhombus problem: side from perimeter, half-diagonal from given, Pythagorean triple completes the second diagonal.",
+    "solution": [
+      "Perimeter = 52, so each side = 52/4 = 13.",
+      "Diagonals of a rhombus are perpendicular bisectors. Since AC = 24, half of AC = AE = EC = 12.",
+      "Triangle AEB is a right triangle with hypotenuse AB = 13 and leg AE = 12.",
+      "By the Pythagorean theorem: BE² = 13² − 12² = 169 − 144 = 25, so BE = 5.",
+      "Thus the full diagonal BD = 2 × 5 = 10.",
+      "Area of a rhombus = (d₁ × d₂)/2 = (24 × 10)/2 = 120.",
+      "Answer: D."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solution 1.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Know your rhombus properties.",
+    "tip": "Diagonals of a rhombus are perpendicular bisectors. When you know one diagonal and the side, you get a right triangle — often a Pythagorean triple (3-4-5, 5-12-13, 8-15-17).",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Treating a rhombus like a square and trying side². Or forgetting to halve the diagonal before using the Pythagorean theorem.",
+    "reflection": "Why do the diagonals of a rhombus always bisect each other at right angles, but this is not true for a general parallelogram?",
+    "alternative": "Each of the four right triangles has legs 12 and 5, so area = (12×5)/2 = 30 each. Four triangles: 4×30 = 120. Same answer, confirms the formula.",
+    "reviewedAt": "2026-10-19"
   }
 };

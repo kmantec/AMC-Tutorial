@@ -99,6 +99,22 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-19",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_3"
     }
+  ],
+  "2019-4": [
+    {
+      "id": "IiFFDDITE6Q",
+      "title": "AMC 8 2019 Problems 1–5",
+      "channel": "The Learning Royal",
+      "watchUrl": "https://www.youtube.com/watch?v=IiFFDDITE6Q&t=261s",
+      "startSeconds": 261,
+      "endSeconds": 310,
+      "segmentLabel": "Problem 4 · 4:21–5:10",
+      "reason": "Clear step-by-step walkthrough of the rhombus problem using the diagonal area formula.",
+      "reviewNote": "Hermes Agent recommendation: reviewed the Problem 4 segment from the transcript. Covers side from perimeter, Pythagorean triple, and area formula.",
+      "reviewBasis": "Transcript analysis",
+      "reviewedAt": "2026-10-19",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_4"
+    }
   ]
 };
 
