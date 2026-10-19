@@ -93,7 +93,17 @@ function practiceButton(id, label, className = 'text-button') {
 }
 $('#today-date').textContent = new Intl.DateTimeFormat('en', {weekday:'long',month:'long',day:'numeric'}).format(new Date()).toUpperCase();
 $('#home-years').innerHTML = YEARS.map((year) => '<a class="year-card" href="' + source(year) + '" target="_blank" rel="noopener noreferrer" aria-label="Open ' + year + ' AMC 8 on AoPS"><strong>' + year + '</strong><small>25 problems</small>' + icon('external') + '</a>').join('');
-$('#paper-grid').innerHTML = YEARS.map((year) => '<article class="paper-card"><div class="paper-year"><h2>' + year + '</h2><span>AMC 8</span></div><p>25 original problems<br>Source solutions on AoPS</p><a href="' + source(year) + '" target="_blank" rel="noopener noreferrer">Explore this exam ' + icon('external') + '</a>' + (ids.filter((id) => problems[id].year === year).length ? '<div class="paper-practice-links">' + ids.filter((id) => problems[id].year === year).map((id) => practiceButton(id, 'Practice Problem ' + problems[id].number)).join('') + '</div>' : '<div class="paper-practice-links paper-coming-soon"><span class="text-button disabled">In preparation</span></div>') + '</article>').join('');
+$('#paper-grid').innerHTML = (() => {
+  const byYear = {};
+  for (const id of ids) {
+    const y = problems[id].year;
+    if (!byYear[y]) byYear[y] = (byYear[y] || 0) + 1;
+  }
+  return YEARS.map((year) => {
+    const count = byYear[year] || 0;
+    return '<article class="paper-card"><div class="paper-card-top year-' + year + '-bg"><span class="paper-card-badge">' + year + '</span><span class="paper-card-subtitle">AMC 8</span></div><div class="paper-card-body">' + (count ? '<span class="paper-card-count">' + count + ' practice problem' + (count > 1 ? 's' : '') + ' available</span>' : '<span class="paper-card-count coming-soon">In preparation</span>') + '<div class="paper-card-links">' + (count ? ids.filter((id) => problems[id].year === year).map((id) => practiceButton(id, 'Problem ' + problems[id].number)).join('') : '<span class="paper-card-soon">Coaching guides are being prepared for this exam.</span>') + '</div><a class="paper-card-explore" href="' + source(year) + '" target="_blank" rel="noopener noreferrer">View on AoPS ' + icon('external') + '</a></div></article>';
+  }).join('');
+})();
 $('#available-practice').innerHTML = (() => {
   const byYear = {};
   for (const id of ids) {
