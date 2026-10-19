@@ -25,3 +25,20 @@ Read README.md and PROJECT_CONTEXT.md before making changes. Keep them and CHANG
 - The parent reviews remotely: provide an accessible preview or live website URL, not a local file or review panel as the only deliverable. The user’s remote-review preference and 2026-09-27 go-ahead authorize publishing the completed coaching/preview and voice batches and the requested Problems 4 and 5 to the existing GitHub Pages site. Future publication follows the applicable user/session scope; this does not authorize a full-year batch.
 
 The latest user instruction takes precedence over historical scope decisions in this file.
+
+## 2026-10-19: Hermes Agent (assistant "M") — Added 2019 AMC 8 Problem 1
+
+The parent authorized adding 2019 AMC 8 content, starting with Problem 1. This is now live alongside 2026 Problems 1-5.
+
+**Added:**
+- `problems.js`: `2019-1` — Ike & Mike sandwich problem ($30 budget, $4.50 sandwiches, $1 drinks) → answer 9
+- `coach-content.js`: `2019-1` — 2 binary checks (max sandwiches, remaining spend), adapted practice ($40 budget, $7.50 sandwiches) with reflection
+- `videos.js`: `2019-1` — Daily Dose of Math Problem 1 Breakdown (jo7ME7qg4Sg, 0:00-0:38)
+- Updated `app.js` line 96: Papers page now dynamically shows practice buttons for any year that has problems, and "In preparation" for years without
+- Updated `styles.css`: `.paper-coming-soon` styling for disabled state
+- Updated `verify.mjs` and `coaching-state.test.mjs` for 6-problem coverage
+
+**Future scope (authorized per-problem):**
+- Continue adding 2019 AMC 8 Problems 2-25 one at a time as authorized
+- After 2019 is complete, proceed to other years (2025, 2024, 2023, 2022, 2020) per parent's authorization
+- The 2019 problems are being authored by Hermes Agent (GPT 6 Astra Ultra), separate from the AI that authored 2026 problems

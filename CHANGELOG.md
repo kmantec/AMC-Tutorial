@@ -1,5 +1,16 @@
 # Change history
 
+## 2026-10-19 — 2019 AMC 8 Problem 1 (Hermes Agent)
+
+- Added first 2019 AMC 8 problem: Ike & Mike sandwich shop ($30 budget, $4.50 sandwiches, $1 drinks → 9 items)
+- Full coaching: 3 hints, method/solution, rating, tips, common error, reflection, alternative method
+- Coach's Corner: 2 binary checks (max sandwiches, remaining spend) + adapted practice ($40, $7.50 sandwiches) with reflection
+- Video: Daily Dose of Math Problem 1 Breakdown (jo7ME7qg4Sg, 0:00-0:38)
+- Papers page now dynamically shows practice buttons per-year; "In preparation" for years without guides
+- Updated verify.mjs and coaching-state.test.mjs for 6-problem coverage
+- Updated AGENTS.md for multi-AI coordination
+- Published to GitHub Pages
+
 ## 2026-09-29 — Your next small win: coach and learning map
 
 - Replaced the fixed Problem 1 home card, separate progress ring, and duplicate problem chooser with one responsive home section: a contextual next step, a coach note grounded in actual activity, and five selectable topic/status tiles.

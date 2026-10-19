@@ -93,7 +93,7 @@ function practiceButton(id, label, className = 'text-button') {
 }
 $('#today-date').textContent = new Intl.DateTimeFormat('en', {weekday:'long',month:'long',day:'numeric'}).format(new Date()).toUpperCase();
 $('#home-years').innerHTML = YEARS.map((year) => '<a class="year-card" href="' + source(year) + '" target="_blank" rel="noopener noreferrer" aria-label="Open ' + year + ' AMC 8 on AoPS"><strong>' + year + '</strong><small>25 problems</small>' + icon('external') + '</a>').join('');
-$('#paper-grid').innerHTML = YEARS.map((year) => '<article class="paper-card"><div class="paper-year"><h2>' + year + '</h2><span>AMC 8</span></div><p>25 original problems<br>Source solutions on AoPS</p><a href="' + source(year) + '" target="_blank" rel="noopener noreferrer">Explore this exam ' + icon('external') + '</a>' + (year === 2026 ? '<div class="paper-practice-links">' + ids.map((id) => practiceButton(id, 'Practice Problem ' + problems[id].number)).join('') + '</div>' : '') + '</article>').join('');
+$('#paper-grid').innerHTML = YEARS.map((year) => '<article class="paper-card"><div class="paper-year"><h2>' + year + '</h2><span>AMC 8</span></div><p>25 original problems<br>Source solutions on AoPS</p><a href="' + source(year) + '" target="_blank" rel="noopener noreferrer">Explore this exam ' + icon('external') + '</a>' + (ids.filter((id) => problems[id].year === year).length ? '<div class="paper-practice-links">' + ids.filter((id) => problems[id].year === year).map((id) => practiceButton(id, 'Practice Problem ' + problems[id].number)).join('') + '</div>' : '<div class="paper-practice-links paper-coming-soon"><span class="text-button disabled">In preparation</span></div>') + '</article>').join('');
 $('#available-practice').innerHTML = ids.map(id => '<button type="button" class="map-problem" data-home-problem="' + id + '" aria-pressed="false" aria-controls="home-selection"><span class="map-number">' + problems[id].number + '</span><span class="map-copy"><strong>Problem ' + problems[id].number + '</strong><span class="map-topic"></span></span><span class="map-status"></span></button>').join('');
 $('#coach-techniques').innerHTML = ids.map((id) => '<article class="white-card"><span class="eyebrow">PROBLEM ' + problems[id].number + '</span><h3>' + escape(problems[id].title) + '</h3><p>' + escape(problems[id].topic) + '</p>' + practiceButton(id, 'Open this practice') + '</article>').join('');
 
@@ -247,6 +247,7 @@ function renderProgress() {
   $('#completed-count').textContent = String(explored);
   $('#independent-count').textContent = String(independent);
   $('#review-count').textContent = String(revisit);
+  $('#available-count').textContent = String(ids.length);
   renderHome();
   $('#storage-status').textContent = learning.mode === 'preview' ? 'Parent preview · Not saved' : storageAvailable ? 'Learning saved on this device' : 'Learning for this session only';
   $('#notebook-storage').textContent = learning.mode === 'preview' ? 'Preview activities are temporary. They will not be copied into Pingping’s learning notebook.' : storageAvailable ? 'Saved in this browser on this device. Reloading begins fresh attempts and retains your learning history.' : 'Saving is unavailable. Your learning record lasts for this session.';
