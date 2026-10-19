@@ -97,7 +97,7 @@ $('#paper-grid').innerHTML = (() => {
   const byYear = {};
   for (const id of ids) {
     const y = problems[id].year;
-    if (!byYear[y]) byYear[y] = (byYear[y] || 0) + 1;
+    byYear[y] = (byYear[y] || 0) + 1;
   }
   return YEARS.map((year) => {
     const count = byYear[year] || 0;
