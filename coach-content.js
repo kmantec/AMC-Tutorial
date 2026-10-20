@@ -2733,5 +2733,249 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_5",
       credit: "Changed-number practice and coaching authored by Hermes Agent, using the fraction-to-percent method from AoPS Solutions 1–3."
     }
+  },
+  "2020-6": {
+    intro: "Use a diagram with 5 positions. Test each possible arrangement against the conditions.",
+    checks: [
+      {
+        id: "maren-last",
+        prompt: "Maren sat in the last car. If we number cars 1-5 from back to front, which position is Maren?",
+        options: [
+          { id: "a", label: "Position 5 (front)", correct: true, feedback: "Yes. The 'last car' is the front-most car, position 5. So M = 5." },
+          { id: "b", label: "Position 1 (back)", correct: false, feedback: "The 'last car' means the last one in line — the front car. So position 5, not position 1." }
+        ]
+      },
+      {
+        id: "directly-behind",
+        prompt: "Aaron sat directly behind Sharon. What does this mean about their positions?",
+        options: [
+          { id: "a", label: "Sharon is immediately in front of Aaron (... S A ...)", correct: true, feedback: "Yes. 'Behind' means toward the back, so Aaron is behind Sharon. S is in front, A directly behind." },
+          { id: "b", label: "Aaron is immediately in front of Sharon (... A S ...)", correct: false, feedback: "If Aaron is behind Sharon, then Sharon is in front. The order should be S then A, not A then S." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-6-a",
+      sourceProblem: "2020-6",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Five friends (P, Q, R, S, T) sit in 5 train cars (1=back, 5=front). T is in the last car. P sits directly behind Q. R sits in front of P. At least one person sits between S and R. Who is in the middle car (position 3)?",
+      options: [
+        { letter: "A", value: "A", label: "P" },
+        { letter: "B", value: "B", label: "Q" }
+      ],
+      answer: "A",
+      answerLabel: "(A) P",
+      solution: [
+        "T is in car 5 (last car). P is directly behind Q, so Q is in front of P.",
+        "Try T _ P Q _ (from front to back: T, ?, P, Q, ?).",
+        "R must be in front of P, so R is between T and P. S and R need someone between them.",
+        "Working through: T R P Q S — check: P behind Q ✓, R in front of P ✓, S and R have P and Q between them ✓.",
+        "Position 3 is P. Answer: P."
+      ],
+      reflection: {
+        id: "adapted-train-reason",
+        prompt: "True or false: in the arrangement T R P Q S, the person in the second car (position 4) is Q.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Yes! T=5(front), R=4, P=3(middle), Q=2, S=1(back). So Q is in car 2 (second from back)." },
+          { id: "false", label: "False", correct: false, feedback: "T=5(front), R=4, P=3, Q=2, S=1. So Q is in car 2 — true!" }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_6",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the position-diagram method from AoPS Solutions 1–2."
+    }
+  },
+  "2020-7": {
+    intro: "The number must be between 2020 and 2400 with distinct increasing digits. Fix the first two digits, then count the rest.",
+    checks: [
+      {
+        id: "first-two-digits",
+        prompt: "The number is between 2020 and 2400, with distinct increasing digits. What are the first two digits?",
+        options: [
+          { id: "a", label: "2 and 3 (the number is 23_ _)", correct: true, feedback: "Yes. Thousands digit is 2. Hundreds digit must be greater than 2 but less than 4, so it must be 3." },
+          { id: "b", label: "2 and 4 (the number is 24_ _)", correct: false, feedback: "24_ _ would be >= 2400, outside the range. The hundreds digit must be 3." }
+        ]
+      },
+      {
+        id: "count-remaining",
+        prompt: "The last two digits must be from {4,5,6,7,8,9} in increasing order. How many ways?",
+        options: [
+          { id: "a", label: "C(6,2) = 15 ways", correct: true, feedback: "Yes. Choose any 2 digits from 6 — they automatically go in increasing order. C(6,2) = 15." },
+          { id: "b", label: "6 x 5 = 30 ways (permutations)", correct: false, feedback: "Since digits must be in increasing order, order is forced once you choose. So C(6,2) = 15, not 30." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-7-a",
+      sourceProblem: "2020-7",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "How many integers between 3100 and 3500 have four distinct digits arranged in increasing order?",
+      options: [
+        { letter: "A", value: 10, label: "10" },
+        { letter: "B", value: 5, label: "5" }
+      ],
+      answer: 10,
+      answerLabel: "(A) 10",
+      solution: [
+        "Thousands digit is 3. Hundreds digit must be greater than 3 but less than 5 (to stay under 3500), so it must be 4.",
+        "The number is 34_ _. The last two digits must be from {5,6,7,8,9} in increasing order.",
+        "C(5,2) = 10 ways."
+      ],
+      reflection: {
+        id: "adapted-digit-reason",
+        prompt: "True or false: 3467 is one of the integers in this set.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Yes! 3<4<6<7, all digits increasing. 3467 is between 3100 and 3500." },
+          { id: "false", label: "False", correct: false, feedback: "Check: 3<4<6<7 — digits increasing. 3467 is between 3100 and 3500. True!" }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_7",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the fix-and-count method from AoPS Solutions 1–2."
+    }
+  },
+  "2020-8": {
+    intro: "Write the total value in terms of just nickels — the constant part cancels when finding the difference.",
+    checks: [
+      {
+        id: "total-formula",
+        prompt: "If Ricardo has p pennies and n nickels, with p + n = 2020, what is the total value in cents?",
+        options: [
+          { id: "a", label: "2020 + 4n", correct: true, feedback: "Yes. Total = p + 5n = (2020 - n) + 5n = 2020 + 4n." },
+          { id: "b", label: "5 x 2020 = 10100", correct: false, feedback: "Not all coins are nickels. Use p + 5n where p + n = 2020. Simplify: 2020 + 4n." }
+        ]
+      },
+      {
+        id: "range-of-n",
+        prompt: "Ricardo has at least one penny and at least one nickel. What values can n take?",
+        options: [
+          { id: "a", label: "n = 1 to 2019", correct: true, feedback: "Yes. At least one nickel (n >= 1) and at least one penny (p >= 1, so n <= 2019)." },
+          { id: "b", label: "n = 0 to 2020", correct: false, feedback: "He must have at least one nickel (n >= 1) and one penny (n <= 2019). So n ranges 1 to 2019." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-8-a",
+      sourceProblem: "2020-8",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A jar has 500 coins: dimes (10¢) and quarters (25¢). There is at least one of each. What is the difference in cents between the greatest and least possible amounts?",
+      options: [
+        { letter: "A", value: 7470, label: "7470" },
+        { letter: "B", value: 7500, label: "7500" }
+      ],
+      answer: 7470,
+      answerLabel: "(A) 7470",
+      solution: [
+        "Let d = dimes, q = quarters. d + q = 500.",
+        "Total = 10d + 25q = 10(500 - q) + 25q = 5000 + 15q.",
+        "q ranges from 1 to 499.",
+        "Difference = 15 x (499 - 1) = 15 x 498 = 7470."
+      ],
+      reflection: {
+        id: "adapted-coins-reason",
+        prompt: "True or false: the answer would be larger if the jar held 1000 coins instead of 500.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Yes! With 1000 coins, q ranges 1-999. Difference = 15 x 998 = 14970 > 7470." },
+          { id: "false", label: "False", correct: false, feedback: "More coins means wider range of q, so difference increases. 15 x 998 = 14970 > 7470. True!" }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_8",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the constant-cancellation method from AoPS Solutions 1–2."
+    }
+  },
+  "2020-9": {
+    intro: "The cake has icing on 5 faces. Count cubes on edges where exactly two iced faces meet, layer by layer.",
+    checks: [
+      {
+        id: "top-layer-edges",
+        prompt: "In the top layer, how many small cubes have icing on exactly 2 sides?",
+        options: [
+          { id: "a", label: "8 (the 2 middle cubes on each of the 4 edges)", correct: true, feedback: "Yes. Top layer edges have top+side icing. Each edge has 2 non-corner cubes, 4 edges: 4 x 2 = 8." },
+          { id: "b", label: "4 (the corner cubes)", correct: false, feedback: "Top layer corners have 3 iced sides (top + two sides), not 2. The 2-iced cubes are the non-corner edge pieces." }
+        ]
+      },
+      {
+        id: "bottom-layer",
+        prompt: "The bottom has no icing. How many bottom-layer cubes have icing on exactly 2 sides?",
+        options: [
+          { id: "a", label: "4 (the corner cubes)", correct: true, feedback: "Yes. Bottom layer corners have icing on two side faces (bottom itself is not iced)." },
+          { id: "b", label: "0 (no icing on bottom)", correct: false, feedback: "The bottom face isn't iced, but side faces are. Bottom corner cubes have two side faces with icing = 2 sides." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-9-a",
+      sourceProblem: "2020-9",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A 5x5x5 cube has icing on the top and four sides (no icing on bottom). It is cut into 125 unit cubes. How many small cubes have icing on exactly 2 sides?",
+      options: [
+        { letter: "A", value: 28, label: "28" },
+        { letter: "B", value: 36, label: "36" }
+      ],
+      answer: 28,
+      answerLabel: "(A) 28",
+      solution: [
+        "Following Solution 1 from the original: for non-bottom cubes, only the 2 center cubes of each edge have 2 iced faces.",
+        "There are 12-4 = 8 edges (excluding the 4 bottom edges). Each has 3 center cubes (since 5x5x5). 8 x 3 = 24.",
+        "Bottom face: only the 4 corner cubes have exactly 2 iced faces. 4.",
+        "Total = 24 + 4 = 28."
+      ],
+      reflection: {
+        id: "adapted-cake-reason",
+        prompt: "True or false: for a 3x3x3 cake with the same icing, the answer would be 12.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Yes! 8 edges x 1 center cube = 8, plus 4 bottom corners = 12." },
+          { id: "false", label: "False", correct: false, feedback: "Check: 3x3x3 -> each edge (non-bottom) has 1 center cube. 8 x 1 = 8. Plus 4 bottom corners = 12. True!" }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_9",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the edge-counting method from AoPS Solutions 1–2."
+    }
+  },
+  "2020-10": {
+    intro: "Use complementary counting: count total arrangements, then subtract the ones where S and T are next to each other.",
+    checks: [
+      {
+        id: "total-arrangements",
+        prompt: "How many ways can 4 distinct marbles be arranged in a row?",
+        options: [
+          { id: "a", label: "4! = 24", correct: true, feedback: "Yes. 4 distinct items can be arranged in 4! = 24 ways." },
+          { id: "b", label: "4 x 3 = 12", correct: false, feedback: "4 items can be arranged in 4! = 4 x 3 x 2 x 1 = 24 ways, not 12." }
+        ]
+      },
+      {
+        id: "together-count",
+        prompt: "If Steelie and Tiger must be together, how many arrangements are there?",
+        options: [
+          { id: "a", label: "3! x 2! = 12", correct: true, feedback: "Yes. Treat S&T as a block -> 3 items to arrange = 3! = 6. Inside block: 2! = 2. Total = 12." },
+          { id: "b", label: "3! = 6", correct: false, feedback: "Don't forget the 2! for ordering S and T inside the block. 3! x 2! = 6 x 2 = 12." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-10-a",
+      sourceProblem: "2020-10",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Zara has 5 distinct marbles (A, B, C, D, E). She wants to arrange them in a row but does NOT want A and B next to each other. How many arrangements?",
+      options: [
+        { letter: "A", value: 72, label: "72" },
+        { letter: "B", value: 48, label: "48" }
+      ],
+      answer: 72,
+      answerLabel: "(A) 72",
+      solution: [
+        "Total arrangements of 5 distinct marbles: 5! = 120.",
+        "Arrangements where A and B are together: treat AB as a block -> 4! x 2! = 24 x 2 = 48.",
+        "Arrangements where A and B are NOT together: 120 - 48 = 72."
+      ],
+      reflection: {
+        id: "adapted-marble-reason",
+        prompt: "True or false: if Zara had 6 marbles and wanted to keep 2 specific ones apart, the answer would be 480.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Yes! 6! = 720. Together: 5! x 2! = 120 x 2 = 240. Apart: 720 - 240 = 480." },
+          { id: "false", label: "False", correct: false, feedback: "Check: 6! = 720. Block method: 5! x 2! = 240. 720 - 240 = 480. True!" }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_10",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the complementary counting method from AoPS Solutions 1–3."
+    }
   }
 };

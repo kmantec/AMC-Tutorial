@@ -685,6 +685,86 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-20",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_5"
     }
+  ],
+  "2020-6": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=567s",
+      "startSeconds": 567,
+      "endSeconds": 620,
+      "segmentLabel": "Problem 6 · 9:27–10:20",
+      "reason": "The Problem 6 segment covers the train seating logic with position diagrams.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 6 segment was reviewed via video frames and visible English captions. Covers the systematic arrangement testing method.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-21",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_6"
+    }
+  ],
+  "2020-7": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=713s",
+      "startSeconds": 713,
+      "endSeconds": 770,
+      "segmentLabel": "Problem 7 · 11:53–12:50",
+      "reason": "The Problem 7 segment covers the increasing-digit integer counting problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows the fix-the-first-two-digits approach and C(6,2) counting.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-21",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_7"
+    }
+  ],
+  "2020-8": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=845s",
+      "startSeconds": 845,
+      "endSeconds": 900,
+      "segmentLabel": "Problem 8 · 14:05–15:00",
+      "reason": "The Problem 8 segment covers the pennies-and-nickels max-min difference problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows the 2020+4n approach and finding the difference.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-21",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_8"
+    }
+  ],
+  "2020-9": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=1038s",
+      "startSeconds": 1038,
+      "endSeconds": 1100,
+      "segmentLabel": "Problem 9 · 17:18–18:20",
+      "reason": "The Problem 9 segment covers the cake icing counting problem with layer-by-layer analysis.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows the edge-counting approach for the 4x4x4 cube with no bottom icing.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-21",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_9"
+    }
+  ],
+  "2020-10": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=1170s",
+      "startSeconds": 1170,
+      "endSeconds": 1230,
+      "segmentLabel": "Problem 10 · 19:30–20:30",
+      "reason": "The Problem 10 segment covers the marble arrangement problem using complementary counting.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows the 4! minus block method approach.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-21",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_10"
+    }
   ]
 };
 
