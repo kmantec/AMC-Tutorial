@@ -211,6 +211,156 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-19",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_10"
     }
+  ],
+  "2019-11": [
+    {
+      "id": "IgpayYB48C4",
+      "title": "AMC8 2019 Full Solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=IgpayYB48C4&t=1875s",
+      "startSeconds": 1875,
+      "endSeconds": 1965,
+      "segmentLabel": "Problem 11 · 31:15–32:45",
+      "reason": "Full-test walkthrough covering the set-counting problem with the inclusion–exclusion principle.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 11 segment was reviewed using video frames and visible English captions. Covers total 78+54=124, subtract 93 to get 31 taking both, then 78−31=39 taking only math.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_11"
+    },
+    {
+      "id": "gOZOCFNXMhE",
+      "title": "AMC 8 2019 — Problems #11-15",
+      "channel": "The Learning Royal",
+      "watchUrl": "https://www.youtube.com/watch?v=gOZOCFNXMhE&t=0s",
+      "startSeconds": 0,
+      "endSeconds": 85,
+      "segmentLabel": "Problem 11 · 0:00–1:25",
+      "reason": "Clear walkthrough of the two-set Venn problem with step-by-step arithmetic.",
+      "reviewNote": "Hermes Agent recommendation: reviewed the Problem 11 segment from transcript. Covers 78+54=124 total enrolments, 124−93=31 taking both, 78−31=39 taking only math.",
+      "reviewBasis": "Transcript analysis",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_11"
+    }
+  ],
+  "2019-12": [
+    {
+      "id": "IgpayYB48C4",
+      "title": "AMC8 2019 Full Solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=IgpayYB48C4&t=3752s",
+      "startSeconds": 3752,
+      "endSeconds": 3842,
+      "segmentLabel": "Problem 12 · 62:32–64:02",
+      "reason": "Full-test walkthrough of the cube-face colour logic problem using spatial reasoning.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 12 segment was reviewed using video frames and visible English captions. Covers identifying opposite faces by tracking rotations between the three cube views.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_12"
+    },
+    {
+      "id": "gOZOCFNXMhE",
+      "title": "AMC 8 2019 — Problems #11-15",
+      "channel": "The Learning Royal",
+      "watchUrl": "https://www.youtube.com/watch?v=gOZOCFNXMhE&t=85s",
+      "startSeconds": 85,
+      "endSeconds": 170,
+      "segmentLabel": "Problem 12 · 1:25–2:50",
+      "reason": "Walks through the three cube views and deduces opposite colours step by step.",
+      "reviewNote": "Hermes Agent recommendation: reviewed the Problem 12 segment from transcript. Covers first cube rotated right giving G opposite R, then rotation up giving B opposite P, leaving A opposite R.",
+      "reviewBasis": "Transcript analysis",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_12"
+    }
+  ],
+  "2019-13": [
+    {
+      "id": "IgpayYB48C4",
+      "title": "AMC8 2019 Full Solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=IgpayYB48C4&t=3996s",
+      "startSeconds": 3996,
+      "endSeconds": 4086,
+      "segmentLabel": "Problem 13 · 66:36–68:06",
+      "reason": "Full-test walkthrough of the palindrome sum problem with systematic search.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 13 segment was reviewed using video frames and visible English captions. Covers testing combinations of distinct two-digit palindromes to find the least three-digit sum.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_13"
+    },
+    {
+      "id": "gOZOCFNXMhE",
+      "title": "AMC 8 2019 — Problems #11-15",
+      "channel": "The Learning Royal",
+      "watchUrl": "https://www.youtube.com/watch?v=gOZOCFNXMhE&t=170s",
+      "startSeconds": 170,
+      "endSeconds": 225,
+      "segmentLabel": "Problem 13 · 2:50–3:45",
+      "reason": "Explains the guesswork approach to finding the least three-digit palindrome sum.",
+      "reviewNote": "Hermes Agent recommendation: reviewed the Problem 13 segment from transcript. Covers starting with 11, 22, 33 and working up to find 11+45+65=110, digits sum to 2.",
+      "reviewBasis": "Transcript analysis",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_13"
+    }
+  ],
+  "2019-14": [
+    {
+      "id": "IgpayYB48C4",
+      "title": "AMC8 2019 Full Solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=IgpayYB48C4&t=4200s",
+      "startSeconds": 4200,
+      "endSeconds": 4290,
+      "segmentLabel": "Problem 14 · 70:00–71:30",
+      "reason": "Full-test walkthrough of the calendar/coupon scheduling problem with day-of-week testing.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 14 segment was reviewed using video frames and visible English captions. Covers testing each starting day until no coupon falls on a Sunday.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_14"
+    },
+    {
+      "id": "gOZOCFNXMhE",
+      "title": "AMC 8 2019 — Problems #11-15",
+      "channel": "The Learning Royal",
+      "watchUrl": "https://www.youtube.com/watch?v=gOZOCFNXMhE&t=225s",
+      "startSeconds": 225,
+      "endSeconds": 350,
+      "segmentLabel": "Problem 14 · 3:45–5:50",
+      "reason": "Detailed walkthrough testing each starting day (Mon–Sat) to find Wednesday as the only valid first coupon day.",
+      "reviewNote": "Hermes Agent recommendation: reviewed the Problem 14 segment from transcript. Covers assigning numbers to days, testing Mon (lands on Sun), Tue (5th coupon on Sun), Wed (all six avoid Sun), Thu (next coupon on Sun), Fri (lands on Sun).",
+      "reviewBasis": "Transcript analysis",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_14"
+    }
+  ],
+  "2019-15": [
+    {
+      "id": "IgpayYB48C4",
+      "title": "AMC8 2019 Full Solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=IgpayYB48C4&t=4370s",
+      "startSeconds": 4370,
+      "endSeconds": 4460,
+      "segmentLabel": "Problem 15 · 72:50–74:20",
+      "reason": "Full-test walkthrough of the conditional probability problem with sunglasses and caps.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 15 segment was reviewed using video frames and visible English captions. Covers computing both = 35 × 2/5 = 14, then 14/50 = 7/25.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_15"
+    },
+    {
+      "id": "gOZOCFNXMhE",
+      "title": "AMC 8 2019 — Problems #11-15",
+      "channel": "The Learning Royal",
+      "watchUrl": "https://www.youtube.com/watch?v=gOZOCFNXMhE&t=350s",
+      "startSeconds": 350,
+      "endSeconds": 454,
+      "segmentLabel": "Problem 15 · 5:50–7:34",
+      "reason": "Walks through the conditional probability using given fraction to find the intersection.",
+      "reviewNote": "Hermes Agent recommendation: reviewed the Problem 15 segment from transcript. Covers 35 × 2/5 = 14 people wearing both, then 14/50 = 7/25 probability a sunglasses-wearer also wears a cap.",
+      "reviewBasis": "Transcript analysis",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_15"
+    }
   ]
 };
 

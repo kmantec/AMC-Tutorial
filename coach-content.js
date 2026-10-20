@@ -1133,5 +1133,402 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_10",
       credit: "Changed-number practice and coaching authored by Hermes Agent."
     }
+  },
+  "2019-11": {
+    intro: "Every student takes math or foreign language (or both). The total counts include students who take both — try finding how many take only math.",
+    checks: [
+      {
+        id: "only-math-count",
+        prompt: "There are 93 students total and 54 take a foreign language. Which calculation finds the number taking only math?",
+        options: [
+          {
+            id: "a",
+            label: "93 − 54 = 39, because every student not taking a foreign language must take math.",
+            correct: true,
+            feedback: "Yes. Since every student takes math or foreign language (or both), all 93 − 54 = 39 students who do not take a foreign language must take math. The 70 math figure includes those who also take foreign language, so it is not needed."
+          },
+          {
+            id: "b",
+            label: "70 − 54 = 16, because subtract the foreign language students from the math students.",
+            correct: false,
+            feedback: "Not quite. The 70 math students include some who also take foreign language. The 54 foreign language students also include some math students. Use the total: 93 − 54 = 39 students take only math."
+          }
+        ]
+      },
+      {
+        id: "venn-diagram",
+        prompt: "If 31 students take both subjects, how many take only math?",
+        options: [
+          {
+            id: "a",
+            label: "70 − 31 = 39",
+            correct: true,
+            feedback: "Yes. Take the 70 math students and subtract the 31 who also take foreign language, leaving 39 who take only math."
+          },
+          {
+            id: "b",
+            label: "93 − 31 = 62",
+            correct: false,
+            feedback: "The total includes all students. The 31 taking both are already counted in both the 70 and the 54. Only math = 70 − 31 = 39."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-11-a",
+      sourceProblem: "2019-11",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A school has 120 students. Each student takes art or music (or both). There are 85 students taking art and 60 students taking music. How many students take only art?",
+      options: [
+        { letter: "A", value: 60, label: "60" },
+        { letter: "B", value: 35, label: "35" }
+      ],
+      answer: 60,
+      answerLabel: "(A) 60",
+      solution: [
+        "Every student takes art or music (or both), so students who do not take music must take art.",
+        "Total − music = 120 − 60 = 60 students take only art.",
+        "Check: both = 85 + 60 − 120 = 25. Only art = 85 − 25 = 60."
+      ],
+      reflection: {
+        id: "adapted-venn-reason",
+        prompt: "True or false: the number of students taking only art can be found without using the 85 art students at all.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Yes! Since every student not in music must be in art, 120 − 60 = 60 gives only art directly. The art total is extra information."
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Actually it is true. Because every student takes at least one subject, the students not taking music all take only art. The 85 art figure is not needed for that count."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_11",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the complement-count approach from AoPS Solution 1 for the original problem."
+    }
+  },
+  "2019-12": {
+    intro: "Three views of the same cube are shown. Use the faces that appear together to find which colors are opposite each other.",
+    checks: [
+      {
+        id: "find-opposite-pair",
+        prompt: "From the first and third views, brown appears next to green, white, red, and aqua. Which color must be opposite brown?",
+        options: [
+          {
+            id: "a",
+            label: "Purple, because it is the only color that never appears next to brown in any view.",
+            correct: true,
+            feedback: "Yes. A cube face has four adjacent faces and one opposite face. Brown appears next to four distinct colors, so the only remaining color — purple — must be opposite brown."
+          },
+          {
+            id: "b",
+            label: "Red, because red appears in two views with brown.",
+            correct: false,
+            feedback: "Red appears adjacent to brown in the first view, so they share an edge — they cannot be opposite. Look for the color that never appears alongside brown."
+          }
+        ]
+      },
+      {
+        id: "aqua-opposite",
+        prompt: "Brown is opposite purple, and green is opposite white. What remains for aqua?",
+        options: [
+          {
+            id: "a",
+            label: "Red is the only color left unpaired, so aqua is opposite red.",
+            correct: true,
+            feedback: "Yes. With brown−purple and green−white as opposite pairs, only red and aqua are left. They must be opposite each other."
+          },
+          {
+            id: "b",
+            label: "Aqua is opposite green, because they share similar letter positions.",
+            correct: false,
+            feedback: "Green is already paired with white as opposites. The remaining two colors are red and aqua — they must be opposite each other."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-12-a",
+      sourceProblem: "2019-12",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A cube has faces painted red (R), blue (B), yellow (Y), green (G), orange (O), and purple (P). Three views are shown. What color is opposite blue?",
+      views: [
+        "View 1: Red (top), Blue (front), Yellow (right)",
+        "View 2: Green (top), Red (front), Purple (right)",
+        "View 3: Blue (top), Green (front), Orange (right)"
+      ],
+      options: [
+        { letter: "A", value: "A", label: "Purple" },
+        { letter: "B", value: "B", label: "Orange" }
+      ],
+      answer: "A",
+      answerLabel: "(A) Purple",
+      solution: [
+        "From views 1 and 2: Red appears next to Blue, Yellow, Green, and Purple — so Red is opposite Orange.",
+        "From views 1 and 3: Blue appears next to Red, Yellow, Green, and Orange — so Blue is opposite Purple.",
+        "Remaining pair: Yellow opposite Green.",
+        "Thus, opposite of Blue is Purple."
+      ],
+      reflection: {
+        id: "adapted-cube-reason",
+        prompt: "True or false: if Blue is opposite Purple, then Purple cannot appear in the same view as Blue.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Yes. Opposite faces of a cube never share an edge and cannot both be visible in the same view (unless the cube is transparent). Purple never appears with Blue in any view."
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Opposite faces of a cube never appear together in a single view — they are on opposite sides. Check the views: Purple is indeed never shown with Blue."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_12",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the elimination-by-adjacency method from the AoPS written solution."
+    }
+  },
+  "2019-13": {
+    intro: "Two-digit palindromes are all multiples of 11. Use that property to find the smallest possible sum that meets the conditions.",
+    checks: [
+      {
+        id: "palindrome-property",
+        prompt: "Every two-digit palindrome is a multiple of 11. What does that imply about the sum of three distinct two-digit palindromes?",
+        options: [
+          {
+            id: "a",
+            label: "The sum is also a multiple of 11, because multiples of 11 added together stay multiples of 11.",
+            correct: true,
+            feedback: "Yes. If each term is a multiple of 11, their sum is also a multiple of 11. So N must be a multiple of 11."
+          },
+          {
+            id: "b",
+            label: "The sum must be a palindrome too.",
+            correct: false,
+            feedback: "Not necessarily. The problem says N is NOT a palindrome. The property of being a multiple of 11 is inherited, but being a palindrome is not."
+          }
+        ]
+      },
+      {
+        id: "find-smallest-n",
+        prompt: "The smallest 3-digit multiple of 11 that is not a palindrome is 110. Can 110 be written as the sum of three distinct two-digit palindromes?",
+        options: [
+          {
+            id: "a",
+            label: "Yes: 11 + 22 + 77 = 110, and all three are distinct two-digit palindromes.",
+            correct: true,
+            feedback: "Yes. 11, 22, and 77 are all two-digit palindromes, distinct, and sum to 110. The digit sum is 1 + 1 + 0 = 2."
+          },
+          {
+            id: "b",
+            label: "No: 110 cannot be formed because the smallest three two-digit palindromes (11 + 22 + 33) sum to only 66.",
+            correct: false,
+            feedback: "You can use larger palindromes too, not just the smallest ones. 11 + 22 + 77 = 110. Other combinations like 11 + 33 + 66 also work."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-13-a",
+      sourceProblem: "2019-13",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A number N is the least 3-digit integer that is NOT a palindrome but is the sum of three distinct two-digit multiples of 9. What is the sum of the digits of N?",
+      options: [
+        { letter: "A", value: 9, label: "9" },
+        { letter: "B", value: 3, label: "3" }
+      ],
+      answer: 9,
+      answerLabel: "(A) 9",
+      solution: [
+        "Two-digit multiples of 9: 18, 27, 36, 45, 54, 63, 72, 81, 90, 99.",
+        "Smallest three distinct: 18 + 27 + 36 = 81 (2-digit). Next: 18 + 27 + 45 = 90 (2-digit). 18 + 27 + 54 = 99 (2-digit).",
+        "Next: 18 + 27 + 63 = 108. 108 is a 3-digit non-palindrome. Check if any smaller 3-digit sum exists: 18 + 36 + 45 = 99 (2-digit). 27 + 36 + 45 = 108 again.",
+        "So N = 108. Sum of digits = 1 + 0 + 8 = 9."
+      ],
+      reflection: {
+        id: "adapted-sum-reason",
+        prompt: "True or false: 111 could also be a candidate for N, and its digit sum is 3.",
+        options: [
+          {
+            id: "false",
+            label: "False",
+            correct: true,
+            feedback: "Right. 111 is a palindrome (reads the same forwards and backwards), so it does not satisfy the condition that N is NOT a palindrome. 108 is smaller and works."
+          },
+          {
+            id: "true",
+            label: "True",
+            correct: false,
+            feedback: "Check: 111 is a palindrome (it reads the same both ways). The problem requires N to NOT be a palindrome. Also, 108 is smaller than 111, so 111 would not be the least."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_13",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the multiple-property method from AoPS Solutions 1–3 for the original problem."
+    }
+  },
+  "2019-14": {
+    intro: "She redeems one coupon every 10 days, and never on a Sunday. Work forward from each possible starting day to see which one avoids Sundays.",
+    checks: [
+      {
+        id: "ten-days-later",
+        prompt: "If she starts on Wednesday, what day is 10 days later?",
+        options: [
+          {
+            id: "a",
+            label: "Saturday: 10 ÷ 7 leaves remainder 3, so Wednesday + 3 = Saturday.",
+            correct: true,
+            feedback: "Yes. 10 days later = 1 week (7 days) + 3 days. So Wednesday + 3 = Saturday."
+          },
+          {
+            id: "b",
+            label: "Wednesday again, because 10 days is close to a week.",
+            correct: false,
+            feedback: "10 days is 3 days more than a full week. Add 7 days to Wednesday gives next Wednesday; add 3 more gives Saturday."
+          }
+        ]
+      },
+      {
+        id: "check-sundays",
+        prompt: "Starting on Wednesday, the coupon dates are: Wed, Sat, Tue, Fri, Mon, Thu. Do any fall on Sunday?",
+        options: [
+          {
+            id: "a",
+            label: "No — none of those days is Sunday.",
+            correct: true,
+            feedback: "Right. The sequence skips Sunday entirely. Every other starting day produces a Sunday within the 6 coupons."
+          },
+          {
+            id: "b",
+            label: "Yes — Saturday is too close to Sunday.",
+            correct: false,
+            feedback: "Saturday is not Sunday. The actual dates are Wednesday, Saturday, Tuesday, Friday, Monday, Thursday — check each one against the days of the week."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-14-a",
+      sourceProblem: "2019-14",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Isabella has 5 coupons to redeem, one every 12 days. Pete's is closed on Tuesdays. She realizes no coupon date falls on a Tuesday. On what day of the week does she redeem her first coupon?",
+      options: [
+        { letter: "A", value: "A", label: "Sunday" },
+        { letter: "B", value: "B", label: "Wednesday" }
+      ],
+      answer: "A",
+      answerLabel: "(A) Sunday",
+      solution: [
+        "12 days later = 1 week (7 days) + 5 days. So each coupon is 5 weekdays after the previous one.",
+        "Try Sunday: Sun → Fri (0+5=5) → Wed (5+5=10≡3) → Mon (3+5=8≡1) → Sat (1+5=6). None falls on Tuesday. ✓",
+        "Try Wednesday: Wed → Mon (3+5=8≡1) → Sat (1+5=6) → Thu (6+5=11≡4) → Tue (4+5=9≡2). Last coupon on Tuesday. ✗",
+        "Only Sunday works."
+      ],
+      reflection: {
+        id: "adapted-calendar-reason",
+        prompt: "True or false: starting on Friday would also avoid Tuesdays with a 12-day gap.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Yes! Fri → Wed (5+5=10≡3) → Mon (3+5=8≡1) → Sat (1+5=6) → Thu (6+5=11≡4). No Tuesday. There can be more than one valid starting day."
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Let's check: Fri → Wed → Mon → Sat → Thu. None is Tuesday, so it is true that Friday also works. The answer choices may list only one valid option."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_14",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the day-counting method from AoPS Solution 4 for the original problem."
+    }
+  },
+  "2019-15": {
+    intro: "Two conditional probabilities are linked by the same 'both' group. Find how many people wear both, then flip the fraction.",
+    checks: [
+      {
+        id: "find-both",
+        prompt: "35 people wear caps, and P(sunglasses | cap) = 2/5. How many people wear both?",
+        options: [
+          {
+            id: "a",
+            label: "(2/5) × 35 = 14",
+            correct: true,
+            feedback: "Yes. P(sunglasses | cap) means 'of the cap-wearers, how many also wear sunglasses.' So 2/5 of 35 = 14 people wear both."
+          },
+          {
+            id: "b",
+            label: "35 × 5/2 = 87.5, rounded to 88",
+            correct: false,
+            feedback: "The probability 2/5 means 2 out of every 5 cap-wearers also wear sunglasses. Multiply 35 by 2/5, not 5/2: (2/5) × 35 = 14."
+          }
+        ]
+      },
+      {
+        id: "flip-probability",
+        prompt: "14 people wear both. 50 people wear sunglasses. What is P(cap | sunglasses)?",
+        options: [
+          {
+            id: "a",
+            label: "14/50 = 7/25",
+            correct: true,
+            feedback: "Yes. Of the 50 people wearing sunglasses, 14 also wear a cap. So the probability is 14/50 = 7/25."
+          },
+          {
+            id: "b",
+            label: "14/35 = 2/5, the same as before",
+            correct: false,
+            feedback: "The denominator changes. The first probability used cap-wearers (35). This one uses sunglasses-wearers (50). So it is 14/50 = 7/25, not 14/35."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-15-a",
+      sourceProblem: "2019-15",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "At a winter market, 60 people are wearing hats and 40 people are wearing scarves. Some people wear both. If one of the scarf-wearers is chosen at random, the probability they also wear a hat is 1/4. If instead someone wearing a hat is chosen at random, what is the probability they also wear a scarf?",
+      options: [
+        { letter: "A", value: "A", label: "1/6" },
+        { letter: "B", value: "B", label: "1/4" }
+      ],
+      answer: "A",
+      answerLabel: "(A) 1/6",
+      solution: [
+        "Both = (1/4) × 40 = 10 people wear both hat and scarf.",
+        "P(scarf | hat) = both ÷ hat-wearers = 10/60 = 1/6."
+      ],
+      reflection: {
+        id: "adapted-conditional-reason",
+        prompt: "True or false: P(hat | scarf) and P(scarf | hat) are always equal because they describe the same overlap.",
+        options: [
+          {
+            id: "false",
+            label: "False",
+            correct: true,
+            feedback: "Right. Both probabilities use the same overlap (10 people), but different denominators. P(hat|scarf) = 10/40 = 1/4, while P(scarf|hat) = 10/60 = 1/6."
+          },
+          {
+            id: "true",
+            label: "True",
+            correct: false,
+            feedback: "They share the same numerator (the overlap), but the denominators differ. P(hat|scarf) uses scarf-wearers (40), P(scarf|hat) uses hat-wearers (60). So they differ."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_15",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the find-overlap-then-flip method from the AoPS solution."
+    }
   }
 };
