@@ -2339,5 +2339,399 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_25",
       credit: "Changed-number practice and coaching authored by Hermes Agent, using the stars-and-bars method from the AoPS solution for the original problem."
     }
+  },
+  "2020-1": {
+    intro: "Start with the ingredient you know and work outward. Try it on your own first.",
+    checks: [
+      {
+        id: "lemon-to-sugar",
+        prompt: "Luka uses 3 cups of lemon juice, and sugar is twice that. How much sugar does he need?",
+        options: [
+          {
+            id: "a",
+            label: "6 cups",
+            correct: true,
+            feedback: "Yes. Sugar = 2 × 3 = 6 cups. Now water is 4 times the sugar."
+          },
+          {
+            id: "b",
+            label: "8 cups",
+            correct: false,
+            feedback: "Double-check: twice as much sugar as lemon juice means 2 × 3 = 6 cups of sugar, not 8."
+          }
+        ]
+      },
+      {
+        id: "sugar-to-water",
+        prompt: "Water is 4 times the sugar (6 cups). How much water does he need?",
+        options: [
+          {
+            id: "a",
+            label: "24 cups",
+            correct: true,
+            feedback: "Yes! 4 × 6 = 24 cups. The full chain is lemon→sugar→water."
+          },
+          {
+            id: "b",
+            label: "12 cups",
+            correct: false,
+            feedback: "Check again: 4 × 6 = 24. You might have used 4 × 3 instead of 4 × 6."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-1-a",
+      sourceProblem: "2020-1",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "The recipe changes. Luka's new recipe requires 3 times as much water as sugar and twice as much sugar as lemon juice. He uses 4 cups of lemon juice. How many cups of water does he need?",
+      options: [
+        { letter: "A", value: 20, label: "20" },
+        { letter: "B", value: 24, label: "24" }
+      ],
+      answer: 24,
+      answerLabel: "(B) 24",
+      solution: [
+        "Lemon juice = 4 cups.",
+        "Sugar is twice lemon juice: 2 × 4 = 8 cups.",
+        "Water is 3 times sugar: 3 × 8 = 24 cups.",
+        "Alternatively, combine ratios: water : lemon = 6 : 1, so 6 × 4 = 24."
+      ],
+      reflection: {
+        id: "adapted-ratio-reason",
+        prompt: "True or false: if the recipe used 5 times as much water as sugar, the answer would be 40 cups.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Yes! Sugar = 2 × 4 = 8, water = 5 × 8 = 40 cups. The chain approach works the same way."
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Check: sugar = 2 × 4 = 8, water = 5 × 8 = 40. So it is true!"
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_1",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the stepwise method from AoPS Solution 2."
+    }
+  },
+  "2020-2": {
+    intro: "Adding everything first is the key. Try it on your own, then check your thinking.",
+    checks: [
+      {
+        id: "total-earnings",
+        prompt: "What is the total amount the four friends earned together?",
+        options: [
+          {
+            id: "a",
+            label: "$100",
+            correct: true,
+            feedback: "Yes: 15 + 20 + 25 + 40 = $100. Each person gets $100 ÷ 4 = $25."
+          },
+          {
+            id: "b",
+            label: "$85",
+            correct: false,
+            feedback: "Add all four: 15 + 20 + 25 + 40 = $100, not $85."
+          }
+        ]
+      },
+      {
+        id: "amount-given",
+        prompt: "If each person keeps $25, how much does the $40 earner give away?",
+        options: [
+          {
+            id: "a",
+            label: "$15",
+            correct: true,
+            feedback: "Yes: 40 − 25 = $15. He gives away the difference between what he earned and his equal share."
+          },
+          {
+            id: "b",
+            label: "$25",
+            correct: false,
+            feedback: "$25 is the equal share each person keeps. The amount given away is 40 − 25 = $15."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-2-a",
+      sourceProblem: "2020-2",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Five friends earn $10, $20, $30, $40, and $50 doing yardwork. They split their earnings equally. How much does the friend who earned $50 give to the others?",
+      options: [
+        { letter: "A", value: 20, label: "$20" },
+        { letter: "B", value: 30, label: "$30" }
+      ],
+      answer: 20,
+      answerLabel: "(A) $20",
+      solution: [
+        "Total = 10 + 20 + 30 + 40 + 50 = $150.",
+        "Equal share = 150 ÷ 5 = $30 per person.",
+        "The $50 earner keeps $30, so gives away 50 − 30 = $20."
+      ],
+      reflection: {
+        id: "adapted-share-reason",
+        prompt: "True or false: if there were 6 friends instead of 5, the $50 earner would give away more money.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Yes! With 6 friends, equal share = (10+20+30+40+50+0)÷6 = 150÷6 = $25. The $50 earner gives away 50−25 = $25, which is more than $20."
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Actually, with 6 friends the equal share drops to $25, so the $50 earner gives away $25 — more than the $20 in the original. So it's true."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_2",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the total-and-divide method from the AoPS solution."
+    }
+  },
+  "2020-3": {
+    intro: "Work step by step from the garden to the harvest. Try each calculation on your own.",
+    checks: [
+      {
+        id: "garden-area",
+        prompt: "The garden is 6 ft by 8 ft. What is its area?",
+        options: [
+          {
+            id: "a",
+            label: "48 square feet",
+            correct: true,
+            feedback: "Yes: 6 × 8 = 48 sq ft. Now multiply by 4 plants per sq ft."
+          },
+          {
+            id: "b",
+            label: "14 square feet",
+            correct: false,
+            feedback: "Area is length × width = 6 × 8 = 48 sq ft. You added instead of multiplying."
+          }
+        ]
+      },
+      {
+        id: "strawberry-count",
+        prompt: "There are 192 plants, each giving 10 strawberries. How many strawberries total?",
+        options: [
+          {
+            id: "a",
+            label: "1920",
+            correct: true,
+            feedback: "Yes: 192 × 10 = 1920 strawberries. All the multiplications in order: 6 × 8 × 4 × 10 = 1920."
+          },
+          {
+            id: "b",
+            label: "960",
+            correct: false,
+            feedback: "960 is half of 1920. Check: 192 plants × 10 strawberries = 1920, not 960."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-3-a",
+      sourceProblem: "2020-3",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A rectangular garden measures 9 ft by 10 ft. Carrie plants 5 strawberry plants per square foot, and each plant produces 8 strawberries on average. How many strawberries can she expect to harvest?",
+      options: [
+        { letter: "A", value: 3600, label: "3600" },
+        { letter: "B", value: 1800, label: "1800" }
+      ],
+      answer: 3600,
+      answerLabel: "(A) 3600",
+      solution: [
+        "Area = 9 × 10 = 90 square feet.",
+        "Plants = 90 × 5 = 450 plants.",
+        "Strawberries = 450 × 8 = 3600.",
+        "Or multiply all at once: 9 × 10 × 5 × 8 = 3600."
+      ],
+      reflection: {
+        id: "adapted-harvest-reason",
+        prompt: "True or false: if the garden were 12 ft by 10 ft with the same density, the harvest would be 4800 strawberries.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Yes! Area = 120 sq ft. Plants = 120 × 5 = 600. Strawberries = 600 × 8 = 4800."
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Check: 12 × 10 × 5 × 8 = 4800. So it's true."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_3",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the area-and-rates method from AoPS Solutions 1–2."
+    }
+  },
+  "2020-4": {
+    intro: "The hexagons grow in a pattern. Find the first three dot counts, then see how they change.",
+    checks: [
+      {
+        id: "hex-differences",
+        prompt: "The first three hexagons have 1, 7, and 19 dots. What is the pattern of the differences?",
+        options: [
+          {
+            id: "a",
+            label: "Add 6, then 12 — each difference increases by 6.",
+            correct: true,
+            feedback: "Yes! 1→7 (+6), 7→19 (+12). The next difference should be +18, giving 19 + 18 = 37."
+          },
+          {
+            id: "b",
+            label: "Add 6 each time.",
+            correct: false,
+            feedback: "1→7 is +6, but 7→19 is +12, not +6. The differences themselves increase by 6 each time."
+          }
+        ]
+      },
+      {
+        id: "hex-next",
+        prompt: "If the third hexagon has 19 dots and the pattern adds 18 more, how many dots are in the fourth?",
+        options: [
+          {
+            id: "a",
+            label: "37",
+            correct: true,
+            feedback: "Yes: 19 + 18 = 37. The fifth would add 24 more: 37 + 24 = 61."
+          },
+          {
+            id: "b",
+            label: "35",
+            correct: false,
+            feedback: "19 + 18 = 37, not 35. Check the addition."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-4-a",
+      sourceProblem: "2020-4",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Suppose the first hexagon has 1 dot, the second has 8 dots, and the third has 21 dots. The pattern continues by adding an increasing multiple of 7. How many dots are in the fourth hexagon?",
+      options: [
+        { letter: "A", value: 40, label: "40" },
+        { letter: "B", value: 44, label: "44" }
+      ],
+      answer: 40,
+      answerLabel: "(A) 40",
+      solution: [
+        "First: 1 dot.",
+        "Second: 1 + 7 = 8 dots.",
+        "Third: 8 + 13 = 21 dots (add 7, then add 7+6=13).",
+        "The differences increase by 6 each time: +7, +13, +19.",
+        "Fourth: 21 + 19 = 40 dots."
+      ],
+      reflection: {
+        id: "adapted-hex-reason",
+        prompt: "True or false: the formula for the nth hexagon in this pattern is 3n² − 3n + 1.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Yes! For n=1: 3−3+1=1. n=2: 12−6+1=7. n=3: 27−9+1=19. n=4: 48−12+1=37. Wait — this matches the ORIGINAL pattern (1,7,19,37), not the adapted one. The adapted fourth hexagon has 40 dots, so this formula doesn't fit."
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Correct — it's false! 3n²−3n+1 gives 1, 7, 19, 37 for n=1,2,3,4, which fits the original pattern, not the adapted one where the fourth is 40."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_4",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the difference-pattern method from AoPS Solutions 1–7."
+    }
+  },
+  "2020-5": {
+    intro: "Think of the pitcher's total capacity. Three fourths is a fraction — what percent is that?",
+    checks: [
+      {
+        id: "pitcher-percent",
+        prompt: "The pitcher is 3/4 full. What percent of the total capacity is filled?",
+        options: [
+          {
+            id: "a",
+            label: "75%",
+            correct: true,
+            feedback: "Yes: 3/4 = 75%. Now divide this by 5 cups."
+          },
+          {
+            id: "b",
+            label: "25%",
+            correct: false,
+            feedback: "3/4 is 75%, not 25%. Remember: 1/4 = 25%, so 3/4 = 75%."
+          }
+        ]
+      },
+      {
+        id: "cup-percent",
+        prompt: "75% of the pitcher's juice is split into 5 equal cups. What percent of the total capacity does each cup get?",
+        options: [
+          {
+            id: "a",
+            label: "15%",
+            correct: true,
+            feedback: "Yes: 75 ÷ 5 = 15%. Each cup receives 15% of the pitcher's total capacity."
+          },
+          {
+            id: "b",
+            label: "20%",
+            correct: false,
+            feedback: "20% would be correct if the whole pitcher were full (100% ÷ 5 = 20%). But only 3/4 (75%) is filled, so 75 ÷ 5 = 15%."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-5-a",
+      sourceProblem: "2020-5",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Two thirds of a pitcher is filled with orange juice. The pitcher is emptied by pouring an equal amount into each of 4 cups. What percent of the total capacity of the pitcher did each cup receive?",
+      options: [
+        { letter: "A", value: 12.5, label: "12.5%" },
+        { letter: "B", value: 16.67, label: "16⅔%" }
+      ],
+      answer: 16.67,
+      answerLabel: "(B) 16⅔%",
+      solution: [
+        "Two thirds = 2/3 ≈ 66.67% of the total capacity.",
+        "Split equally into 4 cups: 66.67% ÷ 4 = 16.67% (or 50/3 %).",
+        "As a fraction: (2/3) ÷ 4 = 2/12 = 1/6 ≈ 16⅔%."
+      ],
+      reflection: {
+        id: "adapted-pitcher-reason",
+        prompt: "True or false: if the pitcher were 5/6 full and split into 5 cups, each cup would receive 1/6 of the total capacity.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Yes! (5/6) ÷ 5 = 5/30 = 1/6 ≈ 16.67%. Each cup gets one sixth of the pitcher's total capacity."
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Check: (5/6) ÷ 5 = 5/30 = 1/6. So it's true."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_5",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the fraction-to-percent method from AoPS Solutions 1–3."
+    }
   }
 };

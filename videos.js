@@ -605,6 +605,86 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-20",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_25"
     }
+  ],
+  "2020-1": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=105s",
+      "startSeconds": 105,
+      "endSeconds": 170,
+      "segmentLabel": "Problem 1 · 1:45–2:50",
+      "reason": "A full-test walkthrough. The Problem 1 segment starts at 1:45 and covers the lemonade ratio step by step.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 1 segment was reviewed via video frames and visible English captions. The chain method (lemon→sugar→water) is clearly shown.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_1"
+    }
+  ],
+  "2020-2": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=229s",
+      "startSeconds": 229,
+      "endSeconds": 300,
+      "segmentLabel": "Problem 2 · 3:49–5:00",
+      "reason": "The Problem 2 segment covers the total-and-divide approach for equal sharing.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows the total earnings, division by 4, and subtraction clearly.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_2"
+    }
+  ],
+  "2020-3": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=300s",
+      "startSeconds": 300,
+      "endSeconds": 370,
+      "segmentLabel": "Problem 3 · 5:00–6:10",
+      "reason": "The Problem 3 segment covers the strawberry harvest area-and-rates approach.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows area calculation, then plants per square foot, then strawberries per plant.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_3"
+    }
+  ],
+  "2020-4": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=370s",
+      "startSeconds": 370,
+      "endSeconds": 433,
+      "segmentLabel": "Problem 4 · 6:10–7:13",
+      "reason": "The Problem 4 segment covers the hexagon dot pattern with difference analysis.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows the pattern of increasing differences.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_4"
+    }
+  ],
+  "2020-5": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=433s",
+      "startSeconds": 433,
+      "endSeconds": 490,
+      "segmentLabel": "Problem 5 · 7:13–8:10",
+      "reason": "The Problem 5 segment covers the pitcher percentage problem with fraction-to-percent conversion.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows the 3/4 → 75% → divide by 5 approach clearly.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_5"
+    }
   ]
 };
 
@@ -633,8 +713,8 @@ export const parentSelectedVideos = {
       "startSeconds": 0,
       "endSeconds": 1433,
       "segmentLabel": "Full video · Problems 1–20",
-      "reason": "The same video used for the earlier problems, made available at your parent’s request. This opens the full video; find Problem 5 in the player. Coach review is still pending.",
-      "reviewNote": "The exact Problem 5 start and end times have not been confirmed. This opens the full 23:53 video, not a reviewed Problem 5 segment. The title and full duration were checked in YouTube’s public metadata; the coach has not reviewed the Problem 5 explanation.",
+      "reason": "The same video used for the earlier problems, made available at your parent's request. This opens the full video; find Problem 5 in the player. Coach review is still pending.",
+      "reviewNote": "The exact Problem 5 start and end times have not been confirmed. This opens the full 23:53 video, not a reviewed Problem 5 segment. The title and full duration were checked in YouTube's public metadata; the coach has not reviewed the Problem 5 explanation.",
       "selectionBasis": "Parent explicitly permitted reuse of the existing video; full duration checked in public YouTube metadata",
       "suppliedAt": "2026-09-27",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_5"
