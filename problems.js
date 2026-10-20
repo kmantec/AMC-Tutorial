@@ -1995,5 +1995,222 @@ export const problems = {
     "reflection": "If Zara had 5 distinct marbles and wanted to keep 2 specific ones apart, how many arrangements would there be?",
     "alternative": "Place S and T in positions that are not adjacent. For 4 positions, S and T can be in positions (1,3), (1,4), or (2,4) — 3 position pairs, times 2 orders = 6. Then place A and B in the remaining 2 positions: 2! = 2. Total = 6 × 2 = 12.",
     "reviewedAt": "2026-10-21"
+  },
+  "2020-11": {
+    "id": "2020-11",
+    "year": 2020,
+    "number": 11,
+    "suggestedPace": "2 min",
+    "title": "Speed from graph",
+    "topic": "Rate · graph interpretation",
+    "prompt": "After school, Maya and Naomi headed to the beach, 6 miles away. Maya decided to bike while Naomi took a bus. The graph below shows their journeys, indicating the time and distance traveled. What was the difference, in miles per hour, between Naomi's and Maya's average speeds?",
+    "wording": "original",
+    "options": [
+      { "letter": "A", "value": 6, "label": "6" },
+      { "letter": "B", "value": 12, "label": "12" },
+      { "letter": "C", "value": 18, "label": "18" },
+      { "letter": "D", "value": 20, "label": "20" },
+      { "letter": "E", "value": 24, "label": "24" }
+    ],
+    "answer": 24,
+    "answerLabel": "(E) 24",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_11",
+    "hints": [
+      "Read the time each person took from the graph. Naomi reaches 6 miles at 10 minutes. Maya reaches 6 miles at 30 minutes.",
+      "Convert minutes to hours: 10 min = 1/6 hour, 30 min = 1/2 hour. Then use speed = distance / time.",
+      "Naomi: 6 / (1/6) = 36 mph. Maya: 6 / (1/2) = 12 mph. The difference is 36 − 12 = 24 mph."
+    ],
+    "method": "Read the graph times, convert to hours, compute each speed, then subtract.",
+    "score": 8,
+    "ratingReason": "Reading data from a graph and converting units is a key AMC 8 skill. Two similar calculations make it straightforward.",
+    "solution": [
+      "Naomi reaches 6 miles at 10 minutes. 10 minutes = 10/60 = 1/6 hour. Her speed: 6 ÷ (1/6) = 36 mph.",
+      "Maya reaches 6 miles at 30 minutes. 30 minutes = 1/2 hour. Her speed: 6 ÷ (1/2) = 12 mph.",
+      "Difference: 36 − 12 = 24 mph.",
+      "Answer: E (24)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1–2.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Always convert time units before computing speed.",
+    "tip": "When a problem gives time in minutes but asks for miles per hour, convert minutes to hours first (divide by 60).",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Forgetting to convert minutes to hours, or reading the wrong person's travel time from the graph.",
+    "reflection": "If Maya had taken 20 minutes instead of 30, what would the difference in speeds be?",
+    "alternative": "Naomi: 6 miles in 10 min = 6 × 6 = 36 mph. Maya: 6 miles in 30 min = 6 × 2 = 12 mph. Difference = 24 mph.",
+    "reviewedAt": "2026-10-21"
+  },
+  "2020-12": {
+    "id": "2020-12",
+    "year": 2020,
+    "number": 12,
+    "suggestedPace": "1 min 30 sec",
+    "title": "Factorial equation",
+    "topic": "Algebra · factorials",
+    "prompt": "For a positive integer n, the factorial notation n! represents the product of the integers from n to 1. What value of N satisfies the following equation?",
+    "expression": "5! · 9! = 12 · N!",
+    "wording": "original",
+    "options": [
+      { "letter": "A", "value": 10, "label": "10" },
+      { "letter": "B", "value": 11, "label": "11" },
+      { "letter": "C", "value": 12, "label": "12" },
+      { "letter": "D", "value": 13, "label": "13" },
+      { "letter": "E", "value": 14, "label": "14" }
+    ],
+    "answer": 10,
+    "answerLabel": "(A) 10",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_12",
+    "hints": [
+      "5! = 5 × 4 × 3 × 2 × 1 = 120. Can you rewrite 120 as 12 × 10?",
+      "Rewrite the left side: 5! × 9! = (12 × 10) × 9! = 12 × 10 × 9! = 12 × 10!",
+      "Since 12 × 10! = 12 × N!, cancel the 12 to get N! = 10!, so N = 10."
+    ],
+    "method": "Expand 5! = 120 = 12 × 10, then rewrite as 12 × 10! to match the right side.",
+    "score": 7,
+    "ratingReason": "A clean factorial manipulation with a satisfying cancellation at the end.",
+    "solution": [
+      "5! = 5 × 4 × 3 × 2 × 1 = 120 = 12 × 10.",
+      "So 5! × 9! = (12 × 10) × 9! = 12 × (10 × 9!) = 12 × 10!.",
+      "The equation becomes 12 × 10! = 12 × N!.",
+      "Cancel 12 on both sides: 10! = N!, so N = 10.",
+      "Answer: A (10)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1–2.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Look for ways to rewrite one factorial in terms of another.",
+    "tip": "Remember that n! = n × (n−1)!. You can often rewrite a product as a single factorial by finding common factors.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Trying to compute 9! fully instead of using the factorial relationship to simplify.",
+    "reflection": "What value of N satisfies 6! × 8! = 12 × N!?",
+    "alternative": "5! = 120, so 120 × 9! = 12 × N!. Divide both sides by 12: 10 × 9! = N!. But 10 × 9! = 10!, so N = 10.",
+    "reviewedAt": "2026-10-21"
+  },
+  "2020-13": {
+    "id": "2020-13",
+    "year": 2020,
+    "number": 13,
+    "suggestedPace": "2 min",
+    "title": "Purple socks probability",
+    "topic": "Probability · algebra",
+    "prompt": "Jamal has a drawer containing 6 green socks, 18 purple socks, and 12 orange socks. After adding more purple socks, Jamal noticed that there is now a 60% chance that a sock randomly selected from the drawer is purple. How many purple socks did Jamal add?",
+    "wording": "original",
+    "options": [
+      { "letter": "A", "value": 6, "label": "6" },
+      { "letter": "B", "value": 9, "label": "9" },
+      { "letter": "C", "value": 12, "label": "12" },
+      { "letter": "D", "value": 18, "label": "18" },
+      { "letter": "E", "value": 24, "label": "24" }
+    ],
+    "answer": 9,
+    "answerLabel": "(B) 9",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_13",
+    "hints": [
+      "If Jamal adds x purple socks, he has 18 + x purple socks and 36 + x total socks.",
+      "The probability is (18 + x) / (36 + x) = 60% = 3/5.",
+      "Cross-multiply: 5(18 + x) = 3(36 + x) → 90 + 5x = 108 + 3x → 2x = 18 → x = 9."
+    ],
+    "method": "Set up a fraction for the new probability with the unknown x, then cross-multiply and solve.",
+    "score": 8,
+    "ratingReason": "A straightforward probability equation with a clean algebraic solution.",
+    "solution": [
+      "Jamal adds x purple socks. New count: 18 + x purple, total 6 + 18 + 12 + x = 36 + x.",
+      "Probability = (18 + x) / (36 + x) = 3/5 (since 60% = 3/5).",
+      "Cross-multiply: 5(18 + x) = 3(36 + x).",
+      "90 + 5x = 108 + 3x → 2x = 18 → x = 9.",
+      "Answer: B (9)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1–4.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Convert percentages to fractions before solving.",
+    "tip": "60% = 3/5. Using fractions often makes cross-multiplication cleaner than decimals.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Forgetting to add x to both the purple count AND the total count.",
+    "reflection": "If Jamal had started with 10 green, 20 purple, and 15 orange socks, how many purple socks would he need to add for a 60% chance?",
+    "alternative": "Test each answer choice: for x = 9, (18+9)/(36+9) = 27/45 = 3/5 = 60%. Only 9 works.",
+    "reviewedAt": "2026-10-21"
+  },
+  "2020-14": {
+    "id": "2020-14",
+    "year": 2020,
+    "number": 14,
+    "suggestedPace": "1 min 30 sec",
+    "title": "Average population from bar chart",
+    "topic": "Data analysis · average",
+    "prompt": "There are 20 cities in the County of Newton. Their populations are shown in the bar chart below. The average population of all the cities is indicated by the horizontal dashed line. Which of the following is closest to the total population of all 20 cities?",
+    "wording": "original",
+    "options": [
+      { "letter": "A", "value": 65000, "label": "65,000" },
+      { "letter": "B", "value": 75000, "label": "75,000" },
+      { "letter": "C", "value": 85000, "label": "85,000" },
+      { "letter": "D", "value": 95000, "label": "95,000" },
+      { "letter": "E", "value": 105000, "label": "105,000" }
+    ],
+    "answer": 95000,
+    "answerLabel": "(D) 95,000",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_14",
+    "hints": [
+      "The horizontal dashed line shows the average population. It's about halfway between 4,500 and 5,000.",
+      "The average is approximately 4,750. There are 20 cities.",
+      "Total population ≈ 4,750 × 20 = 95,000."
+    ],
+    "method": "Read the average from the dashed line, then multiply by the number of cities.",
+    "score": 7,
+    "ratingReason": "A simple data-reading question — read the average from the chart and multiply.",
+    "solution": [
+      "The dashed line is halfway between 4,500 and 5,000, so the average is about 4,750.",
+      "Total population = average × number of cities = 4,750 × 20 = 95,000.",
+      "Answer: D (95,000)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1–2.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Use the average to find the total.",
+    "tip": "Total = Average × Number of items. When a bar chart shows an average line, multiply it by the count.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Counting the bar values individually instead of using the average line.",
+    "reflection": "If the dashed line were at 5,000 exactly, what would the total be?",
+    "alternative": "The line is slightly below 5,000. 5,000 × 20 = 100,000, so the answer must be slightly less. 95,000 is the closest.",
+    "reviewedAt": "2026-10-21"
+  },
+  "2020-15": {
+    "id": "2020-15",
+    "year": 2020,
+    "number": 15,
+    "suggestedPace": "1 min",
+    "title": "Percentage relationship",
+    "topic": "Percentages · algebra",
+    "prompt": "Suppose 15% of x equals 20% of y. What percentage of x is y?",
+    "wording": "original",
+    "options": [
+      { "letter": "A", "value": 5, "label": "5" },
+      { "letter": "B", "value": 35, "label": "35" },
+      { "letter": "C", "value": 75, "label": "75" },
+      { "letter": "D", "value": "133 1/3", "label": "133 1/3" },
+      { "letter": "E", "value": 300, "label": "300" }
+    ],
+    "answer": 75,
+    "answerLabel": "(C) 75",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_15",
+    "hints": [
+      "Write the statement as an equation: 0.15x = 0.20y.",
+      "Solve for y: y = (0.15 / 0.20)x = (3/4)x = 0.75x.",
+      "0.75 = 75%, so y is 75% of x."
+    ],
+    "method": "Set up the equation, solve for y in terms of x, then convert to a percentage.",
+    "score": 6,
+    "ratingReason": "A fast percentage manipulation — convert the statement to an equation and solve.",
+    "solution": [
+      "15% of x = 20% of y means 0.15x = 0.20y.",
+      "Divide both sides by 0.20: y = (0.15 / 0.20)x = 0.75x.",
+      "0.75 = 75%, so y is 75% of x.",
+      "Answer: C (75)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1–6.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Let x = 100 to simplify percentage problems.",
+    "tip": "When a problem asks 'what percentage of x is y?', assume x = 100 and solve for y directly.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Answering 'what percentage of y is x?' instead of 'what percentage of x is y?' — mixing up which is the base.",
+    "reflection": "If 25% of x equals 10% of y, what percentage of x is y?",
+    "alternative": "Let x = 100. Then 15% of 100 = 15, so 15 = 20% of y → y = 75. So y = 75% of x.",
+    "reviewedAt": "2026-10-21"
   }
 };

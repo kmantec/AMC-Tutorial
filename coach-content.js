@@ -2977,5 +2977,242 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_10",
       credit: "Changed-number practice and coaching authored by Hermes Agent, using the complementary counting method from AoPS Solutions 1–3."
     }
+  },
+  "2020-11": {
+    intro: "Read the graph carefully: the x-axis is time in minutes, the y-axis is distance in miles. Find the time each person took for 6 miles.",
+    checks: [
+      {
+        id: "naomi-time",
+        prompt: "How many minutes did Naomi take to travel 6 miles?",
+        options: [
+          { id: "a", label: "10 minutes", correct: true, feedback: "Yes. Naomi's graph (dashed line) reaches 6 miles at the 10-minute mark on the x-axis." },
+          { id: "b", label: "6 minutes", correct: false, feedback: "Check the x-axis: the dashed line (Naomi) reaches height 6 at the tick mark labeled 10, not at 6." }
+        ]
+      },
+      {
+        id: "maya-speed",
+        prompt: "Maya takes 30 minutes for 6 miles. What is her speed in mph?",
+        options: [
+          { id: "a", label: "12 mph", correct: true, feedback: "Yes. 30 min = 1/2 hour. Speed = 6 ÷ 1/2 = 12 mph." },
+          { id: "b", label: "6 mph", correct: false, feedback: "6 miles ÷ 30 minutes is not 6 mph because 30 minutes is not 1 hour. Convert to hours first." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-11-a",
+      sourceProblem: "2020-11",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A cyclist and a driver travel 10 miles to a park. The cyclist takes 40 minutes; the driver takes 15 minutes. What is the difference in their speeds in mph?",
+      options: [
+        { letter: "A", value: 10, label: "10 mph" },
+        { letter: "B", value: 25, label: "25 mph" }
+      ],
+      answer: 25,
+      answerLabel: "(B) 25 mph",
+      solution: [
+        "Cyclist: 10 miles in 40 min = 10 miles in 2/3 hour. Speed = 10 ÷ (2/3) = 15 mph.",
+        "Driver: 10 miles in 15 min = 10 miles in 1/4 hour. Speed = 10 ÷ (1/4) = 40 mph.",
+        "Difference = 40 - 15 = 25 mph."
+      ],
+      reflection: {
+        id: "adapted-speed-reason",
+        prompt: "True or false: if both took the same time, the speed difference would be 0 mph.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Yes. If time is the same for the same distance, speeds are equal, so difference = 0." },
+          { id: "false", label: "False", correct: false, feedback: "Same distance and same time means same speed. The difference would indeed be 0." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_11",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the unit conversion method from AoPS Solutions 1–2."
+    }
+  },
+  "2020-12": {
+    intro: "Don't try to compute 9! — that's a huge number. Instead, think about how factorials relate to each other.",
+    checks: [
+      {
+        id: "five-factorial",
+        prompt: "What is 5! equal to?",
+        options: [
+          { id: "a", label: "120 = 12 × 10", correct: true, feedback: "Yes. 5! = 5 × 4 × 3 × 2 × 1 = 120 = 12 × 10." },
+          { id: "b", label: "25", correct: false, feedback: "5! means 5 × 4 × 3 × 2 × 1, not 5 × 5. That's 120, not 25." }
+        ]
+      },
+      {
+        id: "factorial-rewrite",
+        prompt: "What is 10 × 9! equal to?",
+        options: [
+          { id: "a", label: "10!", correct: true, feedback: "Yes! 10! = 10 × 9 × 8 × ... × 1 = 10 × (9 × 8 × ... × 1) = 10 × 9!." },
+          { id: "b", label: "90!", correct: false, feedback: "10 × 9! is not 90!. Factorials multiply all numbers, not just the first two. 10 × 9! = 10!." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-12-a",
+      sourceProblem: "2020-12",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "What value of N satisfies 6! · 7! = 24 · N! ?",
+      options: [
+        { letter: "A", value: 7, label: "7" },
+        { letter: "B", value: 8, label: "8" }
+      ],
+      answer: 8,
+      answerLabel: "(B) 8",
+      solution: [
+        "6! = 720 = 24 × 30.",
+        "6! × 7! = 24 × 30 × 7! = 24 × (30 × 7!).",
+        "30 × 7! = 30 × 5040 = 151200 = 8!.",
+        "So N = 8."
+      ],
+      reflection: {
+        id: "adapted-factorial-reason",
+        prompt: "True or false: 6! · 7! = 42!",
+        options: [
+          { id: "true", label: "True", correct: false, feedback: "No! 6! × 7! is not 42!. Factorials don't multiply like that. 6! × 7! is much smaller than 42!." },
+          { id: "false", label: "False", correct: true, feedback: "Right. 6! × 7! is nowhere near 42!. 42! is enormous." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_12",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the factorial relationship from AoPS Solutions 1–2."
+    }
+  },
+  "2020-13": {
+    intro: "Remember: when you add purple socks, the total number of socks also increases — not just the purple count.",
+    checks: [
+      {
+        id: "total-socks",
+        prompt: "Jamal adds x purple socks. What is the new total number of socks?",
+        options: [
+          { id: "a", label: "36 + x", correct: true, feedback: "Yes. Original total was 6 + 18 + 12 = 36. Adding x purple socks makes it 36 + x." },
+          { id: "b", label: "30 + x", correct: false, feedback: "Check: 6 green + 18 purple + 12 orange = 36 total socks originally, not 30." }
+        ]
+      },
+      {
+        id: "probability-equation",
+        prompt: "If (18 + x)/(36 + x) = 3/5, what is x?",
+        options: [
+          { id: "a", label: "9", correct: true, feedback: "Yes. 5(18+x) = 3(36+x) → 90 + 5x = 108 + 3x → 2x = 18 → x = 9." },
+          { id: "b", label: "6", correct: false, feedback: "Try x = 6: (24)/(42) = 4/7, not 3/5. The correct x is 9." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-13-a",
+      sourceProblem: "2020-13",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A bag has 5 red marbles, 10 blue marbles, and 15 green marbles. Some blue marbles are added until the probability of picking a blue marble is 50%. How many blue marbles were added?",
+      options: [
+        { letter: "A", value: 10, label: "10" },
+        { letter: "B", value: 15, label: "15" }
+      ],
+      answer: 10,
+      answerLabel: "(A) 10",
+      solution: [
+        "Original: 5 red + 10 blue + 15 green = 30 total.",
+        "Add x blue: (10 + x) / (30 + x) = 1/2.",
+        "2(10 + x) = 30 + x → 20 + 2x = 30 + x → x = 10."
+      ],
+      reflection: {
+        id: "adapted-probability-reason",
+        prompt: "True or false: if the target probability were 60%, more blue marbles would need to be added.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Yes. A higher target probability means blue must make up a larger fraction, so more need to be added." },
+          { id: "false", label: "False", correct: false, feedback: "Actually, a higher target probability does require more marbles. For 60%: (10+x)/(30+x) = 3/5 → x = 20, which is more than 10." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_13",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the probability equation method from AoPS Solutions 1–4."
+    }
+  },
+  "2020-14": {
+    intro: "Don't add up all the bars. The dashed line tells you the average — that's the shortcut.",
+    checks: [
+      {
+        id: "average-value",
+        prompt: "The dashed line is about halfway between which two numbers?",
+        options: [
+          { id: "a", label: "4,500 and 5,000", correct: true, feedback: "Yes. The dashed line sits exactly between the 4,500 and 5,000 marks, so the average is about 4,750." },
+          { id: "b", label: "4,000 and 5,000", correct: false, feedback: "Look more carefully at the y-axis. The dashed line is between 4,500 and 5,000, not 4,000 and 5,000." }
+        ]
+      },
+      {
+        id: "total-calculation",
+        prompt: "With average ≈ 4,750 and 20 cities, what's the total?",
+        options: [
+          { id: "a", label: "4,750 × 20 = 95,000", correct: true, feedback: "Yes. Total = average × number of items = 4,750 × 20 = 95,000." },
+          { id: "b", label: "4,750 + 20 = 4,770", correct: false, feedback: "To find total from average, you multiply, not add. 4,750 × 20 = 95,000." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-14-a",
+      sourceProblem: "2020-14",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "There are 30 students in a class. The dashed line on a test-score bar chart shows the average score is about 72. What is the closest total of all scores?",
+      options: [
+        { letter: "A", value: 2160, label: "2,160" },
+        { letter: "B", value: 1440, label: "1,440" }
+      ],
+      answer: 2160,
+      answerLabel: "(A) 2,160",
+      solution: [
+        "Total = average × number of students = 72 × 30 = 2,160."
+      ],
+      reflection: {
+        id: "adapted-average-reason",
+        prompt: "True or false: if the average were 80 instead of 72, the total would be 2,400.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Yes! 80 × 30 = 2,400. A higher average means a higher total." },
+          { id: "false", label: "False", correct: false, feedback: "Check: 80 × 30 = 2,400, so it's true!" }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_14",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the average-to-total method from AoPS Solutions 1–2."
+    }
+  },
+  "2020-15": {
+    intro: "The question asks: 'what percentage of x is y?' — that means find y/x as a percentage.",
+    checks: [
+      {
+        id: "equation-setup",
+        prompt: "Which equation represents '15% of x equals 20% of y'?",
+        options: [
+          { id: "a", label: "0.15x = 0.20y", correct: true, feedback: "Yes. 15% of x = 0.15 × x, 20% of y = 0.20 × y, and they're equal." },
+          { id: "b", label: "0.15x = 0.20x", correct: false, feedback: "The equation has y on one side, not x. '20% of y' means 0.20 × y, not 0.20 × x." }
+        ]
+      },
+      {
+        id: "solve-for-y",
+        prompt: "If 0.15x = 0.20y, what is y in terms of x?",
+        options: [
+          { id: "a", label: "y = 0.75x", correct: true, feedback: "Yes. y = (0.15/0.20)x = (3/4)x = 0.75x. So y is 75% of x." },
+          { id: "b", label: "y = 1.33x", correct: false, feedback: "Check: y = 0.15/0.20 × x = 3/4 × x = 0.75x, not 1.33x." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-15-a",
+      sourceProblem: "2020-15",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Suppose 10% of a equals 25% of b. What percentage of a is b?",
+      options: [
+        { letter: "A", value: 40, label: "40%" },
+        { letter: "B", value: 250, label: "250%" }
+      ],
+      answer: 40,
+      answerLabel: "(A) 40%",
+      solution: [
+        "0.10a = 0.25b → b = (0.10/0.25)a = 0.40a = 40% of a."
+      ],
+      reflection: {
+        id: "adapted-percentage-reason",
+        prompt: "True or false: if 20% of a = 20% of b, then a = b.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Yes. 0.20a = 0.20b → divide both sides by 0.20 → a = b." },
+          { id: "false", label: "False", correct: false, feedback: "Check: 0.20a = 0.20b → a = b. It's true!" }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_15",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the percentage equation method from AoPS Solutions 1–6."
+    }
   }
 };

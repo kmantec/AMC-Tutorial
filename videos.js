@@ -765,6 +765,86 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-21",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_10"
     }
+  ],
+  "2020-11": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=1375s",
+      "startSeconds": 1375,
+      "endSeconds": 1440,
+      "segmentLabel": "Problem 11 · 22:55–24:00",
+      "reason": "The Problem 11 segment covers the speed-from-graph problem using unit conversion.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows reading travel times from the graph and converting minutes to hours.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-21",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_11"
+    }
+  ],
+  "2020-12": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=1568s",
+      "startSeconds": 1568,
+      "endSeconds": 1630,
+      "segmentLabel": "Problem 12 · 26:08–27:10",
+      "reason": "The Problem 12 segment covers the factorial equation problem with step-by-step simplification.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows the 5! = 120 → 12×10 → 12×10! rewriting approach.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-21",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_12"
+    }
+  ],
+  "2020-13": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=1833s",
+      "startSeconds": 1833,
+      "endSeconds": 1895,
+      "segmentLabel": "Problem 13 · 30:33–31:35",
+      "reason": "The Problem 13 segment covers the purple socks probability problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Covers the probability equation and cross-multiplication method.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-21",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_13"
+    }
+  ],
+  "2020-14": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=2139s",
+      "startSeconds": 2139,
+      "endSeconds": 2200,
+      "segmentLabel": "Problem 14 · 35:39–36:40",
+      "reason": "The Problem 14 segment covers the bar chart average population problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows reading the dashed average line and multiplying by 20 cities.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-21",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_14"
+    }
+  ],
+  "2020-15": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=2346s",
+      "startSeconds": 2346,
+      "endSeconds": 2400,
+      "segmentLabel": "Problem 15 · 39:06–40:00",
+      "reason": "The Problem 15 segment covers the percentage relationship problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows the 0.15x = 0.20y equation and solving for y in terms of x.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-21",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_15"
+    }
   ]
 };
 
