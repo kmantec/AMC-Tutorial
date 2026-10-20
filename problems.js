@@ -935,7 +935,7 @@ export const problems = {
     "answer": "A",
     "answerLabel": "(A) Red",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_12",
-    "diagram": "https://latex.artofproblemsolving.com/e/1/7/e1796ef723acbb9a4cfeacf57e69202cddf3e0d3.png",
+    "diagram": "./assets/diagram-2019-12.jpg",
     "hints": [
       "From view 1 and 2, find which colors share an edge with aqua.",
       "In view 1: A shares edges with R, W, G. In view 2: A shares edges with G, B, P.",
