@@ -1161,7 +1161,7 @@ export const problems = {
     "answer": "B",
     "answerLabel": "(B) 50/99",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_17",
-    "expression": "(1·3)/(2·2) × (2·4)/(3·3) × (3·5)/(4·4) × … × (98·100)/(99·99)",
+    "diagram": "./assets/diagram-2019-17.jpg",
     "hints": [
       "Rewrite each factor to separate the numerator into parts that cancel with adjacent denominators.",
       "Notice that the numerator 3 of the first fraction cancels with the 3 in the denominator of the second fraction, the 4 cancels with the next, and so on.",
