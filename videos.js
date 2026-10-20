@@ -511,6 +511,100 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-20",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_20"
     }
+  ],
+  "2019-21": [
+    {
+      "id": "IgpayYB48C4",
+      "title": "AMC8 2019 Full Solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=IgpayYB48C4&t=6214s",
+      "startSeconds": 6214,
+      "endSeconds": 6310,
+      "segmentLabel": "Problem 21 · 103:34–105:10",
+      "reason": "Full-test walkthrough of the triangle from three lines problem.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 21 segment was reviewed using video frames and visible English captions. Covers finding the three intersection points and using base × height / 2 to find area 16.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_21"
+    }
+  ],
+  "2019-22": [
+    {
+      "id": "9HDVTfEtpQA",
+      "title": "AMC 8 2019 Problem 22",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=9HDVTfEtpQA&t=0s",
+      "startSeconds": 0,
+      "endSeconds": 300,
+      "segmentLabel": "Full problem · ~5 min",
+      "reason": "Step-by-step walkthrough of the percent increase/decrease problem.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 22 segment was reviewed using video frames and visible English captions. Covers setting up (1+p)(1-p) = 0.84 and solving for p = 40%.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_22"
+    }
+  ],
+  "2019-23": [
+    {
+      "id": "IgpayYB48C4",
+      "title": "AMC8 2019 Full Solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=IgpayYB48C4&t=7063s",
+      "startSeconds": 7063,
+      "endSeconds": 7160,
+      "segmentLabel": "Problem 23 · 117:43–119:20",
+      "reason": "Full-test walkthrough of the basketball points problem.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 23 segment was reviewed using video frames and visible English captions. Covers the LCM constraint and testing multiples of 28 to find T=56 and others=11.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_23"
+    }
+  ],
+  "2019-24": [
+    {
+      "id": "IgpayYB48C4",
+      "title": "AMC8 2019 Full Solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=IgpayYB48C4&t=7400s",
+      "startSeconds": 7400,
+      "endSeconds": 7520,
+      "segmentLabel": "Problem 24 · 123:20–125:20",
+      "reason": "Full-test walkthrough of the triangle area ratio problem.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 24 segment was reviewed using video frames and visible English captions. Covers the area-ratio approach using AD:DC to set up and solve for x = 30.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_24"
+    }
+  ],
+  "2019-25": [
+    {
+      "id": "IgpayYB48C4",
+      "title": "AMC8 2019 Full Solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=IgpayYB48C4&t=8105s",
+      "startSeconds": 8105,
+      "endSeconds": 8220,
+      "segmentLabel": "Problem 25 · 135:05–137:00",
+      "reason": "Full-test walkthrough of the apples stars-and-bars problem.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 25 segment was reviewed using video frames and visible English captions. Covers setting aside 2 apples each and using stars and bars to get C(20,2) = 190.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_25"
+    },
+    {
+      "id": "8oPdoXcblLQ",
+      "title": "AMC 8 2019 Problem 25",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=8oPdoXcblLQ&t=0s",
+      "startSeconds": 0,
+      "endSeconds": 300,
+      "segmentLabel": "Full problem · ~5 min",
+      "reason": "Step-by-step walkthrough of the apples stars-and-bars problem.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 25 segment was reviewed using video frames and visible English captions. Covers the stars-and-bars approach to distributing 18 apples among 3 people.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_25"
+    }
   ]
 };
 

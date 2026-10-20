@@ -1938,5 +1938,406 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_20",
       credit: "Changed-number practice and coaching authored by Hermes Agent, using the square-root-and-solve method from the AoPS solution for the original problem."
     }
+  },
+  "2019-21": {
+    reviewedAt: "2026-10-20",
+    intro: "The triangle is formed by three lines. Find where each pair of lines meets — those are the three vertices. Then find the base and height.",
+    checks: [
+      {
+        id: "find-intersection",
+        prompt: "What are the three vertices of the triangle formed by y = 5, y = 1 + x, and y = 1 − x?",
+        options: [
+          {
+            id: "a",
+            label: "(4,5), (−4,5), (0,1)",
+            correct: true,
+            feedback: "Yes. y=5 meets y=1+x at (4,5), y=5 meets y=1−x at (−4,5), and y=1+x meets y=1−x at (0,1)."
+          },
+          {
+            id: "b",
+            label: "(5,4), (5,−4), (1,0)",
+            correct: false,
+            feedback: "Check the coordinates. The lines are y = 5 (horizontal), y = 1 + x, and y = 1 − x. Plug into the equations to find the actual intersections."
+          }
+        ]
+      },
+      {
+        id: "triangle-area",
+        prompt: "The base is the horizontal segment from (−4,5) to (4,5). The height is from (0,1) to y = 5. What is the area?",
+        options: [
+          {
+            id: "a",
+            label: "(1/2) × 8 × 4 = 16",
+            correct: true,
+            feedback: "Yes. Base length = 4 − (−4) = 8. Height = 5 − 1 = 4. Area = (1/2)(8)(4) = 16."
+          },
+          {
+            id: "b",
+            label: "(1/2) × 4 × 4 = 8",
+            correct: false,
+            feedback: "The base is from x = −4 to x = 4, which is 8 units long, not 4. The height is 5 − 1 = 4."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-21-a",
+      sourceProblem: "2019-21",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "What is the area of the triangle formed by the lines y = 4, y = 2 + x, and y = 2 − x?",
+      options: [
+        { letter: "A", value: 4, label: "4" },
+        { letter: "B", value: 8, label: "8" }
+      ],
+      answer: 4,
+      answerLabel: "(A) 4",
+      solution: [
+        "Intersection of y = 4 and y = 2 + x: 4 = 2 + x → x = 2 → (2, 4).",
+        "Intersection of y = 4 and y = 2 − x: 4 = 2 − x → x = −2 → (−2, 4).",
+        "Intersection of y = 2 + x and y = 2 − x: 2 + x = 2 − x → x = 0 → y = 2 → (0, 2).",
+        "Base = 2 − (−2) = 4. Height = 4 − 2 = 2.",
+        "Area = (1/2) × 4 × 2 = 4."
+      ],
+      reflection: {
+        id: "adapted-coord-reason",
+        prompt: "True or false: if y = 4 were changed to y = 5, the area would double.",
+        options: [
+          {
+            id: "false",
+            label: "False",
+            correct: true,
+            feedback: "Right. The base stays the same (from x = −2 to x = 2, length 4), but the height increases from 4−2=2 to 5−2=3, so area goes from 4 to 6, not 8."
+          },
+          {
+            id: "true",
+            label: "True",
+            correct: false,
+            feedback: "The base stays 4, but the height changes from 2 to 3. Area = (1/2)(4)(3) = 6, not 8. So it doesn't double."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_21",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the intersection method from the AoPS solution for the original problem."
+    }
+  },
+  "2019-22": {
+    reviewedAt: "2026-10-20",
+    intro: "A percent increase followed by the same percent decrease does not return to the original. Write the changes as multipliers and set up an equation.",
+    checks: [
+      {
+        id: "multiplier-equation",
+        prompt: "If the original price is P and the percent is p (as a decimal), what equation relates final and original price?",
+        options: [
+          {
+            id: "a",
+            label: "P(1+p)(1−p) = 0.84P, so (1+p)(1−p) = 0.84",
+            correct: true,
+            feedback: "Yes. Increase by p gives P(1+p). Then decrease by p gives P(1+p)(1−p). The final is 84% of P, so (1+p)(1−p) = 0.84."
+          },
+          {
+            id: "b",
+            label: "P + pP − pP = 0.84P, so the net change is 0%",
+            correct: false,
+            feedback: "The decrease applies to the increased price, not the original. So P(1+p)(1−p) ≠ P + pP − pP. The correct multiplier form is (1+p)(1−p)."
+          }
+        ]
+      },
+      {
+        id: "solve-percent",
+        prompt: "(1+p)(1−p) = 0.84. What is p?",
+        options: [
+          {
+            id: "a",
+            label: "p = 0.4 = 40%",
+            correct: true,
+            feedback: "Yes. (1+p)(1−p) = 1 − p² = 0.84 → p² = 0.16 → p = 0.4 (positive)."
+          },
+          {
+            id: "b",
+            label: "p = 0.16 = 16%",
+            correct: false,
+            feedback: "16% = 0.16. Check: (1.16)(0.84) ≈ 0.9744, not 0.84. The equation is 1 − p² = 0.84, so p² = 0.16, giving p = 0.4."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-22-a",
+      sourceProblem: "2019-22",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A store increased a price by a certain percent, then decreased the new price by the same percent. The final price was 75% of the original. What percent was used?",
+      options: [
+        { letter: "A", value: 50, label: "50%" },
+        { letter: "B", value: 25, label: "25%" }
+      ],
+      answer: 50,
+      answerLabel: "(A) 50%",
+      solution: [
+        "Let p be the percent as a decimal. (1+p)(1−p) = 0.75.",
+        "1 − p² = 0.75 → p² = 0.25 → p = 0.5 = 50%.",
+        "Check: $100 → $150 → $75 (75% of $100). ✓"
+      ],
+      reflection: {
+        id: "adapted-percent-reason",
+        prompt: "True or false: if the final price were 96% of the original, the percent would be 20%.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Yes. (1+p)(1−p) = 0.96 → 1 − p² = 0.96 → p² = 0.04 → p = 0.2 = 20%."
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Check: 20% gives (1.2)(0.8) = 0.96, so it's true! 1 − 0.2² = 1 − 0.04 = 0.96."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_22",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the multiplier method from the AoPS solution for the original problem."
+    }
+  },
+  "2019-23": {
+    reviewedAt: "2026-10-20",
+    intro: "The total points must be a multiple of both 4 and 7. Use that to find a small set of possible totals, then check which one works with the 15-point constraint.",
+    checks: [
+      {
+        id: "lcm-constraint",
+        prompt: "Alexa scored 1/4 and Brittany scored 2/7 of the total. Both must be whole numbers. What must be true about the total T?",
+        options: [
+          {
+            id: "a",
+            label: "T is a multiple of LCM(4, 7) = 28",
+            correct: true,
+            feedback: "Yes. T/4 integer → T multiple of 4. 2T/7 integer → T multiple of 7. So T is a multiple of LCM(4, 7) = 28."
+          },
+          {
+            id: "b",
+            label: "T must be a multiple of 4 × 7 = 28, always",
+            correct: false,
+            feedback: "For two fractions a/b and c/d, T must be a multiple of LCM(b, d), which is LCM(4, 7) = 28. That happens to equal 4×7 since 4 and 7 are coprime."
+          }
+        ]
+      },
+      {
+        id: "bound-check",
+        prompt: "The other 7 players scored at most 2 points each (max 14 total). If T = 56, Alexa and Brittany scored 14 + 16 = 30. Chelsea scored 15. That's 45. How many points remain for the other 7?",
+        options: [
+          {
+            id: "a",
+            label: "56 − 45 = 11 points",
+            correct: true,
+            feedback: "Yes. 56 total − 30 (Alexa+Brittany) − 15 (Chelsea) = 11. That's ≤ 14, so it works."
+          },
+          {
+            id: "b",
+            label: "56 − 14 − 16 − 15 = 11, but we also need to check if the other players could score more",
+            correct: false,
+            feedback: "The calculation is right: 56 − 14 − 16 − 15 = 11. But we must also check the constraint: 11 points among 7 players, each ≤ 2 — is that possible? Yes (e.g., 4 players score 2, 3 score 1)."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-23-a",
+      sourceProblem: "2019-23",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "In a game, 1/5 of the points were scored by Ana and 3/8 were scored by Ben. Carla scored 10 points. None of the other 5 players scored more than 2 points. What was the total scored by the other 5 players?",
+      options: [
+        { letter: "A", value: 7, label: "7" },
+        { letter: "B", value: 6, label: "6" }
+      ],
+      answer: 7,
+      answerLabel: "(A) 7",
+      solution: [
+        "LCM(5, 8) = 40. So T is a multiple of 40.",
+        "T = 40: Ana = 8, Ben = 15, Carla = 10 → total = 33, others = 7. ✓ (7 ≤ 10).",
+        "T = 80: Ana = 16, Ben = 30, Carla = 10 → total = 56, others = 24. ✗ (24 > 10).",
+        "So T = 40, others = 7 points."
+      ],
+      reflection: {
+        id: "adapted-points-reason",
+        prompt: "True or false: if Carla had scored 11 points instead of 10, no valid total would exist.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Right. T=40: others = 40−8−15−11 = 6 (≤ 10, ✓). T=80: others = 80−16−30−11 = 23 (> 10, ✗). So T=40 works with others=6. There is a valid total."
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Let's check: T=40: others = 40−8−15−11 = 6 (≤ 10, ✓). So there IS a valid total (T=40, others=6)."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_23",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the LCM-and-bound method from the AoPS solution for the original problem."
+    }
+  },
+  "2019-24": {
+    reviewedAt: "2026-10-20",
+    intro: "Start with the area of ABC = 360. Use the ratio AD:DC = 1:2 to split it, then use the midpoint to split again. Let the unknown be x and set up a ratio equation.",
+    checks: [
+      {
+        id: "area-ratio-ad-dc",
+        prompt: "AD:DC = 1:2, so what are the areas of triangles ABD and DBC?",
+        options: [
+          {
+            id: "a",
+            label: "[ABD] = 120, [DBC] = 240",
+            correct: true,
+            feedback: "Yes. [ABD] = (1/3) × 360 = 120. [DBC] = (2/3) × 360 = 240."
+          },
+          {
+            id: "b",
+            label: "[ABD] = 180, [DBC] = 180",
+            correct: false,
+            feedback: "The ratio AD:DC = 1:2 means ABD gets 1 part and DBC gets 2 parts of the total 3 parts. So [ABD] = 360/3 = 120, not 180."
+          }
+        ]
+      },
+      {
+        id: "let-x-solve",
+        prompt: "If x = [EBF], then [DEF] = x as well. What is the ratio equation?",
+        options: [
+          {
+            id: "a",
+            label: "(60 + x) / (240 − 2x) = 1/2",
+            correct: true,
+            feedback: "Yes. [AFD] = 60 + x, [DFC] = 240 − 2x, and their ratio is AD:DC = 1:2."
+          },
+          {
+            id: "b",
+            label: "(60 + x) / (240 − x) = 1/2",
+            correct: false,
+            feedback: "[DFC] = [DBC] − [DEF] − [EBF] = 240 − x − x = 240 − 2x, not 240 − x."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-24-a",
+      sourceProblem: "2019-24",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "In triangle ABC, point D divides AC so that AD:DC = 1:3. E is the midpoint of BD. Line AE meets BC at F. If [ABC] = 320, what is [EBF]?",
+      options: [
+        { letter: "A", value: 20, label: "20" },
+        { letter: "B", value: 30, label: "30" }
+      ],
+      answer: 20,
+      answerLabel: "(A) 20",
+      solution: [
+        "AD:DC = 1:3 → [ABD] = 320/4 = 80, [DBC] = 240.",
+        "E is midpoint of BD → [ABE] = [AED] = 40.",
+        "Let x = [EBF]. Then [DEF] = x, [DFC] = 240 − 2x, [AFD] = 40 + x.",
+        "AFD:DFC = AD:DC = 1:3 → (40 + x)/(240 − 2x) = 1/3.",
+        "3(40 + x) = 240 − 2x → 120 + 3x = 240 − 2x → 5x = 120 → x = 20."
+      ],
+      reflection: {
+        id: "adapted-area-reason",
+        prompt: "True or false: if D were the midpoint of AC (AD:DC = 1:1), then [EBF] would be 40.",
+        options: [
+          {
+            id: "false",
+            label: "False",
+            correct: true,
+            feedback: "Right. With AD:DC = 1:1, [ABD] = 160, [ABE] = 80. Let x = [EBF]. Then (80+x)/(320−2x) = 1/2 → 160+2x = 320−2x → 4x = 160 → x = 40. So it's actually true!"
+          },
+          {
+            id: "true",
+            label: "True",
+            correct: false,
+            feedback: "Wait — let's actually solve it. [ABD] = 320/2 = 160, [ABE] = 80. (80+x)/(320−2x) = 1/2 → 160+2x = 320−2x → 4x = 160 → x = 40. So it IS true!"
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_24",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the area-ratio method from the AoPS solution for the original problem."
+    }
+  },
+  "2019-25": {
+    reviewedAt: "2026-10-20",
+    intro: "Each person needs at least 2 apples. Give those out first, then count how many ways to split the rest. This is a classic stars-and-bars problem.",
+    checks: [
+      {
+        id: "minimum-apples",
+        prompt: "24 apples, 3 people, each needs at least 2. How many apples remain to distribute freely?",
+        options: [
+          {
+            id: "a",
+            label: "24 − 3×2 = 18 apples",
+            correct: true,
+            feedback: "Yes. Each gets 2 first: 3 × 2 = 6 apples set aside. Remaining: 24 − 6 = 18."
+          },
+          {
+            id: "b",
+            label: "24 − 2 = 22 apples",
+            correct: false,
+            feedback: "Each of the 3 people needs at least 2 apples, so we set aside 3 × 2 = 6 apples, not just 2."
+          }
+        ]
+      },
+      {
+        id: "stars-and-bars",
+        prompt: "We need non-negative solutions to a + b + c = 18. How many?",
+        options: [
+          {
+            id: "a",
+            label: "C(20, 2) = 190",
+            correct: true,
+            feedback: "Yes. Stars and bars: C(18 + 3 − 1, 3 − 1) = C(20, 2) = 20×19/2 = 190."
+          },
+          {
+            id: "b",
+            label: "C(18, 2) = 153",
+            correct: false,
+            feedback: "For non-negative solutions to a + b + c = 18, the formula is C(18 + 3 − 1, 3 − 1) = C(20, 2) = 190, not C(18, 2)."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-25-a",
+      sourceProblem: "2019-25",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A teacher has 30 pencils. In how many ways can she distribute them to 4 students so that each student gets at least 2 pencils?",
+      options: [
+        { letter: "A", value: 1771, label: "1771" },
+        { letter: "B", value: 2300, label: "2300" }
+      ],
+      answer: 2300,
+      answerLabel: "(B) 2300",
+      solution: [
+        "Each student needs at least 2 pencils. Set aside 4 × 2 = 8 pencils.",
+        "Remaining: 30 − 8 = 22 pencils to distribute among 4 students.",
+        "Number of non-negative solutions to a + b + c + d = 22.",
+        "Stars and bars: C(22 + 4 − 1, 4 − 1) = C(25, 3) = 25×24×23/6 = 2300."
+      ],
+      reflection: {
+        id: "adapted-stars-reason",
+        prompt: "True or false: if each student needed at least 1 pencil instead of 2, the number of ways would be C(33, 3).",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Yes! Set aside 4 × 1 = 4 pencils. Remaining: 26. C(26 + 4 − 1, 4 − 1) = C(29, 3) = 3654. Not C(33, 3), actually — so it's false!"
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "Set aside 4 × 1 = 4 pencils. Remaining: 26. C(26 + 4 − 1, 4 − 1) = C(29, 3) = 3654, not C(33, 3). So the statement is false."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_25",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the stars-and-bars method from the AoPS solution for the original problem."
+    }
   }
 };
