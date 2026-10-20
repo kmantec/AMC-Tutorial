@@ -1286,7 +1286,7 @@ export const problems = {
     "suggestedPace": "2.5 min",
     "title": "Solving a quadratic squared equation",
     "topic": "Algebra-Quadratics",
-    "prompt": "How many different real numbers x satisfy the equation (x^2 − 5)^2 = 16?",
+    "prompt": "How many different real numbers x satisfy the equation (x² − 5)² = 16?",
     "wording": "original",
     "options": [
       { "letter": "A", "value": "A", "label": "0" },
@@ -1299,29 +1299,29 @@ export const problems = {
     "answerLabel": "(D) 4",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_20",
     "hints": [
-      "If a^2 = 16, then a = ±4. So x^2 − 5 = 4 or x^2 − 5 = −4.",
-      "Solve x^2 − 5 = 4 → x^2 = 9 → x = ±3 (2 real solutions).",
-      "Solve x^2 − 5 = −4 → x^2 = 1 → x = ±1 (2 more real solutions). Total: 4 real solutions."
+      "If a² = 16, then a = ±4. So x² − 5 = 4 or x² − 5 = −4.",
+      "Solve x² − 5 = 4 → x² = 9 → x = ±3 (2 real solutions).",
+      "Solve x² − 5 = −4 → x² = 1 → x = ±1 (2 more real solutions). Total: 4 real solutions."
     ],
-    "method": "Take square roots: (x^2 − 5)^2 = 16 → x^2 − 5 = ±4 → solve both quadratics for x.",
+    "method": "Take square roots: (x² − 5)² = 16 → x² − 5 = ±4 → solve both quadratics for x.",
     "score": 8,
     "ratingReason": "A straightforward quadratic-in-disguise — students must remember the ± when taking square roots.",
     "solution": [
-      "Start with (x^2 − 5)^2 = 16.",
-      "Take square root of both sides: x^2 − 5 = ±4.",
-      "Case 1: x^2 − 5 = 4 → x^2 = 9 → x = 3 or x = −3 (2 solutions).",
-      "Case 2: x^2 − 5 = −4 → x^2 = 1 → x = 1 or x = −1 (2 solutions).",
+      "Start with (x² − 5)² = 16.",
+      "Take square root of both sides: x² − 5 = ±4.",
+      "Case 1: x² − 5 = 4 → x² = 9 → x = 3 or x = −3 (2 solutions).",
+      "Case 2: x² − 5 = −4 → x² = 1 → x = 1 or x = −1 (2 solutions).",
       "All four values satisfy the original equation. So there are 4 distinct real solutions.",
       "Answer: D (4)."
     ],
     "credit": "AI-authored explanation based on AoPS Solutions 1–2.",
     "creditCoach": "Hermes Agent",
     "tipTitle": "Always consider ± when taking square roots.",
-    "tip": "If u^2 = c, then u = √c or u = −√c. Never forget the negative branch — it often doubles your solutions.",
+    "tip": "If u² = c, then u = √c or u = −√c. Never forget the negative branch — it often doubles your solutions.",
     "tipCredit": "Additional coaching by Hermes Agent.",
-    "commonError": "Only taking the positive square root: x^2 − 5 = 4 → x^2 = 9 → x = ±3, but forgetting x^2 − 5 = −4 gives two more solutions.",
+    "commonError": "Only taking the positive square root: x² − 5 = 4 → x² = 9 → x = ±3, but forgetting x² − 5 = −4 gives two more solutions.",
     "reflection": "How can a quartic equation (degree 4) have only 4 real solutions? Could it have had fewer?",
-    "alternative": "Expand: (x^2 − 5)^2 = x^4 − 10x^2 + 25 = 16 → x^4 − 10x^2 + 9 = 0. Factor as (x^2 − 1)(x^2 − 9) = 0 → x^2 = 1 or x^2 = 9 → x = ±1, ±3.",
+    "alternative": "Expand: (x² − 5)² = x⁴ − 10x² + 25 = 16 → x⁴ − 10x² + 9 = 0. Factor as (x² − 1)(x² − 9) = 0 → x² = 1 or x² = 9 → x = ±1, ±3.",
     "reviewedAt": "2026-10-20"
   }
 };
