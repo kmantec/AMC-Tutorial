@@ -1149,7 +1149,7 @@ export const problems = {
     "suggestedPace": "2.5 min",
     "title": "Telescoping product of fractions",
     "topic": "Patterns-Telescoping",
-    "prompt": "What is the value of the product?",
+    "prompt": "What is the value of the product",
     "wording": "original",
     "options": [
       { "letter": "A", "value": "A", "label": "1/2" },
