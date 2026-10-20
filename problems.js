@@ -1149,7 +1149,7 @@ export const problems = {
     "suggestedPace": "2.5 min",
     "title": "Telescoping product of fractions",
     "topic": "Patterns-Telescoping",
-    "prompt": "What is the value of the product (1·3/2·2)(2·4/3·3)(3·5/4·4)⋯(97·99/98·98)(98·100/99·99)?",
+    "prompt": "What is the value of the product?",
     "wording": "original",
     "options": [
       { "letter": "A", "value": "A", "label": "1/2" },
