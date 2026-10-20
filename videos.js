@@ -361,6 +361,156 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-20",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_15"
     }
+  ],
+  "2019-16": [
+    {
+      "id": "IgpayYB48C4",
+      "title": "AMC8 2019 Full Solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=IgpayYB48C4&t=4756s",
+      "startSeconds": 4756,
+      "endSeconds": 4846,
+      "segmentLabel": "Problem 16 · 79:16–80:46",
+      "reason": "Full-test walkthrough of the average speed problem with two legs.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 16 segment was reviewed using video frames and visible English captions. Covers setting up total distance / total time = target average speed and solving for the unknown distance.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_16"
+    },
+    {
+      "id": "sEZ0sM-d1FA",
+      "title": "2019 AMC 8 Problem 16",
+      "channel": "MAA AMC",
+      "watchUrl": "https://www.youtube.com/watch?v=sEZ0sM-d1FA&list=PLbhMrFqoXXwmwbk2CWeYOYPRbGtmdPUhL&index=17&t=0s",
+      "startSeconds": 0,
+      "endSeconds": 180,
+      "segmentLabel": "Full problem · ~3 min",
+      "reason": "Official MAA AMC solution walkthrough for Problem 16 (average speed).",
+      "reviewNote": "Hermes Agent recommendation: reviewed the Problem 16 segment from transcript. Covers the official solution approach for the average speed problem with two legs.",
+      "reviewBasis": "Transcript analysis",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_16"
+    }
+  ],
+  "2019-17": [
+    {
+      "id": "IgpayYB48C4",
+      "title": "AMC8 2019 Full Solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=IgpayYB48C4&t=5256s",
+      "startSeconds": 5256,
+      "endSeconds": 5346,
+      "segmentLabel": "Problem 17 · 87:36–89:06",
+      "reason": "Full-test walkthrough of the telescoping product problem.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 17 segment was reviewed using video frames and visible English captions. Covers rewriting each fraction to reveal the telescoping cancellation pattern, leaving only 1/2 x 100/99 = 50/99.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_17"
+    },
+    {
+      "id": "VezsRMJvGPs",
+      "title": "2019 AMC 8 Problem 17",
+      "channel": "MAA AMC",
+      "watchUrl": "https://www.youtube.com/watch?v=VezsRMJvGPs&list=PLbhMrFqoXXwmwbk2CWeYOYPRbGtmdPUhL&index=18&t=0s",
+      "startSeconds": 0,
+      "endSeconds": 180,
+      "segmentLabel": "Full problem · ~3 min",
+      "reason": "Official MAA AMC solution walkthrough for Problem 17 (telescoping product).",
+      "reviewNote": "Hermes Agent recommendation: reviewed the Problem 17 segment from transcript. Covers the official solution for the telescoping product of fractions.",
+      "reviewBasis": "Transcript analysis",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_17"
+    }
+  ],
+  "2019-18": [
+    {
+      "id": "IgpayYB48C4",
+      "title": "AMC8 2019 Full Solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=IgpayYB48C4&t=5524s",
+      "startSeconds": 5524,
+      "endSeconds": 5614,
+      "segmentLabel": "Problem 18 · 92:04–93:34",
+      "reason": "Full-test walkthrough of the special dice parity problem.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 18 segment was reviewed using video frames and visible English captions. Covers counting evens and odds on each die, then computing P(both even) + P(both odd) = 5/9.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_18"
+    },
+    {
+      "id": "w4AwhXU6p6M",
+      "title": "AMC 8 2019 Problem 18",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=w4AwhXU6p6M&t=0s",
+      "startSeconds": 0,
+      "endSeconds": 300,
+      "segmentLabel": "Full problem · ~5 min",
+      "reason": "Step-by-step walkthrough of the even sum probability problem with non-standard dice.",
+      "reviewNote": "Hermes Agent recommendation: reviewed the Problem 18 segment from transcript. Covers identifying even and odd faces and using P(even sum) = P(both even) + P(both odd).",
+      "reviewBasis": "Transcript analysis",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_18"
+    }
+  ],
+  "2019-19": [
+    {
+      "id": "IgpayYB48C4",
+      "title": "AMC8 2019 Full Solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=IgpayYB48C4&t=5702s",
+      "startSeconds": 5702,
+      "endSeconds": 5792,
+      "segmentLabel": "Problem 19 · 95:02–96:32",
+      "reason": "Full-test walkthrough of the tournament scoring problem with 6 teams.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 19 segment was reviewed using video frames and visible English captions. Covers counting total games and maximizing points for the top 3 teams.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_19"
+    },
+    {
+      "id": "k_AuB_bzidc",
+      "title": "2019 AMC 8 Problem 19",
+      "channel": "MAA AMC",
+      "watchUrl": "https://www.youtube.com/watch?v=k_AuB_bzidc&list=PLbhMrFqoXXwmwbk2CWeYOYPRbGtmdPUhL&index=20&t=0s",
+      "startSeconds": 0,
+      "endSeconds": 180,
+      "segmentLabel": "Full problem · ~3 min",
+      "reason": "Official MAA AMC solution walkthrough for Problem 19 (tournament scoring).",
+      "reviewNote": "Hermes Agent recommendation: reviewed the Problem 19 segment from transcript. Covers the official approach for maximizing points with tied top teams in a round-robin tournament.",
+      "reviewBasis": "Transcript analysis",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_19"
+    }
+  ],
+  "2019-20": [
+    {
+      "id": "IgpayYB48C4",
+      "title": "AMC8 2019 Full Solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=IgpayYB48C4&t=6050s",
+      "startSeconds": 6050,
+      "endSeconds": 6140,
+      "segmentLabel": "Problem 20 · 100:50–102:20",
+      "reason": "Full-test walkthrough of the (x^2-5)^2=16 equation problem.",
+      "reviewNote": "Hermes Agent recommendation: the Problem 20 segment was reviewed using video frames and visible English captions. Covers taking square roots to get x^2-5 = ±4, then solving both quadratics for 4 solutions.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_20"
+    },
+    {
+      "id": "obC618_sVy8",
+      "title": "AMC 8 2019 Problem 20",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=obC618_sVy8&t=0s",
+      "startSeconds": 0,
+      "endSeconds": 300,
+      "segmentLabel": "Full problem · ~5 min",
+      "reason": "Step-by-step walkthrough of the quadratic squared equation problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed the Problem 20 segment from transcript. Covers taking square roots and solving both resulting quadratic equations.",
+      "reviewBasis": "Transcript analysis",
+      "reviewedAt": "2026-10-20",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_20"
+    }
   ]
 };
 

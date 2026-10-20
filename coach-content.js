@@ -1530,5 +1530,413 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_15",
       credit: "Changed-number practice and coaching authored by Hermes Agent, using the find-overlap-then-flip method from the AoPS solution."
     }
+  },
+  "2019-16": {
+    reviewedAt: "2026-10-20",
+    intro: "Average speed is total distance divided by total time. Find the time for each part separately, then set up an equation for the unknown distance.",
+    checks: [
+      {
+        id: "first-leg-time",
+        prompt: "The first leg is 15 miles at 30 mph. How long does that take?",
+        options: [
+          {
+            id: "a",
+            label: "15 ÷ 30 = 0.5 hours",
+            correct: true,
+            feedback: "Yes. Time = distance ÷ speed, so 15 miles at 30 mph takes 15/30 = 0.5 hours (30 minutes)."
+          },
+          {
+            id: "b",
+            label: "30 ÷ 15 = 2 hours",
+            correct: false,
+            feedback: "That is speed ÷ distance, which gives a rate in hours per mile, not time. Use time = distance ÷ speed: 15 ÷ 30 = 0.5 hours."
+          }
+        ]
+      },
+      {
+        id: "avg-speed-equation",
+        prompt: "He wants an average speed of 50 mph. If the extra miles are x, which equation represents the trip?",
+        options: [
+          {
+            id: "a",
+            label: "(15 + x) ÷ (0.5 + x/55) = 50",
+            correct: true,
+            feedback: "Yes. Total distance = 15 + x. Total time = 0.5 + x/55. Average speed = total distance ÷ total time = 50."
+          },
+          {
+            id: "b",
+            label: "(15 × 30 + 55x) ÷ (15 + x) = 50",
+            correct: false,
+            feedback: "Average speed is not a weighted average of the speeds by distance. It is total distance divided by total time. Use time = distance/speed for each leg."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-16-a",
+      sourceProblem: "2019-16",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A driver goes 20 miles at 40 miles per hour, then drives some more miles at 55 miles per hour. If the average speed for the whole trip is 50 miles per hour, how many total miles did the driver travel?",
+      options: [
+        { letter: "A", value: 55, label: "55 miles" },
+        { letter: "B", value: 75, label: "75 miles" }
+      ],
+      answer: 75,
+      answerLabel: "(B) 75 miles",
+      solution: [
+        "Time for first leg: 20 ÷ 40 = 0.5 hours.",
+        "Let x = extra miles at 55 mph. Time for second leg: x/55 hours.",
+        "Total distance = 20 + x. Total time = 0.5 + x/55.",
+        "Average speed equation: (20 + x) ÷ (0.5 + x/55) = 50.",
+        "Solve: 20 + x = 50(0.5 + x/55) = 25 + 10x/11.",
+        "x − 10x/11 = 5, so x/11 = 5, giving x = 55 miles.",
+        "Total miles = 20 + 55 = 75 miles."
+      ],
+      reflection: {
+        id: "adapted-avg-speed-reason",
+        prompt: "True or false: if the second leg were also at 40 mph, the average speed would still be 50 mph.",
+        options: [
+          {
+            id: "false",
+            label: "False",
+            correct: true,
+            feedback: "Right. If both legs are at 40 mph, the average speed is 40 mph, no matter the distances. A higher average requires a higher speed on the second leg."
+          },
+          {
+            id: "true",
+            label: "True",
+            correct: false,
+            feedback: "If both legs are at the same speed of 40 mph, the average cannot be 50 mph. The average of two legs at the same speed is that speed. The second leg must be faster."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_16",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the time = distance/speed method from AoPS Solutions 1–2 for the original problem."
+    }
+  },
+  "2019-17": {
+    reviewedAt: "2026-10-20",
+    intro: "Each term is 1 − 1/k². Write each as (k−1)(k+1)/k² and watch the cancellation across consecutive terms.",
+    checks: [
+      {
+        id: "rewrite-term",
+        prompt: "What is the k-th term of the product (1·3/2·2)(2·4/3·3)⋯?",
+        options: [
+          {
+            id: "a",
+            label: "k(k+2)/(k+1)² for k = 1, 2, ..., 98",
+            correct: true,
+            feedback: "Yes. Each term is k(k+2)/(k+1)². For k=1: 1·3/2². For k=2: 2·4/3², and so on."
+          },
+          {
+            id: "b",
+            label: "(k+1)(k+3)/(k+2)²",
+            correct: false,
+            feedback: "Check the first term: for k=1, (1·3)/(2·2) matches k(k+2)/(k+1)², not (k+1)(k+3)/(k+2)²."
+          }
+        ]
+      },
+      {
+        id: "telescope-product",
+        prompt: "After regrouping and canceling, what remains?",
+        options: [
+          {
+            id: "a",
+            label: "1/2 × 100/99 = 50/99",
+            correct: true,
+            feedback: "Yes. The first factor 1/2 and the last factor 100/99 survive. All middle terms cancel to 1."
+          },
+          {
+            id: "b",
+            label: "1/2 only — the rest all cancel",
+            correct: false,
+            feedback: "The first fraction's numerator 1/2 is part of the first term. But the last term's 100/99 also survives: (1·100)/(2·99) = 50/99."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-17-a",
+      sourceProblem: "2019-17",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "What is the value of (1 − 1/4)(1 − 1/9)(1 − 1/16)⋯(1 − 1/2500)?",
+      options: [
+        { letter: "A", value: "A", label: "51/100" },
+        { letter: "B", value: "B", label: "49/100" }
+      ],
+      answer: "A",
+      answerLabel: "(A) 51/100",
+      solution: [
+        "Each term is 1 − 1/k² = (k²−1)/k² = (k−1)(k+1)/k².",
+        "The product runs from k = 2 to k = 50 (since 50² = 2500).",
+        "Write the product: (1·3/2²)(2·4/3²)(3·5/4²)⋯(49·51/50²).",
+        "Nearly every factor appears in both a numerator and a denominator and cancels.",
+        "Surviving numerator factors: 1 (from first term) and 51 (from last term).",
+        "Surviving denominator factors: 2 (from first term) and 50 (from last term).",
+        "Result: (1 × 51) / (2 × 50) = 51/100."
+      ],
+      reflection: {
+        id: "adapted-telescope-reason",
+        prompt: "True or false: (1 − 1/4)(1 − 1/9)⋯(1 − 1/100) equals 11/20.",
+        options: [
+          {
+            id: "true",
+            label: "True",
+            correct: true,
+            feedback: "Yes! For k = 2 to 10 (since 10² = 100), the surviving factors are 1 and 11 over 2 and 10: (1 × 11)/(2 × 10) = 11/20."
+          },
+          {
+            id: "false",
+            label: "False",
+            correct: false,
+            feedback: "It is true. The product up to 1 − 1/100 uses k = 2 to 10. The telescoping gives (1 × 11)/(2 × 10) = 11/20."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_17",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the telescoping-product method from the AoPS solution for the original problem."
+    }
+  },
+  "2019-18": {
+    reviewedAt: "2026-10-20",
+    intro: "A sum is even when both numbers have the same parity — both even or both odd. Count how many faces of each parity are on the die.",
+    checks: [
+      {
+        id: "parity-count",
+        prompt: "The faces are 1, 2, 3, 5, 7, 8. How many are even and how many are odd?",
+        options: [
+          {
+            id: "a",
+            label: "2 evens (2, 8) and 4 odds (1, 3, 5, 7)",
+            correct: true,
+            feedback: "Yes. Even: 2, 8. Odd: 1, 3, 5, 7. P(even) = 2/6 = 1/3 and P(odd) = 4/6 = 2/3."
+          },
+          {
+            id: "b",
+            label: "3 evens (2, 3, 8) and 3 odds (1, 5, 7)",
+            correct: false,
+            feedback: "Check each number: 1 (odd), 2 (even), 3 (odd), 5 (odd), 7 (odd), 8 (even). So only 2 evens (2, 8) and 4 odds (1, 3, 5, 7)."
+          }
+        ]
+      },
+      {
+        id: "even-sum-prob",
+        prompt: "Two dice with these faces are rolled. P(even sum) = P(both even) + P(both odd). What is this probability?",
+        options: [
+          {
+            id: "a",
+            label: "(2/6)(2/6) + (4/6)(4/6) = 20/36 = 5/9",
+            correct: true,
+            feedback: "Yes. Both even: (2/6)(2/6) = 4/36. Both odd: (4/6)(4/6) = 16/36. Sum = 20/36 = 5/9."
+          },
+          {
+            id: "b",
+            label: "(2/6)(4/6) + (4/6)(2/6) = 16/36 = 4/9",
+            correct: false,
+            feedback: "That is the probability of an odd sum (one even and one odd). An even sum requires both dice to have the same parity."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-18-a",
+      sourceProblem: "2019-18",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A fair six-sided die has faces labeled 1, 2, 4, 5, 7, 9. Two such dice are rolled. What is the probability that the sum is even?",
+      options: [
+        { letter: "A", value: "A", label: "5/9" },
+        { letter: "B", value: "B", label: "4/9" }
+      ],
+      answer: "A",
+      answerLabel: "(A) 5/9",
+      solution: [
+        "Even faces: 2, 4 (2 of 6). Odd faces: 1, 5, 7, 9 (4 of 6).",
+        "P(even) = 2/6 = 1/3, P(odd) = 4/6 = 2/3.",
+        "The sum is even when both dice show even OR both show odd.",
+        "P(both even) = (1/3)(1/3) = 1/9.",
+        "P(both odd) = (2/3)(2/3) = 4/9.",
+        "P(even sum) = 1/9 + 4/9 = 5/9."
+      ],
+      reflection: {
+        id: "adapted-parity-reason",
+        prompt: "True or false: if 9 were changed to 10, P(even sum) would increase.",
+        options: [
+          {
+            id: "false",
+            label: "False",
+            correct: true,
+            feedback: "Right. 3 evens and 3 odds gives P(even sum) = (3/6)(3/6)+(3/6)(3/6) = 1/2 = 0.5, which is less than 5/9 ≈ 0.556. The probability decreases."
+          },
+          {
+            id: "true",
+            label: "True",
+            correct: false,
+            feedback: "With 3 evens and 3 odds, P(even sum) = (3/6)(3/6)+(3/6)(3/6) = 1/2 = 0.5, which is actually less than 5/9 ≈ 0.556. So the probability decreases."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_18",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the parity-count method from the AoPS solution for the original problem."
+    }
+  },
+  "2019-19": {
+    reviewedAt: "2026-10-20",
+    intro: "Count the total games first. Each game awards at most 3 points. For the top 3 to tie for first, find the theoretical maximum then check if it's achievable.",
+    checks: [
+      {
+        id: "games-involving-top",
+        prompt: "Total games = 30. Games between bottom-3 only = 6. How many games involve at least one top-3 team?",
+        options: [
+          {
+            id: "a",
+            label: "30 − 6 = 24 games",
+            correct: true,
+            feedback: "Yes. 24 games involve at least one top-3 team. Each such game can award at most 3 points to a top-3 team."
+          },
+          {
+            id: "b",
+            label: "30 − 3 = 27 games",
+            correct: false,
+            feedback: "The bottom-3 teams play each other 2 × C(3,2) = 6 games. Those 6 games involve only bottom teams, so subtract them: 30 − 6 = 24."
+          }
+        ]
+      },
+      {
+        id: "max-per-top",
+        prompt: "If the top 3 share the 72 maximum points equally, how many does each get?",
+        options: [
+          {
+            id: "a",
+            label: "72 ÷ 3 = 24 points each",
+            correct: true,
+            feedback: "Yes. The maximum total points from games involving top-3 teams is 24 × 3 = 72. Split evenly: 72 ÷ 3 = 24 each."
+          },
+          {
+            id: "b",
+            label: "72 points total, but they don't have to be equal — one team could get more",
+            correct: false,
+            feedback: "The problem says the top three teams earned the same number of total points. So they must be equal. 72 ÷ 3 = 24."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-19-a",
+      sourceProblem: "2019-19",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "In a tournament of 8 teams where each pair plays twice (win=3, draw=1, loss=0), the top two teams are tied. What is the maximum possible points per team?",
+      options: [
+        { letter: "A", value: 39, label: "39" },
+        { letter: "B", value: 38, label: "38" }
+      ],
+      answer: 39,
+      answerLabel: "(A) 39",
+      solution: [
+        "Each team plays 7 opponents twice = 14 games.",
+        "Top two teams (A and B) must tie. Maximize by winning all games against the other 6 teams: 12 × 3 = 36 points.",
+        "In their two head-to-head matches, A wins one and B wins the other. Each gets 3 points from head-to-head.",
+        "Total for each: 36 + 3 = 39 points."
+      ],
+      reflection: {
+        id: "adapted-max-points-reason",
+        prompt: "True or false: the top two teams could each score 42 points if they both win all 14 games.",
+        options: [
+          {
+            id: "false",
+            label: "False",
+            correct: true,
+            feedback: "Right. They play each other twice, so they cannot both win all 14 games. If A beats B twice, B loses those two games. The tie also breaks."
+          },
+          {
+            id: "true",
+            label: "True",
+            correct: false,
+            feedback: "They play each other twice, so at least one of those games produces a loss for one team. Both teams cannot win all 14 games. Max under tie condition is 39."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_19",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the head-to-head split method from the AoPS solution for the original problem."
+    }
+  },
+  "2019-20": {
+    reviewedAt: "2026-10-20",
+    intro: "A squared expression equals 16, so the expression inside can be 4 or −4. That gives two quadratic equations to solve.",
+    checks: [
+      {
+        id: "take-square-root",
+        prompt: "If (x² − 5)² = 16, what are the possible values of x² − 5?",
+        options: [
+          {
+            id: "a",
+            label: "4 and −4",
+            correct: true,
+            feedback: "Yes. If u² = 16, then u = 4 or u = −4. So x² − 5 = 4 or x² − 5 = −4."
+          },
+          {
+            id: "b",
+            label: "4 only, because squares are always positive",
+            correct: false,
+            feedback: "It is true that x² − 5 could be 4, but (−4)² = 16 as well. The equation u² = 16 has two solutions: u = 4 and u = −4."
+          }
+        ]
+      },
+      {
+        id: "count-solutions",
+        prompt: "From x² − 5 = 4 we get x² = 9. From x² − 5 = −4 we get x² = 1. How many real solutions in total?",
+        options: [
+          {
+            id: "a",
+            label: "4: x = 3, −3, 1, −1",
+            correct: true,
+            feedback: "Yes. x² = 9 gives x = ±3 (2 solutions). x² = 1 gives x = ±1 (2 solutions). Total: 4 real solutions."
+          },
+          {
+            id: "b",
+            label: "2: x = 3 and x = 1 (only the positive roots)",
+            correct: false,
+            feedback: "Both positive and negative square roots are real solutions. x² = 9 gives both 3 and −3. x² = 1 gives both 1 and −1. That is 4 solutions."
+          }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2019-20-a",
+      sourceProblem: "2019-20",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "How many real numbers x satisfy the equation (x² − 6)² = 25?",
+      options: [
+        { letter: "A", value: 4, label: "4" },
+        { letter: "B", value: 2, label: "2" }
+      ],
+      answer: 4,
+      answerLabel: "(A) 4",
+      solution: [
+        "Take the square root of both sides: x² − 6 = 5 or x² − 6 = −5.",
+        "Case 1: x² − 6 = 5 → x² = 11 → x = √11 or x = −√11 (2 solutions).",
+        "Case 2: x² − 6 = −5 → x² = 1 → x = 1 or x = −1 (2 solutions).",
+        "All four values are real. Total: 4 real solutions."
+      ],
+      reflection: {
+        id: "adapted-quadratic-reason",
+        prompt: "True or false: if the equation were (x² − 6)² = 49, it would have the same number of real solutions.",
+        options: [
+          {
+            id: "false",
+            label: "False",
+            correct: true,
+            feedback: "Right. For (x²−6)²=49: x²−6=7 gives x²=13 (2 real), x²−6=−7 gives x²=−1 (0 real). That is 2 solutions, not 4. The number depends on whether x² = negative has solutions."
+          },
+          {
+            id: "true",
+            label: "True",
+            correct: false,
+            feedback: "Check: x²−6=7 gives x²=13 (2 real), x²−6=−7 gives x²=−1 (0 real). So only 2 solutions, not 4. The statement is false."
+          }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_20",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the square-root-and-solve method from the AoPS solution for the original problem."
+    }
   }
 };
