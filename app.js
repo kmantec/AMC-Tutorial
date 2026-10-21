@@ -5,7 +5,7 @@ import { coachGuides } from './coach-content.js';
 import { newCoachState, answerCoachCheck, nextCoachCheck, answerSimilar, retrySimilar, answerReflection } from './coaching-state.js';
 import { createLearningStore, learningStorageKeys } from './learning-store.js';
 import { createCoachSpeech, spokenCheck, spokenProblem } from './coach-speech.js';
-import { homePlan } from './home-plan.js';
+import { homePlan, topicBreakdown } from './home-plan.js';
 
 const YEARS = [2026, 2025, 2024, 2023, 2022, 2020, 2019];
 const ids = Object.keys(problems);
@@ -285,15 +285,29 @@ function renderProgress() {
     return '<article class="notebook-card"><div><span class="eyebrow">2026 AMC 8 · PROBLEM ' + problems[id].number + '</span><h2>' + escape(problems[id].title) + '</h2><p>' + resultText(record) + '</p><p>' + count + ' learning ' + (count === 1 ? 'moment' : 'moments') + ' recorded</p></div>' + practiceButton(id,'Return to this problem','button button-primary') + '</article>';
   }).join('') + '<section class="notebook-history"><h3>Your recent learning moments</h3>' + records.slice(-12).reverse().map((record) => '<div class="history-row"><span>Problem ' + problems[record.problem].number + ' · ' + resultText(record) + '</span><small>' + date(record.at) + '</small></div>').join('') + '</section>';
 }
+function renderTopicBreakdown() {
+  const categories = topicBreakdown(problems);
+  const container = $('#topic-breakdown');
+  if (!container) return;
+  container.innerHTML = categories.map(c => {
+    const pct = c.pct;
+    return '<div class="tb-row">' +
+      '<span class="tb-label"><span class="tb-dot" style="background:' + c.color + '"></span>' + c.category + '</span>' +
+      '<div class="tb-bar-track"><div class="tb-bar-fill" style="width:' + pct + '%;background:' + c.color + '"></div></div>' +
+      '<span class="tb-pct">' + pct + '%</span>' +
+      '<span class="tb-count">' + c.count + '</span>' +
+    '</div>';
+  }).join('');
+}
 function renderHome() {
   const plan = homePlan(problems,records,attempts,activeId);
   const selected = plan.items.find(item => item.id === homeSelection) || plan.next;
   const suggested = selected.id === plan.next.id;
   $('#next-win-heading').textContent = plan.explored === ids.length ? 'A familiar idea. A fresh try.' : 'A little practice. A new idea.';
   $('#home-record-mode').textContent = learning.mode === 'preview' ? 'Preview · Nothing saved' : storageAvailable ? 'Saved on this device' : 'This session only';
-  $('#home-selection-label').textContent = suggested ? 'COACH’S SUGGESTION' : 'YOUR CHOICE';
+  $('#home-selection-label').textContent = suggested ? 'COACH\u2019S SUGGESTION' : 'YOUR CHOICE';
   $('#home-problem-status').textContent = selected.label;
-  $('#home-problem-meta').textContent = problems[selected.id].year + ' AMC 8 · Problem ' + selected.number;
+  $('#home-problem-meta').textContent = problems[selected.id].year + ' AMC 8 \u00b7 Problem ' + selected.number;
   $('#next-problem-title').textContent = selected.title;
   $('#home-reason').textContent = suggested ? plan.reason : selected.continuing
     ? 'Your unfinished attempt is ready to continue.'
@@ -304,7 +318,7 @@ function renderHome() {
   const alternative = suggested ? plan.review.find(item => item.id !== selected.id) : plan.next;
   $('#home-secondary').hidden = !alternative;
   if (alternative) {
-    $('#home-secondary').textContent = suggested ? 'Revisit Problem ' + alternative.number : 'Coach’s suggestion · Problem ' + alternative.number;
+    $('#home-secondary').textContent = suggested ? 'Revisit Problem ' + alternative.number : 'Coach\u2019s suggestion \u00b7 Problem ' + alternative.number;
     $('#home-secondary').dataset.problem = alternative.id;
   }
   $('#home-coach-message').textContent = selected.record || selected.continuing ? selected.detail
@@ -319,6 +333,7 @@ function renderHome() {
     button.querySelector('.map-status').textContent = item.label;
     button.querySelector('.map-number').innerHTML = item.status === 'independent' ? icon('check') : String(item.number);
   }
+  renderTopicBreakdown();
 }
 function renderLearningMode() {
   const preview = learning.mode === 'preview';

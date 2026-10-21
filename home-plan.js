@@ -8,6 +8,70 @@ export const homeTopics = {
   '2026-4': ['Percentages', 'Explore changing percentages.'],
   '2026-5': ['Speed & time', 'Explore a journey with a stop.']
 };
+
+// Map every topic string to a parent category for the breakdown chart.
+const parentCategory = {
+  'Arithmetic': 'Arithmetic',
+  'Arithmetic · organized counting': 'Arithmetic',
+  'Arithmetic · successive percent changes': 'Arithmetic',
+  'Arithmetic · budgeting': 'Arithmetic',
+  'Geometry · perimeter and area': 'Geometry',
+  'Geometry · area from a diagram': 'Geometry',
+  'Geometry · rhombus area': 'Geometry',
+  'Geometry · cylinder volume': 'Geometry',
+  'Rates · distance, driving time, and unit conversion': 'Rates & Speed',
+  'Rate-Speed-Distance': 'Rates & Speed',
+  'Number theory · comparing fractions': 'Number Theory',
+  'Number theory · palindromes': 'Number Theory',
+  'Logic · graph interpretation': 'Logic',
+  'Logic · calendar reasoning': 'Logic',
+  'Algebra · averages': 'Algebra',
+  'Algebra · percentages': 'Algebra',
+  'Algebra-Quadratics': 'Algebra',
+  'Probability · symmetry': 'Probability',
+  'Probability · conditional probability': 'Probability',
+  'Counting-Probability': 'Counting',
+  'Combinatorics': 'Counting',
+  'Statistics · mean & median': 'Statistics',
+  'Set theory · Venn diagram': 'Set Theory',
+  'Spatial reasoning · cube net': 'Spatial',
+  'Patterns-Telescoping': 'Patterns'
+};
+
+const categoryColors = {
+  'Arithmetic': '#6366f1',
+  'Geometry': '#22c55e',
+  'Algebra': '#f59e0b',
+  'Number Theory': '#ec4899',
+  'Logic': '#14b8a6',
+  'Probability': '#a855f7',
+  'Rates & Speed': '#f97316',
+  'Counting': '#3b82f6',
+  'Statistics': '#06b6d4',
+  'Set Theory': '#8b5cf6',
+  'Spatial': '#e11d48',
+  'Patterns': '#84cc16'
+};
+
+const categoryOrder = ['Arithmetic','Geometry','Algebra','Number Theory','Logic','Probability','Rates & Speed','Counting','Statistics','Set Theory','Spatial','Patterns'];
+
+export function topicBreakdown(problems) {
+  const counts = {};
+  for (const id of Object.keys(problems)) {
+    const raw = homeTopics[id]?.[0] || problems[id].topic;
+    const cat = parentCategory[raw] || 'Other';
+    counts[cat] = (counts[cat] || 0) + 1;
+  }
+  const total = Object.keys(problems).length;
+  return categoryOrder
+    .filter(c => counts[c])
+    .map(c => ({
+      category: c,
+      count: counts[c],
+      pct: Math.round(counts[c] / total * 100),
+      color: categoryColors[c] || '#94a3b8'
+    }));
+}
 export function hasUnfinishedWork(attempt) {
   return Boolean(attempt && !attempt.submitted && !attempt.revealed &&
     (attempt.selectedAnswer !== null || attempt.hints || attempt.wrong || attempt.coached || attempt.video));

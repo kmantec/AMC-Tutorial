@@ -293,6 +293,18 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 .learning-map-footer>p { display:flex; flex-wrap:wrap; gap:10px 22px; font-size:.875rem; color:var(--muted); }
 .learning-map-footer strong { color:var(--navy); }
 .map-explanation { color:var(--muted); font-size:.75rem; line-height:1.8; margin-top:14px; max-width:85ch; }
+
+/* Topic breakdown bar chart */
+.topic-breakdown { margin-bottom:22px; padding-bottom:20px; border-bottom:1px solid var(--line); display:flex; flex-direction:column; gap:8px; }
+.tb-row { display:grid; grid-template-columns:130px 1fr 38px 28px; align-items:center; gap:10px; font-size:.8rem; }
+.tb-label { display:flex; align-items:center; gap:7px; color:var(--navy); font-weight:550; white-space:nowrap; }
+.tb-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+.tb-bar-track { height:16px; background:var(--quiet-bg); border-radius:8px; overflow:hidden; min-width:40px; }
+.tb-bar-fill { height:100%; border-radius:8px; transition:width .4s ease; min-width:4px; }
+.tb-pct { font-weight:700; color:var(--navy); text-align:right; }
+.tb-count { color:var(--muted); text-align:right; font-size:.72rem; }
+@media(max-width:650px) { .tb-row { grid-template-columns:100px 1fr 32px 24px; gap:7px; font-size:.75rem; } }
+
 @media(max-width:1180px) { .next-win-layout { grid-template-columns:minmax(0,1fr); gap:18px; }.home-coach-note { padding:0 4px 0 59px; position:relative; }.home-coach-icon { position:absolute; left:0; top:0; }.home-coach-note .home-coach-signature { margin-top:8px; } }
 @media(max-width:940px) { .map-year-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }.learning-home { padding:23px; }.next-problem { padding:22px; } }
 @media(max-width:650px) { .map-year-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }.learning-home { padding:20px; border-radius:17px; }.next-win-header h2 { font-size:1.5rem; }.next-win-header { gap:12px; }.next-problem { padding:20px; }#next-problem-title { font-size:1.35rem; }.home-actions { align-items:stretch; }.home-actions>button { flex:1 1 100%; }.map-problem { min-height:56px; }.learning-map-footer .text-button { width:100%; }.learning-map { margin-top:22px; padding-top:22px; } }
