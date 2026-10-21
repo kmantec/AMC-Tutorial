@@ -3950,5 +3950,249 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_5",
       credit: "Changed-number practice and coaching authored by Hermes Agent, using the Manhattan distance approach from AoPS Solutions 1–3."
     }
+  },
+  "2025-6": {
+    intro: "The sum of all five numbers is 85. We need the remaining four to sum to a multiple of 4.",
+    checks: [
+      {
+        id: "sum-85",
+        prompt: "What is the sum of all five numbers 15, 16, 17, 18, 19?",
+        options: [
+          { id: "a", label: "85", correct: true, feedback: "Correct! 15 + 16 + 17 + 18 + 19 = 85." },
+          { id: "b", label: "90", correct: false, feedback: "Check your addition: 15+16=31, +17=48, +18=66, +19=85, not 90." }
+        ]
+      },
+      {
+        id: "mod-4",
+        prompt: "85 is 1 more than a multiple of 4. What remainder (mod 4) must the erased number have?",
+        options: [
+          { id: "a", label: "Remainder 1", correct: true, feedback: "Correct! Since 85 ≡ 1 (mod 4), removing a number ≡ 1 (mod 4) leaves a sum ≡ 0 (mod 4)." },
+          { id: "b", label: "Remainder 0", correct: false, feedback: "If you remove a multiple of 4 (remainder 0), the remaining sum is still ≡ 1 (mod 4), not a multiple of 4." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-6-a",
+      sourceProblem: "2025-6",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Sekou writes the numbers 20, 21, 22, 23, 24. He erases one so the sum of the remaining four is a multiple of 4. Which number did he erase?",
+      options: [
+        { letter: "A", value: 20, label: "20" },
+        { letter: "B", value: 22, label: "22" }
+      ],
+      answer: 22,
+      answerLabel: "(B) 22",
+      solution: [
+        "Sum of all five: 20 + 21 + 22 + 23 + 24 = 110.",
+        "110 ÷ 4 = 27 remainder 2, so 110 ≡ 2 (mod 4).",
+        "We need the remaining sum ≡ 0 (mod 4), so erased number must be ≡ 2 (mod 4).",
+        "20 ≡ 0, 21 ≡ 1, 22 ≡ 2, 23 ≡ 3, 24 ≡ 0 (mod 4).",
+        "Only 22 is ≡ 2 (mod 4). Answer: 22."
+      ],
+      reflection: {
+        id: "adapted-mod4-reason",
+        prompt: "True or false: If a sum is a multiple of 4, every number in the sum must be a multiple of 4.",
+        options: [
+          { id: "true", label: "True", correct: false, feedback: "Not necessarily. For example, 1 + 3 = 4, which is a multiple of 4, but neither 1 nor 3 is a multiple of 4." },
+          { id: "false", label: "False", correct: true, feedback: "Correct! A sum can be a multiple of 4 without each individual number being one, like 1 + 3 = 4 or 2 + 6 = 8." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_6",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using modular arithmetic from AoPS Solutions 1–7."
+    }
+  },
+  "2025-7": {
+    intro: "The 'at least' ranges are nested — each includes the smaller ranges below.",
+    checks: [
+      {
+        id: "at-least-meaning",
+        prompt: "If 50 students scored at least 80%, does that include the 13 who scored at least 90%?",
+        options: [
+          { id: "a", label: "Yes, they are included in the 50.", correct: true, feedback: "Correct! 'At least 80%' includes everyone who scored 80% or higher, including those who scored 90% or higher." },
+          { id: "b", label: "No, they are separate groups.", correct: false, feedback: "Actually, 'at least 80%' includes everyone who scored 80% or above, which includes those who scored 90% or above." }
+        ]
+      },
+      {
+        id: "find-80-90",
+        prompt: "How many students scored at least 80% but less than 90%?",
+        options: [
+          { id: "a", label: "50 − 13 = 37", correct: true, feedback: "Correct! Subtract the 'at least 90%' group from the 'at least 80%' group." },
+          { id: "b", label: "50 − 5 = 45", correct: false, feedback: "The 5 students are those with at least 95%, not 90%. The group at least 90% has 13 students." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-7-a",
+      sourceProblem: "2025-7",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "In another class: 8 students scored at least 90%, 20 at least 80%, 40 at least 70%, and 60 at least 60%. How many scored at least 70% and less than 80%?",
+      options: [
+        { letter: "A", value: 20, label: "20" },
+        { letter: "B", value: 40, label: "40" }
+      ],
+      answer: 20,
+      answerLabel: "(A) 20",
+      solution: [
+        "Students with at least 70%: 40.",
+        "Students with at least 80%: 20 (these are included in the 40).",
+        "Students with at least 70% but less than 80%: 40 − 20 = 20."
+      ],
+      reflection: {
+        id: "adapted-nested-sets",
+        prompt: "True or false: The number of students scoring less than 70% is 40.",
+        options: [
+          { id: "true", label: "True", correct: false, feedback: "60 scored at least 60%, so there are at most 60 students total. We don't know how many scored below 60%." },
+          { id: "false", label: "False", correct: true, feedback: "Correct! We only know about scores at least 60% and above. We don't have data on students scoring below 60%." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_7",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using nested-set reasoning from AoPS Solutions 1–2."
+    }
+  },
+  "2025-8": {
+    intro: "The flat net is made of all 6 faces of the cube. If the total area is 18, each face has area 3.",
+    checks: [
+      {
+        id: "face-area",
+        prompt: "A cube net has area 18. How many faces does a cube have?",
+        options: [
+          { id: "a", label: "6 faces", correct: true, feedback: "Correct! A cube has 6 faces, all of equal area." },
+          { id: "b", label: "4 faces", correct: false, feedback: "A cube has 6 faces, not 4. Think of a dice — it has 6 square sides." }
+        ]
+      },
+      {
+        id: "volume-calc",
+        prompt: "Each face has area 3. What is the side length of the cube?",
+        options: [
+          { id: "a", label: "√3", correct: true, feedback: "Correct! Area of a square face = s² = 3, so s = √3." },
+          { id: "b", label: "3", correct: false, feedback: "If the side were 3, the face area would be 9, not 3. Side = √(area) = √3." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-8-a",
+      sourceProblem: "2025-8",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A cube net has an area of 24 square centimeters. What is the volume of the cube?",
+      options: [
+        { letter: "A", value: "8", label: "8" },
+        { letter: "B", value: "8√2", label: "8√2" }
+      ],
+      answer: "8",
+      answerLabel: "(A) 8",
+      solution: [
+        "Each face area = 24 ÷ 6 = 4.",
+        "Side length s = √4 = 2.",
+        "Volume = s³ = 2³ = 8."
+      ],
+      reflection: {
+        id: "adapted-volume-nets",
+        prompt: "True or false: If you double the side length of a cube, its volume doubles.",
+        options: [
+          { id: "true", label: "True", correct: false, feedback: "Volume depends on side length cubed. Doubling the side (2×) gives 2³ = 8× the volume, not 2×." },
+          { id: "false", label: "False", correct: true, feedback: "Correct! Volume scales with the cube of the side length. Doubling the side multiplies volume by 8." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_8",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the cube net method from AoPS Solutions 1–2."
+    }
+  },
+  "2025-9": {
+    intro: "Opposite numbers on a clock are 6 apart. Their sum is always the same (13), except for 12 and 6 which sum to 18.",
+    checks: [
+      {
+        id: "opposite-pairs",
+        prompt: "What number is opposite 3 on a standard clock?",
+        options: [
+          { id: "a", label: "9", correct: true, feedback: "Correct! 3 and 9 are opposite each other on a clock, 6 hours apart." },
+          { id: "b", label: "8", correct: false, feedback: "3 is opposite 9 on a clock. Count 6 steps forward from 3: 4, 5, 6, 7, 8, 9." }
+        ]
+      },
+      {
+        id: "pair-average",
+        prompt: "The pair (12,6) averages to 9, and (1,7) averages to 4. What is the average of these two pair-averages?",
+        options: [
+          { id: "a", label: "6.5", correct: true, feedback: "Correct! (9 + 4) ÷ 2 = 6.5. This is the same as the overall average of all 6 pair-averages." },
+          { id: "b", label: "13", correct: false, feedback: "The sum of the pair-averages 9 + 4 = 13, but we need the average, which is 13 ÷ 2 = 6.5." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-9-a",
+      sourceProblem: "2025-9",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Ningli looks at a clock numbered 0 to 11 instead of 1 to 12. She takes the average of each opposite pair. What is the average of the 6 resulting numbers?",
+      options: [
+        { letter: "A", value: 5.5, label: "5.5" },
+        { letter: "B", value: 6.5, label: "6.5" }
+      ],
+      answer: 5.5,
+      answerLabel: "(A) 5.5",
+      solution: [
+        "Numbers are 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11.",
+        "Sum of 0 to 11 = 66.",
+        "Average of all 12 numbers = 66/12 = 5.5.",
+        "The average of pair-averages equals the overall average."
+      ],
+      reflection: {
+        id: "adapted-clock-range",
+        prompt: "True or false: Changing the numbers on the clock from 1–12 to 0–11 changes the average by exactly 1.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct! The average of 0–11 is 5.5, which is exactly 1 less than the average of 1–12 (6.5)." },
+          { id: "false", label: "False", correct: false, feedback: "Check: 1–12 averages to 6.5, and 0–11 averages to 5.5. The difference is exactly 1." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_9",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the clock symmetry approach from AoPS Solutions 1–4."
+    }
+  },
+  "2025-10": {
+    intro: "Two rectangles of the same size overlap. Find the area of overlap — it's a square with side equal to half of AD.",
+    checks: [
+      {
+        id: "rect-area",
+        prompt: "A 5 × 3 rectangle has area 15. What is the combined area of two such rectangles (without overlap)?",
+        options: [
+          { id: "a", label: "30", correct: true, feedback: "Correct! 15 + 15 = 30 square inches." },
+          { id: "b", label: "15", correct: false, feedback: "That's the area of just one rectangle. We have two rectangles, so 15 × 2 = 30." }
+        ]
+      },
+      {
+        id: "overlap-square",
+        prompt: "The overlapping region is a square. The rotation is around the midpoint of DC. What is the side length of the overlapping square?",
+        options: [
+          { id: "a", label: "2.5 inches (half of AD)", correct: true, feedback: "Correct! The midpoint of DC is 2.5 inches from each end, so the rotated rectangle creates a 2.5 × 2.5 overlap square." },
+          { id: "b", label: "5 inches (AB)", correct: false, feedback: "The overlap square's side is related to AD (the side containing the rotation point), not AB." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-10-a",
+      sourceProblem: "2025-10",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Rectangle ABCD has sides AB = 7 inches and AD = 4 inches. It is rotated 90° clockwise around the midpoint of DC. What is the total area covered by the two overlapping rectangles?",
+      options: [
+        { letter: "A", value: 52, label: "52" },
+        { letter: "B", value: 56, label: "56" }
+      ],
+      answer: 52,
+      answerLabel: "(A) 52",
+      solution: [
+        "Area of each rectangle = 7 × 4 = 28. Total without overlap = 56.",
+        "Overlap is a square with side = half of AD = 2 inches.",
+        "Area of overlap = 2 × 2 = 4.",
+        "Total covered = 56 − 4 = 52."
+      ],
+      reflection: {
+        id: "adapted-overlap-reason",
+        prompt: "True or false: The overlapping region is always a square when a rectangle is rotated 90° around the midpoint of one of its sides.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct! Rotating 90° around the midpoint of a side creates a square overlap whose side is half the length of that side." },
+          { id: "false", label: "False", correct: false, feedback: "Try visualizing: the midpoint stays fixed, and the two rectangles are perpendicular. Their intersection is always a square." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_10",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the rotation geometry method from AoPS Solution 1."
+    }
   }
 };

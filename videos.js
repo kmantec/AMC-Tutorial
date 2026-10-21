@@ -1085,6 +1085,86 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-22",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_5"
     }
+  ],
+  "2025-6": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=251s",
+      "startSeconds": 251,
+      "endSeconds": 331,
+      "segmentLabel": "Problem 6 · 4:11–5:31",
+      "reason": "The Problem 6 segment covers Sekou's erased number divisibility problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows finding the sum and checking remainders modulo 4.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-24",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_6"
+    }
+  ],
+  "2025-7": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=331s",
+      "startSeconds": 331,
+      "endSeconds": 461,
+      "segmentLabel": "Problem 7 · 5:31–7:41",
+      "reason": "The Problem 7 segment covers Prof. Xochi's exam scores nested-set problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows subtracting overlapping 'at least' ranges.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-24",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_7"
+    }
+  ],
+  "2025-8": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=461s",
+      "startSeconds": 461,
+      "endSeconds": 501,
+      "segmentLabel": "Problem 8 · 7:41–8:21",
+      "reason": "The Problem 8 segment covers the cardboard cube net volume problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows dividing net area by 6 and computing volume.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-24",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_8"
+    }
+  ],
+  "2025-9": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=501s",
+      "startSeconds": 501,
+      "endSeconds": 612,
+      "segmentLabel": "Problem 9 · 8:21–10:12",
+      "reason": "The Problem 9 segment covers the clock opposite pairs average problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows finding opposite pairs and computing averages.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-24",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_9"
+    }
+  ],
+  "2025-10": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=612s",
+      "startSeconds": 612,
+      "endSeconds": 686,
+      "segmentLabel": "Problem 10 · 10:12–11:26",
+      "reason": "The Problem 10 segment covers the overlapping rectangles rotation problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows computing total area minus overlap square.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-24",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_10"
+    }
   ]
 };
 
