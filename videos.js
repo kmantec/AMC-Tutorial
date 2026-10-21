@@ -845,6 +845,86 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-21",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_15"
     }
+  ],
+  "2020-16": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=2574s",
+      "startSeconds": 2574,
+      "endSeconds": 2640,
+      "segmentLabel": "Problem 16 · 42:54–44:00",
+      "reason": "The Problem 16 segment covers the digit-sum-along-lines puzzle using the variable-counting method.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows how to express each line sum and solve for B.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-21",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_16"
+    }
+  ],
+  "2020-17": [
+    {
+      "id": "YnwkBZTv5Fw",
+      "title": "AMC8 2020 full solution",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=YnwkBZTv5Fw&t=782s",
+      "startSeconds": 782,
+      "endSeconds": 840,
+      "segmentLabel": "Problem 17 · 13:02–14:00",
+      "reason": "The Problem 17 segment covers the factors-of-2020 problem with prime factorization and factor counting.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows listing factors and eliminating those with 1-3 factors.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-21",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_17"
+    }
+  ],
+  "2020-18": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=3334s",
+      "startSeconds": 3334,
+      "endSeconds": 3390,
+      "segmentLabel": "Problem 18 · 55:34–56:30",
+      "reason": "The Problem 18 segment covers the rectangle-in-semicircle geometry problem with the Pythagorean theorem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows finding the radius and applying the Pythagorean theorem to find the height.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-21",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_18"
+    }
+  ],
+  "2020-19": [
+    {
+      "id": "YnwkBZTv5Fw",
+      "title": "AMC8 2020 full solution",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=YnwkBZTv5Fw&t=980s",
+      "startSeconds": 980,
+      "endSeconds": 1035,
+      "segmentLabel": "Problem 19 · 16:20–17:15",
+      "reason": "The Problem 19 segment covers the flippy numbers divisibility problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows the divisibility-by-15 reasoning with the alternating-digit pattern.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-21",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_19"
+    }
+  ],
+  "2020-20": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=3750s",
+      "startSeconds": 3750,
+      "endSeconds": 3810,
+      "segmentLabel": "Problem 20 · 62:30–63:30",
+      "reason": "The Problem 20 segment covers the tree heights puzzle with integer constraints and average deduction.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows working through the tree sequence and checking each possible average.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-21",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_20"
+    }
   ]
 };
 

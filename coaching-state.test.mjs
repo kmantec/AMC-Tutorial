@@ -58,7 +58,7 @@ for (const [id,g] of Object.entries(coachGuides)) {
   assert.equal(retry.firstTry,false);
   assert.equal(answerReflection(g,state,reflection.id).firstTry,false);
 }
-assert.equal(adaptationIds.size,45);
+assert.equal(adaptationIds.size,50);
 const expression = coachGuides['2026-1'].similar.expression;
 const terms = expression.replaceAll('−','-').replaceAll(' ','').match(/[+-]?\d+/g).map(Number);
 assert.equal(terms.length,12);

@@ -3214,5 +3214,247 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_15",
       credit: "Changed-number practice and coaching authored by Hermes Agent, using the percentage equation method from AoPS Solutions 1–6."
     }
+  },
+  "2020-16": {
+    intro: "The figure shows six points with lines connecting them. Each point holds a different digit 1-6. Try working out which point appears on the most lines.",
+    checks: [
+      {
+        id: "count-b",
+        prompt: "How many of the five lines include point B?",
+        options: [
+          { id: "a", label: "2 lines", correct: false, feedback: "Check the diagram description: B lies on three lines (B+D, B+F, and A+B+C), not two." },
+          { id: "b", label: "3 lines", correct: true, feedback: "Yes. B appears on the lines B+D, B+F, and A+B+C — that's three lines. Every other point appears on at most two lines." }
+        ]
+      },
+      {
+        id: "setup-equation",
+        prompt: "The total sum of all five line totals is 47. If we add up all the expressions for each line, which expression represents this total?",
+        options: [
+          { id: "a", label: "2A + 3B + 2C + 2D + 2E + 2F = 47", correct: true, feedback: "Yes! Each line sum is: A+B+C, A+E+F, C+D+E, B+D, B+F. Adding them gives A×2, B×3, C×2, D×2, E×2, F×2 = 47." },
+          { id: "b", label: "A + B + C + D + E + F = 47", correct: false, feedback: "Not quite — some points appear on more than one line. B appears three times, so it's 3B, not just B." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-16-a",
+      sourceProblem: "2020-16",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Suppose the same diagram has digits 1 through 6 as before, but now B is on 4 lines and the total of the five line sums is 50. What is B?",
+      options: [
+        { letter: "A", value: 2, label: "2" },
+        { letter: "B", value: 4, label: "4" }
+      ],
+      answer: 4,
+      answerLabel: "(B) 4",
+      solution: [
+        "With B on 4 lines, the total = 2A + 4B + 2C + 2D + 2E + 2F = 2(A+B+C+D+E+F) + 2B = 2×21 + 2B = 42 + 2B = 50.",
+        "2B = 8, so B = 4."
+      ],
+      reflection: {
+        id: "adapted-line-count-reason",
+        prompt: "True or false: if every point appeared on exactly 2 lines, the total would be 42.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Yes! 2(A+B+C+D+E+F) = 2×21 = 42. The extra total comes from points that appear on more than 2 lines." },
+          { id: "false", label: "False", correct: false, feedback: "Check: if each point appears 2 times, total = 2×(1+2+3+4+5+6) = 2×21 = 42. So it's true!" }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_16",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the counting method from AoPS Solution 1."
+    }
+  },
+  "2020-17": {
+    intro: "2020 factors into 2² × 5 × 101. List every factor before counting — it's the most reliable way for this problem.",
+    checks: [
+      {
+        id: "prime-factors",
+        prompt: "Which prime factorization is correct for 2020?",
+        options: [
+          { id: "a", label: "2² × 5 × 101", correct: true, feedback: "Yes. 2020 = 4 × 5 × 101 = 2² × 5 × 101. Check: 4 × 5 = 20, 20 × 101 = 2020." },
+          { id: "b", label: "2² × 5² × 101", correct: false, feedback: "That would give 4 × 25 × 101 = 10,100, which is much larger than 2020. There's only one factor of 5." }
+        ]
+      },
+      {
+        id: "count-factors",
+        prompt: "The number 4 has how many factors?",
+        options: [
+          { id: "a", label: "2 factors", correct: false, feedback: "4 = 2², so its factors are 1, 2, 4 — that's three factors, not two. A square of a prime always has 3 factors." },
+          { id: "b", label: "3 factors", correct: true, feedback: "Yes. 4 = 2², so factors are 1, 2, 4 — that's 3 factors. A prime squared (p²) always has exactly 3 factors." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-17-a",
+      sourceProblem: "2020-17",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "How many positive integer factors of 60 have more than 3 factors?",
+      options: [
+        { letter: "A", value: 6, label: "6" },
+        { letter: "B", value: 8, label: "8" }
+      ],
+      answer: 6,
+      answerLabel: "(A) 6",
+      solution: [
+        "60 = 2² × 3 × 5. Factors: 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60 (12 factors).",
+        "Factors with ≤3 factors: 1 (1), 2 (2), 3 (2), 4 (3), 5 (2). That's 5.",
+        "12 − 5 = 6 factors have more than 3 factors."
+      ],
+      reflection: {
+        id: "adapted-factor-reason",
+        prompt: "True or false: the number 36 has 3 factors that are prime numbers.",
+        options: [
+          { id: "true", label: "True", correct: false, feedback: "36 = 2² × 3². Its prime factors are only 2 and 3 — that's 2, not 3. The factors that are prime are just 2 and 3." },
+          { id: "false", label: "False", correct: true, feedback: "Yes. 36 has exactly 2 prime factors: 2 and 3. Prime factors are the primes you multiply, not all the factors that happen to be prime." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_17",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the factor-listing method from AoPS Solution 1."
+    }
+  },
+  "2020-18": {
+    intro: "A rectangle inside a semicircle — the diameter of the circle equals the whole base. The center is a good starting point.",
+    checks: [
+      {
+        id: "diameter-length",
+        prompt: "What is the length of the diameter FE?",
+        options: [
+          { id: "a", label: "25 (9 + 16)", correct: false, feedback: "The diameter goes from F to E: FD (9) + DA (16) + AE (9) = 34. The 9s on both sides must be included." },
+          { id: "b", label: "34 (9 + 16 + 9)", correct: true, feedback: "Yes. FE = FD + DA + AE = 9 + 16 + 9 = 34. So the radius is 17." }
+        ]
+      },
+      {
+        id: "find-cd",
+        prompt: "In right triangle ODC, we know OC = 17 (radius) and OD = 8. What is CD?",
+        options: [
+          { id: "a", label: "15 (√(289 − 64))", correct: true, feedback: "Yes. CD² = OC² − OD² = 289 − 64 = 225, so CD = 15." },
+          { id: "b", label: "12 (√(144))", correct: false, feedback: "Check: OC = 17, so OC² = 289. OD = 8, so OD² = 64. CD² = 289 − 64 = 225, and √225 = 15, not 12." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-18-a",
+      sourceProblem: "2020-18",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Suppose DA = 10, FD = AE = 8. What is the area of rectangle ABCD?",
+      options: [
+        { letter: "A", value: 120, label: "120" },
+        { letter: "B", value: 80, label: "80" }
+      ],
+      answer: 120,
+      answerLabel: "(A) 120",
+      solution: [
+        "FE = 8 + 10 + 8 = 26, radius = 13.",
+        "OD = 10/2 = 5.",
+        "CD = √(13² − 5²) = √(169 − 25) = √144 = 12.",
+        "Area = DA × CD = 10 × 12 = 120."
+      ],
+      reflection: {
+        id: "adapted-geometry-reason",
+        prompt: "True or false: the area is always DA × √(radius² − (DA/2)²).",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Yes. CD = √(radius² − (DA/2)²), and area = DA × CD. This formula always works for a rectangle inscribed in a semicircle." },
+          { id: "false", label: "False", correct: false, feedback: "Check: CD = √(OC² − OD²) = √(radius² − (DA/2)²), and area = DA × CD. So it is true!" }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_18",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the Pythagorean method from AoPS Solution 1."
+    }
+  },
+  "2020-19": {
+    intro: "Flippy means alternating digits. Start with divisibility by 15 — that narrows the first and last digits.",
+    checks: [
+      {
+        id: "last-digit",
+        prompt: "For a five-digit flippy number ababa to be divisible by 5, what must the last digit a be?",
+        options: [
+          { id: "a", label: "0 or 5", correct: true, feedback: "Yes. But if a = 0, then the first digit is also 0, which isn't a five-digit number. So a must be 5." },
+          { id: "b", label: "5 only", correct: false, feedback: "Actually, 0 would also make it divisible by 5 — but 0 as the first digit would make it a 4-digit number. So only 5 works, but the divisibility rule allows 0 too." }
+        ]
+      },
+      {
+        id: "digit-sum",
+        prompt: "With a = 5, the number is 5b5b5. The digit sum is 15 + 2b. For divisibility by 3, what must be true about b?",
+        options: [
+          { id: "a", label: "b must be a multiple of 3", correct: true, feedback: "Yes. 15 is already divisible by 3, so 2b must be divisible by 3. Since 2 isn't divisible by 3, b must be: 0, 3, 6, or 9." },
+          { id: "b", label: "b can be any digit", correct: false, feedback: "The sum 15 + 2b must be divisible by 3. Since 15 is divisible by 3, 2b must be too. That means b must be 0, 3, 6, or 9." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-19-a",
+      sourceProblem: "2020-19",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "How many five-digit flippy numbers are divisible by 5?",
+      options: [
+        { letter: "A", value: 9, label: "9" },
+        { letter: "B", value: 5, label: "5" }
+      ],
+      answer: 9,
+      answerLabel: "(A) 9",
+      solution: [
+        "Five-digit flippy number = ababa, with a ≠ b and a ≠ 0.",
+        "Divisible by 5 means a = 5 (a = 0 impossible for five-digit).",
+        "b can be any digit 0-9 except 5 (must be distinct). So b = 0,1,2,3,4,6,7,8,9 → 9 options."
+      ],
+      reflection: {
+        id: "adapted-flippy-reason",
+        prompt: "True or false: the smallest five-digit flippy number divisible by 5 is 50505.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Yes! With a = 5 and smallest possible b = 0 (distinct from 5), we get 50505 = 5×10101, divisible by 5." },
+          { id: "false", label: "False", correct: false, feedback: "Check: a must be 5 for divisibility by 5. b = 0 gives 50505 = 5×10101. That is the smallest. So it's true!" }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_19",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the divisibility reasoning from AoPS Solutions 1–2."
+    }
+  },
+  "2020-20": {
+    intro: "The integer condition is powerful here — half of an odd number isn't an integer. Start with Tree 2 = 11 and work outward.",
+    checks: [
+      {
+        id: "tree1-height",
+        prompt: "Tree 2 = 11 meters. Tree 1 must be either twice or half of Tree 2. Which height works?",
+        options: [
+          { id: "a", label: "5.5 (half of 11)", correct: false, feedback: "But heights must be integers! 5.5 is not an integer. Since 11 is odd, half of 11 is not a whole number." },
+          { id: "b", label: "22 (twice 11)", correct: true, feedback: "Yes. 2 × 11 = 22 is an integer. Since 11 is odd, only the 'twice' option gives an integer." }
+        ]
+      },
+      {
+        id: "tree3-height",
+        prompt: "Tree 3 must also be related to Tree 2. What is it?",
+        options: [
+          { id: "a", label: "22 (twice 11)", correct: true, feedback: "Yes. Tree 3 is twice Tree 2 = 22. Same reasoning: half of 11 is 5.5, not an integer." },
+          { id: "b", label: "11 (same as Tree 2)", correct: false, feedback: "The rule says each tree is either twice or half as tall as the one to its RIGHT. Tree 3 relates to Tree 2 on its right, so it must be 22 or 5.5. 5.5 is not integer, so 22." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2020-20-a",
+      sourceProblem: "2020-20",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Suppose Tree 2 = 12 meters. All other conditions remain the same. What is the average height of the trees, in meters?",
+      options: [
+        { letter: "A", value: 21.6, label: "21.6" },
+        { letter: "B", value: 26.4, label: "26.4" }
+      ],
+      answer: 26.4,
+      answerLabel: "(B) 26.4",
+      solution: [
+        "Tree 1: 2 × 12 = 24 (12/2 = 6 also integer, so both 6 and 24 possible).",
+        "Tree 3: 2 × 12 = 24 (or 6).",
+        "Let's check Tree 1 = Tree 3 = 24 (the 'twice' branch for consistency).",
+        "From Tree 3 = 24: Tree 4 can be 12 or 48. Tree 5 relates to Tree 4.",
+        "For average ending in .2: (24+12+24+48+24) = 132, avg = 26.4."
+      ],
+      reflection: {
+        id: "adapted-tree-reason",
+        prompt: "True or false: if Tree 2 = 12, Tree 1 could be 6.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Yes! 12/2 = 6 is an integer, so both 24 (twice) and 6 (half) are possible for Tree 1." },
+          { id: "false", label: "False", correct: false, feedback: "Check: 12 is even, so half of it (6) is an integer. So Tree 1 = 6 is a valid option. It is true!" }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_20",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the constraint-based reasoning from AoPS Solutions 1–3."
+    }
   }
 };
