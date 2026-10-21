@@ -925,6 +925,86 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-21",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_20"
     }
+  ],
+  "2020-21": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=3747s",
+      "startSeconds": 3747,
+      "endSeconds": 3815,
+      "segmentLabel": "Problem 21 · 62:27–63:35",
+      "reason": "The Problem 21 segment covers the chessboard path-counting problem with Pascal's triangle.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows the row-by-row path counting approach clearly.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-22",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_21"
+    }
+  ],
+  "2020-22": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=4096s",
+      "startSeconds": 4096,
+      "endSeconds": 4190,
+      "segmentLabel": "Problem 22 · 68:16–69:50",
+      "reason": "The Problem 22 segment covers the Collatz machine working backwards from 1.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows the branching tree approach clearly.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-22",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_22"
+    }
+  ],
+  "2020-23": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=4676s",
+      "startSeconds": 4676,
+      "endSeconds": 4740,
+      "segmentLabel": "Problem 23 · 77:56–79:00",
+      "reason": "The Problem 23 segment covers the award distribution problem with casework.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Clearly walks through the (3,1,1) and (2,2,1) cases.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-22",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_23"
+    }
+  ],
+  "2020-24": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=5061s",
+      "startSeconds": 5061,
+      "endSeconds": 5140,
+      "segmentLabel": "Problem 24 · 84:21–85:40",
+      "reason": "The Problem 24 segment covers the tile and border area ratio problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows the area ratio equation and solving for d/s.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-22",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_24"
+    }
+  ],
+  "2020-25": [
+    {
+      "id": "UnVo6jZ3Wnk",
+      "title": "AMC8 2020 2021 full solution",
+      "channel": "Math-X",
+      "watchUrl": "https://www.youtube.com/watch?v=UnVo6jZ3Wnk&t=5581s",
+      "startSeconds": 5581,
+      "endSeconds": 5660,
+      "segmentLabel": "Problem 25 · 93:01–94:20",
+      "reason": "The Problem 25 segment covers the rectangle-of-squares system of equations.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows labeling the variables and solving the system.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-22",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_25"
+    }
   ]
 };
 
