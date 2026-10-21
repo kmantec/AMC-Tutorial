@@ -5,7 +5,7 @@ import { coachGuides } from './coach-content.js';
 import { newCoachState, answerCoachCheck, nextCoachCheck, answerSimilar, retrySimilar, answerReflection } from './coaching-state.js';
 import { createLearningStore, learningStorageKeys } from './learning-store.js';
 import { createCoachSpeech, spokenCheck, spokenProblem } from './coach-speech.js';
-import { homePlan, topicBreakdown } from './home-plan.js';
+import { homePlan, topicBreakdown, getProblemCategory, topicBreakdownByYear } from './home-plan.js';
 
 const YEARS = [2026, 2025, 2024, 2023, 2022, 2020, 2019];
 const ids = Object.keys(problems);
@@ -20,6 +20,7 @@ let records = [];
 let storageAvailable = true;
 let toastTimer;
 let homeSelection = null;
+let filterCategories = []; // empty = show all
 const problem = () => problems[activeId];
 const attempt = () => {
   if (!attempts.has(activeId)) attempts.set(activeId, newAttempt());
@@ -289,15 +290,67 @@ function renderTopicBreakdown() {
   const categories = topicBreakdown(problems);
   const container = $('#topic-breakdown');
   if (!container) return;
-  container.innerHTML = categories.map(c => {
-    const pct = c.pct;
-    return '<div class="tb-row">' +
-      '<span class="tb-label"><span class="tb-dot" style="background:' + c.color + '"></span>' + c.category + '</span>' +
-      '<div class="tb-bar-track"><div class="tb-bar-fill" style="width:' + pct + '%;background:' + c.color + '"></div></div>' +
-      '<span class="tb-pct">' + pct + '%</span>' +
-      '<span class="tb-count">' + c.count + '</span>' +
+  const activeCount = filterCategories.length;
+  container.innerHTML = '<div class="tb-header"><span class="tb-title">Topic breakdown</span>' +
+    (activeCount ? '<button class="tb-clear text-button" data-clear-filters>Clear filter</button>' : '<span class="tb-hint">Tap a bar to filter</span>') +
+    '</div>' +
+    categories.map(c => {
+      const active = filterCategories.includes(c.category);
+      return '<button type="button" class="tb-row' + (active ? ' tb-active' : '') + '" data-tb-cat="' + c.category + '">' +
+        '<span class="tb-label"><span class="tb-dot" style="background:' + c.color + '"></span>' + c.category + '</span>' +
+        '<div class="tb-bar-track"><div class="tb-bar-fill" style="width:' + c.pct + '%;background:' + c.color + '"></div></div>' +
+        '<span class="tb-pct">' + c.pct + '%</span>' +
+        '<span class="tb-count">' + c.count + '</span>' +
+      '</button>';
+    }).join('');
+}
+function rebuildMapGrid() {
+  const byYear = {};
+  for (const id of ids) {
+    if (filterCategories.length && !filterCategories.includes(getProblemCategory(id, problems))) continue;
+    const y = problems[id].year;
+    if (!byYear[y]) byYear[y] = [];
+    byYear[y].push(id);
+  }
+  $('#available-practice').innerHTML = Object.keys(byYear).sort().reverse().map(year => {
+    const yearIds = byYear[year];
+    const yrBreakdown = topicBreakdownByYear(problems, +year);
+    const yrPills = yrBreakdown.map(c =>
+      '<span class="yrb-pill" style="--yrb-c:' + c.color + '">' +
+        '<span class="yrb-dot" style="background:' + c.color + '"></span>' +
+        c.pct + '%' +
+      '</span>'
+    ).join('');
+    return '<div class="map-year-group">' +
+      '<div class="map-year-header">' +
+        '<span class="map-year-badge year-' + year + '">' + year + '</span>' +
+        '<span class="map-year-count">' + yearIds.length + ' problem' + (yearIds.length > 1 ? 's' : '') + '</span>' +
+        (yrPills ? '<span class="yrb-pills">' + yrPills + '</span>' : '') +
+      '</div>' +
+      '<div class="map-year-grid">' +
+        yearIds.map(id =>
+          '<button type="button" class="map-problem" data-home-problem="' + id + '" aria-pressed="false" aria-controls="home-selection">' +
+            '<span class="map-number">' + problems[id].number + '</span>' +
+            '<span class="map-copy"><strong>Problem ' + problems[id].number + '</strong><span class="map-topic"></span></span>' +
+            '<span class="map-status"></span>' +
+          '</button>'
+        ).join('') +
+      '</div>' +
     '</div>';
   }).join('');
+  // re-apply state from plan
+  const plan = homePlan(problems,records,attempts,activeId);
+  const selected = plan.items.find(item => item.id === homeSelection) || plan.next;
+  for (const item of plan.items) {
+    const button = $('#available-practice').querySelector('[data-home-problem="' + item.id + '"]');
+    if (!button) continue;
+    button.dataset.status = item.status;
+    button.setAttribute('aria-pressed',String(item.id === selected.id));
+    button.setAttribute('aria-label','Problem ' + item.number + ', ' + item.topic + ', ' + item.label);
+    button.querySelector('.map-topic').textContent = item.topic;
+    button.querySelector('.map-status').textContent = item.label;
+    button.querySelector('.map-number').innerHTML = item.status === 'independent' ? icon('check') : String(item.number);
+  }
 }
 function renderHome() {
   const plan = homePlan(problems,records,attempts,activeId);
@@ -324,16 +377,10 @@ function renderHome() {
   $('#home-coach-message').textContent = selected.record || selected.continuing ? selected.detail
     : 'Try your own approach first. A hint or a guided check is here whenever you want help. You can choose any problem on the map.';
   $('#available-count').textContent = String(ids.length);
-  for (const item of plan.items) {
-    const button = $('#available-practice').querySelector('[data-home-problem="' + item.id + '"]');
-    button.dataset.status = item.status;
-    button.setAttribute('aria-pressed',String(item.id === selected.id));
-    button.setAttribute('aria-label','Problem ' + item.number + ', ' + item.topic + ', ' + item.label);
-    button.querySelector('.map-topic').textContent = item.topic;
-    button.querySelector('.map-status').textContent = item.label;
-    button.querySelector('.map-number').innerHTML = item.status === 'independent' ? icon('check') : String(item.number);
-  }
   renderTopicBreakdown();
+  rebuildMapGrid();
+  const fc = $('#available-practice').querySelectorAll('[data-home-problem]').length;
+  if (filterCategories.length) $('#available-count').textContent = fc + ' of ' + ids.length;
 }
 function renderLearningMode() {
   const preview = learning.mode === 'preview';
@@ -575,7 +622,23 @@ document.addEventListener('click',(event) => {
 $('#available-practice').addEventListener('click',event => {
   const button = event.target.closest('[data-home-problem]');
   if (!button) return;
-  homeSelection = button.dataset.homeProblem;
+  homeSelection = null;
+  openPractice(button.dataset.homeProblem);
+  renderHome();
+});
+$('#topic-breakdown').addEventListener('click',event => {
+  const catBtn = event.target.closest('[data-tb-cat]');
+  const clearBtn = event.target.closest('[data-clear-filters]');
+  if (clearBtn) {
+    filterCategories = [];
+    renderHome();
+    return;
+  }
+  if (!catBtn) return;
+  const cat = catBtn.dataset.tbCat;
+  const idx = filterCategories.indexOf(cat);
+  if (idx >= 0) filterCategories.splice(idx, 1);
+  else filterCategories.push(cat);
   renderHome();
 });
 $('#home-secondary').addEventListener('click',() => {

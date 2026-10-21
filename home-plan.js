@@ -70,7 +70,32 @@ export function topicBreakdown(problems) {
       count: counts[c],
       pct: Math.round(counts[c] / total * 100),
       color: categoryColors[c] || '#94a3b8'
-    }));
+    }))
+    .sort((a,b) => b.count - a.count || categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category));
+}
+
+export function getProblemCategory(id, problems) {
+  const raw = homeTopics[id]?.[0] || problems[id].topic;
+  return parentCategory[raw] || 'Other';
+}
+
+export function topicBreakdownByYear(problems, year) {
+  const yearIds = Object.keys(problems).filter(id => problems[id].year === year);
+  if (!yearIds.length) return [];
+  const counts = {};
+  for (const id of yearIds) {
+    const cat = getProblemCategory(id, problems);
+    counts[cat] = (counts[cat] || 0) + 1;
+  }
+  const total = yearIds.length;
+  return Object.keys(counts)
+    .map(c => ({
+      category: c,
+      count: counts[c],
+      pct: Math.round(counts[c] / total * 100),
+      color: categoryColors[c] || '#94a3b8'
+    }))
+    .sort((a,b) => b.count - a.count || categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category));
 }
 export function hasUnfinishedWork(attempt) {
   return Boolean(attempt && !attempt.submitted && !attempt.revealed &&
