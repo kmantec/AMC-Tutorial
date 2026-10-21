@@ -1005,6 +1005,86 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-22",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_25"
     }
+  ],
+  "2025-1": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=0s",
+      "startSeconds": 0,
+      "endSeconds": 45,
+      "segmentLabel": "Problem 1 · 0:00–0:45",
+      "reason": "Full walkthrough video with per-problem timestamps. The Problem 1 segment covers the eight-pointed star area problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows counting half-triangles and unit squares.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-22",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_1"
+    }
+  ],
+  "2025-2": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=45s",
+      "startSeconds": 45,
+      "endSeconds": 95,
+      "segmentLabel": "Problem 2 · 0:45–1:35",
+      "reason": "The Problem 2 segment covers the Egyptian hieroglyphs place-value problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows identifying each symbol and summing values.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-22",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_2"
+    }
+  ],
+  "2025-3": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=95s",
+      "startSeconds": 95,
+      "endSeconds": 141,
+      "segmentLabel": "Problem 3 · 1:35–2:21",
+      "reason": "The Problem 3 segment covers the Buffalo Shuffle-o card game problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows finding total cards then dividing by new player count.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-22",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_3"
+    }
+  ],
+  "2025-4": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=141s",
+      "startSeconds": 141,
+      "endSeconds": 181,
+      "segmentLabel": "Problem 4 · 2:21–3:01",
+      "reason": "The Problem 4 segment covers the counting backward by 7s arithmetic sequence problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows using the arithmetic sequence formula.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-22",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_4"
+    }
+  ],
+  "2025-5": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=181s",
+      "startSeconds": 181,
+      "endSeconds": 251,
+      "segmentLabel": "Problem 5 · 3:01–4:11",
+      "reason": "The Problem 5 segment covers Betty's delivery route Manhattan distance problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows computing Manhattan distances between each pair of points.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-22",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_5"
+    }
   ]
 };
 

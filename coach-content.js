@@ -3706,5 +3706,249 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_25",
       credit: "Changed-number practice and coaching authored by Hermes Agent, using the equation-system approach from AoPS Solutions 1–5."
     }
+  },
+  "2025-1": {
+    intro: "Count the shaded area in unit squares. The star covers 4 full squares and 8 half-squares.",
+    checks: [
+      {
+        id: "star-full-squares",
+        prompt: "How many full unit squares are completely shaded in the center of the star?",
+        options: [
+          { id: "a", label: "4", correct: true, feedback: "Yes! The center of the star has 4 full unit squares shaded." },
+          { id: "b", label: "8", correct: false, feedback: "Count the fully shaded squares in the middle of the star — there are 4, not 8. The 8 are half-squares around the edge." }
+        ]
+      },
+      {
+        id: "star-percent",
+        prompt: "The star covers 4 full squares + 8 half-squares = 8 unit squares total. The grid is 4×4 = 16 unit squares. What percent is shaded?",
+        options: [
+          { id: "a", label: "50%", correct: true, feedback: "Correct! 8/16 = 1/2 = 50%." },
+          { id: "b", label: "75%", correct: false, feedback: "75% would be 12 out of 16 squares. The star only covers 8 out of 16, which is 50%." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-1-a",
+      sourceProblem: "2025-1",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "If the star pattern were on a 6×6 grid and covered 8 full squares and 20 half-squares, what percent of the grid would be covered?",
+      options: [
+        { letter: "A", value: 50, label: "50%" },
+        { letter: "B", value: 60, label: "60%" }
+      ],
+      answer: 50,
+      answerLabel: "(A) 50%",
+      solution: [
+        "Total area: 6 × 6 = 36 unit squares.",
+        "Shaded area: 8 full squares + 20 × ½ = 8 + 10 = 18 unit squares.",
+        "Percentage: 18/36 = 1/2 = 50%."
+      ],
+      reflection: {
+        id: "adapted-star-reason",
+        prompt: "True or false: the percentage of the star pattern stays the same regardless of grid size, as long as the ratio of shaded to total unit squares is preserved.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct! 18/36 = 8/16 = 1/2. The ratio stays 1:2." },
+          { id: "false", label: "False", correct: false, feedback: "Actually it can! Here 18/36 = 1/2, the same as the original 8/16. The percentage depends on the ratio, not the grid size." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_1",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the area counting approach from AoPS Solutions 1–6."
+    }
+  },
+  "2025-2": {
+    intro: "Identify each hieroglyph type, multiply by its value, and add. There are 1 lotus, 4 ropes, 2 heel bones, and 3 strokes.",
+    checks: [
+      {
+        id: "hiero-ropes",
+        prompt: "How many coiled rope symbols (each worth 100) appear in the combination?",
+        options: [
+          { id: "a", label: "4", correct: true, feedback: "Yes! There are 4 coiled ropes = 4 × 100 = 400." },
+          { id: "b", label: "3", correct: false, feedback: "Count the spiral-shaped symbols (coiled ropes). There are 4 of them, not 3." }
+        ]
+      },
+      {
+        id: "hiero-total",
+        prompt: "With 1 lotus (10,000) + 4 ropes (400) + 2 heel bones (20) + 3 strokes (3), what is the total?",
+        options: [
+          { id: "a", label: "10,423", correct: true, feedback: "Correct! 10,000 + 400 + 20 + 3 = 10,423." },
+          { id: "b", label: "14,023", correct: false, feedback: "Check the thousands place: there are no thousands symbols. The total is 10,423, not 14,023." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-2-a",
+      sourceProblem: "2025-2",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "What number is represented by 2 lotus flowers, 3 coiled ropes, 1 heel bone, and 5 strokes?",
+      options: [
+        { letter: "A", value: 20315, label: "20,315" },
+        { letter: "B", value: 23015, label: "23,015" }
+      ],
+      answer: 20315,
+      answerLabel: "(A) 20,315",
+      solution: [
+        "2 lotuses = 2 × 10,000 = 20,000.",
+        "3 ropes = 3 × 100 = 300.",
+        "1 heel bone = 1 × 10 = 10.",
+        "5 strokes = 5 × 1 = 5.",
+        "Total: 20,000 + 300 + 10 + 5 = 20,315."
+      ],
+      reflection: {
+        id: "adapted-hiero-reason",
+        prompt: "True or false: 5 heel bones would be worth 50.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct! 5 × 10 = 50." },
+          { id: "false", label: "False", correct: false, feedback: "Each heel bone is worth 10, so 5 × 10 = 50. That's true!" }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_2",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the place-value approach from AoPS Solutions 1–3."
+    }
+  },
+  "2025-3": {
+    intro: "Find the total number of cards first, then divide by the new number of players.",
+    checks: [
+      {
+        id: "cards-total",
+        prompt: "In the first game, Annika + 3 friends = 4 players, each gets 15 cards. What is the total number of cards?",
+        options: [
+          { id: "a", label: "60", correct: true, feedback: "Correct! 4 × 15 = 60 cards total." },
+          { id: "b", label: "45", correct: false, feedback: "Check: 4 players × 15 cards each = 60, not 45. Remember to include Annika in the count." }
+        ]
+      },
+      {
+        id: "cards-new",
+        prompt: "With 60 cards and 6 players (2 more joined), how many cards does each player get?",
+        options: [
+          { id: "a", label: "10", correct: true, feedback: "Correct! 60 ÷ 6 = 10 cards each." },
+          { id: "b", label: "12", correct: false, feedback: "60 ÷ 6 = 10, not 12. Try dividing 60 by 6." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-3-a",
+      sourceProblem: "2025-3",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "When Annika and 5 of her friends play, each gets 8 cards. If 2 more friends join the next game, how many cards does each player get?",
+      options: [
+        { letter: "A", value: 6, label: "6" },
+        { letter: "B", value: 7, label: "7" }
+      ],
+      answer: 6,
+      answerLabel: "(A) 6",
+      solution: [
+        "First game: Annika + 5 friends = 6 players, each gets 8 cards.",
+        "Total cards: 6 × 8 = 48.",
+        "Second game: 6 + 2 = 8 players.",
+        "Cards per player: 48 ÷ 8 = 6."
+      ],
+      reflection: {
+        id: "adapted-cards-reason",
+        prompt: "True or false: adding more players always means each player gets fewer cards.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct! The total number of cards stays the same, so more players sharing the same total means each gets fewer." },
+          { id: "false", label: "False", correct: false, feedback: "Think about it: if the total cards don't change and more people share them, each person's share must decrease." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_3",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the total-first approach from AoPS Solution."
+    }
+  },
+  "2025-4": {
+    intro: "Lucius counts backward by 7 each time. Use the arithmetic sequence formula or list the terms.",
+    checks: [
+      {
+        id: "backward-steps",
+        prompt: "From the 1st number (100) to the 10th number, how many steps of −7 are taken?",
+        options: [
+          { id: "a", label: "9", correct: true, feedback: "Correct! There are 10 − 1 = 9 steps from the 1st to the 10th term." },
+          { id: "b", label: "10", correct: false, feedback: "The 1st term uses 0 steps. The 10th term uses 9 steps (not 10). Think: to go from term 1 to term 10 is 9 jumps." }
+        ]
+      },
+      {
+        id: "backward-tenth",
+        prompt: "Using 100 − 9 × 7, what is the 10th number?",
+        options: [
+          { id: "a", label: "37", correct: true, feedback: "Correct! 100 − 63 = 37." },
+          { id: "b", label: "30", correct: false, feedback: "100 − 9×7 = 100 − 63 = 37, not 30. 30 would be 100 − 10×7." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-4-a",
+      sourceProblem: "2025-4",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Lucius counts backward by 9s. His first three numbers are 200, 191, and 182. What is his 12th number?",
+      options: [
+        { letter: "A", value: 101, label: "101" },
+        { letter: "B", value: 110, label: "110" }
+      ],
+      answer: 101,
+      answerLabel: "(A) 101",
+      solution: [
+        "First term a = 200, common difference d = −9.",
+        "12th term = 200 + (12 − 1) × (−9) = 200 − 99 = 101."
+      ],
+      reflection: {
+        id: "adapted-backward-reason",
+        prompt: "True or false: the 20th number in this sequence is 200 − 19 × 9 = 29.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct! 200 − 19 × 9 = 200 − 171 = 29." },
+          { id: "false", label: "False", correct: false, feedback: "Actually it is true! 200 − 19 × 9 = 200 − 171 = 29. The formula uses (n−1) = 19 steps." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_4",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the arithmetic sequence formula from AoPS Solutions 1–5."
+    }
+  },
+  "2025-5": {
+    intro: "On a grid, the shortest path between two points is the sum of the horizontal and vertical distances (Manhattan distance).",
+    checks: [
+      {
+        id: "grid-fa",
+        prompt: "From F(6,5) to A(7,3): what is the Manhattan distance?",
+        options: [
+          { id: "a", label: "3 blocks", correct: true, feedback: "Correct! |6−7| + |5−3| = 1 + 2 = 3 blocks." },
+          { id: "b", label: "5 blocks", correct: false, feedback: "Check: |6−7| = 1 and |5−3| = 2. Sum = 1 + 2 = 3, not 5." }
+        ]
+      },
+      {
+        id: "grid-total",
+        prompt: "The four legs are 3 + 10 + 6 + 5. What is the total distance?",
+        options: [
+          { id: "a", label: "24 blocks", correct: true, feedback: "Correct! 3 + 10 + 6 + 5 = 24." },
+          { id: "b", label: "20 blocks", correct: false, feedback: "Add carefully: 3 + 10 = 13, + 6 = 19, + 5 = 24, not 20." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-5-a",
+      sourceProblem: "2025-5",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Betty starts at F(5,4), goes to A(8,2), then B(1,1), then C(3,5), then back to F(5,4). What is the total Manhattan distance?",
+      options: [
+        { letter: "A", value: 24, label: "24" },
+        { letter: "B", value: 26, label: "26" }
+      ],
+      answer: 24,
+      answerLabel: "(A) 24",
+      solution: [
+        "F(5,4) to A(8,2): |5−8| + |4−2| = 3 + 2 = 5.",
+        "A(8,2) to B(1,1): |8−1| + |2−1| = 7 + 1 = 8.",
+        "B(1,1) to C(3,5): |1−3| + |1−5| = 2 + 4 = 6.",
+        "C(3,5) to F(5,4): |3−5| + |5−4| = 2 + 1 = 3.",
+        "Total: 5 + 8 + 6 + 3 = 24."
+      ],
+      reflection: {
+        id: "adapted-grid-reason",
+        prompt: "True or false: the Manhattan distance between two points is always at least as large as the straight-line distance.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct! The shortest straight line (Euclidean distance) is the hypotenuse. Going along the grid is always longer or equal." },
+          { id: "false", label: "False", correct: false, feedback: "Think of a right triangle: the two legs (Manhattan) are always longer than the hypotenuse (straight line) when both legs are positive." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_5",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the Manhattan distance approach from AoPS Solutions 1–3."
+    }
   }
 };
