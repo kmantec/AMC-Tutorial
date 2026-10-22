@@ -4194,5 +4194,248 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_10",
       credit: "Changed-number practice and coaching authored by Hermes Agent, using the rotation geometry method from AoPS Solution 1."
     }
+  },
+  "2025-11": {
+    intro: "Tetromino tiles each cover 4 squares. Three tiles cover 12 squares — the whole 3×4 rectangle. Start by placing the S tile where it leaves the rest fillable.",
+    checks: [
+      {
+        id: "s-tile-placement",
+        prompt: "The S tile covers 4 squares. After placing it, how many squares remain to be covered by the other two tiles?",
+        options: [
+          { id: "a", label: "8 squares", correct: true, feedback: "Correct! 12 total − 4 from S = 8 squares remaining for two tiles of 4 each." },
+          { id: "b", label: "6 squares", correct: false, feedback: "Each tile covers 4 squares. 12 − 4 = 8 squares remain for the other two tiles." }
+        ]
+      },
+      {
+        id: "why-l-shape",
+        prompt: "The S tile has a zigzag shape. After placing it flat in a corner, which shapes can fill the remaining 8 squares?",
+        options: [
+          { id: "a", label: "Two L tetrominoes", correct: true, feedback: "Yes. The remaining region breaks into two 4-square sections, each fillable by an L tile (possibly rotated or flipped)." },
+          { id: "b", label: "An I and a T tetromino", correct: false, feedback: "Try it: an I tile needs 4 in a straight line, and a T tile needs a T-shape. The leftover region doesn't match either shape." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-11-a",
+      sourceProblem: "2025-11",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A 3×5 rectangle (15 squares) is to be covered by three pentominoes (5 squares each). The S pentomino (like an S tetromino but 5 squares) must be used. After placing it in a corner, how many squares remain for the other two pentominoes?",
+      options: [
+        { letter: "A", value: 5, label: "5" },
+        { letter: "B", value: 10, label: "10" }
+      ],
+      answer: 10,
+      answerLabel: "(B) 10",
+      solution: [
+        "Three pentominoes of 5 squares each = 15 squares total.",
+        "After placing the S pentomino (5 squares), 15 − 5 = 10 squares remain.",
+        "The remaining two pentominoes must cover exactly 10 squares (5 each)."
+      ],
+      reflection: {
+        id: "adapted-tiling-count",
+        prompt: "True or false: A 4×4 square can be tiled entirely by four S tetrominoes.",
+        options: [
+          { id: "true", label: "True", correct: false, feedback: "Try it: the S tetromino always covers an odd pattern. Four S tiles cannot perfectly fill a 4×4 square without gaps or overlaps." },
+          { id: "false", label: "False", correct: true, feedback: "Correct! The S shape creates an offset pattern that doesn't tile a 4×4 square evenly. Tiling often requires mixing shapes." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_11",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the tiling approach from AoPS Solution 1."
+    }
+  },
+  "2025-12": {
+    intro: "The largest circle that fits inside an oddly-shaped region touches the closest boundary points. Find those points and their distance from center.",
+    checks: [
+      {
+        id: "center-finding",
+        prompt: "The region is a plus sign of 24 unit squares. Where is the center of the largest possible inscribed circle?",
+        options: [
+          { id: "a", label: "The center of the middle square of the plus sign", correct: true, feedback: "Yes! The region is symmetric about its center point. The largest circle is centered there." },
+          { id: "b", label: "One of the four outer arms of the plus sign", correct: false, feedback: "The circle must be symmetric to fit. Try the center instead — the plus sign has reflective symmetry in both directions." }
+        ]
+      },
+      {
+        id: "radius-pythagoras",
+        prompt: "From the center, the nearest concave corner is 2 units right and 1 unit down. What is the radius of the largest circle?",
+        options: [
+          { id: "a", label: "√(2² + 1²) = √5", correct: true, feedback: "Correct! The radius equals the distance from center to the closest boundary point, found using the Pythagorean Theorem." },
+          { id: "b", label: "2 (the horizontal distance)", correct: false, feedback: "The diagonal distance is the shortest path to the concave corner. Use the Pythagorean Theorem: √(2² + 1²) = √5." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-12-a",
+      sourceProblem: "2025-12",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A region consists of a 3×3 square with 1×1 squares added to the middle of each side (a cross shape, 9 + 4 = 13 squares). Each square has side length 1. What is the area of the largest circle that can fit inside, possibly touching the boundaries?",
+      options: [
+        { letter: "A", value: "A", label: "2π" },
+        { letter: "B", value: "B", label: "2.5π" }
+      ],
+      answer: "A",
+      answerLabel: "(A) 2π",
+      solution: [
+        "The cross has its center at the center of the 3×3 block.",
+        "From center to nearest concave corner: 1 right, 1 up = √(1² + 1²) = √2.",
+        "The circle radius = √2, area = π × (√2)² = 2π."
+      ],
+      reflection: {
+        id: "adapted-inscribed-radius",
+        prompt: "True or false: The radius of the largest inscribed circle is always the shortest distance from center to any boundary point.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct! The largest circle that fits inside a shape is limited by the closest boundary. Measure from center to the nearest edge or corner." },
+          { id: "false", label: "False", correct: false, feedback: "Think about it: a circle expands equally in all directions from its center. The first boundary it touches is the closest one." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_12",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the inscribed circle method from AoPS Solution 1."
+    }
+  },
+  "2025-13": {
+    intro: "Each even number is 2 more than the last. When dividing by 7, adding 2 each time creates a repeating pattern of remainders.",
+    checks: [
+      {
+        id: "cycle-length",
+        prompt: "Starting at remainder 2 for the number 2, each step adds 2 (mod 7). How long is the repeating cycle of remainders?",
+        options: [
+          { id: "a", label: "7 numbers (2, 4, 6, 1, 3, 5, 0)", correct: true, feedback: "Yes! After 7 steps, the remainder returns to 2. The cycle has 7 entries." },
+          { id: "b", label: "2 numbers (2, 4 only)", correct: false, feedback: "After 2 and 4, the next even number 6 gives remainder 6, and 8 gives remainder 1. The cycle is longer than 2." }
+        ]
+      },
+      {
+        id: "tail-count",
+        prompt: "There are 25 even numbers from 2 to 50. After 3 full cycles (21 numbers), each remainder has appeared 3 times. How many extra numbers remain?",
+        options: [
+          { id: "a", label: "4 numbers (44, 46, 48, 50)", correct: true, feedback: "Correct! 25 − 21 = 4. These are the first four numbers of the next cycle, giving remainders 2, 4, 6, 1." },
+          { id: "b", label: "7 numbers (44, 46, 48, 50, 52, 54, 56)", correct: false, feedback: "But the list stops at 50. Only 44, 46, 48, and 50 are in the original list." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-13-a",
+      sourceProblem: "2025-13",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Each of the odd numbers 1, 3, 5, ..., 49 is divided by 7. How many times does remainder 1 appear?",
+      options: [
+        { letter: "A", value: 3, label: "3" },
+        { letter: "B", value: 4, label: "4" }
+      ],
+      answer: 4,
+      answerLabel: "(B) 4",
+      solution: [
+        "Odd numbers increase by 2 each step. Remainder cycle: 1, 3, 5, 0, 2, 4, 6 (length 7).",
+        "There are 25 odd numbers. 25 ÷ 7 = 3 remainder 4.",
+        "After 3 full cycles: each remainder appears 3 times.",
+        "The next 4 numbers (1st, 2nd, 3rd, 4th of cycle) give remainders 1, 3, 5, 0.",
+        "Remainder 1 appears 3 + 1 = 4 times."
+      ],
+      reflection: {
+        id: "adapted-mod-cycle",
+        prompt: "True or false: The cycle of remainders for odd numbers divided by 7 is the same as for even numbers, just shifted.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct! The even cycle started at 2 (2,4,6,1,3,5,0). The odd cycle starts at 1 (1,3,5,0,2,4,6). Same cycle, different starting point." },
+          { id: "false", label: "False", correct: false, feedback: "They are the same cycle! Both sequences increase by 2 each step, so the remainder cycle has length 7. The only difference is where it starts." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_13",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the modular cycle approach from AoPS Solutions 1–3."
+    }
+  },
+  "2025-14": {
+    intro: "When a new number is inserted, the median might stay the same. Check what the median is before jumping into algebra.",
+    checks: [
+      {
+        id: "median-check",
+        prompt: "After inserting N, the list has 6 numbers. The median of an even-length list is the average of which positions?",
+        options: [
+          { id: "a", label: "The 3rd and 4th numbers when sorted", correct: true, feedback: "Yes. With 6 numbers, the two middle positions are the 3rd and 4th. Their average is the median." },
+          { id: "b", label: "The 2nd and 5th numbers when sorted", correct: false, feedback: "The middle of 6 numbers is between the 3rd and 4th positions, not the 2nd and 5th." }
+        ]
+      },
+      {
+        id: "sum-calculation",
+        prompt: "The median is 7, and the mean must be twice the median = 14. With 6 numbers, what must their total sum be?",
+        options: [
+          { id: "a", label: "6 × 14 = 84", correct: true, feedback: "Correct! Mean = sum ÷ count. So sum = mean × count = 14 × 6 = 84." },
+          { id: "b", label: "5 × 14 = 70", correct: false, feedback: "There are 6 numbers after inserting N, not 5. So sum = 14 × 6 = 84." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-14-a",
+      sourceProblem: "2025-14",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A number X is inserted into the list 3, 5, 7, 7, 18. The mean is now twice as great as the median. What is X?",
+      options: [
+        { letter: "A", value: 44, label: "44" },
+        { letter: "B", value: 56, label: "56" }
+      ],
+      answer: 44,
+      answerLabel: "(A) 44",
+      solution: [
+        "Original list: 3, 5, 7, 7, 18. Sum = 40.",
+        "After inserting X, there are 6 numbers. With any answer ≥ 7, sorted order: 3, 5, 7, 7, X, 18.",
+        "Median = (7 + 7) / 2 = 7. Mean = 2 × 7 = 14. Sum = 6 × 14 = 84.",
+        "X = 84 − 40 = 44."
+      ],
+      reflection: {
+        id: "adapted-mean-median",
+        prompt: "True or false: When inserting a number into a sorted list, the median can change if the new number falls between the existing middle values.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct! The median can shift if the inserted value falls between or outside existing numbers. In the original problem, all choices were ≥ 7 so the median stayed fixed." },
+          { id: "false", label: "False", correct: false, feedback: "The median can change! The original problem was special because every answer choice was ≥ 7, keeping the two middle values at 7 and 7." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_14",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the median-fixed approach from AoPS Solutions 1–2."
+    }
+  },
+  "2025-15": {
+    intro: "A vertical fold pairs up squares from left and right halves. Gold-on-gold pairs depend on how gold squares are arranged before folding.",
+    checks: [
+      {
+        id: "gold-count",
+        prompt: "A 6×6 grid has 36 squares. If 13 are silver, how many are gold?",
+        options: [
+          { id: "a", label: "36 − 13 = 23", correct: true, feedback: "Correct! 36 total − 13 silver = 23 gold squares." },
+          { id: "b", label: "13 (same as silver)", correct: false, feedback: "The grid has 36 squares total. If 13 are silver, the remaining 36 − 13 = 23 must be gold." }
+        ]
+      },
+      {
+        id: "min-max-approach",
+        prompt: "There are 18 pairs after folding. For minimum gold-on-gold pairs, what strategy works?",
+        options: [
+          { id: "a", label: "Spread gold across all pairs first, then any leftover gold doubles up", correct: true, feedback: "Yes! Put 1 gold in each of 18 pairs (using 18 gold), then the remaining 5 gold must pair with existing gold, creating 5 gold-on-gold pairs." },
+          { id: "b", label: "Put all gold on one side so they don't overlap", correct: false, feedback: "When folded, each square overlaps with its counterpart on the other side. Putting gold on only one side means every gold pairs with a silver, giving zero gold-on-gold pairs — but is that possible with 23 gold and 18 pairs?" }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-15-a",
+      sourceProblem: "2025-15",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Kei draws a 4-by-4 grid. He colors 5 of the unit squares silver and the remaining squares gold. He folds the grid in half vertically. What is the greatest possible number of gold-on-gold pairs?",
+      options: [
+        { letter: "A", value: 5, label: "5" },
+        { letter: "B", value: 6, label: "6" }
+      ],
+      answer: 5,
+      answerLabel: "(A) 5",
+      solution: [
+        "Total squares: 16. Gold squares: 16 − 5 = 11. Pairs after folding: 8.",
+        "For maximum gold-on-gold pairs, pair gold together as much as possible.",
+        "11 gold ÷ 2 = 5 pairs + 1 leftover. So M = 5."
+      ],
+      reflection: {
+        id: "adapted-fold-reason",
+        prompt: "True or false: The minimum number of gold-on-gold pairs equals gold squares minus number of pairs (when gold exceeds pairs).",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct! When gold > pairs, minimum gold-on-gold = gold − pairs (spread 1 gold per pair, remainder double up). When gold ≤ pairs, minimum is 0." },
+          { id: "false", label: "False", correct: false, feedback: "Check: 23 gold, 18 pairs. Spread 1 gold in each of 18 pairs (18 gold used). 5 gold remain, each must pair with an existing gold. So 5 = 23 − 18 = gold − pairs." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_15",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the pairing optimization method from AoPS Solutions 1–2."
+    }
   }
 };

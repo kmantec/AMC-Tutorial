@@ -1165,6 +1165,86 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-24",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_10"
     }
+  ],
+  "2025-11": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=686s",
+      "startSeconds": 686,
+      "endSeconds": 784,
+      "segmentLabel": "Problem 11 · 11:26–13:04",
+      "reason": "The Problem 11 segment covers the tetromino tiling puzzle.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows placing the S tile and filling the rest with two L's.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-24",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_11"
+    }
+  ],
+  "2025-12": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=784s",
+      "startSeconds": 784,
+      "endSeconds": 875,
+      "segmentLabel": "Problem 12 · 13:04–14:35",
+      "reason": "The Problem 12 segment covers the largest circle in a plus-shaped region.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows finding the radius via distance from center to concave corners.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-24",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_12"
+    }
+  ],
+  "2025-13": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=875s",
+      "startSeconds": 875,
+      "endSeconds": 1009,
+      "segmentLabel": "Problem 13 · 14:35–16:49",
+      "reason": "The Problem 13 segment covers the even-number remainders histogram problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows finding the repeating remainder cycle and comparing histograms.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-24",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_13"
+    }
+  ],
+  "2025-14": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=1009s",
+      "startSeconds": 1009,
+      "endSeconds": 1103,
+      "segmentLabel": "Problem 14 · 16:49–18:23",
+      "reason": "The Problem 14 segment covers the mean-and-median insertion problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows using the constant median to find N algebraically.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-24",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_14"
+    }
+  ],
+  "2025-15": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=1103s",
+      "startSeconds": 1103,
+      "endSeconds": 1250,
+      "segmentLabel": "Problem 15 · 18:23–20:50",
+      "reason": "The Problem 15 segment covers the gold-on-gold pairs optimization problem.",
+      "reviewNote": "Hermes Agent recommendation: reviewed via video frames and visible English captions. Shows computing min and max gold-on-gold pairs.",
+      "reviewBasis": "Video frames and visible English captions",
+      "reviewedAt": "2026-10-24",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_15"
+    }
   ]
 };
 
