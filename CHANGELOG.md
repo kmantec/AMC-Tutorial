@@ -1,5 +1,15 @@
 # Change history
 
+## 2026-10-26 — 2025 AMC 8 Problems 16–20 (Hermes Agent)
+
+- Added five 2025 originals with preserved data and A–E choices, each a labeled restatement with a source link: the constant-sum pairing problem (C, 105), the Markovia flow diagram (D, 115), the inscribed-square ring (B, 2), the two-car meeting problem (D, 8.5), and the cheese geometric series (A, 4/7).
+- Stored the three original AoPS diagrams locally (`assets/diagram-2025-17.png`, `-18.png`, `-19.png`) and checked each one against the rendered page: the six labeled arrows with 1/4, 1/3, 1/5, 1/8, 1/6, and 1/10; the 25/40/20 mph stretches with three 5-mile braces; and the shaded ring beside the quarter-shaded ring labeled 1 and R.
+- Each guide has three hints, a recommended method, written solution steps, a subjective teaching rating with a reason, the requested GPT 6 Astra Ultra-style tip block credited to Hermes Agent, a common error, a reflection prompt, and an alternative method. The library now holds 75 originals, so 100 real questions remain; the next sequential question is 2025 Problem 21.
+- Added two binary Coach checks and one labeled changed-number adaptation per problem with a two-choice reasoning follow-up: an 8-pair sum (60), a three-town flow map (136), a radius-2 ring (4), a 12-mile road at 20/40/16 mph (7), and a two-person cheese split (2/3).
+- Added one reviewed SpreadTheMathLove segment per problem. Segment bounds come from the creator's published description timestamps, and the explanations were read in YouTube's English auto-captions. The review notes state the basis in those words and record the specific discrepancies found: P16 shows only one sample selection, P17 misstates one population while narrating, P18 says π − 2 ≈ 1, and P19's narration is rough. No frame-by-frame visual review is claimed.
+- Mapped every topic string used in the library into the home breakdown, including the four new 2025 topics, so no problem falls into "Other" any more (previously 49 uncategorized problems, all now placed by their stated topic).
+- Passed `node verify.mjs` with new assertions that recompute every original answer and adaptation (including four independent legal selections for P16 and both cars' travel times for P19), `node --check` on the changed modules, and `node ui-check.mjs` against synthetic records. Layout, physical iPad rendering, and actual video playback remain unverified.
+
 ## 2026-10-19 — 2019 AMC 8 Problem 1 (Hermes Agent)
 
 - Added first 2019 AMC 8 problem: Ike & Mike sandwich shop ($30 budget, $4.50 sandwiches, $1 drinks → 9 items)

@@ -4437,5 +4437,250 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_15",
       credit: "Changed-number practice and coaching authored by Hermes Agent, using the pairing optimization method from AoPS Solutions 1–2."
     }
+  },
+  "2025-16": {
+    intro: "The rule links the two halves of the number range. Before testing cases, ask whether the choice is actually free.",
+    checks: [
+      {
+        id: "forbidden-partners",
+        prompt: "You pick 1, 2, 3, 4, 5 from the first group. Which numbers from 11 to 20 may you not pick?",
+        options: [
+          { id: "a", label: "11, 12, 13, 14, 15 — their partners 10 higher", correct: true, feedback: "Right. Each small number blocks exactly its partner 10 higher, so picking 1–5 forbids 11–15." },
+          { id: "b", label: "16, 17, 18, 19, 20 — the five largest", correct: false, feedback: "Careful: a number is forbidden when it differs by exactly 10 from a chosen number. 1 blocks 11, 2 blocks 12, and so on — the forbidden set is 11–15, not the largest five." }
+        ]
+      },
+      {
+        id: "forced-half",
+        prompt: "After the five numbers from 1 to 10 are chosen, how much freedom do you have for the five numbers from 11 to 20?",
+        options: [
+          { id: "a", label: "None — they must be exactly the five numbers not forbidden", correct: true, feedback: "Exactly. Ten large numbers exist, five are forbidden, so only five remain and all of them must be used. That is why the total cannot depend on your choice." },
+          { id: "b", label: "You may still choose any five large numbers that are at least 11", correct: false, feedback: "The forbidden numbers are already fixed by the small choices. With only five large numbers left available, there is nothing left to choose." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-16-a",
+      sourceProblem: "2025-16",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Five distinct integers from 1 to 8 are chosen, and five distinct integers from 9 to 16 are chosen. No two of the chosen numbers differ by exactly 8. What is the sum of the ten chosen numbers?",
+      options: [
+        { letter: "A", value: 60, label: "60" },
+        { letter: "B", value: 64, label: "64" }
+      ],
+      answer: 60,
+      answerLabel: "(A) 60",
+      solution: [
+        "Pairs differing by 8: (1, 9), (2, 10), …, (8, 16).",
+        "Let the five chosen small numbers sum to s. Their forbidden partners sum to s + 40.",
+        "Numbers 9 to 16 add to 100, so the five chosen large numbers add to 100 − (s + 40) = 60 − s.",
+        "Total = s + (60 − s) = 60."
+      ],
+      reflection: {
+        id: "adapted-constant-total",
+        prompt: "True or false: The total depends on which five numbers you pick from 1 to 8.",
+        options: [
+          { id: "true", label: "True", correct: false, feedback: "It does not. The picked sum s appears once with a plus and once with a minus, so it always cancels: the total is 60 whatever you choose." },
+          { id: "false", label: "False", correct: true, feedback: "Correct. The total is fixed by the structure of the pairs, not by the particular selection." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_16",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the pairing argument from AoPS Solutions 1–3."
+    }
+  },
+  "2025-17": {
+    intro: "A flow diagram can look busy. Decide which arrows matter for the city you are asked about, then work with only those.",
+    checks: [
+      {
+        id: "leaving-a",
+        prompt: "Of the 100 people who live in A, how many work somewhere other than A?",
+        options: [
+          { id: "a", label: "100 × 1/4 + 100 × 1/5 = 25 + 20 = 45", correct: true, feedback: "Yes. Two arrows leave A, labeled 1/4 and 1/5, so 45 residents commute out and 55 stay." },
+          { id: "b", label: "100 × 1/4 = 25, using only the larger fraction", correct: false, feedback: "There are two arrows leaving A. The 1/5 arrow to C also removes people, so 25 + 20 = 45 leave." }
+        ]
+      },
+      {
+        id: "groups-into-a",
+        prompt: "Which groups add up to the number of people whose workplace is A?",
+        options: [
+          { id: "a", label: "The 55 residents who stay, plus 1/3 of 120, plus 1/8 of 160", correct: true, feedback: "Correct — those are exactly the people who work in A, and everyone works in one city, so the groups do not overlap." },
+          { id: "b", label: "All 100 residents of A, plus 1/4 of 100, plus 1/5 of 100", correct: false, feedback: "That counts the same people twice and counts commuters who leave A as if they worked in A. Use the arrows that point into A instead." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-17-a",
+      sourceProblem: "2025-17",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Three towns P, Q, and R have 120, 150, and 160 residents. Everyone works in one of the three towns. Of the people living in P, 1/4 work in Q and 1/5 work in R. Of the people living in Q, 1/3 work in P. Of the people living in R, 1/8 work in P. How many people work in P?",
+      options: [
+        { letter: "A", value: 136, label: "136" },
+        { letter: "B", value: 130, label: "130" }
+      ],
+      answer: 136,
+      answerLabel: "(A) 136",
+      solution: [
+        "Residents of P who stay in P: 120 − 120 × (1/4 + 1/5) = 120 − 54 = 66.",
+        "Residents of Q who work in P: 1/3 × 150 = 50.",
+        "Residents of R who work in P: 1/8 × 160 = 20.",
+        "Total working in P: 66 + 50 + 20 = 136."
+      ],
+      reflection: {
+        id: "adapted-ignore-arrows",
+        prompt: "True or false: To find how many people work in P, you can ignore the arrows between Q and R entirely.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct. Those arrows move people between two cities that are not P, so they never change who works in P." },
+          { id: "false", label: "False", correct: false, feedback: "Those arrows do not touch P. Only the arrows leaving P and the arrows arriving at P change the number of people working in P." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_17",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the arrow-counting method from AoPS Solutions 1–2."
+    }
+  },
+  "2025-18": {
+    intro: "Both shaded regions come from the same building block — a circle with a square inside. Compare how many blocks each figure uses.",
+    checks: [
+      {
+        id: "square-area",
+        prompt: "A circle of radius r has a square inscribed in it. What is the area of that square?",
+        options: [
+          { id: "a", label: "2r², because the side is r√2", correct: true, feedback: "Yes. The diagonal of the square is the diameter 2r, so the side is 2r/√2 = r√2 and the area is 2r²." },
+          { id: "b", label: "r², because the side equals the radius", correct: false, feedback: "The side is longer than the radius. The diameter 2r is the square's diagonal, which makes the side r√2 and the area 2r²." }
+        ]
+      },
+      {
+        id: "scale-factor",
+        prompt: "Only one quarter of the right ring is shaded, yet it equals the whole left ring. The right ring's total area must be how many times the left ring's?",
+        options: [
+          { id: "a", label: "4 times as large", correct: true, feedback: "Right — four quarters match one full left ring. Since areas scale by the square of the length factor, the radius grows by √4 = 2." },
+          { id: "b", label: "The same size, since the shaded areas match", correct: false, feedback: "Only one quarter is shaded, so the right ring hides three unshaded quarters of equal size. Its total is 4 times the left ring's." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-18-a",
+      sourceProblem: "2025-18",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A circle of radius 2 has a square inscribed in it, and the region between the circle and the square is shaded. A second circle of radius R also has an inscribed square, and one quarter of the region between that circle and its square is shaded. The two shaded regions have equal area. What is R?",
+      options: [
+        { letter: "A", value: 4, label: "4" },
+        { letter: "B", value: 2, label: "2" }
+      ],
+      answer: 4,
+      answerLabel: "(A) 4",
+      solution: [
+        "Ring for radius 2: π(2)² − 2(2)² = 4π − 8 = 4(π − 2).",
+        "Ring for radius R: R²(π − 2). One quarter of it is R²(π − 2)/4.",
+        "Set R²(π − 2)/4 = 4(π − 2) and divide by (π − 2): R²/4 = 4.",
+        "R² = 16, so R = 4."
+      ],
+      reflection: {
+        id: "adapted-quarter-doubles",
+        prompt: "True or false: When one quarter of the second ring is shaded, the second radius is always twice the first radius.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct. The shading fraction is 1/4, so the area must be 4 times larger and every length is multiplied by √4 = 2 — whatever the starting radius." },
+          { id: "false", label: "False", correct: false, feedback: "Check the algebra: the factor (π − 2) cancels, leaving a fixed ratio between the areas. The radii differ by a factor of 2 every time." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_18",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the shared-factor method from AoPS Solutions 1–3."
+    }
+  },
+  "2025-19": {
+    intro: "The two cars do not share distance evenly, because each stretch has its own speed. Convert distance to time before comparing them.",
+    checks: [
+      {
+        id: "first-stretch-time",
+        prompt: "A car drives 5 miles at 25 miles per hour. How long does that take?",
+        options: [
+          { id: "a", label: "5/25 hour = 1/5 hour = 12 minutes", correct: true, feedback: "Right. Distance divided by speed gives hours, and 1/5 hour is 12 minutes." },
+          { id: "b", label: "25/5 = 5 hours", correct: false, feedback: "That divides speed by distance. Divide distance by speed instead: 5 ÷ 25 = 1/5 hour, which is 12 minutes." }
+        ]
+      },
+      {
+        id: "snapshot-at-15",
+        prompt: "The car from B takes 15 minutes to finish its first stretch. At that moment, where is the car from A?",
+        options: [
+          { id: "a", label: "7 miles from A: its first 5 miles, then 2 miles in 3 minutes at 40 mph", correct: true, feedback: "Exactly. In 15 minutes A's car used 12 minutes at 25 mph and the remaining 3 minutes at 40 mph, covering 2 miles." },
+          { id: "b", label: "5 miles from A, because it is still on its first stretch", correct: false, feedback: "12 minutes finishes A's first stretch, and B's car needs 15. Those 3 extra minutes carry A's car into the 40 mph stretch: 3 minutes at 40 mph is 2 more miles." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-19-a",
+      sourceProblem: "2025-19",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "A straight road 12 miles long joins towns P and Q. Going from P to Q the speed limit changes every 4 miles: 20, then 40, then 16 miles per hour. Two cars, one at P and one at Q, start toward each other at the same time and drive exactly at the limit. How far from P, in miles, do they meet?",
+      options: [
+        { letter: "A", value: 7, label: "7" },
+        { letter: "B", value: 6, label: "6" }
+      ],
+      answer: 7,
+      answerLabel: "(A) 7",
+      solution: [
+        "Car from P: 4 miles at 20 mph takes 1/5 hour = 12 minutes.",
+        "Car from Q: 4 miles at 16 mph takes 1/4 hour = 15 minutes.",
+        "At 15 minutes the car from Q enters the middle stretch. In the 3 extra minutes the car from P has driven 3/60 × 40 = 2 miles, so it is 6 miles from P — exactly halfway.",
+        "The car from Q is 4 miles from Q, which is 8 miles from P, so 8 − 6 = 2 miles separate them.",
+        "Both now drive 40 mph, so each covers 1 mile more: meeting point 6 + 1 = 7 miles from P."
+      ],
+      reflection: {
+        id: "adapted-not-halfway",
+        prompt: "True or false: Because the cars meet on the middle stretch, they always meet exactly halfway along the road.",
+        options: [
+          { id: "true", label: "True", correct: false, feedback: "Halfway would be 6 miles. The cars reach the middle stretch at different times, so they arrive offset and meet at 7 miles." },
+          { id: "false", label: "False", correct: true, feedback: "Correct. Meeting halfway only happens when both cars spend equal time on the earlier stretches. Here one arrives 3 minutes late." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_19",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the reference-moment method from AoPS Solutions 1 and 2."
+    }
+  },
+  "2025-20": {
+    intro: "Watch one full round, then look at how the numbers repeat. The repeating ratio is the key.",
+    checks: [
+      {
+        id: "leftover-round",
+        prompt: "Take the block as 1. Sarika eats 1/2, Dev eats 1/4, and Rajiv eats 1/8. What fraction is left?",
+        options: [
+          { id: "a", label: "1/8 of the original block", correct: true, feedback: "Right. The three shares add to 7/8, so 1/8 of the block is still there after one round." },
+          { id: "b", label: "1/4 of the original block", correct: false, feedback: "Add the three shares first: 1/2 + 1/4 + 1/8 = 7/8. What remains is 1 − 7/8 = 1/8." }
+        ]
+      },
+      {
+        id: "share-ratio",
+        prompt: "Sarika's second share is 1/16. What fraction of her first share of 1/2 is that?",
+        options: [
+          { id: "a", label: "1/8 of her first share", correct: true, feedback: "Yes — the round leaves 1/8 behind, so every share is 1/8 of the previous one. That ratio is what makes the series summable." },
+          { id: "b", label: "1/2 of her first share, because each turn halves the cheese", correct: false, feedback: "Each person halves what remains, but three people act between Sarika's turns. So her share shrinks by a factor of 1/2 × 1/2 × 1/2 = 1/8." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-20-a",
+      sourceProblem: "2025-20",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Sarika and Dev share a block of cheese. Sarika eats half of it, then Dev eats half of what is left, then Sarika again, then Dev, and so on until the cheese is too small to see. About what fraction of the block does Sarika eat in total?",
+      options: [
+        { letter: "A", value: "A", label: "2/3" },
+        { letter: "B", value: "B", label: "1/2" }
+      ],
+      answer: "A",
+      answerLabel: "(A) 2/3",
+      solution: [
+        "Round one: Sarika eats 1/2 and Dev eats 1/4, leaving 1/4.",
+        "Sarika's shares are 1/2, 1/8, 1/32, … — each one 1/4 of the previous.",
+        "Sum = (1/2) / (1 − 1/4) = (1/2) / (3/4) = 2/3."
+      ],
+      reflection: {
+        id: "adapted-two-people",
+        prompt: "True or false: With only two people taking turns, Sarika ends up with two thirds of the block.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct. Sarika takes half of every pair of turns, so Dev gets half of her total: x + x/2 = 1 gives x = 2/3." },
+          { id: "false", label: "False", correct: false, feedback: "Check with the series: 1/2 + 1/8 + 1/32 + ⋯ = (1/2)/(3/4) = 2/3, and Dev's total is exactly half of that, 1/3." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_20",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the geometric-series method from AoPS Solutions 1 and 4."
+    }
   }
 };

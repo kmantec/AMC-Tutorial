@@ -1245,6 +1245,86 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-24",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_15"
     }
+  ],
+  "2025-16": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=1250s",
+      "startSeconds": 1250,
+      "endSeconds": 1344,
+      "segmentLabel": "Problem 16 · 20:50–22:24",
+      "reason": "The creator is in the Problem 16 segment for the whole clip, choosing one legal set and adding it directly.",
+      "reviewNote": "Hermes Agent recommendation: the segment boundaries come from the creator's description timestamps, and the explanation was read in YouTube's English captions. Only one sample selection is shown, so pair it with your own argument that the total is forced.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-26",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_16"
+    }
+  ],
+  "2025-17": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=1344s",
+      "startSeconds": 1344,
+      "endSeconds": 1469,
+      "segmentLabel": "Problem 17 · 22:24–24:29",
+      "reason": "The Problem 17 segment works through the flow map by taking people away from A and adding the arrivals.",
+      "reviewNote": "Hermes Agent recommendation: segment boundaries are the creator's description timestamps; the explanation was read in the English auto-captions. The narration says '160' where the diagram's C population is meant for one arrow, so check each fraction against the printed diagram while you watch.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-26",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_17"
+    }
+  ],
+  "2025-18": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=1469s",
+      "startSeconds": 1469,
+      "endSeconds": 1626,
+      "segmentLabel": "Problem 18 · 24:29–27:06",
+      "reason": "The Problem 18 segment finds the ring area for radius 1, writes the quarter-ring for radius R, and cancels (π − 2).",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the explanation was read in the English auto-captions. The narration states π − 2 ≈ 1, which is wrong (it is about 1.14), so ignore that aside and trust the algebra.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-26",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_18"
+    }
+  ],
+  "2025-19": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=1626s",
+      "startSeconds": 1626,
+      "endSeconds": 1818,
+      "segmentLabel": "Problem 19 · 27:06–30:18",
+      "reason": "The Problem 19 segment converts the first stretches to minutes, uses the 15-minute moment, then splits the remaining gap.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps; the method was read in the English auto-captions. The narration is informal and the transcription is rough, so watch the numbers on screen rather than the spoken words.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-26",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_19"
+    }
+  ],
+  "2025-20": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=1818s",
+      "startSeconds": 1818,
+      "endSeconds": 1907,
+      "segmentLabel": "Problem 20 · 30:18–31:47",
+      "reason": "The Problem 20 segment tracks the cheese after each turn and sums Sarika's shares as a geometric series.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the explanation was read in the English auto-captions. The creator writes the ratio as 1/8 and finishes with 4/7; a small slip in the spoken fractions does not change the answer.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-26",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_20"
+    }
   ]
 };
 
