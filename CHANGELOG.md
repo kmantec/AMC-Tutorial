@@ -1,5 +1,16 @@
 # Change history
 
+## 2026-10-27 — 2025 AMC 8 Problems 21–25 (Hermes Agent)
+
+- Added the last five 2025 originals with preserved data and A–E choices, each a labeled restatement with a source link: the seven-pod grade assignment (A, 12), Paulina's coat hooks (D, 7), four-digit numbers ending in 99 (B, 1), whole-number isosceles trapezoids (E, 4), and the diamond path-area sum (B, 3150).
+- Stored three original AoPS figures locally (`assets/diagram-2025-21.png`, `-24.png`, `-25.png`) plus the coat-hook drawing (`-22.png`) and checked each with vision against the rendered page: C, E, and F shaded with twelve drawn walkways and degrees A 4, B 3, C 5, D 2, E 3, F 5, G 2; the trapezoid with 60° at B and C and tick marks on AB and DC; and the two 5 × 5 diamond panels labelled area = 11 and area = 13.
+- Every guide has three hints, a recommended method, written solution steps, a subjective teaching rating with a reason, the requested tip block credited to Hermes Agent, a common error, a reflection prompt, and an alternative method. The library now holds 80 originals, so 95 real questions remain; the next sequential question is 2020 AMC 8 Problem 1.
+- Added two binary Coach checks and one labeled adaptation with a two-choice reasoning follow-up per problem: grades 2–8 on the same pods (15), a 23-hook row (6), the same last-two-digit condition without the prime rule (6), a perimeter-36 trapezoid (5), and a 4 × 4 diamond (560).
+- Added one reviewed SpreadTheMathLove segment per problem. Bounds come from the creator's published description timestamps and the explanations were read in YouTube's English auto-captions. The review notes record what was actually found: P21 is solved by trial and error and runs 4 min 53 sec; P22 misstates factor pairs aloud; P24 uses different lettering from this app; P25 trips over the multiplication and corrects himself. No frame-by-frame visual review is claimed.
+- Added the five new topic strings to the home breakdown so "Other" stays at zero for all 80 problems, and updated the library-count and adaptation-count assertions.
+- Passed `node verify.mjs` with new assertions that recompute every answer and adaptation — an exhaustive search confirming exactly two valid labellings for P21, both giving 12; divisor and equation checks for P22 and P24; factorisations of all six candidates for P23; and a brute-force 2 × 2 diamond check for the quoted average of 2. `node --check` passed on the changed modules. Layout, physical iPad rendering, and actual video playback remain unverified.
+- **Not published:** the previous batch (2025 Problems 16–20, commit `c902dcf`) and this one are committed locally only. The GitHub token is still missing from `C:\Users\aishare\.hermes\.env`, so no push to `origin/main` was possible. Both batches are backed up under `C:\Users\aishare\amc-pending\`.
+
 ## 2026-10-26 — 2025 AMC 8 Problems 16–20 (Hermes Agent)
 
 - Added five 2025 originals with preserved data and A–E choices, each a labeled restatement with a source link: the constant-sum pairing problem (C, 105), the Markovia flow diagram (D, 115), the inscribed-square ring (B, 2), the two-car meeting problem (D, 8.5), and the cheese geometric series (A, 4/7).

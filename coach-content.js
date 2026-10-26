@@ -4682,5 +4682,246 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_20",
       credit: "Changed-number practice and coaching authored by Hermes Agent, using the geometric-series method from AoPS Solutions 1 and 4."
     }
+  },
+  "2025-21": {
+    intro: "This one is a seating puzzle in disguise. Before placing any grade, count how many walkways leave each pod.",
+    checks: [
+      {
+        id: "crowded-pod",
+        prompt: "Pods C and F each touch five other pods. Which pair of grades must those two pods hold?",
+        options: [
+          { id: "a", label: "Grades 1 and 7, in some order", correct: true, feedback: "Right. A pod with five neighbours needs five grades at distance 2 or more, and only grade 1 or grade 7 offers that many." },
+          { id: "b", label: "Grades 3 and 5, because they are in the middle", correct: false, feedback: "Grade 3 could only sit beside 1, 5, 6, 7 — four grades, not five. Count the grades available at distance 2 from each candidate." }
+        ]
+      },
+      {
+        id: "swap-does-not-matter",
+        prompt: "Swapping the grades of pods C and F gives a second valid labelling. What happens to the sum of C, E, and F?",
+        options: [
+          { id: "a", label: "It stays 12 either way", correct: true, feedback: "Correct. In both labellings C + E + F = 1 + 4 + 7 = 12, which is why the problem can ask for a single number." },
+          { id: "b", label: "It changes, so the problem would have two answers", correct: false, feedback: "Try both labellings: C = 1 with F = 7, and C = 7 with F = 1. The other pods rearrange, but the three grades in question always add to 12." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-21-a",
+      sourceProblem: "2025-21",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "The same seven pods and walkways, but now the grades are 2 through 8, one per pod, and every connected pair still differs by 2 or more. What is the sum of the grades in pods C, E, and F?",
+      options: [
+        { letter: "A", value: 15, label: "15" },
+        { letter: "B", value: 12, label: "12" }
+      ],
+      answer: 15,
+      answerLabel: "(A) 15",
+      solution: [
+        "Adding 1 to every grade keeps every difference, so the rule still holds and the pod layout is unchanged.",
+        "The grades 1, 4, 7 in pods C, E, F become 2, 5, 8.",
+        "Sum: 2 + 5 + 8 = 15, which is 12 + 3 because three grades each grew by 1."
+      ],
+      reflection: {
+        id: "adapted-shift",
+        prompt: "True or false: moving every grade up by 1 keeps the rule valid and adds exactly 3 to this sum.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct. Differences between grades do not change when every grade shifts, and three pods each contribute one more." },
+          { id: "false", label: "False", correct: false, feedback: "Check it: 1, 4, 7 becomes 2, 5, 8 and every gap between neighbours is unchanged. Only the totals move." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_21",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the degree-counting method from AoPS Solutions 1 and 3."
+    }
+  },
+  "2025-22": {
+    intro: "Coats and gaps take turns along the row. Getting the number of gaps right is most of the work.",
+    checks: [
+      {
+        id: "how-many-gaps",
+        prompt: "With c coats, spaced out with empty hooks before the first coat and after the last, how many gaps are there?",
+        options: [
+          { id: "a", label: "c + 1, because both ends count", correct: true, feedback: "Yes. Two end gaps plus the c − 1 gaps between neighbours make c + 1." },
+          { id: "b", label: "c − 1, the gaps between neighbouring coats", correct: false, feedback: "That misses the space before the first coat and after the last one, which the problem says must match the rest." }
+        ]
+      },
+      {
+        id: "why-drop-two",
+        prompt: "You reach (k + 1)(c + 1) = 36. Why do the pairs 1 × 36 and 36 × 1 not count?",
+        options: [
+          { id: "a", label: "They force k = 0 or c = 0, but at least one coat and one empty hook are required", correct: true, feedback: "Right. Those two factor pairs describe a row with no gaps at all or no coats at all." },
+          { id: "b", label: "Because 36 is not a perfect square", correct: false, feedback: "36 is a perfect square, and that is not the issue. Look at what k = 0 or c = 0 would mean for the row." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-22-a",
+      sourceProblem: "2025-22",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "The same classroom has a shorter row of 23 hooks, and Paulina keeps her rule: the same number of empty hooks before the first coat, after the last coat, and between neighbouring coats, with at least one coat and at least one empty hook. How many different numbers of coats work?",
+      options: [
+        { letter: "A", value: 6, label: "6" },
+        { letter: "B", value: 5, label: "5" }
+      ],
+      answer: 6,
+      answerLabel: "(A) 6",
+      solution: [
+        "With c coats and k empty hooks in each of the c + 1 gaps, c + k(c + 1) = 23, so (k + 1)(c + 1) = 24.",
+        "The divisors of 24 are 1, 2, 3, 4, 6, 8, 12, 24. The pair with c + 1 = 1 or c + 1 = 24 would force no coats or no empty hooks, so drop both.",
+        "Leaving c + 1 = 2, 3, 4, 6, 8, 12, that is six coat counts: c = 1, 2, 3, 5, 7, 11."
+      ],
+      reflection: {
+        id: "adapted-fewer-divisors",
+        prompt: "True or false: the 23-hook row allows fewer coat counts than the 35-hook row because 24 has fewer divisors than 36.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct. Every arrangement matches a divisor of one more than the number of hooks, so divisor counts decide the answer." },
+          { id: "false", label: "False", correct: false, feedback: "Count the divisors: 24 has eight and 36 has nine, and after dropping the two impossible ends the totals are 6 and 7." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_22",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the gap-counting method from AoPS Solutions 1 and 4."
+    }
+  },
+  "2025-23": {
+    intro: "Three conditions, one short list. Start with the condition that rules out the most numbers.",
+    checks: [
+      {
+        id: "last-digit",
+        prompt: "The number ends in 99, so adding 1 gives a square ending in 00. What does that tell you about the number being squared?",
+        options: [
+          { id: "a", label: "It must be a multiple of 10", correct: true, feedback: "Yes. Only a number ending in 0 squares to a number ending in 00, which leaves just 40, 50, 60, 70, 80, 90." },
+          { id: "b", label: "It must end in 9, because 9 × 9 ends in 1", correct: false, feedback: "A square ending in 1 would come from a number ending in 1 or 9, and that gives 99 + 1 ending in 11, not 00." }
+        ]
+      },
+      {
+        id: "both-factors-prime",
+        prompt: "Writing the number as (n − 1)(n + 1), what must be true for it to be the product of exactly two primes?",
+        options: [
+          { id: "a", label: "Both n − 1 and n + 1 must be prime", correct: true, feedback: "Right. Two prime factors in total means those two factors, and nothing smaller may split them." },
+          { id: "b", label: "At least one of them must be prime", correct: false, feedback: "Then the other factor would be composite and would bring extra primes. Check 39 × 41 = 3 × 13 × 41, which has three." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-23-a",
+      sourceProblem: "2025-23",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "How many four-digit numbers end in 99 and are 1 less than a perfect square? Drop the condition about being a product of two primes.",
+      options: [
+        { letter: "A", value: 6, label: "6" },
+        { letter: "B", value: 9, label: "9" }
+      ],
+      answer: 6,
+      answerLabel: "(A) 6",
+      solution: [
+        "The number is n² − 1 and ends in 99, so n² ends in 00 and n is a multiple of 10.",
+        "Four-digit squares ending in 00 come from n = 40, 50, 60, 70, 80, 90.",
+        "That is six numbers: 1599, 2499, 3599, 4899, 6399, 8099."
+      ],
+      reflection: {
+        id: "adapted-six-candidates",
+        prompt: "True or false: the prime condition did almost all the filtering, taking six candidates down to one.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct. Five of the six factor into three or more primes, so only 3599 = 59 × 61 survives." },
+          { id: "false", label: "False", correct: false, feedback: "List them and factor: 3 × 13 × 41, 3 × 7² × 17, 59 × 61, 3 × 23 × 71, 3⁴ × 79, 7 × 13 × 89. Only one has two primes." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_23",
+      credit: "Changed-condition practice and coaching authored by Hermes Agent, using the difference-of-squares method from AoPS Solution 1."
+    }
+  },
+  "2025-24": {
+    intro: "Sixty-degree base angles are a gift: they turn the trapezoid into triangles you already know.",
+    checks: [
+      {
+        id: "overhang",
+        prompt: "Drop perpendiculars from A and D to the bottom base BC. How long is the piece of BC sticking out past AD on each side?",
+        options: [
+          { id: "a", label: "Half a leg, x/2", correct: true, feedback: "Yes. That piece is opposite the 30° angle in a 30-60-90 triangle whose hypotenuse is the leg x." },
+          { id: "b", label: "The whole leg, x", correct: false, feedback: "The leg is the hypotenuse, and the short side opposite 30° is half of it. So each overhang is x/2." }
+        ]
+      },
+      {
+        id: "parity",
+        prompt: "From 2a + 3x = 30, why must the leg x be even?",
+        options: [
+          { id: "a", label: "Because 30 − 3x must be even, and 3x has the same parity as x", correct: true, feedback: "Right. 2a is even, so 3x must be even, which forces x even." },
+          { id: "b", label: "Because the perimeter is even", correct: false, feedback: "That does not decide anything about x on its own. Use the equation: 2a = 30 − 3x has to be even." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-24-a",
+      sourceProblem: "2025-24",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "The same isosceles trapezoid with 60° base angles and whole-number sides, but now the perimeter is 36 units. How many non-congruent trapezoids satisfy the conditions?",
+      options: [
+        { letter: "A", value: 5, label: "5" },
+        { letter: "B", value: 4, label: "4" }
+      ],
+      answer: 5,
+      answerLabel: "(A) 5",
+      solution: [
+        "The relation between the bases does not change: with short base a and leg x, the long base is a + x.",
+        "So the perimeter is 2a + 3x = 36, and x must be even.",
+        "x = 2, 4, 6, 8, 10 gives a = 15, 12, 9, 6, 3 with long bases 17, 16, 15, 14, 13.",
+        "x = 12 gives a = 0, which is not a side length, so the list stops and there are five trapezoids."
+      ],
+      reflection: {
+        id: "adapted-one-more",
+        prompt: "True or false: raising the perimeter from 30 to 36 adds exactly one more trapezoid to the list.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct. The 30 case gives four, the 36 case gives five, because the last even leg that keeps a positive moves up by one step." },
+          { id: "false", label: "False", correct: false, feedback: "Count both: 30 gives x = 2, 4, 6, 8 and 36 gives x = 2, 4, 6, 8, 10. That is one more." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_24",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the 30-60-90 method from AoPS Solutions 1 and 2."
+    }
+  },
+  "2025-25": {
+    intro: "Two separate jobs here: count the paths, then find the total of all those areas without listing them.",
+    checks: [
+      {
+        id: "count-paths",
+        prompt: "Every path has 10 steps, each northeast or northwest. How many paths are there?",
+        options: [
+          { id: "a", label: "C(10, 5) = 252, choosing which 5 steps go northeast", correct: true, feedback: "Yes. A path is decided by the positions of its 5 northeast steps, so the count is 10!/(5!·5!) = 252." },
+          { id: "b", label: "2¹⁰ = 1024, since each step has two choices", correct: false, feedback: "That counts sequences that wander off the diamond. Because the grid is only 5 units each way, exactly 5 steps must go northeast." }
+        ]
+      },
+      {
+        id: "pairing",
+        prompt: "A path's right region and left region always add to 25. Why does that make the total area exactly half of 252 × 25?",
+        options: [
+          { id: "a", label: "Reflection pairs each path with another whose right region matches the first path's left region", correct: true, feedback: "Right. Every path has a mirror partner, so the average right region is 25/2 and the total is 252 × 25/2." },
+          { id: "b", label: "Because exactly half the paths have a right region of 12.5", correct: false, feedback: "Areas here are whole numbers, so none is 12.5. The averaging comes from pairing a path with its mirror image, not from individual areas." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2025-25-a",
+      sourceProblem: "2025-25",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "The same question for a 4 × 4 diamond grid: paths run from the bottom vertex to the top vertex, one unit northeast or northwest at each step, and each path's area with the right side of the grid is measured. What is the sum of those areas over all paths?",
+      options: [
+        { letter: "A", value: 560, label: "560" },
+        { letter: "B", value: 1120, label: "1120" }
+      ],
+      answer: 560,
+      answerLabel: "(A) 560",
+      solution: [
+        "A 4 × 4 diamond needs 8 steps with 4 northeast, so there are C(8, 4) = 70 paths.",
+        "The diamond holds 16 unit squares, so a path's two regions add to 16 and the average right region is 8.",
+        "Total: 70 × 8 = 560."
+      ],
+      reflection: {
+        id: "adapted-average-half",
+        prompt: "True or false: in any n × n diamond the average right-side area is exactly half of n².",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct. The mirror pairing never uses the size, so the average is always half of n² — here 16/2 = 8, and in the 5 × 5 original 25/2." },
+          { id: "false", label: "False", correct: false, feedback: "The pairing argument does not depend on n. It gives an average of n²/2 for every diamond, which is why 70 × 8 works here." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_25",
+      credit: "Changed-size practice and coaching authored by Hermes Agent, using the pairing argument from AoPS Solutions 1 and 4."
+    }
   }
 };

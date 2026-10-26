@@ -92,7 +92,12 @@ const parentCategory = {
   'Geometry · circles · Pythagorean Theorem': 'Geometry',
   'Number theory · modular arithmetic · patterns': 'Number Theory',
   'Statistics · mean · median · algebra': 'Statistics',
-  'Combinatorics · optimization · pairing': 'Counting'
+  'Combinatorics · optimization · pairing': 'Counting',
+  'Logic · graph reasoning · forced values': 'Logic',
+  'Number theory · divisors · equal spacing': 'Number Theory',
+  'Number theory · perfect squares · primes': 'Number Theory',
+  'Geometry · isosceles trapezoid · 30-60-90 triangles': 'Geometry',
+  'Counting · symmetry · lattice paths': 'Counting'
 };
 
 const categoryColors = {

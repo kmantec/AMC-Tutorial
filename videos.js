@@ -1325,6 +1325,86 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-26",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_20"
     }
+  ],
+  "2025-21": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=1907s",
+      "startSeconds": 1907,
+      "endSeconds": 2200,
+      "segmentLabel": "Problem 21 · 31:47–36:40",
+      "reason": "The Problem 21 segment starts by counting how many walkways leave each pod, tries grades case by case, and reaches C + E + F = 12.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the reasoning was read in the English auto-captions. He solves by trial and error rather than the degree argument, so it is a long segment; the picture on screen is easier to follow than the narration.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-27",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_21"
+    }
+  ],
+  "2025-22": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=2200s",
+      "startSeconds": 2200,
+      "endSeconds": 2330,
+      "segmentLabel": "Problem 22 · 36:40–38:50",
+      "reason": "The Problem 22 segment counts c + 1 gaps, writes c + k(c + 1) = 35, and factors it to (k + 1)(c + 1) = 36 to count seven arrangements.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the method was read in the English auto-captions. He lists factor pairs aloud and sometimes misstates a number, so check the factor pairs against the screen.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-27",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_22"
+    }
+  ],
+  "2025-23": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=2330s",
+      "startSeconds": 2330,
+      "endSeconds": 2520,
+      "segmentLabel": "Problem 23 · 38:50–42:00",
+      "reason": "The Problem 23 segment uses the ending 99 to force squares ending in 00, then writes n² − 1 = (n − 1)(n + 1) and tests 39 × 41 through 89 × 91.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the method was read in the English auto-captions. He says the factors must both be prime, which is the key idea, then checks each pair on screen.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-27",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_23"
+    }
+  ],
+  "2025-24": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=2520s",
+      "startSeconds": 2520,
+      "endSeconds": 2615,
+      "segmentLabel": "Problem 24 · 42:00–43:35",
+      "reason": "The Problem 24 segment extends the 60° angles into equilateral triangles, gets 3B + 2A = 30, and lists the four integer pairs.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the reasoning was read in the English auto-captions. His lettering for the two lengths differs from the base-and-leg naming used here, so follow the numbers rather than the letters.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-27",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_24"
+    }
+  ],
+  "2025-25": [
+    {
+      "id": "jTTcscvcQmI",
+      "title": "AMC 8 2025 Full Solutions (Problems 1-25)",
+      "channel": "SpreadTheMathLove",
+      "watchUrl": "https://www.youtube.com/watch?v=jTTcscvcQmI&t=2615s",
+      "startSeconds": 2615,
+      "endSeconds": 2848,
+      "segmentLabel": "Problem 25 · 43:35–47:28",
+      "reason": "The Problem 25 segment counts the 252 paths with 10 choose 5, argues each path splits the 25 squares in half on average, and finishes with 252 × 25/2 = 3150.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the argument was read in the English auto-captions. He stumbles over the multiplication aloud and corrects himself, so trust the final 3150 and your own pairing argument. The clip runs to the end of the video.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-27",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_25"
+    }
   ]
 };
 

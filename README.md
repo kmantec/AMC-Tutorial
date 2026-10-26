@@ -10,7 +10,7 @@ Read [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) and [AGENTS.md](AGENTS.md) before 
 
 ## Available now
 
-**Seventy-five reviewed guides.** All 25 problems of **2019 AMC 8** and **2020 AMC 8**, 2026 AMC 8 Problems 1–5, and 2025 AMC 8 Problems 1–20.
+**Eighty reviewed guides.** All 25 problems of **2019 AMC 8** and **2020 AMC 8**, 2026 AMC 8 Problems 1–5, and all 25 problems of **2025 AMC 8**.
 
 [Preview Problem 5 without saving records](https://kmantec.github.io/AMC-Tutorial/?preview=1&problem=2026-5).
 
@@ -73,11 +73,11 @@ After starting learning, subsequent visits to the normal app link save and resto
 
 ## Scope and unfinished work
 
-The target is **175 real questions** from seven editions: **2026, 2025, 2024, 2023, 2022, 2020, 2019**. Archive links are available for all seven, **75 guides are integrated**: all of 2019 (25), all of 2020 (25), 2026 Problems 1–5, and 2025 Problems 1–20. **100 real questions remain**, and the next sequential question is 2025 Problem 21. Each original has one labeled adaptation kept outside the real-question count.
+The target is **175 real questions** from seven editions: **2026, 2025, 2024, 2023, 2022, 2020, 2019**. Archive links are available for all seven, **80 guides are integrated**: all of 2019 (25), all of 2020 (25), 2026 Problems 1–5, and all of 2025 (25). **95 real questions remain**, and the next sequential question is 2020 Problem 1. Each original has one labeled adaptation kept outside the real-question count.
 
 The parent wants short, reviewable batches and will explicitly authorize a full-year run later. Firebase authentication and cross-device progress, complete in-app papers, timed practice, and the 175-question topic/strategy report are not implemented. No fabricated mastery, streaks, or completed analyses are displayed.
 
-The latest completed batch adds **2025 Problems 16–20**: the constant-sum pairing problem, the Markovia flow diagram (with the original diagram image), the inscribed-square ring, the two-car meeting problem, and the cheese geometric series. Each has three hints, written solutions, a subjective teaching rating, two binary checks, one labeled adaptation, and a reviewed SpreadTheMathLove segment whose bounds come from the creator's description timestamps and whose content was read in YouTube's English auto-captions. Remaining 2025 questions and every other year require a later request.
+The latest completed batch adds **2025 Problems 21–25**: the seven-pod grade assignment (with the original walkway diagram), Paulina's coat hooks (with the original drawing), the four-digit numbers ending in 99, the whole-number isosceles trapezoids (with the original figure), and the diamond path-area sum (with the original two-panel figure). Each has three hints, written solutions, a subjective teaching rating, two binary checks, one labeled adaptation, and a reviewed SpreadTheMathLove segment whose bounds come from the creator's description timestamps and whose content was read in YouTube's English auto-captions. That completes 2025. The next sequential question is **2020 Problem 1**, and every later batch requires a new request.
 
 The current priority is personal learning for Pingping. Paid subscriptions and native-store apps were discussed only as future possibilities and are outside the current scope.
 

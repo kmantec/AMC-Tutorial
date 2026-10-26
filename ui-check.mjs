@@ -268,7 +268,7 @@ const priorSaved = {[keys.original]:JSON.stringify(priorRecords),[keys.mode]:'le
 const fourthUI = await setup(priorSaved,'https://kmantec.github.io/AMC-Tutorial/?preview=1&problem=2026-4',fourthVoice);
 assert.equal(fourthUI.read().activeProblem,'2026-4','A direct review link opens the new question');
 assert.equal(fourthUI.read().practiceOpen,true);
-assert.equal(fourthUI.read().reviewedProblemsAvailable,75);
+assert.equal(fourthUI.read().reviewedProblemsAvailable,80);
 assert.equal(fourthUI.read().mode,'preview');
 assert.equal(fourthVoice.calls.length,0,'Opening a direct problem link never autoplays');
 assert.equal(fourthUI.q('#next-problem').disabled,false);
@@ -370,7 +370,7 @@ const savedBeforeFive = {[keys.original]:JSON.stringify(priorFour),[keys.mode]:'
 const fifthVoice = fakeSpeech(sampleVoices);
 const fifthUI = await setup(savedBeforeFive,'https://kmantec.github.io/AMC-Tutorial/?preview=1&problem=2026-5',fifthVoice);
 assert.equal(fifthUI.read().activeProblem,'2026-5');
-assert.equal(fifthUI.read().reviewedProblemsAvailable,75);
+assert.equal(fifthUI.read().reviewedProblemsAvailable,80);
 assert.equal(fifthUI.read().mode,'preview');
 assert.equal(fifthUI.q('#next-problem').disabled,false,'More guides follow 2026 Problem 5');
 assert.equal(fifthUI.q('#previous-problem').disabled,false);
@@ -488,7 +488,7 @@ const homeSaved={
 const homePreview=await setup(homeSaved);
 assert.equal(homePreview.q('#home-practice').dataset.problem,'2026-1');
 assert.equal(homePreview.q('#completed-count').textContent,'0');
-assert.equal(homePreview.w.document.querySelectorAll('.map-problem').length,75);
+assert.equal(homePreview.w.document.querySelectorAll('.map-problem').length,80);
 const fifthMap=homePreview.q('[data-home-problem="2026-5"]');
 fifthMap.focus(); fifthMap.click();
 assert.equal(homePreview.read().activeProblem,'2026-5','A map tile opens that problem directly');
@@ -531,12 +531,12 @@ assert.equal(homeLearning.q('#home-practice').dataset.problem,'2026-3');
 assert.equal(homeLearning.q('#completed-count').textContent,'2');
 homeLearning.close();
 
-const homeIds = ['2026-1','2026-2','2026-3','2026-4','2026-5','2019-1','2019-2','2019-3','2019-4','2019-5','2019-6','2019-7','2019-8','2019-9','2019-10','2019-11','2019-12','2019-13','2019-14','2019-15','2019-16','2019-17','2019-18','2019-19','2019-20','2019-21','2019-22','2019-23','2019-24','2019-25','2020-1','2020-2','2020-3','2020-4','2020-5','2020-6','2020-7','2020-8','2020-9','2020-10','2020-11','2020-12','2020-13','2020-14','2020-15','2020-16','2020-17','2020-18','2020-19','2020-20','2020-21','2020-22','2020-23','2020-24','2020-25','2025-1','2025-2','2025-3','2025-4','2025-5','2025-6','2025-7','2025-8','2025-9','2025-10','2025-11','2025-12','2025-13','2025-14','2025-15','2025-16','2025-17','2025-18','2025-19','2025-20'];
+const homeIds = ['2026-1','2026-2','2026-3','2026-4','2026-5','2019-1','2019-2','2019-3','2019-4','2019-5','2019-6','2019-7','2019-8','2019-9','2019-10','2019-11','2019-12','2019-13','2019-14','2019-15','2019-16','2019-17','2019-18','2019-19','2019-20','2019-21','2019-22','2019-23','2019-24','2019-25','2020-1','2020-2','2020-3','2020-4','2020-5','2020-6','2020-7','2020-8','2020-9','2020-10','2020-11','2020-12','2020-13','2020-14','2020-15','2020-16','2020-17','2020-18','2020-19','2020-20','2020-21','2020-22','2020-23','2020-24','2020-25','2025-1','2025-2','2025-3','2025-4','2025-5','2025-6','2025-7','2025-8','2025-9','2025-10','2025-11','2025-12','2025-13','2025-14','2025-15','2025-16','2025-17','2025-18','2025-19','2025-20','2025-21','2025-22','2025-23','2025-24','2025-25'];
 const allExplored=homeIds.map((id,i)=>({...legacy,problem:id,independent:i!==3,at:'2026-09-10T00:00:00Z'}));
 const homeReview=await setup({[keys.original]:JSON.stringify(allExplored),[keys.mode]:'learning'},'https://kmantec.github.io/AMC-Tutorial/');
 assert.equal(homeReview.q('#home-practice').dataset.problem,homeIds[3]);
 assert.match(homeReview.q('#next-win-heading').textContent,/fresh try/);
-assert.equal(homeReview.q('#completed-count').textContent,'75');
+assert.equal(homeReview.q('#completed-count').textContent,'80');
 assert.equal(homeReview.writes.length,0);
 homeReview.w.localStorage.setItem(keys.original,'[]');
 homeReview.w.dispatchEvent(new homeReview.w.StorageEvent('storage',{key:keys.original}));
