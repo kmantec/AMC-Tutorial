@@ -5602,5 +5602,444 @@ export const coachGuides = {
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_10",
       "credit": "Changed-end-year practice and coaching authored by Hermes Agent, using the elapsed-years method in AoPS Solutions 1–3."
     }
+  },
+"2024-11": {
+    "intro": "A coordinate triangle looks heavier than it is. Two of the three points share a height, and that is almost the whole problem.",
+    "checks": [
+      {
+        "id": "which-side-is-base",
+        "prompt": "A is (5, 7) and B is (11, 7). What makes AB the natural base to use?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Both points have the same y-coordinate, so AB is horizontal and its length is just 11 − 5 = 6",
+            "correct": true,
+            "feedback": "Correct. Equal y-coordinates mean a horizontal side, and a horizontal side means the height from C is a plain vertical distance."
+          },
+          {
+            "id": "b",
+            "label": "AB is the longest side, so the base must be its length",
+            "correct": false,
+            "feedback": "The area formula works with any side as the base, as long as you use the matching height. AB is convenient because it is horizontal, not because it is longest."
+          }
+        ]
+      },
+      {
+        "id": "height-sign",
+        "prompt": "C is (3, y) with y > 7. How should the height of the triangle be written?",
+        "options": [
+          {
+            "id": "a",
+            "label": "y − 7, because C sits above the line y = 7",
+            "correct": true,
+            "feedback": "Right. A height is a positive length, and y > 7 guarantees y − 7 is positive."
+          },
+          {
+            "id": "b",
+            "label": "7 − y, because the line y = 7 comes first",
+            "correct": false,
+            "feedback": "That is negative whenever y > 7, and a triangle cannot have a negative height. Write the larger coordinate minus the smaller one."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-11-a",
+      "sourceProblem": "2024-11",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "The vertices of triangle PQR are P(4, 9), Q(12, 9), and R(2, y), where y > 9. The area of triangle PQR is 16. What is the value of y?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 12,
+          "label": "12"
+        },
+        {
+          "letter": "B",
+          "value": 13,
+          "label": "13"
+        }
+      ],
+      "answer": 13,
+      "answerLabel": "(B) 13",
+      "solution": [
+        "P and Q both have y-coordinate 9, so PQ is horizontal with length 12 − 4 = 8.",
+        "R is above the line y = 9, so the height is y − 9.",
+        "Area = ½ × 8 × (y − 9) = 4(y − 9).",
+        "Since the area is 16, 4(y − 9) = 16, so y − 9 = 4 and y = 13.",
+        "Check: height 4 with base 8 gives ½ × 8 × 4 = 16."
+      ],
+      "reflection": {
+        "id": "adapted-base-doubles",
+        "prompt": "True or false: if the base doubled from 6 to 8 while the area stayed at 12, the height would have to shrink.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. Area = ½ × base × height, so doubling the base for the same area forces half the height: ½ × 12 × 2 = 12."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "The two factors trade off. With area fixed, a bigger base has to come with a smaller height."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_11",
+      "credit": "Changed-coordinates practice and coaching authored by Hermes Agent, using the horizontal-base method in AoPS Solutions 1 and 2."
+    }
+  },
+  "2024-12": {
+    "intro": "Every tank is described by comparing it to the tank before it. Name the first tank and let the comparisons do the rest.",
+    "checks": [
+      {
+        "id": "third-tank",
+        "prompt": "The first tank holds x guppies, and the second holds one more than the first. The third holds two more than the second. How many are in the third tank?",
+        "options": [
+          {
+            "id": "a",
+            "label": "x + 3",
+            "correct": true,
+            "feedback": "Correct. The 2 is added to the second tank's amount, so the third is (x + 1) + 2 = x + 3."
+          },
+          {
+            "id": "b",
+            "label": "x + 2",
+            "correct": false,
+            "feedback": "That skips the first comparison. Each extra is measured from the tank just before it, so the extras pile up as 1 and then 1 + 2."
+          }
+        ]
+      },
+      {
+        "id": "what-was-asked",
+        "prompt": "After solving, you find that the first tank holds 20 guppies. What is the answer to the question?",
+        "options": [
+          {
+            "id": "a",
+            "label": "26, because the fourth tank holds x + 6",
+            "correct": true,
+            "feedback": "Right. The question asks about the fourth tank, so substitute: 20 + 6 = 26."
+          },
+          {
+            "id": "b",
+            "label": "20, because that is the value of x",
+            "correct": false,
+            "feedback": "x is the first tank. The question asks about the fourth, so keep going one more step."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-12-a",
+      "sourceProblem": "2024-12",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Priya keeps a total of 110 goldfish in 4 tanks. There is 1 more goldfish in the 2nd tank than in the 1st tank, 2 more in the 3rd tank than in the 2nd tank, and 3 more in the 4th tank than in the 3rd tank. How many goldfish are in the 4th tank?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 31,
+          "label": "31"
+        },
+        {
+          "letter": "B",
+          "value": 36,
+          "label": "36"
+        }
+      ],
+      "answer": 31,
+      "answerLabel": "(A) 31",
+      "solution": [
+        "Let the first tank hold x goldfish.",
+        "The tanks then hold x, x + 1, x + 3, and x + 6.",
+        "The total is 4x + 10, so 4x + 10 = 110 and x = 25.",
+        "The fourth tank holds 25 + 6 = 31.",
+        "Check: 25 + 26 + 28 + 31 = 110."
+      ],
+      "reflection": {
+        "id": "adapted-constant-pile",
+        "prompt": "True or false: changing the total from 90 to 110 changes the extra 10 in 4x + 10.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": false,
+            "feedback": "The extras 1, 2, and 3 are fixed by the comparisons, so the 10 stays. Only the total on the right side of the equation changes."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": true,
+            "feedback": "Correct. The pile of extras depends on how the tanks compare, not on the total, so 4x + 10 holds and 4x = 100."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_12",
+      "credit": "Changed-total practice and coaching authored by Hermes Agent, using the single-variable method in AoPS Solutions 1 and 2."
+    }
+  },
+  "2024-13": {
+    "intro": "This one is small enough to list, so list it — but list it in a way that shows you did not miss any.",
+    "checks": [
+      {
+        "id": "balance-count",
+        "prompt": "Buzz makes 6 hops and finishes back on the ground. How many up-hops and down-hops must there be?",
+        "options": [
+          {
+            "id": "a",
+            "label": "3 up and 3 down",
+            "correct": true,
+            "feedback": "Correct. Each up-hop cancels one down-hop, and 6 hops must split evenly."
+          },
+          {
+            "id": "b",
+            "label": "6 up and 6 down, since the hops must balance",
+            "correct": false,
+            "feedback": "That would be 12 hops. There are only 6, so the split is 3 and 3."
+          }
+        ]
+      },
+      {
+        "id": "floor-rule",
+        "prompt": "The sequence UDDUUD has three ups and three downs. Why is it not counted?",
+        "options": [
+          {
+            "id": "a",
+            "label": "After the third hop Buzz is below ground level, which the stairs do not allow",
+            "correct": true,
+            "feedback": "Right. The hops balance overall, but Buzz cannot dip under the ground partway through."
+          },
+          {
+            "id": "b",
+            "label": "It has three downs in a row, which is never allowed",
+            "correct": false,
+            "feedback": "Three downs in a row is fine as long as Buzz is high enough when they start — UUUDDD is a valid sequence. The problem is going under the ground, not the repetition."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-13-a",
+      "sourceProblem": "2024-13",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "A frog starts on the ground and makes a sequence of 8 hops, one step at a time, each hop going either up one step or down one step. It never goes below the ground and ends back on the ground. In how many ways can this happen?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 14,
+          "label": "14"
+        },
+        {
+          "letter": "B",
+          "value": 70,
+          "label": "70"
+        }
+      ],
+      "answer": 14,
+      "answerLabel": "(A) 14",
+      "solution": [
+        "Eight hops ending at the ground means 4 up-hops and 4 down-hops.",
+        "Counting balanced sequences that never dip below the ground is the same grid problem as before, with one extra row and one extra column.",
+        "Filling the grid the same way gives 14 valid sequences.",
+        "70 is the number of balanced 8-hop orders when the floor is ignored, so the floor is what removes the other 56."
+      ],
+      "reflection": {
+        "id": "adapted-grid-extension",
+        "prompt": "True or false: adding one row and one column to the path grid is enough to handle 8 hops, without listing the sequences again.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. Each new cell is still the sum of the paths from its left and from below, so the grid method scales while listing gets messy."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "The rule for filling a cell never changes, so the same grid simply gets bigger. That is exactly why the grid beats listing for longer sequences."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_13",
+      "credit": "Changed-length practice and coaching authored by Hermes Agent, using the listing method of AoPS Solution 1 and the grid extension described in the recommended video."
+    }
+  },
+  "2024-14": {
+    "intro": "The arrows are the important part of this figure. Because every road is one-way, you never have to look backwards.",
+    "checks": [
+      {
+        "id": "best-to-m",
+        "prompt": "A is the start, and you already know the shortest distance to X is 5. Two roads lead into M: from A it costs 8, and from X it costs 2. What is the shortest distance to M?",
+        "options": [
+          {
+            "id": "a",
+            "label": "7, because the route through X costs 5 + 2",
+            "correct": true,
+            "feedback": "Correct. The road from X looks cheap, but you must add the 5 already spent getting to X. Then compare: 7 beats 8."
+          },
+          {
+            "id": "b",
+            "label": "2, because the road from X to M is the shortest single road",
+            "correct": false,
+            "feedback": "A road's own length is not a distance from A. Add everything spent before it: 5 + 2 = 7."
+          }
+        ]
+      },
+      {
+        "id": "why-label",
+        "prompt": "Why is it worth writing a shortest-distance label at every town instead of just following one route to Z?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Each label already contains the best way to get there, so later comparisons cannot miss a shortcut",
+            "correct": true,
+            "feedback": "Right. That is what makes you sure 28 is the minimum rather than just the best you happened to try."
+          },
+          {
+            "id": "b",
+            "label": "The labels are only needed to check your addition at the end",
+            "correct": false,
+            "feedback": "The labels do more than check arithmetic. They guarantee that every town's best route has been considered before you use it."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-14-a",
+      "sourceProblem": "2024-14",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "The same one-way network connects towns A, M, C, X, Y, and Z. A → M is 8 km, A → X is 5 km, X → M is 2 km, X → Y is 10 km, M → Y is 6 km, M → C is 14 km, Y → C is 5 km, C → Z is 10 km. In this version M → Z is 12 km and Y → Z is 30 km. What is the shortest distance from A to Z, in kilometers?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 19,
+          "label": "19"
+        },
+        {
+          "letter": "B",
+          "value": 28,
+          "label": "28"
+        }
+      ],
+      "answer": 19,
+      "answerLabel": "(A) 19",
+      "solution": [
+        "Shortest distance to X is 5, and to M is 5 + 2 = 7, since 7 beats the direct 8.",
+        "The new road M → Z costs 12, so this route reaches Z in 7 + 12 = 19.",
+        "The old best route A → X → M → Y → C → Z still costs 28, and the direct road from M to Z at 25 is no longer available.",
+        "Checking the others: through Y and C is 13 + 5 + 10 = 28, and through Y directly is 13 + 30 = 43.",
+        "The smallest is 19."
+      ],
+      "reflection": {
+        "id": "adapted-one-road-changes-all",
+        "prompt": "True or false: cheapening a single road can change the shortest route without changing any of the labels at the towns before it.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. The labels at X and M are unchanged at 5 and 7; only the total to Z drops, because the new road sits after them."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Labels depend only on the roads leading into each town. A road from M onward cannot alter the best way to reach M."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_14",
+      "credit": "Changed-road practice and coaching authored by Hermes Agent, using the labelling method in AoPS Solutions 1, 2, and 4."
+    }
+  },
+  "2024-15": {
+    "intro": "Six letters, six digits, and one equation. Do not start guessing digits — start by shrinking the equation.",
+    "checks": [
+      {
+        "id": "factor-1001",
+        "prompt": "FLYFLY is the block FLY written twice. What is FLYFLY equal to?",
+        "options": [
+          {
+            "id": "a",
+            "label": "1001 × FLY, because the second copy is shifted three places left",
+            "correct": true,
+            "feedback": "Correct. Then BUGBUG = 1001 × BUG, and the same 1001 appears on both sides and can be divided out."
+          },
+          {
+            "id": "b",
+            "label": "2 × FLY, because the block appears twice",
+            "correct": false,
+            "feedback": "Writing 123 twice gives 123123, not 246. The second copy is worth 1000 times the first, not one more copy."
+          }
+        ]
+      },
+      {
+        "id": "largest-fly",
+        "prompt": "After dividing out 1001, the equation is 8 × FLY = BUG, and BUG must be a three-digit number. What does that say about the largest possible FLY?",
+        "options": [
+          {
+            "id": "a",
+            "label": "FLY is at most 124, because 8 × 125 = 1000 is already four digits",
+            "correct": true,
+            "feedback": "Right. That caps the search, and the greatest FLY that also uses distinct digits turns out to be 123."
+          },
+          {
+            "id": "b",
+            "label": "FLY can be up to 999, since FLY is a three-digit number",
+            "correct": false,
+            "feedback": "Then 8 × FLY would be far more than three digits. The bound comes from BUG being three digits, not FLY."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-15-a",
+      "sourceProblem": "2024-15",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Let the letters F, L, Y, B, U, G represent distinct digits. Suppose FLYFLY is the greatest number that satisfies 7 × FLYFLY = BUGBUG. What is the value of FLY + BUG?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 1088,
+          "label": "1088"
+        },
+        {
+          "letter": "B",
+          "value": 1107,
+          "label": "1107"
+        }
+      ],
+      "answer": 1088,
+      "answerLabel": "(A) 1088",
+      "solution": [
+        "Write FLYFLY = 1001 × FLY and BUGBUG = 1001 × BUG, then divide both sides by 1001 to get 7 × FLY = BUG.",
+        "BUG must be three digits, so 7 × FLY ≤ 999, giving FLY ≤ 142.",
+        "Testing downward, 7 × 142 = 994 repeats 9 and 4, and 7 × 141 = 987 repeats nothing but only uses 1, 4, 1 — 141 itself repeats a digit.",
+        "The largest FLY with all six digits different is 136, since 7 × 136 = 952 and 1, 3, 6, 9, 5, 2 are six different digits.",
+        "Then FLY + BUG = 136 + 952 = 1088."
+      ],
+      "reflection": {
+        "id": "adapted-smaller-multiplier",
+        "prompt": "True or false: using 7 instead of 8 lets FLY be larger, because BUG stays three digits for longer.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. A smaller multiplier reaches four digits later, so the ceiling rises from 124 to about 142."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "The ceiling is 999 divided by the multiplier, so a smaller multiplier allows a larger FLY."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_15",
+      "credit": "Changed-multiplier practice and coaching authored by Hermes Agent, using the 1001-factor method of AoPS Solution 1."
+    }
   }
 };

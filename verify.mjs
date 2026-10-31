@@ -62,7 +62,7 @@ assert.deepEqual([1,2,3].map((value) => matrix.flat().filter((cell) => cell === 
 assert.equal(matrix.flat().reduce((total,value) => total+value,0),problems['2026-2'].answer);
 assert.deepEqual([6*5,4*Math.sqrt(36),6+8+Math.hypot(6,8)],[30,24,24]);
 assert.equal(problems['2026-3'].answer,'D');
-assert.deepEqual(Object.keys(problems),['2026-1','2026-2','2026-3','2026-4','2026-5','2019-1','2019-2','2019-3','2019-4','2019-5','2019-6','2019-7','2019-8','2019-9','2019-10','2019-11','2019-12','2019-13','2019-14','2019-15','2019-16','2019-17','2019-18','2019-19','2019-20','2019-21','2019-22','2019-23','2019-24','2019-25','2020-1','2020-2','2020-3','2020-4','2020-5','2020-6','2020-7','2020-8','2020-9','2020-10','2020-11','2020-12','2020-13','2020-14','2020-15','2020-16','2020-17','2020-18','2020-19','2020-20','2020-21','2020-22','2020-23','2020-24','2020-25','2025-1','2025-2','2025-3','2025-4','2025-5','2025-6','2025-7','2025-8','2025-9','2025-10','2025-11','2025-12','2025-13','2025-14','2025-15','2025-16','2025-17','2025-18','2025-19','2025-20','2025-21','2025-22','2025-23','2025-24','2025-25','2024-1','2024-2','2024-3','2024-4','2024-5','2024-6','2024-7','2024-8','2024-9','2024-10']);
+assert.deepEqual(Object.keys(problems),['2026-1','2026-2','2026-3','2026-4','2026-5','2019-1','2019-2','2019-3','2019-4','2019-5','2019-6','2019-7','2019-8','2019-9','2019-10','2019-11','2019-12','2019-13','2019-14','2019-15','2019-16','2019-17','2019-18','2019-19','2019-20','2019-21','2019-22','2019-23','2019-24','2019-25','2020-1','2020-2','2020-3','2020-4','2020-5','2020-6','2020-7','2020-8','2020-9','2020-10','2020-11','2020-12','2020-13','2020-14','2020-15','2020-16','2020-17','2020-18','2020-19','2020-20','2020-21','2020-22','2020-23','2020-24','2020-25','2025-1','2025-2','2025-3','2025-4','2025-5','2025-6','2025-7','2025-8','2025-9','2025-10','2025-11','2025-12','2025-13','2025-14','2025-15','2025-16','2025-17','2025-18','2025-19','2025-20','2025-21','2025-22','2025-23','2025-24','2025-25','2024-1','2024-2','2024-3','2024-4','2024-5','2024-6','2024-7','2024-8','2024-9','2024-10','2024-11','2024-12','2024-13','2024-14','2024-15']);
 const fourth = problems['2026-4'];
 assert.match(fourth.prompt,/20%/);
 assert.match(fourth.prompt,/50%/);
@@ -743,7 +743,141 @@ assert.equal(adapted10.answer,444);
 assert.equal(coachGuides['2024-10'].checks.length,2);
 assert.equal(adapted10.reflection.options.find((option) => option.correct).id,'false','Rounding the rate first is false');
 
-for (const id of ['2024-6','2024-7','2024-8','2024-9','2024-10']) {
+// 2024 Problems 11-15: content, mathematics, coaching and reviewed segments.
+const p2024_11 = problems['2024-11'];
+assert.equal(p2024_11.year,2024);
+assert.equal(p2024_11.number,11);
+assert.equal(p2024_11.diagram,'./assets/diagram-2024-11.png');
+assert.deepEqual(p2024_11.options.map((option) => [option.letter,option.value]),[['A',8],['B',9],['C',10],['D',11],['E',12]]);
+assert.equal(p2024_11.answer,11);
+assert.equal(p2024_11.answerLabel,'(D) 11');
+assert.equal(11-5,6,'AB is horizontal with length 6');
+assert.match(p2024_11.prompt,/y > 7/);
+// Area = ½ · 6 · (y − 7) = 12 forces y = 11; every other choice must fail the area check.
+assert.deepEqual([8,9,10,11,12].filter((y) => 0.5*6*(y-7) === 12),[11]);
+assert.equal(0.5*6*(p2024_11.answer-7),12);
+assert.equal(coachGuides['2024-11'].checks.length,2);
+const adapted11 = coachGuides['2024-11'].similar;
+assert.equal(12-4,8,'PQ is horizontal with length 8');
+assert.deepEqual([12,13].filter((y) => 0.5*8*(y-9) === 16),[13]);
+assert.equal(adapted11.answer,13);
+assert.equal(0.5*8*(adapted11.answer-9),16);
+assert.equal(adapted11.reflection.options.find((option) => option.correct).id,'true');
+
+const p2024_12 = problems['2024-12'];
+assert.equal(p2024_12.number,12);
+assert.deepEqual(p2024_12.options.map((option) => [option.letter,option.value]),[['A',20],['B',21],['C',23],['D',24],['E',26]]);
+assert.equal(p2024_12.answer,26);
+// The four tanks are x, x+1, x+3, x+6 and must total 90.
+assert.equal(4*20+10,90);
+assert.equal(20+(20+1)+(20+3)+(20+6),90);
+assert.equal(p2024_12.answer,20+6);
+assert.equal(coachGuides['2024-12'].checks.length,2);
+const adapted12 = coachGuides['2024-12'].similar;
+assert.equal(4*25+10,110);
+assert.equal(25+26+28+31,110);
+assert.equal(adapted12.answer,31);
+assert.equal(adapted12.reflection.options.find((option) => option.correct).id,'false','The 10 extra does not depend on the total');
+
+const p2024_13 = problems['2024-13'];
+assert.equal(p2024_13.number,13);
+assert.equal(p2024_13.diagram,'./assets/diagram-2024-13.png');
+assert.deepEqual(p2024_13.options.map((option) => [option.letter,option.value]),[['A',4],['B',5],['C',6],['D',8],['E',12]]);
+assert.equal(p2024_13.answer,5);
+function hopPaths(hops) {
+  const out = [];
+  const walk = (height, sequence) => {
+    if (sequence.length === hops) {
+      if (height === 0) out.push(sequence.join(''));
+      return;
+    }
+    walk(height+1, sequence.concat('U'));
+    if (height-1 >= 0) walk(height-1, sequence.concat('D'));
+  };
+  walk(0, []);
+  return out.sort();
+}
+assert.deepEqual(hopPaths(6),['UDUDUD','UDUUDD','UUDDUD','UUDUDD','UUUDDD']);
+assert.equal(hopPaths(6).length,p2024_13.answer);
+assert.ok(!hopPaths(6).includes('UDDUUD'),'Going below the ground is not allowed');
+assert.equal(coachGuides['2024-13'].checks.length,2);
+const adapted13 = coachGuides['2024-13'].similar;
+assert.equal(hopPaths(8).length,14);
+assert.equal(adapted13.answer,hopPaths(8).length);
+assert.equal(adapted13.options.length,2);
+
+const p2024_14 = problems['2024-14'];
+assert.equal(p2024_14.number,14);
+assert.equal(p2024_14.diagram,'./assets/diagram-2024-14.png');
+assert.deepEqual(p2024_14.options.map((option) => [option.letter,option.value]),[['A',28],['B',29],['C',30],['D',31],['E',32]]);
+assert.equal(p2024_14.answer,28);
+function shortest(network, from, to) {
+  const best = { [from]: 0 };
+  const done = new Set();
+  while (done.size < Object.keys(best).length) {
+    let pick = null;
+    for (const town of Object.keys(best)) if (!done.has(town) && (pick === null || best[town] < best[pick])) pick = town;
+    done.add(pick);
+    for (const [next,cost] of network[pick] || []) {
+      const total = best[pick] + cost;
+      if (best[next] === undefined || total < best[next]) best[next] = total;
+    }
+  }
+  return best[to];
+}
+const network14 = {
+  A: [['M',8],['X',5]], X: [['M',2],['Y',10]], M: [['Y',6],['C',14],['Z',25]],
+  Y: [['C',5],['Z',17]], C: [['Z',10]], Z: []
+};
+assert.equal(shortest(network14,'A','X'),5);
+assert.equal(shortest(network14,'A','M'),7);
+assert.equal(shortest(network14,'A','Y'),13);
+assert.equal(shortest(network14,'A','C'),18);
+assert.equal(shortest(network14,'A','Z'),p2024_14.answer);
+assert.equal(5+2+6+5+10,p2024_14.answer,'The winning route is A-X-M-Y-C-Z');
+assert.notEqual(8+25,p2024_14.answer,'The direct road from A still costs more');
+assert.equal(coachGuides['2024-14'].checks.length,2);
+const adapted14 = coachGuides['2024-14'].similar;
+const network14b = {...network14, M: [['Y',6],['C',14],['Z',12]], Y: [['C',5],['Z',30]]};
+assert.equal(adapted14.answer,19);
+assert.equal(shortest(network14b,'A','Z'),adapted14.answer);
+assert.equal(7+12,adapted14.answer);
+assert.equal(adapted14.reflection.options.find((option) => option.correct).id,'true');
+
+const p2024_15 = problems['2024-15'];
+assert.equal(p2024_15.number,15);
+assert.deepEqual(p2024_15.options.map((option) => [option.letter,option.value]),[['A',1089],['B',1098],['C',1107],['D',1116],['E',1125]]);
+assert.equal(p2024_15.answer,1107);
+assert.match(p2024_15.expression,/8 × FLYFLY = BUGBUG/);
+// 1001 is the factor that turns a doubled block into a single copy of the block.
+assert.equal(1001*123,123123);
+assert.equal(8*123123,984984);
+function flyBugPairs(multiplier) {
+  const pairs = [];
+  for (let fly = 100; fly <= 999; fly++) {
+    const bug = multiplier*fly;
+    if (bug < 100 || bug > 999) continue;
+    if (new Set(`${fly}${bug}`).size === 6) pairs.push([fly,bug]);
+  }
+  return pairs;
+}
+const pairs15 = flyBugPairs(8);
+assert.deepEqual(pairs15.map(([fly]) => fly),[103,104,107,109,123]);
+assert.deepEqual(pairs15[pairs15.length-1],[123,984]);
+assert.equal(123+984,p2024_15.answer);
+assert.equal(Math.floor(999/8),124);
+assert.equal(8*125,1000,'125 is the first FLY that pushes BUG to four digits');
+assert.equal(new Set('124992').size,4,'124 fails the distinct-digit test');
+assert.equal(new Set('123984').size,6);
+assert.equal(coachGuides['2024-15'].checks.length,2);
+const adapted15 = coachGuides['2024-15'].similar;
+const pairs15b = flyBugPairs(7);
+assert.equal(pairs15b[pairs15b.length-1][0],136);
+assert.deepEqual(pairs15b[pairs15b.length-1],[136,952]);
+assert.equal(adapted15.answer,136+952);
+assert.equal(adapted15.reflection.options.find((option) => option.correct).id,'true');
+
+for (const id of ['2024-11','2024-12','2024-13','2024-14','2024-15']) {
   assert.equal(walkthroughVideos[id].length,1);
   assert.equal(walkthroughVideos[id][0].id,'ktzijuZtDas');
   assert.equal(walkthroughVideos[id][0].channel,'Interstigation');

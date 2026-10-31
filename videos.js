@@ -1566,6 +1566,86 @@ export const recommendedVideos = {
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_10"
     }
   ],
+  "2024-11": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=1063s",
+      "startSeconds": 1063,
+      "endSeconds": 1144,
+      "segmentLabel": "Problem 11 · 17:43–19:04",
+      "reason": "The Problem 11 segment reads the base AB as 6 straight from the shared y-coordinate, sets the height to y − 7, solves 3(y − 7) = 12, and lands on y = 11 for answer D.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the reasoning was read in the English captions before recommending the segment. He also explains what y > 7 means geometrically — C sits above line AB — which is exactly the step that keeps the height positive.",
+      "reviewBasis": "Creator's description timestamps and YouTube English captions",
+      "reviewedAt": "2026-10-31",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_11"
+    }
+  ],
+  "2024-12": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=1144s",
+      "startSeconds": 1144,
+      "endSeconds": 1238,
+      "segmentLabel": "Problem 12 · 19:04–20:38",
+      "reason": "The Problem 12 segment builds the four tanks as x, x + 1, x + 3, x + 6, adds them to 4x + 10 = 90, solves x = 20, and then substitutes to get 26 for answer E.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the reasoning was read in the English captions before recommending the segment. He is explicit that the 2 is added to the second tank rather than the first, which is the step most learners flatten.",
+      "reviewBasis": "Creator's description timestamps and YouTube English captions",
+      "reviewedAt": "2026-10-31",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_12"
+    }
+  ],
+  "2024-13": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=1238s",
+      "startSeconds": 1238,
+      "endSeconds": 1405,
+      "segmentLabel": "Problem 13 · 20:38–23:25",
+      "reason": "The Problem 13 segment turns the hops into a grid of ups against downs, keeps only the cells that never go below the ground, adds paths from the left and from below, and reads 5 for answer B.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the reasoning was read in the English captions before recommending the segment. It also lists the sequences as a check and shows how adding one row and one column handles 8 hops, so the method generalizes past this question.",
+      "reviewBasis": "Creator's description timestamps and YouTube English captions",
+      "reviewedAt": "2026-10-31",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_13"
+    }
+  ],
+  "2024-14": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=1405s",
+      "startSeconds": 1405,
+      "endSeconds": 1585,
+      "segmentLabel": "Problem 14 · 23:25–26:25",
+      "reason": "The Problem 14 segment labels each town with its shortest distance from A — X at 5, M at 7, Y at 13, C at 18, Z at 28 — and explains why labelling beats trying routes one at a time.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the reasoning was read in the English captions before recommending the segment. It warns that the diagram is not drawn to scale and that guessing a route can leave you unsure whether it is really the shortest.",
+      "reviewBasis": "Creator's description timestamps and YouTube English captions",
+      "reviewedAt": "2026-10-31",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_14"
+    }
+  ],
+  "2024-15": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=1585s",
+      "startSeconds": 1585,
+      "endSeconds": 1709,
+      "segmentLabel": "Problem 15 · 26:25–28:29",
+      "reason": "The Problem 15 segment factors both six-digit numbers as 1001 times the three-digit block, cancels 1001, then searches downward from the three-digit limit: 125 is too big, 124 repeats digits, and 123 × 8 = 984 gives 1107 for answer C.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the reasoning was read in the English captions before recommending the segment. He rules out 124 out loud because 992 repeats a digit, which is the check learners most often skip.",
+      "reviewBasis": "Creator's description timestamps and YouTube English captions",
+      "reviewedAt": "2026-10-31",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_15"
+    }
+  ],
 };
 
 // Supplied by the parent on 2026-09-27, separately from reviewed recommendations.

@@ -4327,5 +4327,341 @@ export const problems = {
     "reflection": "If the level had grown by 1.6 ppm each year instead, would the rounded answer change? Estimate first, then calculate.",
     "alternative": "Round only at the end. Rounding the yearly increase to 2 ppm first would give 338 + 100 = 438, which is wrong, so keep the exact 1.515 until the final step. AoPS Solution 3 makes the same point by treating the average increase as about 1.515 ppm per year over 50 years.",
     "reviewedAt": "2026-10-31"
+  },
+"2024-11": {
+    "id": "2024-11",
+    "year": 2024,
+    "number": 11,
+    "suggestedPace": "1 min 30 sec",
+    "title": "Find y from a triangle area",
+    "topic": "Geometry · coordinates and area",
+    "prompt": "The vertices of triangle ABC are A(5, 7), B(11, 7), and C(3, y), where y > 7. The area of triangle ABC is 12. What is the value of y?",
+    "wording": "restated",
+    "diagram": "./assets/diagram-2024-11.png",
+    "options": [
+      {
+        "letter": "A",
+        "value": 8,
+        "label": "8"
+      },
+      {
+        "letter": "B",
+        "value": 9,
+        "label": "9"
+      },
+      {
+        "letter": "C",
+        "value": 10,
+        "label": "10"
+      },
+      {
+        "letter": "D",
+        "value": 11,
+        "label": "11"
+      },
+      {
+        "letter": "E",
+        "value": 12,
+        "label": "12"
+      }
+    ],
+    "answer": 11,
+    "answerLabel": "(D) 11",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_11",
+    "hints": [
+      "Both A and B sit on the horizontal line y = 7. That makes AB a base you can measure straight off the coordinates.",
+      "The height is the vertical gap between C and the line y = 7. Since y > 7, that gap is y − 7, not 7 − y.",
+      "Write area = ½ × base × height with the numbers you found and solve the small equation for y."
+    ],
+    "method": "Read the base off the shared y-coordinate, use the vertical gap as the height, then solve the area equation.",
+    "score": 4,
+    "ratingReason": "Two clean steps — measure a horizontal base, use a vertical height — with one guard against a sign slip.",
+    "solution": [
+      "A is (5, 7) and B is (11, 7), so AB is horizontal with length 11 − 5 = 6.",
+      "C is (3, y) and y > 7, so C lies above the line y = 7 and the height of the triangle is y − 7.",
+      "Area = ½ × 6 × (y − 7) = 3(y − 7).",
+      "Since the area is 12, 3(y − 7) = 12, so y − 7 = 4 and y = 11.",
+      "Check: with y = 11 the height is 4, and ½ × 6 × 4 = 12.",
+      "Answer: D (11)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1 and 2.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "A horizontal base makes the height vertical.",
+    "tip": "When two vertices share a y-coordinate, the side between them is horizontal and its length is just the difference of the x-coordinates. The height from the third vertex is then a plain vertical distance, so no distance formula is needed.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Using 7 − y as the height and getting a negative length, or forgetting the ½ and solving 6(y − 7) = 12 for y = 9.",
+    "reflection": "If C were below the line instead, with y < 7, how would you write the height so that it stays positive?",
+    "alternative": "Shoelace formula. For A(5, 7), B(11, 7), C(3, y) the doubled area is |11y + 56 − (98 + 5y)| = |6y − 42|, so ½|6y − 42| = 12 gives |6y − 42| = 24, hence y = 11 or y = 3. The condition y > 7 keeps only y = 11. AoPS Solution 2 takes this route.",
+    "reviewedAt": "2026-10-31"
+  },
+  "2024-12": {
+    "id": "2024-12",
+    "year": 2024,
+    "number": 12,
+    "suggestedPace": "1 min 30 sec",
+    "title": "Ninety guppies in four tanks",
+    "topic": "Algebra · building an equation",
+    "prompt": "Rohan keeps a total of 90 guppies in 4 fish tanks. There is 1 more guppy in the 2nd tank than in the 1st tank. There are 2 more guppies in the 3rd tank than in the 2nd tank. There are 3 more guppies in the 4th tank than in the 3rd tank. How many guppies are in the 4th tank?",
+    "wording": "restated",
+    "options": [
+      {
+        "letter": "A",
+        "value": 20,
+        "label": "20"
+      },
+      {
+        "letter": "B",
+        "value": 21,
+        "label": "21"
+      },
+      {
+        "letter": "C",
+        "value": 23,
+        "label": "23"
+      },
+      {
+        "letter": "D",
+        "value": 24,
+        "label": "24"
+      },
+      {
+        "letter": "E",
+        "value": 26,
+        "label": "26"
+      }
+    ],
+    "answer": 26,
+    "answerLabel": "(E) 26",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_12",
+    "hints": [
+      "Every tank is described by adding to the tank before it, so name the tank that everything else is built from: the first one.",
+      "Carry the additions one tank at a time. The third tank is not x + 2, because the 2 is added to the second tank, not to the first.",
+      "Add the four expressions, set the total equal to 90, and solve. Then answer the question that was actually asked — the fourth tank, not the first."
+    ],
+    "method": "Write all four tanks in terms of the first, add, solve, then substitute into the fourth tank's expression.",
+    "score": 4,
+    "ratingReason": "Standard building-an-equation problem. The trap is chaining the additions incorrectly or stopping at x.",
+    "solution": [
+      "Let the first tank hold x guppies.",
+      "The second tank holds 1 more, so x + 1.",
+      "The third tank holds 2 more than the second, so (x + 1) + 2 = x + 3.",
+      "The fourth tank holds 3 more than the third, so (x + 3) + 3 = x + 6.",
+      "The total is x + (x + 1) + (x + 3) + (x + 6) = 4x + 10.",
+      "Since the total is 90, 4x + 10 = 90, so 4x = 80 and x = 20.",
+      "The fourth tank holds x + 6 = 20 + 6 = 26 guppies.",
+      "Check: 20 + 21 + 23 + 26 = 90.",
+      "Answer: E (26)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1 and 2.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Chain the additions, then check the last one.",
+    "tip": "When each item is described relative to the previous item, the extras pile up: 1, then 1 + 2, then 1 + 2 + 3. Writing the piles out before adding stops you from flattening them into 1, 2, 3.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Writing the tanks as x, x + 1, x + 2, x + 3 and solving 4x + 6 = 90, which is not a whole number and signals the misread.",
+    "reflection": "If all four tanks were described as having the same number, how many guppies would each hold? How does that compare with your four values?",
+    "alternative": "Level the tanks instead of using a variable. Pretend the first tank is empty: the four tanks would then hold 0, 1, 3, and 6 guppies, which is 10 in total. The remaining 90 − 10 = 80 guppies are shared evenly over four tanks, so each tank gets 20 on top, and the fourth holds 20 + 6 = 26. AoPS Solution 2 uses this leveling idea.",
+    "reviewedAt": "2026-10-31"
+  },
+  "2024-13": {
+    "id": "2024-13",
+    "year": 2024,
+    "number": 13,
+    "suggestedPace": "2 min",
+    "title": "Buzz Bunny comes back to the ground",
+    "topic": "Combinatorics · counting paths",
+    "prompt": "Buzz Bunny is hopping up and down a set of stairs, one step at a time. In how many ways can Buzz Bunny start on the ground, make a sequence of 6 hops, and end up back on the ground? (For example, one sequence of hops is up-up-down-down-up-down.)",
+    "wording": "original",
+    "diagram": "./assets/diagram-2024-13.png",
+    "options": [
+      {
+        "letter": "A",
+        "value": 4,
+        "label": "4"
+      },
+      {
+        "letter": "B",
+        "value": 5,
+        "label": "5"
+      },
+      {
+        "letter": "C",
+        "value": 6,
+        "label": "6"
+      },
+      {
+        "letter": "D",
+        "value": 8,
+        "label": "8"
+      },
+      {
+        "letter": "E",
+        "value": 12,
+        "label": "12"
+      }
+    ],
+    "answer": 5,
+    "answerLabel": "(B) 5",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_13",
+    "hints": [
+      "Six hops back to the ground means the number of up-hops and down-hops has to balance. How many of each?",
+      "Now think about the floor. A sequence that goes down first is impossible, and so is one that ever drops below the ground.",
+      "The choices are small and there are only a handful of balanced orders. Listing them all and crossing out the impossible ones is faster than any formula here."
+    ],
+    "method": "Count the balanced up/down sequences and discard any that go below ground.",
+    "score": 5,
+    "ratingReason": "Short, but it rewards a systematic list and punishes counting all balanced orders without checking the floor.",
+    "solution": [
+      "Each hop changes Buzz's height by +1 (up) or −1 (down).",
+      "To return to the ground after 6 hops, the 6 changes must add to 0, so there are 3 up-hops and 3 down-hops.",
+      "Of the balanced orders, the ones that never go below the ground are: UUUDDD, UUDUDD, UUDDUD, UDUUDD, and UDUDUD.",
+      "For example, UDDUUD is balanced but takes Buzz below the ground on the third hop, so it is not allowed.",
+      "There are 5 valid sequences.",
+      "Answer: B (5)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1 and 2.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Balance first, then respect the floor.",
+    "tip": "Two separate conditions decide these sequences: the hops must balance, and the running total must never go negative. Handle them in that order — balance narrows the list, and the floor throws out the rest.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Counting every order of three ups and three downs and answering 20, which ignores that Buzz cannot go below the ground.",
+    "reflection": "Why can no valid sequence start with a down-hop? Say it in one sentence about Buzz's height.",
+    "alternative": "Count paths on a grid. Put the number of up-hops on the horizontal axis and down-hops on the vertical axis; starting from (0, 0) and finishing at (3, 3) without ever having more downs than ups means staying in the lower-right triangle. Filling in each cell as the sum of the paths from its left and from below gives 5 at the corner. This is the same grid method the recommended video uses, and it extends to 8 hops by adding one row and one column.",
+    "reviewedAt": "2026-10-31"
+  },
+  "2024-14": {
+    "id": "2024-14",
+    "year": 2024,
+    "number": 14,
+    "suggestedPace": "2 min",
+    "title": "Shortest route from A to Z",
+    "topic": "Geometry · networks and shortest paths",
+    "prompt": "The one-way routes connecting towns A, M, C, X, Y, and Z are shown in the figure below (not drawn to scale). The distances in kilometers along each route are marked. Traveling along these routes, what is the shortest distance from A to Z, in kilometers?",
+    "wording": "restated",
+    "diagram": "./assets/diagram-2024-14.png",
+    "options": [
+      {
+        "letter": "A",
+        "value": 28,
+        "label": "28"
+      },
+      {
+        "letter": "B",
+        "value": 29,
+        "label": "29"
+      },
+      {
+        "letter": "C",
+        "value": 30,
+        "label": "30"
+      },
+      {
+        "letter": "D",
+        "value": 31,
+        "label": "31"
+      },
+      {
+        "letter": "E",
+        "value": 32,
+        "label": "32"
+      }
+    ],
+    "answer": 28,
+    "answerLabel": "(A) 28",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_14",
+    "hints": [
+      "The arrows only go one way, so the picture is not a map you can wander around. You have to move forward from A.",
+      "Write down, at each town, the shortest distance from A that you have found so far — not the first route you happened to try.",
+      "Update each town in turn: a town's best distance is the smallest over all roads into it of (best distance at the town before) + (that road)."
+    ],
+    "method": "Label each town with the shortest distance from A, updating one town at a time.",
+    "score": 6,
+    "ratingReason": "A whole short chapter of reasoning in one question — the learner has to invent bookkeeping, not just add numbers.",
+    "solution": [
+      "Start at A with distance 0.",
+      "X can only be reached from A, so the shortest distance to X is 5.",
+      "M can be reached from A directly in 8, or from X in 5 + 2 = 7. The smaller is 7.",
+      "Y can be reached from X in 5 + 10 = 15, or from M in 7 + 6 = 13. The smaller is 13.",
+      "C can be reached from M in 7 + 14 = 21, or from Y in 13 + 5 = 18. The smaller is 18.",
+      "Z can be reached from C in 18 + 10 = 28, from Y in 13 + 17 = 30, or from M in 7 + 25 = 32. The smallest is 28.",
+      "The shortest route is A → X → M → Y → C → Z, with distances 5 + 2 + 6 + 5 + 10 = 28.",
+      "Answer: A (28)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1, 2, and 4.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Label the towns, not the routes.",
+    "tip": "There are many routes but only six towns. Record one best-so-far number per town and you never have to re-explore the left side of the diagram; each new number already contains every shortcut found so far.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Following the first route that reaches Z and stopping, without checking whether a different combination of roads is shorter.",
+    "reflection": "Route A → M → Z is the most direct-looking way to Z. What is its length, and why does the answer ignore it?",
+    "alternative": "Cross off roads that are never worth taking. A → M (8) loses to A → X → M (7); X → Y (10) loses to X → M → Y (8); Y → Z (17) loses to Y → C → Z (15); M → C (14) loses to M → Y → C (11). M → Z (25) survives this pruning because it undercuts M → C → Z, but measured from A it costs 7 + 25 = 32, which still loses to 28. AoPS Solution 4 prunes road by road in this style and is left with the single path A → X → M → Y → C → Z.",
+    "reviewedAt": "2026-10-31"
+  },
+  "2024-15": {
+    "id": "2024-15",
+    "year": 2024,
+    "number": 15,
+    "suggestedPace": "2 min 30 sec",
+    "title": "FLYFLY times eight",
+    "topic": "Number theory · place value and digits",
+    "prompt": "Let the letters F, L, Y, B, U, G represent distinct digits. Suppose FLYFLY, the six-digit number made by writing the three-digit block FLY twice, is the greatest number that satisfies the equation below, where BUGBUG is built from BUG in the same way. What is the value of FLY + BUG?",
+    "wording": "restated",
+    "expression": "8 × FLYFLY = BUGBUG",
+    "options": [
+      {
+        "letter": "A",
+        "value": 1089,
+        "label": "1089"
+      },
+      {
+        "letter": "B",
+        "value": 1098,
+        "label": "1098"
+      },
+      {
+        "letter": "C",
+        "value": 1107,
+        "label": "1107"
+      },
+      {
+        "letter": "D",
+        "value": 1116,
+        "label": "1116"
+      },
+      {
+        "letter": "E",
+        "value": 1125,
+        "label": "1125"
+      }
+    ],
+    "answer": 1107,
+    "answerLabel": "(C) 1107",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_15",
+    "hints": [
+      "A block written twice is worth 1001 times the block: FLYFLY = 1001 × FLY, and the same for BUGBUG.",
+      "Divide the equation by 1001. That turns a six-digit puzzle into 8 × FLY = BUG, and BUG must still be a three-digit number.",
+      "BUG is a three-digit number, so 8 × FLY cannot reach 1000. Find the largest FLY that keeps BUG three digits, then test downward until all six digits are different."
+    ],
+    "method": "Replace each doubled block by 1001 times the block, cancel 1001, then search downward from the largest possible FLY.",
+    "score": 7,
+    "ratingReason": "Needs the 1001 insight before any digit work, then a disciplined search — and the search only pays off if the distinct-digit condition is actually checked.",
+    "solution": [
+      "Write FLYFLY = 1001 × FLY and BUGBUG = 1001 × BUG.",
+      "The equation becomes 8 × 1001 × FLY = 1001 × BUG.",
+      "Divide both sides by 1001: 8 × FLY = BUG.",
+      "BUG must be a three-digit number, so 8 × FLY ≤ 999, giving FLY ≤ 124. Since 8 × 125 = 1000 is already four digits, FLY is at most 124.",
+      "Try the largest candidates: 8 × 124 = 992 repeats the 9 and the 2, so it fails.",
+      "8 × 123 = 984 uses 1, 2, 3, 9, 8, 4 — six different digits, so FLY = 123 is the greatest that works.",
+      "Then FLY + BUG = 123 + 984 = 1107.",
+      "Answer: C (1107)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solution 1.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "A doubled block is a multiple of 1001.",
+    "tip": "Any three-digit block written twice equals 1001 times that block, because the second copy sits exactly three places to the left. Spotting that factor turns a six-digit multiplication into a one-digit one.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Stopping at the first FLY that makes 8 × FLY a three-digit number, without testing whether all six digits are distinct, and forgetting that the question asks for FLY + BUG rather than either number alone.",
+    "reflection": "8 × 124 = 992 is larger than 984. Why does the distinct-digit rule knock out the larger number and keep the smaller one?",
+    "alternative": "Work digit by digit with carries. The units column forces 8 × Y to end in G, the tens column forces 8 × L plus the carry to end in U, and the hundreds column forces 8 × F plus the carry to end in B with a possible carry out. Searching from the largest F downward is the same as the division above but slower unless you are careful, which mirrors why AoPS Solution 1 factors out 1001.",
+    "reviewedAt": "2026-10-31"
   }
 };
