@@ -62,7 +62,7 @@ assert.deepEqual([1,2,3].map((value) => matrix.flat().filter((cell) => cell === 
 assert.equal(matrix.flat().reduce((total,value) => total+value,0),problems['2026-2'].answer);
 assert.deepEqual([6*5,4*Math.sqrt(36),6+8+Math.hypot(6,8)],[30,24,24]);
 assert.equal(problems['2026-3'].answer,'D');
-assert.deepEqual(Object.keys(problems),['2026-1','2026-2','2026-3','2026-4','2026-5','2019-1','2019-2','2019-3','2019-4','2019-5','2019-6','2019-7','2019-8','2019-9','2019-10','2019-11','2019-12','2019-13','2019-14','2019-15','2019-16','2019-17','2019-18','2019-19','2019-20','2019-21','2019-22','2019-23','2019-24','2019-25','2020-1','2020-2','2020-3','2020-4','2020-5','2020-6','2020-7','2020-8','2020-9','2020-10','2020-11','2020-12','2020-13','2020-14','2020-15','2020-16','2020-17','2020-18','2020-19','2020-20','2020-21','2020-22','2020-23','2020-24','2020-25','2025-1','2025-2','2025-3','2025-4','2025-5','2025-6','2025-7','2025-8','2025-9','2025-10','2025-11','2025-12','2025-13','2025-14','2025-15','2025-16','2025-17','2025-18','2025-19','2025-20','2025-21','2025-22','2025-23','2025-24','2025-25','2024-1','2024-2','2024-3','2024-4','2024-5','2024-6','2024-7','2024-8','2024-9','2024-10','2024-11','2024-12','2024-13','2024-14','2024-15','2024-16','2024-17','2024-18','2024-19','2024-20']);
+assert.deepEqual(Object.keys(problems),['2026-1','2026-2','2026-3','2026-4','2026-5','2019-1','2019-2','2019-3','2019-4','2019-5','2019-6','2019-7','2019-8','2019-9','2019-10','2019-11','2019-12','2019-13','2019-14','2019-15','2019-16','2019-17','2019-18','2019-19','2019-20','2019-21','2019-22','2019-23','2019-24','2019-25','2020-1','2020-2','2020-3','2020-4','2020-5','2020-6','2020-7','2020-8','2020-9','2020-10','2020-11','2020-12','2020-13','2020-14','2020-15','2020-16','2020-17','2020-18','2020-19','2020-20','2020-21','2020-22','2020-23','2020-24','2020-25','2025-1','2025-2','2025-3','2025-4','2025-5','2025-6','2025-7','2025-8','2025-9','2025-10','2025-11','2025-12','2025-13','2025-14','2025-15','2025-16','2025-17','2025-18','2025-19','2025-20','2025-21','2025-22','2025-23','2025-24','2025-25','2024-1','2024-2','2024-3','2024-4','2024-5','2024-6','2024-7','2024-8','2024-9','2024-10','2024-11','2024-12','2024-13','2024-14','2024-15','2024-16','2024-17','2024-18','2024-19','2024-20','2024-21','2024-22','2024-23','2024-24','2024-25']);
 const fourth = problems['2026-4'];
 assert.match(fourth.prompt,/20%/);
 assert.match(fourth.prompt,/50%/);
@@ -1028,6 +1028,156 @@ assert.equal(Math.min(...feasible19b),adapted19.answer);
 const adapted20 = coachGuides['2024-20'].similar;
 assert.equal(adapted20.answer,8);
 assert.ok(adapted20.options.some((option) => option.value === adapted20.answer));
+
+const p2024_21 = problems['2024-21'];
+assert.equal(p2024_21.year,2024);
+assert.equal(p2024_21.number,21);
+assert.equal(p2024_21.answer,24);
+assert.equal(p2024_21.answerLabel,'(E) 24');
+assert.deepEqual(p2024_21.options.map((option) => [option.letter,option.value]),[['A',10],['B',12],['C',16],['D',20],['E',24]]);
+assert.match(p2024_21.prompt,/3 : 1/);
+assert.match(p2024_21.prompt,/4 : 1/);
+assert.match(p2024_21.prompt,/5 yellow frogs/);
+// Brute force: the only army that satisfies both ratios
+const frogArmies = [];
+for (let y = 1; y <= 500; y += 1) if (3*y + 2 === 4*(y-2)) frogArmies.push([3*y,y,3*y+2,y-2]);
+assert.equal(frogArmies.length,1,'Exactly one army satisfies both ratios');
+assert.deepEqual(frogArmies[0],[30,10,32,8]);
+assert.equal(frogArmies[0][2]-frogArmies[0][3],p2024_21.answer);
+assert.equal(30+2-(10-2),24);
+assert.equal(3/4*40+2,32,'3/4 of 40 is 30, plus 2');
+assert.equal(1/4*40-2,8);
+
+const p2024_22 = problems['2024-22'];
+assert.equal(p2024_22.number,22);
+assert.equal(p2024_22.answer,600);
+assert.equal(p2024_22.answerLabel,'(B) 600');
+assert.deepEqual(p2024_22.options.map((option) => [option.letter,option.value]),[['A',300],['B',600],['C',1200],['D',1500],['E',1800]]);
+assert.equal(p2024_22.diagram,'./assets/diagram-2024-22.png');
+assert.ok(fs.existsSync(new URL(p2024_22.diagram,root)));
+assert.match(p2024_22.prompt,/0\.015 inches thick/);
+assert.match(p2024_22.prompt,/nearest 100 inches/);
+assert.ok(Math.abs(3*Math.PI/0.015 - 628.32) < 0.01);
+assert.equal(Math.round(3*Math.PI/0.015/100)*100,p2024_22.answer);
+assert.equal(4-1,3,'Ring area uses radii 2 and 1');
+assert.ok(Math.abs(3*Math.PI - 9.4248) < 0.001);
+
+const p2024_23 = problems['2024-23'];
+assert.equal(p2024_23.number,23);
+assert.equal(p2024_23.answer,7000);
+assert.equal(p2024_23.answerLabel,'(C) 7000');
+assert.deepEqual(p2024_23.options.map((option) => [option.letter,option.value]),[['A',6000],['B',6500],['C',7000],['D',7500],['E',8000]]);
+assert.equal(p2024_23.diagram,'./assets/diagram-2024-23.png');
+assert.ok(fs.existsSync(new URL(p2024_23.diagram,root)));
+assert.match(p2024_23.prompt,/\(2000,3000\)/);
+assert.match(p2024_23.prompt,/\(5000,8000\)/);
+const gcdOf = (a,b) => (b === 0 ? a : gcdOf(b,a%b));
+const cellsCrossed = (dx,dy) => {
+  let count = 0;
+  for (let i = 0; i < dx; i += 1) {
+    for (let j = 0; j < dy; j += 1) if (Math.min((i+1)/dx,(j+1)/dy) > Math.max(i/dx,j/dy)) count += 1;
+  }
+  return count;
+};
+assert.equal(cellsCrossed(2,4),4,'The statement sample colors 4 cells');
+assert.equal(cellsCrossed(3,5),7);
+assert.equal(3+5-gcdOf(3,5),7);
+assert.equal(gcdOf(3000,5000),1000);
+assert.equal(1000*cellsCrossed(3,5),p2024_23.answer);
+assert.equal(3000+5000-gcdOf(3000,5000),p2024_23.answer);
+
+const p2024_24 = problems['2024-24'];
+assert.equal(p2024_24.number,24);
+assert.equal(p2024_24.answer,5);
+assert.equal(p2024_24.answerLabel,'(B) 5');
+assert.deepEqual(p2024_24.options.map((option) => [option.letter,option.value]),[['A',4],['B',5],['C','4√2'],['D',6],['E','5√2']]);
+assert.equal(p2024_24.diagram,'./assets/diagram-2024-24.png');
+assert.ok(fs.existsSync(new URL(p2024_24.diagram,root)));
+assert.match(p2024_24.prompt,/8 feet high/);
+assert.match(p2024_24.prompt,/12 feet high/);
+assert.match(p2024_24.prompt,/183 square feet/);
+assert.equal(12*12,144);
+assert.equal(8*8,64);
+assert.equal(144+64-183,25);
+assert.equal(Math.sqrt(144+64-183),p2024_24.answer);
+// Each mountain is a 45-45-90 triangle of height H, so base 2H and area H*H
+for (const h of [4,5,6,8,12]) assert.equal((2*h)*h/2,h*h);
+
+const p2024_25 = problems['2024-25'];
+assert.equal(p2024_25.number,25);
+assert.equal(p2024_25.answer,'20/33');
+assert.equal(p2024_25.answerLabel,'(C) 20/33');
+assert.deepEqual(p2024_25.options.map((option) => [option.letter,option.value]),[['A','8/15'],['B','32/55'],['C','20/33'],['D','34/55'],['E','8/11']]);
+assert.equal(p2024_25.diagram,'./assets/diagram-2024-25.png');
+assert.ok(fs.existsSync(new URL(p2024_25.diagram,root)));
+assert.match(p2024_25.prompt,/4 rows/);
+assert.match(p2024_25.prompt,/Eight passengers/);
+const choose = (n,k) => { let r = 1; for (let i = 0; i < k; i += 1) r = r*(n-i)/(i+1); return Math.round(r); };
+assert.equal(choose(12,4),495);
+let pairBlocked = 0, pairPossible = 0;
+for (let mask = 0; mask < 4096; mask += 1) {
+  const free = [];
+  for (let s = 0; s < 12; s += 1) if (mask & (1 << s)) free.push(s);
+  if (free.length !== 4) continue;
+  const has = new Set(free);
+  let adjacent = false;
+  for (let r = 0; r < 4; r += 1) for (let c = 0; c < 2; c += 1) {
+    if (has.has(r*3+c) && has.has(r*3+c+1)) adjacent = true;
+  }
+  if (adjacent) pairPossible += 1; else pairBlocked += 1;
+}
+assert.equal(pairPossible+pairBlocked,495);
+assert.equal(pairBlocked,195,'Complement count agrees with the casework');
+assert.equal(pairPossible,300);
+assert.equal(pairPossible/495,20/33);
+
+for (const id of ['2024-21','2024-22','2024-23','2024-24','2024-25']) {
+  assert.equal(walkthroughVideos[id].length,1);
+  assert.equal(walkthroughVideos[id][0].id,'ktzijuZtDas');
+  assert.equal(walkthroughVideos[id][0].channel,'Interstigation');
+  assert.equal(recommendedVideos[id].length,1);
+  assert.equal(walkthroughVideos[id][0].reviewedAt,'2026-11-01');
+  assert.match(walkthroughVideos[id][0].segmentLabel,/^Problem \d+ · \d+:\d\d–\d+:\d\d/);
+  assert.equal(coachGuides[id].checks.length,2);
+  assert.ok(coachGuides[id].checks.every((check) => check.options.length === 2 && check.options.filter((option) => option.correct).length === 1));
+  assert.equal(coachGuides[id].similar.options.length,2);
+  assert.equal(coachGuides[id].similar.reflection.options.filter((option) => option.correct).length,1);
+  assert.match(coachGuides[id].similar.label,/not an official AMC question/);
+  assert.ok(coachGuides[id].similar.options.some((option) => option.value === coachGuides[id].similar.answer));
+}
+// Segment bounds follow the creator's published chapter list for Problems 21-25.
+assert.deepEqual(['2024-21','2024-22','2024-23','2024-24','2024-25'].map((id) => [walkthroughVideos[id][0].startSeconds,walkthroughVideos[id][0].endSeconds]),[[2562,2679],[2679,2847],[2847,3126],[3126,3297],[3297,3696]]);
+const adapted21 = coachGuides['2024-21'].similar;
+assert.equal(2*8+2,18);
+assert.equal(8-2,6);
+assert.equal(18-6,adapted21.answer);
+const adapted22 = coachGuides['2024-22'].similar;
+assert.equal(Math.round(3*Math.PI/0.01/100)*100,adapted22.answer);
+assert.equal(3*Math.PI/0.015 < 3*Math.PI/0.01,true,'Thinner tape gives a longer strip');
+const adapted23 = coachGuides['2024-23'].similar;
+assert.equal(gcdOf(1500,1000),500);
+assert.equal(1500+1000-500,adapted23.answer);
+assert.equal(adapted23.answer,cellsCrossed(15,10)*100,'Scaling a right-15, up-10 piece by 100');
+const adapted24 = coachGuides['2024-24'].similar;
+assert.equal(14*14+10*10-260,36);
+assert.equal(Math.sqrt(196+100-260),adapted24.answer);
+const adapted25 = coachGuides['2024-25'].similar;
+let block5 = 0, free5 = 0;
+for (let mask = 0; mask < 4096; mask += 1) {
+  const free = [];
+  for (let s = 0; s < 12; s += 1) if (mask & (1 << s)) free.push(s);
+  if (free.length !== 5) continue;
+  const has = new Set(free);
+  let adjacent = false;
+  for (let r = 0; r < 4; r += 1) for (let c = 0; c < 2; c += 1) {
+    if (has.has(r*3+c) && has.has(r*3+c+1)) adjacent = true;
+  }
+  if (adjacent) free5 += 1; else block5 += 1;
+}
+assert.equal(block5,144,'2-2-1-0 gives 36 and 2-1-1-1 gives 108');
+assert.equal(choose(12,5),792);
+assert.equal(free5/792,9/11);
+assert.equal(adapted25.answer,'9/11');
 
 for (const id of ['2024-11','2024-12','2024-13','2024-14','2024-15']) {
   assert.equal(walkthroughVideos[id].length,1);

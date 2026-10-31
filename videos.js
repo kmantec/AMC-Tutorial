@@ -1725,6 +1725,86 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-31",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_20"
     }
+  ],
+  "2024-21": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=2562s",
+      "startSeconds": 2562,
+      "endSeconds": 2679,
+      "segmentLabel": "Problem 21 · 42:42–44:39",
+      "reason": "The Problem 21 segment names the yellow count x, writes the new green and yellow counts as 3x + 2 and x − 2, solves 3x + 2 = 4(x − 2) to get x = 10, and finishes with 32 − 8 = 24, answer E.",
+      "reviewNote": "Hermes Agent recommendation: the segment bounds are the creator's published chapter timestamps, and the reasoning was read in the English captions before recommending it. He says \"dogs\" twice where he means frogs, but the arithmetic and the answer E, 24 are correct. Watch for the moment he adds the 5 arrivals to the green side — that is the step learners skip.",
+      "reviewBasis": "Creator's published chapter timestamps and YouTube English captions",
+      "reviewedAt": "2026-11-01",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_21"
+    }
+  ],
+  "2024-22": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=2679s",
+      "startSeconds": 2679,
+      "endSeconds": 2847,
+      "segmentLabel": "Problem 22 · 44:39–47:27",
+      "reason": "The Problem 22 segment unrolls the tape into a 0.015-inch-wide rectangle, sets its area equal to the ring's 3π square inches, and gets 3π ÷ 0.015 ≈ 628 inches, closest to 600.",
+      "reviewNote": "Hermes Agent recommendation: bounds are the creator's published chapter timestamps and the explanation was read in the English captions. He is explicit that the 4-inch and 2-inch labels are diameters and halves them for the radii, which is exactly the mistake the distractors punish. The audio stumbles while dividing by 0.015, but the result 3π ÷ 0.015 ≈ 200π ≈ 600 is stated correctly.",
+      "reviewBasis": "Creator's published chapter timestamps and YouTube English captions",
+      "reviewedAt": "2026-11-01",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_22"
+    }
+  ],
+  "2024-23": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=2847s",
+      "startSeconds": 2847,
+      "endSeconds": 3126,
+      "segmentLabel": "Problem 23 · 47:27–52:06",
+      "reason": "The Problem 23 segment redraws only the changes 3 across and 5 up, counts 7 cells in that small piece, then scales by 1000 for 7000 cells, answer C.",
+      "reviewNote": "Hermes Agent recommendation: bounds are the creator's published chapter timestamps and the reasoning was read in the English captions. He draws the 3-by-5 piece freehand, so the picture is rough, but the count of 7 cells and the ×1000 step match the solution. Useful because he shows why the starting coordinates can be ignored.",
+      "reviewBasis": "Creator's published chapter timestamps and YouTube English captions",
+      "reviewedAt": "2026-11-01",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_23"
+    }
+  ],
+  "2024-24": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=3126s",
+      "startSeconds": 3126,
+      "endSeconds": 3297,
+      "segmentLabel": "Problem 24 · 52:06–54:57",
+      "reason": "The Problem 24 segment computes the two mountain areas as 64 and 144, subtracts 183 to find the 25-square-foot overlap, and solves 2h × h ÷ 2 = 25 for h = 5, answer B.",
+      "reviewNote": "Hermes Agent recommendation: bounds are the creator's published chapter timestamps and the explanation was read in the English captions. He extends the inner slopes to the ground first, which is the move that makes the overlap visible, and he names 45-45-90 triangles explicitly. He also distinguishes the slanted side H√2 from the height H, which is a common confusion here.",
+      "reviewBasis": "Creator's published chapter timestamps and YouTube English captions",
+      "reviewedAt": "2026-11-01",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_24"
+    }
+  ],
+  "2024-25": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=3297s",
+      "startSeconds": 3297,
+      "endSeconds": 3696,
+      "segmentLabel": "Problem 25 · 54:57–1:01:36 (end of video)",
+      "reason": "The Problem 25 segment counts the 4 free seats out of C(12,4) = 495, splits them into the row patterns, gets 195 blocking arrangements, and finishes with 1 − 195/495 = 20/33, answer C.",
+      "reviewNote": "Hermes Agent recommendation: bounds run from the creator's published Problem 25 chapter timestamp to the end of the video, which was checked as 3696 seconds in the public player metadata. The explanation was read in the English captions: he counts the free seats, not the passengers, and separates the 2-1-1-0 and 2-2-0-0 cases. There is one spoken arithmetic slip in the 2-1-1-0 case that he corrects out loud a few seconds later; the final 300/495 = 20/33 is right.",
+      "reviewBasis": "Creator's published chapter timestamps, public video duration, and YouTube English captions",
+      "reviewedAt": "2026-11-01",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_25"
+    }
   ]
 };
 

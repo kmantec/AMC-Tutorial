@@ -5002,5 +5002,356 @@ export const problems = {
     "reflection": "Each of the 8 cube vertices belongs to exactly 3 of these triangles. What does 8 × 3 tell you about the total number of equilateral triangles on a cube, and why do you divide by 3?",
     "alternative": "Sort the vertices by distance from P: Q, W, and S are one edge away, T, R, and V are a face diagonal away, and U is a space diagonal away. Only the three face-diagonal points are mutually the same distance apart, so choosing two of them gives 3 triangles. AoPS Solution 2 describes this as choosing 2 of the 3 compatible points.",
     "reviewedAt": "2026-10-31"
+  },
+  "2024-21": {
+    "id": "2024-21",
+    "year": 2024,
+    "number": 21,
+    "suggestedPace": "2 min 30 sec",
+    "title": "Frogs changing colour",
+    "topic": "Ratios · proportions",
+    "prompt": "A group of frogs (called an army) lives in a tree. A frog turns green when in the shade and turns yellow when in the sun. Initially, the ratio of green frogs to yellow frogs was 3 : 1. Then 3 green frogs moved to the sunny side and 5 yellow frogs moved to the shady side. Now the ratio is 4 : 1. What is the difference between the number of green frogs and the number of yellow frogs now?",
+    "wording": "restated",
+    "facts": [
+      "Green : yellow starts at 3 : 1",
+      "3 green frogs move to the sun and 5 yellow frogs move to the shade",
+      "Green : yellow is now 4 : 1"
+    ],
+    "options": [
+      {
+        "letter": "A",
+        "value": 10,
+        "label": "10"
+      },
+      {
+        "letter": "B",
+        "value": 12,
+        "label": "12"
+      },
+      {
+        "letter": "C",
+        "value": 16,
+        "label": "16"
+      },
+      {
+        "letter": "D",
+        "value": 20,
+        "label": "20"
+      },
+      {
+        "letter": "E",
+        "value": 24,
+        "label": "24"
+      }
+    ],
+    "answer": 24,
+    "answerLabel": "(E) 24",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_21",
+    "hints": [
+      "Every frog that changes sides also changes colour. Follow the net change in each group, not just the frogs that left.",
+      "Green gains the 5 arrivals and loses the 3 departures, so green goes up by 2. Yellow goes down by 2. Both changes are the same size.",
+      "Let the starting yellow count be y, so green starts at 3y. After the moves green is 3y + 2 and yellow is y − 2, and the new ratio says 3y + 2 = 4(y − 2)."
+    ],
+    "method": "Name the smaller starting group with a letter, update both groups by the net moves, then use the new ratio.",
+    "score": 5,
+    "ratingReason": "The ratio arithmetic is short, but the trap is the direction of the moves: a frog arriving on a side adds to that colour. Missing that makes the equation unsolvable.",
+    "solution": [
+      "Let the initial number of yellow frogs be y. The initial ratio 3 : 1 means there are 3y green frogs.",
+      "The moves change each group by 2. Green gains the 5 frogs arriving from the sun and loses the 3 leaving for the sun, so green becomes 3y + 2. Yellow loses 5 and gains 3, so yellow becomes y − 2.",
+      "The new ratio is 4 : 1, so 3y + 2 = 4(y − 2).",
+      "Expanding gives 3y + 2 = 4y − 8, so y = 10.",
+      "There are now 3(10) + 2 = 32 green frogs and 10 − 2 = 8 yellow frogs.",
+      "The difference is 32 − 8 = 24.",
+      "Answer: E (24)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1, 2, and 3.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Track the net change, not each move.",
+    "tip": "Both groups change by the same amount when frogs swap sides, so you only need one equation. Write the change as a single number and the ratio does the rest.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Moving frogs without changing their colour, or reading 3 : 1 and 4 : 1 as totals of 4 and 5 frogs. A ratio tells you the parts, never the size of the army.",
+    "reflection": "There are 40 frogs both before and after the moves. Why must the total stay the same, and how could starting from 40 instead of y lead you to the same answer?",
+    "alternative": "Total-first method: green is 3/4 = 15/20 of the army before and 4/5 = 16/20 after, so the 2 frogs of net gain are 1/20 of the army. The army has 40 frogs, giving 32 green and 8 yellow, a difference of 24.",
+    "reviewedAt": "2026-11-01"
+  },
+  "2024-22": {
+    "id": "2024-22",
+    "year": 2024,
+    "number": 22,
+    "suggestedPace": "2 min 30 sec",
+    "title": "How long is the tape?",
+    "topic": "Geometry · area from a diagram",
+    "prompt": "A roll of tape is 4 inches in diameter and is wrapped around a ring that is 2 inches in diameter. A cross section of the tape is shown in the figure below. The tape is 0.015 inches thick. If the tape is completely unrolled, approximately how long would it be? Round your answer to the nearest 100 inches.",
+    "wording": "restated",
+    "diagram": "./assets/diagram-2024-22.png",
+    "options": [
+      {
+        "letter": "A",
+        "value": 300,
+        "label": "300"
+      },
+      {
+        "letter": "B",
+        "value": 600,
+        "label": "600"
+      },
+      {
+        "letter": "C",
+        "value": 1200,
+        "label": "1200"
+      },
+      {
+        "letter": "D",
+        "value": 1500,
+        "label": "1500"
+      },
+      {
+        "letter": "E",
+        "value": 1800,
+        "label": "1800"
+      }
+    ],
+    "answer": 600,
+    "answerLabel": "(B) 600",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_22",
+    "hints": [
+      "Look at the tape from the side. Rolling and unrolling changes the shape of that side view, but not its area.",
+      "Rolled up, the side view is a ring with outer radius 2 inches and inner radius 1 inch. Unrolled, it is a long thin rectangle 0.015 inches wide.",
+      "The ring's area is π(2²) − π(1²) = 3π ≈ 9.42 square inches. Divide by the thickness: 9.42 ÷ 0.015 ≈ 628 inches."
+    ],
+    "method": "Side-view area stays the same: ring area ÷ tape thickness = unrolled length.",
+    "score": 6,
+    "ratingReason": "One idea solves it, but the idea is not obvious: the figure must be read as area rather than as circles, and the diameters must be turned into radii.",
+    "solution": [
+      "The side view of the rolled tape is a ring. Its outer diameter is 4 inches, so its outer radius is 2 inches, and its inner diameter is 2 inches, so its inner radius is 1 inch.",
+      "The ring's area is π(2²) − π(1²) = 4π − π = 3π square inches.",
+      "Unrolled, the tape's side view is a long thin rectangle. It is 0.015 inches wide and L inches long, so its area is 0.015L.",
+      "The area does not change, so 0.015L = 3π.",
+      "Then L = 3π ÷ 0.015 ≈ 3(3.1416) ÷ 0.015 ≈ 628 inches.",
+      "Rounded to the nearest 100 inches, the tape is about 600 inches long.",
+      "Answer: B (600)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 2, 3, and 4.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Area is the bridge between shapes.",
+    "tip": "A thin strip's area is width × length, so length = area ÷ width. Whenever a shape is rearranged without losing material, its area is the number that survives.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Using the 4-inch diameter as a radius, which doubles the ring's area and pushes the answer to about 1200. The figure labels diameters, not radii.",
+    "reflection": "The choices are 300, 600, 1200, 1500, and 1800. Which one comes from treating the whole roll as one circle of diameter 4, and why is that too big?",
+    "alternative": "Count layers instead of area: the ring is 1 ÷ 0.015 ≈ 66 layers thick, and an average layer sits at diameter 3 inches with circumference 3π. Then 66 × 3π ≈ 66 × 9.42 ≈ 620 inches, again closest to 600.",
+    "reviewedAt": "2026-11-01"
+  },
+  "2024-23": {
+    "id": "2024-23",
+    "year": 2024,
+    "number": 23,
+    "suggestedPace": "3 min",
+    "title": "Cells crossed by a long segment",
+    "topic": "Geometry · grid paths · Manhattan distance",
+    "prompt": "Rodrigo has a very large sheet of graph paper. First he draws a line segment connecting point (0,4) to point (2,0) and colors the 4 cells whose interiors intersect the segment, as shown below. Next Rodrigo draws a line segment connecting point (2000,3000) to point (5000,8000). How many cells will he color this time?",
+    "wording": "restated",
+    "diagram": "./assets/diagram-2024-23.png",
+    "facts": [
+      "Sample segment: (0,4) to (2,0), which colors 4 cells",
+      "New segment: (2000,3000) to (5000,8000)"
+    ],
+    "options": [
+      {
+        "letter": "A",
+        "value": 6000,
+        "label": "6000"
+      },
+      {
+        "letter": "B",
+        "value": 6500,
+        "label": "6500"
+      },
+      {
+        "letter": "C",
+        "value": 7000,
+        "label": "7000"
+      },
+      {
+        "letter": "D",
+        "value": 7500,
+        "label": "7500"
+      },
+      {
+        "letter": "E",
+        "value": 8000,
+        "label": "8000"
+      }
+    ],
+    "answer": 7000,
+    "answerLabel": "(C) 7000",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_23",
+    "hints": [
+      "Where the segment starts does not matter — only how far it travels. From (2000,3000) to (5000,8000) it moves right 3000 and up 5000.",
+      "The numbers 3000 and 5000 share a factor of 1000, so the whole segment is 1000 copies of a small segment that moves right 3 and up 5.",
+      "Draw the 3-by-5 piece. It crosses 2 interior vertical lines and 4 interior horizontal lines, so it enters 1 + 2 + 4 = 7 cells. Multiply by 1000."
+    ],
+    "method": "Shrink the segment by its greatest common divisor, count the small piece, then scale back up.",
+    "score": 7,
+    "ratingReason": "The reduction step is the whole problem, and nothing in the statement announces it. A learner who only looks at the two small coordinate differences gets 8000 and never sees the shared factor.",
+    "solution": [
+      "Only the change in position matters. The segment goes right 5000 − 2000 = 3000 and up 8000 − 3000 = 5000.",
+      "The greatest common divisor of 3000 and 5000 is 1000, so the full segment is 1000 copies of a segment that goes right 3 and up 5.",
+      "No lattice point lies inside one small piece, because 3 and 5 share no factor greater than 1. So each piece crosses grid lines cleanly, one new cell at a time.",
+      "Inside a 3-by-5 piece the segment crosses 3 − 1 = 2 interior vertical grid lines and 5 − 1 = 4 interior horizontal grid lines. That is 6 crossings.",
+      "Starting in the first cell and adding one cell per crossing, each piece passes through 6 + 1 = 7 cells.",
+      "The full segment is 1000 such pieces, so it colors 1000 × 7 = 7000 cells.",
+      "Answer: C (7000)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solution 1 and its stated general form.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Cells crossed = Δx + Δy − gcd(Δx, Δy).",
+    "tip": "The subtraction fixes the double counting that happens when the segment passes exactly through a grid corner, where it enters two new cells at once.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Answering 8000 with Δx + Δy, which counts a lattice point twice. The sample segment shows the effect: 2 + 4 = 6, but only 4 cells are colored.",
+    "reflection": "Check the sample with the formula: Δx = 2, Δy = 4, gcd = 2, so 2 + 4 − 2 = 4 cells. Why does the gcd matter for this segment but not for a segment with coprime steps?",
+    "alternative": "Use the formula in one line: 3000 + 5000 − gcd(3000, 5000) = 8000 − 1000 = 7000. The same formula gives 2 + 4 − 2 = 4 for the sample.",
+    "reviewedAt": "2026-11-01"
+  },
+  "2024-24": {
+    "id": "2024-24",
+    "year": 2024,
+    "number": 24,
+    "suggestedPace": "2 min 30 sec",
+    "title": "Two mountains of stained glass",
+    "topic": "Geometry · Pythagorean theorem",
+    "prompt": "Jean has made a piece of stained glass art in the shape of two mountains, as shown in the figure below. One mountain peak is 8 feet high while the other peak is 12 feet high. Each peak forms a 90° angle, and the straight sides form a 45° angle with the ground. The artwork has an area of 183 square feet. The sides of the mountain meet at an intersection point near the center of the artwork, h feet above the ground. What is the value of h?",
+    "wording": "restated",
+    "diagram": "./assets/diagram-2024-24.png",
+    "options": [
+      {
+        "letter": "A",
+        "value": 4,
+        "label": "4"
+      },
+      {
+        "letter": "B",
+        "value": 5,
+        "label": "5"
+      },
+      {
+        "letter": "C",
+        "value": "4√2",
+        "label": "4√2"
+      },
+      {
+        "letter": "D",
+        "value": 6,
+        "label": "6"
+      },
+      {
+        "letter": "E",
+        "value": "5√2",
+        "label": "5√2"
+      }
+    ],
+    "answer": 5,
+    "answerLabel": "(B) 5",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_24",
+    "hints": [
+      "Extend the inner side of each mountain down to the ground. The artwork then looks like two triangles that overlap near the middle.",
+      "A 45°–45°–90° triangle of height H has base 2H, so its area is H². The two mountains have areas 144 and 64.",
+      "The overlap is the same shape with height h, so its area is h². Add both mountains and remove the piece counted twice: 144 + 64 − h² = 183."
+    ],
+    "method": "Overlapping-area subtraction: two triangle areas minus the shared piece equals the artwork.",
+    "score": 7,
+    "ratingReason": "The art is drawn as one gray region, so the two-triangle structure has to be imposed on it. The overlap is invisible until you extend the inner slopes to the ground.",
+    "solution": [
+      "Each mountain is a 45°–45°–90° triangle, because its peak is 90° and both base angles are 45°. A mountain of height H has base 2H, so its area is 2H × H ÷ 2 = H².",
+      "The taller mountain has height 12, so its area is 12² = 144 square feet.",
+      "The shorter mountain has height 8, so its area is 8² = 64 square feet.",
+      "The two triangles overlap below the intersection point. That shared piece is the same 45° shape with height h, so its area is h².",
+      "The artwork is both triangles with the shared piece counted once, so 144 + 64 − h² = 183.",
+      "Then h² = 208 − 183 = 25, so h = 5.",
+      "Answer: B (5)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solution 1, with the area formula stated for a general 45° peak.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Find the shape that is counted twice.",
+    "tip": "Regions drawn as one silhouette are often easier as overlapping simple shapes. Add the pieces, then subtract each overlap exactly once.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Using 12√2, the slanted side, as the height, or adding the areas instead of subtracting the overlap. The slant is longer than the height in a 45° triangle.",
+    "reflection": "The overlap triangle is similar to both mountains. What is the ratio of its area to the 8-foot mountain's area, and how does that match 25 to 64?",
+    "alternative": "Volume-style check: the artwork equals a 12-foot mountain plus an 8-foot mountain minus a 5-foot mountain, so 183 = 144 + 64 − 25. Any two of the three numbers determine the third.",
+    "reviewedAt": "2026-11-01"
+  },
+  "2024-25": {
+    "id": "2024-25",
+    "year": 2024,
+    "number": 25,
+    "suggestedPace": "3 min",
+    "title": "Two seats together on the plane",
+    "topic": "Counting-Probability",
+    "prompt": "A small airplane has 4 rows of seats with 3 seats in each row. Eight passengers have boarded the plane and are distributed randomly among the seats. A married couple is next to board. What is the probability there will be 2 adjacent seats in the same row for the couple?",
+    "wording": "restated",
+    "diagram": "./assets/diagram-2024-25.png",
+    "facts": [
+      "4 rows, 3 seats in each row — 12 seats in all",
+      "8 passengers are already seated",
+      "The couple needs 2 seats side by side in one row"
+    ],
+    "options": [
+      {
+        "letter": "A",
+        "value": "8/15",
+        "label": "8/15"
+      },
+      {
+        "letter": "B",
+        "value": "32/55",
+        "label": "32/55"
+      },
+      {
+        "letter": "C",
+        "value": "20/33",
+        "label": "20/33"
+      },
+      {
+        "letter": "D",
+        "value": "34/55",
+        "label": "34/55"
+      },
+      {
+        "letter": "E",
+        "value": "8/11",
+        "label": "8/11"
+      }
+    ],
+    "answer": "20/33",
+    "answerLabel": "(C) 20/33",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_25",
+    "hints": [
+      "Eight of the 12 seats are taken, so 4 are free. The couple's chance depends only on where the 4 free seats sit.",
+      "Count the opposite: arrangements where no row has two free seats side by side. In a row of 3 that means the free pair, if there is one, must be the two end seats.",
+      "Split the 4 free seats among the 4 rows and handle the patterns 2-2-0-0, 2-1-1-0, and 1-1-1-1. They give 6, 108, and 81 arrangements that block the couple."
+    ],
+    "method": "Complementary counting on the 4 empty seats, split into row patterns.",
+    "score": 8,
+    "ratingReason": "The counting is not long, but every case must be seen and the complement must be taken at the end. Missing one pattern, or forgetting to subtract from 1, produces a plausible wrong choice.",
+    "solution": [
+      "Only the 4 free seats matter, so choose them from the 12 seats. There are C(12,4) = 495 equally likely arrangements.",
+      "Now count the arrangements where the couple has no adjacent pair. A row of 3 with 2 free seats blocks them only when the free pair is the two ends, leaving the middle seat taken.",
+      "Describe an arrangement by how many free seats each row has. The patterns are 4-0-0-0, 3-1-0-0, 2-2-0-0, 2-1-1-0, and 1-1-1-1.",
+      "A row with 4 or 3 free seats in a 3-seat row always contains an adjacent pair, so 4-0-0-0 and 3-1-0-0 give 0 blocking arrangements.",
+      "2-2-0-0: each of the two rows with 2 free seats must use its end pair, 1 way each. Choose the 2 rows in C(4,2) = 6 ways, giving 6 arrangements.",
+      "2-1-1-0: choose the row with 2 free seats (4 ways), the two rows with 1 free seat (C(3,2) = 3 ways), the end pair (1 way), and one seat in each single row (3 × 3 ways). That is 4 × 3 × 1 × 9 = 108 arrangements.",
+      "1-1-1-1: one free seat in every row, 3 choices each row, giving 3⁴ = 81 arrangements.",
+      "So 6 + 108 + 81 = 195 arrangements leave the couple with no pair, and 495 − 195 = 300 give them one.",
+      "The probability is 300/495 = 20/33.",
+      "Answer: C (20/33)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1 and 2.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Count the empty seats, not the people.",
+    "tip": "The question is about where a pair of empty seats can be, so the empty seats are the natural objects to count. Choosing 4 from 12 is also the denominator, so one choice does double duty.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Multiplying 8/15 by something, or forgetting the final complement. 195/495 is the chance of no pair, so the answer is 1 − 195/495, not 195/495.",
+    "reflection": "The denominator C(12,4) treats the seats as unordered even though the passengers are real, distinct people. Why does labelling the passengers not change the probability?",
+    "alternative": "AoPS Solution 1 counts the same 195 arrangements from the eight occupied seats instead, grouping the rows as 3-3-2-0, 3-3-1-1, 3-2-2-1, and 2-2-2-2. Those cases give 0 + 6 + 108 + 81 as well, so the answer is the same 1 − 195/495 = 20/33.",
+    "reviewedAt": "2026-11-01"
   }
 };

@@ -6478,5 +6478,466 @@ export const coachGuides = {
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_20",
       "credit": "Whole-cube counting practice and coaching authored by Hermes Agent, using the face-diagonal method of AoPS Solutions 1 and 2."
     }
+  },
+  "2024-21": {
+    "intro": "This one changes twice: frogs move, and colours change with them. Decide what happens to each side before you write anything down.",
+    "checks": [
+      {
+        "id": "net-change",
+        "prompt": "Three green frogs leave the shade and five yellow frogs arrive in the shade. What happens to the number of green frogs?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Green goes up by 2, because it loses 3 and gains 5",
+            "correct": true,
+            "feedback": "Correct. A frog that moves into the shade turns green, so the shade both loses and gains frogs. The net change is +5 − 3 = +2."
+          },
+          {
+            "id": "b",
+            "label": "Green goes down by 3, because three green frogs left",
+            "correct": false,
+            "feedback": "Those 3 frogs do leave, but 5 yellow frogs move in and turn green in the shade. Counting only the departures gives green a loss of 3 instead of a gain of 2."
+          }
+        ]
+      },
+      {
+        "id": "ratio-is-parts",
+        "prompt": "The ratio starts at 3 : 1 and becomes 4 : 1. Does that mean the army grew?",
+        "options": [
+          {
+            "id": "a",
+            "label": "No — the total is unchanged; only the shares changed",
+            "correct": true,
+            "feedback": "Right. No frog joins or leaves the tree, so the army is the same size. Only the split between green and yellow moved."
+          },
+          {
+            "id": "b",
+            "label": "Yes — a ratio of 4 : 1 means 5 frogs, so the army grew from 4 to 5",
+            "correct": false,
+            "feedback": "A ratio compares parts, not totals. 3 : 1 could be 3 and 1, or 30 and 10, or 300 and 100. The total comes from the equation, not from the ratio itself."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-21-a",
+      "sourceProblem": "2024-21",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "The same army of frogs starts with a green-to-yellow ratio of 2 : 1. Then 5 green frogs move to the sunny side and 7 yellow frogs move to the shady side, and the ratio becomes 3 : 1. What is the difference between the number of green frogs and the number of yellow frogs now?",
+      "facts": [
+        "Green : yellow starts at 2 : 1",
+        "5 green frogs move to the sun and 7 yellow frogs move to the shade",
+        "Green : yellow is now 3 : 1"
+      ],
+      "options": [
+        {
+          "letter": "A",
+          "value": 12,
+          "label": "12"
+        },
+        {
+          "letter": "B",
+          "value": 18,
+          "label": "18"
+        }
+      ],
+      "answer": 12,
+      "answerLabel": "(A) 12",
+      "solution": [
+        "Let the starting yellow count be y, so green starts at 2y.",
+        "Green gains 7 arrivals and loses 5 departures, so green becomes 2y + 2. Yellow loses 7 and gains 5, so yellow becomes y − 2.",
+        "The new ratio is 3 : 1, so 2y + 2 = 3(y − 2).",
+        "Then 2y + 2 = 3y − 6, so y = 8 and green started at 16.",
+        "Now green is 2(8) + 2 = 18 and yellow is 8 − 2 = 6.",
+        "The difference is 18 − 6 = 12."
+      ],
+      "reflection": {
+        "id": "adapted-21-total",
+        "prompt": "True or false: the army still has 24 frogs after the moves, because no frog entered or left the tree.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. Before the moves there are 16 green and 8 yellow, and after them 18 green and 6 yellow. Both add to 24."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Frogs only switch sides, so the total cannot change. Check it: 18 + 6 = 24, the same as 16 + 8."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_21",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the move-tracking method of AoPS Solutions 1 and 3."
+    }
+  },
+  "2024-22": {
+    "intro": "The tape looks like circles, but the question asks for a length. Look for a quantity that survives the unrolling.",
+    "checks": [
+      {
+        "id": "what-stays",
+        "prompt": "Rolled up or unrolled, which quantity of the tape's side view stays the same?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Its area",
+            "correct": true,
+            "feedback": "Yes. The tape is the same material in both pictures, so the side-view area is unchanged. Rolled up it is a ring; unrolled it is a long thin rectangle."
+          },
+          {
+            "id": "b",
+            "label": "Its perimeter",
+            "correct": false,
+            "feedback": "The perimeter changes a lot — the ring's outline is short compared with a 600-inch strip. Area is the quantity that is preserved."
+          }
+        ]
+      },
+      {
+        "id": "diameter-to-radius",
+        "prompt": "The figure labels the roll as 4 inches across and the ring as 2 inches across. What are the radii?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Outer radius 2 inches, inner radius 1 inch",
+            "correct": true,
+            "feedback": "Correct. A diameter is the full width, so each radius is half of it. The ring's area is π(2²) − π(1²) = 3π."
+          },
+          {
+            "id": "b",
+            "label": "Outer radius 4 inches, inner radius 2 inches",
+            "correct": false,
+            "feedback": "That treats the widths as radii, which makes the ring four times too big and points at 1200. Halve each width first."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-22-a",
+      "sourceProblem": "2024-22",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "A roll of tape is 4 inches in diameter and is wrapped around a ring that is 2 inches in diameter. This brand of tape is 0.01 inches thick. If the tape is completely unrolled, approximately how long would it be? Round your answer to the nearest 100 inches.",
+      "facts": [
+        "Outer diameter 4 inches, inner diameter 2 inches",
+        "Tape thickness 0.01 inches"
+      ],
+      "options": [
+        {
+          "letter": "A",
+          "value": 900,
+          "label": "900"
+        },
+        {
+          "letter": "B",
+          "value": 1200,
+          "label": "1200"
+        }
+      ],
+      "answer": 900,
+      "answerLabel": "(A) 900",
+      "solution": [
+        "The side view is a ring with outer radius 2 and inner radius 1, so its area is π(2²) − π(1²) = 3π ≈ 9.42 square inches.",
+        "Unrolled, the side view is a rectangle 0.01 inches wide and L inches long, with area 0.01L.",
+        "Setting the areas equal gives 0.01L = 3π, so L ≈ 9.42 ÷ 0.01 ≈ 942 inches.",
+        "Rounded to the nearest 100 inches, the tape is about 900 inches long."
+      ],
+      "reflection": {
+        "id": "adapted-22-thinner",
+        "prompt": "True or false: making the tape thinner makes the unrolled strip longer, because the same area is now spread across a narrower width.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. The area is fixed by the roll, and length = area ÷ thickness, so a smaller thickness gives a larger length."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Thickness appears in the denominator: L = 3π ÷ thickness. Halving the thickness doubles the length, which is why 0.01 inches gives about 942 instead of 628."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_22",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the area-preserving method of AoPS Solutions 3 and 4."
+    }
+  },
+  "2024-23": {
+    "intro": "The coordinates are huge on purpose. Before you count anything, look for a smaller segment hidden inside the big one.",
+    "checks": [
+      {
+        "id": "only-differences",
+        "prompt": "The segment runs from (2000,3000) to (5000,8000). Which numbers decide how many cells it crosses?",
+        "options": [
+          {
+            "id": "a",
+            "label": "The changes, 3000 across and 5000 up",
+            "correct": true,
+            "feedback": "Correct. Sliding a segment without turning it crosses the same grid lines, so only Δx = 3000 and Δy = 5000 matter."
+          },
+          {
+            "id": "b",
+            "label": "The starting point, (2000,3000)",
+            "correct": false,
+            "feedback": "Moving the whole picture right and up does not change how many cell boundaries the segment cuts. The differences are what count."
+          }
+        ]
+      },
+      {
+        "id": "why-gcd",
+        "prompt": "Why does gcd(3000, 5000) = 1000 appear in the answer?",
+        "options": [
+          {
+            "id": "a",
+            "label": "It is the number of identical small pieces the segment splits into",
+            "correct": true,
+            "feedback": "Right. The segment passes through 1000 − 1 = 999 lattice points between its ends, cutting it into 1000 copies of a right-3, up-5 piece."
+          },
+          {
+            "id": "b",
+            "label": "It is the number of cells to subtract because of corners",
+            "correct": false,
+            "feedback": "The subtraction is the gcd itself, not a count of pieces — 8000 − 1000. The gcd is also the number of equal pieces, which is why both roles agree."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-23-a",
+      "sourceProblem": "2024-23",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Rodrigo draws a line segment from point (0,0) to point (1500,1000) on a very large sheet of graph paper and colors every cell whose interior the segment crosses. How many cells does he color?",
+      "facts": [
+        "Segment from (0,0) to (1500,1000)"
+      ],
+      "options": [
+        {
+          "letter": "A",
+          "value": 2000,
+          "label": "2000"
+        },
+        {
+          "letter": "B",
+          "value": 2500,
+          "label": "2500"
+        }
+      ],
+      "answer": 2000,
+      "answerLabel": "(A) 2000",
+      "solution": [
+        "The segment moves right 1500 and up 1000.",
+        "Cells crossed equals Δx + Δy − gcd(Δx, Δy), and gcd(1500, 1000) = 500.",
+        "So the count is 1500 + 1000 − 500 = 2000 cells."
+      ],
+      "reflection": {
+        "id": "adapted-23-corners",
+        "prompt": "True or false: the 500 subtracted is exactly the number of times the segment passes through a lattice point between its two ends, plus one for the starting point.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. There are gcd − 1 = 499 interior lattice points, and adding the starting cell gives 500 — the amount subtracted."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Count them: the segment is split into 500 equal pieces, so there are 499 interior lattice points. Together with the first cell, that is 500."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_23",
+      "credit": "Changed-coordinate practice and coaching authored by Hermes Agent, using the gcd formula stated in AoPS Solution 1."
+    }
+  },
+  "2024-24": {
+    "intro": "The art is one gray shape, which makes it hard to measure. Find two simple shapes whose overlap explains it.",
+    "checks": [
+      {
+        "id": "area-of-peak",
+        "prompt": "A mountain peak is 90°, both sides make 45° with the ground, and the peak is H feet high. What is its area?",
+        "options": [
+          {
+            "id": "a",
+            "label": "H², because the base is 2H",
+            "correct": true,
+            "feedback": "Correct. The triangle is 45°–45°–90°, so each half is isosceles and the base is 2H. Area = 2H × H ÷ 2 = H²."
+          },
+          {
+            "id": "b",
+            "label": "2H², because both slanted sides are H√2",
+            "correct": false,
+            "feedback": "H√2 is the slanted side, not the base. Using it as a base mixes up length and area; the base is 2H."
+          }
+        ]
+      },
+      {
+        "id": "overlap-sign",
+        "prompt": "The two mountain areas add to 208, but the artwork is only 183 square feet. What does the difference represent?",
+        "options": [
+          {
+            "id": "a",
+            "label": "The piece counted twice — the overlap between the two triangles",
+            "correct": true,
+            "feedback": "Right. 208 − 183 = 25 is the shared piece. It is a 45° triangle of height h, so h² = 25 and h = 5."
+          },
+          {
+            "id": "b",
+            "label": "A mistake — the areas should have added to 183",
+            "correct": false,
+            "feedback": "The sum is bigger on purpose, because the middle region belongs to both mountains. Removing the double count is the point of the problem."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-24-a",
+      "sourceProblem": "2024-24",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "A stained glass artwork is made of two overlapping mountains. One peak is 10 feet high and the other is 14 feet high. Each peak forms a 90° angle, the straight sides make a 45° angle with the ground, and the sides meet at an intersection h feet above the ground. If the artwork has an area of 260 square feet, what is the value of h?",
+      "facts": [
+        "Peaks 10 feet and 14 feet high, each a 90° peak",
+        "Sides make 45° with the ground",
+        "Total artwork area 260 square feet"
+      ],
+      "options": [
+        {
+          "letter": "A",
+          "value": 6,
+          "label": "6"
+        },
+        {
+          "letter": "B",
+          "value": 36,
+          "label": "36"
+        }
+      ],
+      "answer": 6,
+      "answerLabel": "(A) 6",
+      "solution": [
+        "A 45° peak of height H has base 2H, so its area is H².",
+        "The two mountains have areas 14² = 196 and 10² = 100 square feet.",
+        "The overlap is another 45° triangle with height h, so its area is h².",
+        "Then 196 + 100 − h² = 260, giving h² = 296 − 260 = 36.",
+        "So h = 6."
+      ],
+      "reflection": {
+        "id": "adapted-24-square",
+        "prompt": "True or false: h² = 36 means the overlap triangle has area 36 square feet, and h itself is the square root.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. The subtraction gives an area, and the height is the square root of that area: √36 = 6 feet."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "36 is an area in square feet. Answering h = 36 would put the intersection far above the 14-foot peak, so take the square root: h = 6."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_24",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the overlap-subtraction method of AoPS Solution 1."
+    }
+  },
+  "2024-25": {
+    "intro": "Four seats are free and the couple needs two side by side. Counting where the free seats can sit is easier than counting people.",
+    "checks": [
+      {
+        "id": "count-empty-seats",
+        "prompt": "Twelve seats, eight already taken. What should you count to answer the question?",
+        "options": [
+          {
+            "id": "a",
+            "label": "The 4 free seats — choose 4 of the 12 seats, C(12,4) = 495 ways",
+            "correct": true,
+            "feedback": "Correct. Whether a pair is free depends only on which 4 seats are free, so those 495 arrangements form the denominator."
+          },
+          {
+            "id": "b",
+            "label": "The 8 passengers — arrange 8 people in 12 seats, 12 × 11 × … ways",
+            "correct": false,
+            "feedback": "That counts more arrangements, but each free-seat pattern is counted the same number of times, so the probability is identical. Counting free seats keeps the numbers small."
+          }
+        ]
+      },
+      {
+        "id": "complement",
+        "prompt": "After counting the arrangements with no adjacent pair, what do you do with 195 and 495?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Subtract: 1 − 195/495 = 20/33",
+            "correct": true,
+            "feedback": "Right. 195 counts the cases where the couple is blocked, which is what you counted. The question asks for the opposite, so subtract from 1."
+          },
+          {
+            "id": "b",
+            "label": "Report 195/495 directly, since that is the casework total",
+            "correct": false,
+            "feedback": "195/495 is the chance of no pair, so it answers the opposite question. The answer choices include 20/33 but not 195/495."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-25-a",
+      "sourceProblem": "2024-25",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "A small airplane has 4 rows of seats with 3 seats in each row. Seven passengers have boarded and are distributed randomly among the seats. A married couple is next to board. What is the probability there will be 2 adjacent seats in the same row for the couple?",
+      "facts": [
+        "4 rows, 3 seats in each row — 12 seats in all",
+        "7 passengers are already seated, so 5 seats are free"
+      ],
+      "options": [
+        {
+          "letter": "A",
+          "value": "9/11",
+          "label": "9/11"
+        },
+        {
+          "letter": "B",
+          "value": "1/5",
+          "label": "1/5"
+        }
+      ],
+      "answer": "9/11",
+      "answerLabel": "(A) 9/11",
+      "solution": [
+        "Five seats are free, so there are C(12,5) = 792 arrangements of the free seats.",
+        "Count the opposite: arrangements where no row has two free seats side by side. A row of 3 with 2 free seats blocks the couple only when its free pair is the two ends.",
+        "A row holding 3 or more free seats always contains an adjacent pair, so a blocking arrangement can only use the row patterns 2-2-1-0 and 2-1-1-1.",
+        "2-2-1-0: choose the two rows holding 2 free seats (C(4,2) = 6 ways), both must use their end pair (1 way each), then choose which of the remaining 2 rows holds the single free seat (2 ways) and which of its 3 seats (3 ways). That is 6 × 2 × 3 = 36.",
+        "2-1-1-1: choose the row holding 2 free seats (4 ways), it must use its end pair, and each of the other three rows has one free seat in any of 3 positions. That is 4 × 3 × 3 × 3 = 108.",
+        "So 36 + 108 = 144 arrangements block the couple out of 792, and 792 − 144 = 648 give them an adjacent pair.",
+        "The probability is 648/792 = 9/11."
+      ],
+      "reflection": {
+        "id": "adapted-25-more-free",
+        "prompt": "True or false: with 5 free seats instead of 4 the chance of a pair is higher than the 20/33 in the original problem.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. 9/11 ≈ 0.82 is well above 20/33 ≈ 0.61 — one extra free seat makes an adjacent pair much more likely."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Extra free seats can only help the couple. Compare the numbers: 9/11 ≈ 0.82 against 20/33 ≈ 0.61."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_25",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the free-seat casework of AoPS Solution 2."
+    }
   }
 };
