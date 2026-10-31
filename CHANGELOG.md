@@ -20,6 +20,7 @@
 - Added the five new topic strings to the home breakdown so "Other" stays at zero for all 80 problems, and updated the library-count and adaptation-count assertions.
 - Passed `node verify.mjs` with new assertions that recompute every answer and adaptation — an exhaustive search confirming exactly two valid labellings for P21, both giving 12; divisor and equation checks for P22 and P24; factorisations of all six candidates for P23; and a brute-force 2 × 2 diamond check for the quoted average of 2. `node --check` passed on the changed modules. Layout, physical iPad rendering, and actual video playback remain unverified.
 - **Not published:** the previous batch (2025 Problems 16–20, commit `c902dcf`) and this one are committed locally only. The GitHub token is still missing from `C:\Users\aishare\.hermes\.env`, so no push to `origin/main` was possible. Both batches are backed up under `C:\Users\aishare\amc-pending\`.
+- **Published 2026-10-31:** both commits (`c902dcf`, `88f4a17`) were pushed to `origin/main` and GitHub Pages rebuilt; the live site now shows 25 problems for 2025.
 
 ## 2026-10-26 — 2025 AMC 8 Problems 16–20 (Hermes Agent)
 
