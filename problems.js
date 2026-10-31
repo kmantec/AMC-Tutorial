@@ -4663,5 +4663,344 @@ export const problems = {
     "reflection": "8 × 124 = 992 is larger than 984. Why does the distinct-digit rule knock out the larger number and keep the smaller one?",
     "alternative": "Work digit by digit with carries. The units column forces 8 × Y to end in G, the tens column forces 8 × L plus the carry to end in U, and the hundreds column forces 8 × F plus the carry to end in B with a possible carry out. Searching from the largest F downward is the same as the division above but slower unless you are careful, which mirrors why AoPS Solution 1 factors out 1001.",
     "reviewedAt": "2026-10-31"
+  },
+  "2024-16": {
+    "id": "2024-16",
+    "year": 2024,
+    "number": 16,
+    "suggestedPace": "2 min 30 sec",
+    "title": "Rows and columns divisible by three",
+    "topic": "Number theory · divisibility",
+    "prompt": "Minh enters the numbers 1 through 81 into the cells of a 9 × 9 grid, one number per cell, in some order. She then calculates the product of the nine numbers in each row and the product of the nine numbers in each column. What is the least number of rows and columns that could have a product divisible by 3?",
+    "wording": "restated",
+    "facts": [
+      "Grid: 9 × 9, holding the numbers 1 through 81 once each",
+      "Each row and each column has a product of its nine numbers",
+      "Count rows plus columns whose product is divisible by 3"
+    ],
+    "options": [
+      {
+        "letter": "A",
+        "value": 8,
+        "label": "8"
+      },
+      {
+        "letter": "B",
+        "value": 9,
+        "label": "9"
+      },
+      {
+        "letter": "C",
+        "value": 10,
+        "label": "10"
+      },
+      {
+        "letter": "D",
+        "value": 11,
+        "label": "11"
+      },
+      {
+        "letter": "E",
+        "value": 12,
+        "label": "12"
+      }
+    ],
+    "answer": 11,
+    "answerLabel": "(D) 11",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_16",
+    "hints": [
+      "A product is divisible by 3 as soon as one factor in it is a multiple of 3. Start by counting the multiples of 3 among the numbers 1 through 81.",
+      "There are 27 multiples of 3. To keep the answer small, those 27 numbers should share as few rows and columns as possible.",
+      "The cells holding the 27 multiples of 3 form a rectangle a cells wide and b cells tall. You need a × b at least 27, and the number of rows plus columns is a + b."
+    ],
+    "method": "Count the multiples of 3, pack them into the smallest rectangle, and compare a + b.",
+    "score": 7,
+    "ratingReason": "Short once you see that one multiple of 3 decides a whole row, but the optimisation step — testing 4 × 7 against 5 × 5 — is where most solvers stop early.",
+    "solution": [
+      "In 1 through 81 there are 81 ÷ 3 = 27 multiples of 3.",
+      "A row or column has a product divisible by 3 exactly when at least one of its cells holds a multiple of 3.",
+      "So the question becomes: how few rows and columns can together contain all 27 multiples of 3?",
+      "The cells being counted form a rectangle a cells wide and b cells tall, so a × b is at least 27 and the number of lines is a + b.",
+      "If a + b were 10, the largest possible rectangle is 5 × 5 = 25 cells, which cannot hold 27 numbers.",
+      "If a + b is 11, a 4 × 7 rectangle has 28 cells, enough for all 27 multiples of 3, using 4 rows and 7 columns.",
+      "So 10 is impossible and 11 is possible, and the least number of rows and columns is 11.",
+      "Answer: D (11)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1 and 3.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "One multiple of 3 is enough.",
+    "tip": "Divisibility by 3 only needs a single multiple of 3 in the whole row or column, so the problem is really about packing 27 special cells into a rectangle. Push the two sides of that rectangle as close together as the packing allows.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Answering 12 by noticing 3 × 9 = 27 and stopping there, without trying a 4 × 7 rectangle, whose sides add to only 11.",
+    "reflection": "Why does the answer count rows plus columns rather than the rows multiplied by the columns?",
+    "alternative": "Start from 27 = 3 × 9, which gives 3 + 9 = 12 lines, then look for a rectangle of at least 27 cells with a smaller sum of sides. A sum of 11 allows at most 5 × 6 = 30 but the useful shape is 4 × 7 = 28, and a sum of 10 caps the area at 5 × 5 = 25. AoPS Solution 1 states the same thing as minimising a + b subject to ab ≥ 27.",
+    "reviewedAt": "2026-10-31"
+  },
+  "2024-17": {
+    "id": "2024-17",
+    "year": 2024,
+    "number": 17,
+    "suggestedPace": "2 min",
+    "title": "Two kings that cannot see each other",
+    "topic": "Combinatorics · counting cases",
+    "prompt": "A chess king attacks every square one step away from it — horizontally, vertically, or diagonally. For example, a king on the centre square of a 3 × 3 grid attacks all 8 other squares, as shown. A white king and a black king are placed on two different squares of a 3 × 3 grid so that neither king attacks the other. In how many ways can this be done?",
+    "wording": "restated",
+    "diagram": "./assets/diagram-2024-17.png",
+    "options": [
+      {
+        "letter": "A",
+        "value": 20,
+        "label": "20"
+      },
+      {
+        "letter": "B",
+        "value": 24,
+        "label": "24"
+      },
+      {
+        "letter": "C",
+        "value": 27,
+        "label": "27"
+      },
+      {
+        "letter": "D",
+        "value": 28,
+        "label": "28"
+      },
+      {
+        "letter": "E",
+        "value": 32,
+        "label": "32"
+      }
+    ],
+    "answer": 32,
+    "answerLabel": "(E) 32",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_17",
+    "hints": [
+      "Think about the centre square first. What does a king in the centre leave for the other king?",
+      "The other eight squares are of two kinds: the four corners and the four edge middles. Count how many squares each kind leaves free.",
+      "A corner king attacks only 3 squares, so 8 − 3 = 5 squares stay free. An edge-middle king attacks 5 squares, so only 8 − 5 = 3 stay free."
+    ],
+    "method": "Split the squares by type — corner, edge middle, centre — then multiply the squares of each type by the safe squares it leaves.",
+    "score": 5,
+    "ratingReason": "The idea appears as soon as you notice the centre is unusable; the rest is careful casework with no overlap between cases.",
+    "solution": [
+      "A king on the centre square attacks all eight other squares, so the centre can never hold one of the two kings.",
+      "Put the first king on a corner. It attacks 3 squares, leaving 8 − 3 = 5 safe squares for the second king. There are 4 corners, so that gives 4 × 5 = 20 arrangements.",
+      "Put the first king on an edge middle. It attacks 5 squares, leaving 8 − 5 = 3 safe squares. There are 4 edge middles, so that gives 4 × 3 = 12 arrangements.",
+      "The centre contributes nothing, so the total is 20 + 12 = 32.",
+      "Each arrangement is counted exactly once, because the casework starts from where the white king sits and then counts only the black king's squares.",
+      "Answer: E (32)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1 and 3.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Sort the squares by type, then multiply.",
+    "tip": "Instead of listing pairs of squares, group the squares by how many squares their king attacks. Corners attack 3, edge middles attack 5, and the centre attacks 8 — so the centre is never usable.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Counting each pair of squares only once and reporting 16, or forgetting that swapping the two kings gives a different placement of a white king and a black king.",
+    "reflection": "Why does the centre square never appear in a valid placement, no matter which king is placed there first?",
+    "alternative": "Count the other way. There are 9 × 8 = 72 ordered placements of the two kings, so subtract the attacking ones: a corner king attacks 3 squares, an edge-middle king 5, and a centre king 8, giving 4 × 3 + 4 × 5 + 1 × 8 = 40 attacking placements. Then 72 − 40 = 32, the same answer by complementary counting, which is how AoPS Solution 3 builds it.",
+    "reviewedAt": "2026-10-31"
+  },
+  "2024-18": {
+    "id": "2024-18",
+    "year": 2024,
+    "number": 18,
+    "suggestedPace": "2 min 30 sec",
+    "title": "Equal shaded and unshaded rings",
+    "topic": "Geometry · area from a diagram",
+    "prompt": "Three concentric circles centred at O have radii 1, 2, and 3. Points B and C lie on the largest circle. The region between the two smaller circles is shaded, and so is the part of the region between the two larger circles inside the central angle ∠BOC, as shown. The shaded and unshaded regions have equal area. What is the measure of ∠BOC, in degrees?",
+    "wording": "restated",
+    "diagram": "./assets/diagram-2024-18.png",
+    "options": [
+      {
+        "letter": "A",
+        "value": 108,
+        "label": "108"
+      },
+      {
+        "letter": "B",
+        "value": 120,
+        "label": "120"
+      },
+      {
+        "letter": "C",
+        "value": 135,
+        "label": "135"
+      },
+      {
+        "letter": "D",
+        "value": 144,
+        "label": "144"
+      },
+      {
+        "letter": "E",
+        "value": 150,
+        "label": "150"
+      }
+    ],
+    "answer": 108,
+    "answerLabel": "(A) 108",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_18",
+    "hints": [
+      "Work in multiples of π and leave π out of the arithmetic. The largest circle has area 9π, and the two colours cover it equally.",
+      "The shaded inner part is a whole ring, and the shaded outer part is only a slice of the ring between radii 2 and 3.",
+      "Find the slice's area by subtraction, then ask what fraction of that ring the slice is."
+    ],
+    "method": "Find the shaded area required, subtract the full inner ring, and convert the remaining slice into a fraction of 360°.",
+    "score": 7,
+    "ratingReason": "Nothing here is hard on its own, but three areas have to be kept straight and the sector must be scaled against the outer ring, not against the whole circle.",
+    "solution": [
+      "The largest circle has area π × 3² = 9π, so the shaded region and the unshaded region each have area 4.5π.",
+      "The shaded piece between radii 1 and 2 is a complete ring: 4π − π = 3π.",
+      "The ring between radii 2 and 3 has area 9π − 4π = 5π, and only its sector ∠BOC is shaded.",
+      "That sector must therefore have area 4.5π − 3π = 1.5π.",
+      "The sector is 1.5π ÷ 5π = 0.3 of the whole outer ring, so ∠BOC = 0.3 × 360° = 108°.",
+      "Check: the unshaded part is π from the centre circle plus 0.7 × 5π = 3.5π from the rest of the outer ring, which is 4.5π, matching the shaded area.",
+      "Answer: A (108)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1, 2, and 4.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Area first, angle second.",
+    "tip": "Shaded area equals the inner ring plus a slice of the outer ring. Compute the slice's area by subtraction, then turn that area into a fraction of the outer ring and multiply by 360°.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Scaling the slice against the whole circle instead of against the outer ring, or finding 0.3 of 360° and then reporting the unshaded angle 252°.",
+    "reflection": "The shaded inner ring has area 3π while the unshaded centre is only π. Why is the answer still less than 180°?",
+    "alternative": "Let x be the fraction of a full turn in ∠BOC. The outer ring adds 5x to the shaded area and 5(1 − x) to the unshaded area, while the inner ring adds 3 to the shaded side and the centre circle adds 1 to the unshaded side. Setting 1 + 5(1 − x) = 3 + 5x gives 6 − 5x = 3 + 5x, so x = 0.3 and the angle is 108°, which is the route AoPS Solution 4 takes.",
+    "reviewedAt": "2026-10-31"
+  },
+  "2024-19": {
+    "id": "2024-19",
+    "year": 2024,
+    "number": 19,
+    "suggestedPace": "2 min 30 sec",
+    "title": "The fewest red high-tops",
+    "topic": "Combinatorics · optimization · pairing",
+    "prompt": "Jordan owns 15 pairs of sneakers. Three fifths of the pairs are red and the rest are white. Two thirds of the pairs are high-top and the rest are low-top. The red high-top pairs make up some fraction of the whole collection. What is the least possible value of that fraction?",
+    "wording": "restated",
+    "options": [
+      {
+        "letter": "A",
+        "value": "0",
+        "label": "0"
+      },
+      {
+        "letter": "B",
+        "value": "1/5",
+        "label": "1/5"
+      },
+      {
+        "letter": "C",
+        "value": "4/15",
+        "label": "4/15"
+      },
+      {
+        "letter": "D",
+        "value": "1/3",
+        "label": "1/3"
+      },
+      {
+        "letter": "E",
+        "value": "2/5",
+        "label": "2/5"
+      }
+    ],
+    "answer": "4/15",
+    "answerLabel": "(C) 4/15",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_19",
+    "hints": [
+      "Turn the fractions into counts before reasoning about the overlap. How many pairs are red, and how many are high-top?",
+      "The red high-tops belong to both groups at once. To make that group small, let the white pairs take as many of the high-top places as they can.",
+      "There are 6 white pairs and 10 high-top pairs, so at most 6 high-tops can be white. At least how many high-tops are left?"
+    ],
+    "method": "Make a two-way table with rows red/white and columns high-top/low-top, then push the red high-top corner as small as the totals allow.",
+    "score": 8,
+    "ratingReason": "Needs a real minimisation insight — the white group acts as a cap on how few red high-tops there can be — and a two-way table to see it. The tempting independent-multiplication answer is wrong in the opposite direction.",
+    "solution": [
+      "Three fifths of 15 is 9, so 9 pairs are red and 6 are white.",
+      "Two thirds of 15 is 10, so 10 pairs are high-top and 5 are low-top.",
+      "To make the red high-top group as small as possible, put as many white pairs as possible into the high-top group: all 6 of them.",
+      "That leaves 10 − 6 = 4 high-top pairs that must be red, and those 4 use 4 of the 9 red pairs.",
+      "The remaining 5 red pairs are low-top, which is exactly the 5 low-top places, and no white pair is low-top.",
+      "Check the totals: 4 + 5 = 9 red, and 4 + 6 = 10 high-top.",
+      "The fraction is 4/15, and it cannot be smaller, because the 6 white pairs can absorb at most 6 of the 10 high-top places.",
+      "Answer: C (4/15)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1 and 2.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Fill the corner that must be small.",
+    "tip": "Draw the two-way table, write the row and column totals, then push the smallest corner to its limit. The limit comes from the other totals, not from multiplying the two fractions.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Multiplying 3/5 × 2/3 = 2/5 and calling it the answer. That product is the largest possible value, which appears as a tempting choice, not the least.",
+    "reflection": "Your table ends up with a 0 in the white low-top corner. Why is that allowed, while a 0 in the red high-top corner is not?",
+    "alternative": "Use the overlap rule. In any two-way split, the number of items in both groups is at least (red) + (high-top) − (total) = 9 + 10 − 15 = 4, so at least 4 pairs are red high-tops and the least fraction is 4/15. The same rule gives the largest overlap as the smaller of the two group sizes, which would be 2/5 here.",
+    "reviewedAt": "2026-10-31"
+  },
+  "2024-20": {
+    "id": "2024-20",
+    "year": 2024,
+    "number": 20,
+    "suggestedPace": "2 min 30 sec",
+    "title": "Equilateral triangles on a cube",
+    "topic": "Geometry · 3D cube counting",
+    "prompt": "Any three vertices of the cube PQRSTUVW, shown below, can be joined to form a triangle. For example, vertices P, Q, and R can be joined to form triangle PQR. How many of these triangles are equilateral and contain P as a vertex?",
+    "wording": "restated",
+    "diagram": "./assets/diagram-2024-20.png",
+    "options": [
+      {
+        "letter": "A",
+        "value": 0,
+        "label": "0"
+      },
+      {
+        "letter": "B",
+        "value": 1,
+        "label": "1"
+      },
+      {
+        "letter": "C",
+        "value": 2,
+        "label": "2"
+      },
+      {
+        "letter": "D",
+        "value": 3,
+        "label": "3"
+      },
+      {
+        "letter": "E",
+        "value": 6,
+        "label": "6"
+      }
+    ],
+    "answer": 3,
+    "answerLabel": "(D) 3",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_20",
+    "hints": [
+      "Give the cube a side length of 1 and list the possible lengths of a segment joining two vertices.",
+      "There are only three such lengths: an edge 1, a face diagonal √2, and a space diagonal √3. An equilateral triangle needs the same length three times.",
+      "From P, the face diagonals reach T, R, and V. Those three points are themselves a face diagonal apart, so any two of them work with P."
+    ],
+    "method": "Label the cube with side 1, list the three possible distances, then keep only the distance that occurs three times at P.",
+    "score": 6,
+    "ratingReason": "The distance insight is the whole problem. Without it the drawing misleads, because two of the three correct triangles look skewed.",
+    "solution": [
+      "Give the cube side length 1. A segment joining two vertices is an edge of length 1, a face diagonal of length √2, or a space diagonal of length √3.",
+      "An equilateral triangle needs all three sides equal, so the side length must be one that can appear three times around P.",
+      "The three edges from P are too short to pair up, and the only space diagonal from P goes to U, so an equilateral triangle through P must use face diagonals.",
+      "The face diagonals from P are PT, PR, and PV.",
+      "Any two of those, together with P, form a triangle whose third side is also a face diagonal: RT, RV, and TV are each √2.",
+      "The triangles are PRT, PRV, and PTV, so there are 3 of them.",
+      "Answer: D (3)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1, 2, and 4.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Only face diagonals can repeat.",
+    "tip": "Put a number on the cube's side and sort every segment by its length. Questions about lengths and equilateral triangles become arithmetic once you stop trusting the perspective drawing.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Answering 6 by allowing triangles built on a cube edge, or missing PRV and PTV because those two triangles look slanted rather than equilateral in the drawing.",
+    "reflection": "Each of the 8 cube vertices belongs to exactly 3 of these triangles. What does 8 × 3 tell you about the total number of equilateral triangles on a cube, and why do you divide by 3?",
+    "alternative": "Sort the vertices by distance from P: Q, W, and S are one edge away, T, R, and V are a face diagonal away, and U is a space diagonal away. Only the three face-diagonal points are mutually the same distance apart, so choosing two of them gives 3 triangles. AoPS Solution 2 describes this as choosing 2 of the 3 compatible points.",
+    "reviewedAt": "2026-10-31"
   }
 };

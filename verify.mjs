@@ -62,7 +62,7 @@ assert.deepEqual([1,2,3].map((value) => matrix.flat().filter((cell) => cell === 
 assert.equal(matrix.flat().reduce((total,value) => total+value,0),problems['2026-2'].answer);
 assert.deepEqual([6*5,4*Math.sqrt(36),6+8+Math.hypot(6,8)],[30,24,24]);
 assert.equal(problems['2026-3'].answer,'D');
-assert.deepEqual(Object.keys(problems),['2026-1','2026-2','2026-3','2026-4','2026-5','2019-1','2019-2','2019-3','2019-4','2019-5','2019-6','2019-7','2019-8','2019-9','2019-10','2019-11','2019-12','2019-13','2019-14','2019-15','2019-16','2019-17','2019-18','2019-19','2019-20','2019-21','2019-22','2019-23','2019-24','2019-25','2020-1','2020-2','2020-3','2020-4','2020-5','2020-6','2020-7','2020-8','2020-9','2020-10','2020-11','2020-12','2020-13','2020-14','2020-15','2020-16','2020-17','2020-18','2020-19','2020-20','2020-21','2020-22','2020-23','2020-24','2020-25','2025-1','2025-2','2025-3','2025-4','2025-5','2025-6','2025-7','2025-8','2025-9','2025-10','2025-11','2025-12','2025-13','2025-14','2025-15','2025-16','2025-17','2025-18','2025-19','2025-20','2025-21','2025-22','2025-23','2025-24','2025-25','2024-1','2024-2','2024-3','2024-4','2024-5','2024-6','2024-7','2024-8','2024-9','2024-10','2024-11','2024-12','2024-13','2024-14','2024-15']);
+assert.deepEqual(Object.keys(problems),['2026-1','2026-2','2026-3','2026-4','2026-5','2019-1','2019-2','2019-3','2019-4','2019-5','2019-6','2019-7','2019-8','2019-9','2019-10','2019-11','2019-12','2019-13','2019-14','2019-15','2019-16','2019-17','2019-18','2019-19','2019-20','2019-21','2019-22','2019-23','2019-24','2019-25','2020-1','2020-2','2020-3','2020-4','2020-5','2020-6','2020-7','2020-8','2020-9','2020-10','2020-11','2020-12','2020-13','2020-14','2020-15','2020-16','2020-17','2020-18','2020-19','2020-20','2020-21','2020-22','2020-23','2020-24','2020-25','2025-1','2025-2','2025-3','2025-4','2025-5','2025-6','2025-7','2025-8','2025-9','2025-10','2025-11','2025-12','2025-13','2025-14','2025-15','2025-16','2025-17','2025-18','2025-19','2025-20','2025-21','2025-22','2025-23','2025-24','2025-25','2024-1','2024-2','2024-3','2024-4','2024-5','2024-6','2024-7','2024-8','2024-9','2024-10','2024-11','2024-12','2024-13','2024-14','2024-15','2024-16','2024-17','2024-18','2024-19','2024-20']);
 const fourth = problems['2026-4'];
 assert.match(fourth.prompt,/20%/);
 assert.match(fourth.prompt,/50%/);
@@ -876,6 +876,158 @@ assert.equal(pairs15b[pairs15b.length-1][0],136);
 assert.deepEqual(pairs15b[pairs15b.length-1],[136,952]);
 assert.equal(adapted15.answer,136+952);
 assert.equal(adapted15.reflection.options.find((option) => option.correct).id,'true');
+
+// 2024 Problems 16-20: content, mathematics, coaching and reviewed segments.
+const p2024_16 = problems['2024-16'];
+assert.equal(p2024_16.year,2024);
+assert.equal(p2024_16.number,16);
+assert.equal(p2024_16.answer,11);
+assert.equal(p2024_16.answerLabel,'(D) 11');
+assert.deepEqual(p2024_16.options.map((option) => [option.letter,option.value]),[['A',8],['B',9],['C',10],['D',11],['E',12]]);
+assert.match(p2024_16.prompt,/9 × 9/);
+assert.match(p2024_16.prompt,/1 through 81/);
+assert.match(p2024_16.prompt,/divisible by 3/);
+assert.equal(81/3,27,'27 multiples of 3 between 1 and 81');
+const bestSumFor = (multiples, side) => {
+  let best = null;
+  for (let a = 1; a <= side; a += 1) {
+    for (let b = 1; b <= side; b += 1) {
+      if (a*b >= multiples && (best === null || a+b < best)) best = a+b;
+    }
+  }
+  return best;
+};
+assert.equal(bestSumFor(27,9),p2024_16.answer);
+assert.equal(Math.max(...Array.from({length:9},(_,i)=>(i+1)*(10-(i+1)))),25,'a sum of 10 tops out at 5x5=25');
+assert.equal(4*7,28,'4x7 holds all 27 multiples of 3');
+assert.equal(4+7,p2024_16.answer);
+assert.equal(new Set(['8','9','10','11','12']).size,5);
+
+const p2024_17 = problems['2024-17'];
+assert.equal(p2024_17.number,17);
+assert.equal(p2024_17.answer,32);
+assert.equal(p2024_17.answerLabel,'(E) 32');
+assert.deepEqual(p2024_17.options.map((option) => [option.letter,option.value]),[['A',20],['B',24],['C',27],['D',28],['E',32]]);
+assert.equal(p2024_17.diagram,'./assets/diagram-2024-17.png');
+assert.ok(fs.existsSync(new URL(p2024_17.diagram,root)));
+const kingSquares = [];
+for (let r = 0; r < 3; r += 1) for (let c = 0; c < 3; c += 1) kingSquares.push([r,c]);
+const attacks = (a,b) => Math.max(Math.abs(a[0]-b[0]),Math.abs(a[1]-b[1])) <= 1;
+let kingPairs = 0;
+for (const a of kingSquares) {
+  for (const b of kingSquares) {
+    if (a !== b && !attacks(a,b)) kingPairs += 1;
+  }
+}
+assert.equal(kingPairs,p2024_17.answer,'Brute force agrees with 4x5 + 4x3');
+const safeFor = (r,c) => kingSquares.filter(([r2,c2]) => !(r === r2 && c === c2) && !attacks([r,c],[r2,c2])).length;
+assert.equal(safeFor(0,0),5);
+assert.equal(safeFor(0,1),3);
+assert.equal(safeFor(1,1),0);
+assert.equal(4*safeFor(0,0) + 4*safeFor(0,1),p2024_17.answer);
+
+const p2024_18 = problems['2024-18'];
+assert.equal(p2024_18.number,18);
+assert.equal(p2024_18.answer,108);
+assert.equal(p2024_18.answerLabel,'(A) 108');
+assert.deepEqual(p2024_18.options.map((option) => [option.letter,option.value]),[['A',108],['B',120],['C',135],['D',144],['E',150]]);
+assert.equal(p2024_18.diagram,'./assets/diagram-2024-18.png');
+assert.ok(fs.existsSync(new URL(p2024_18.diagram,root)));
+assert.equal(9*Math.PI/2,4.5*Math.PI);
+assert.equal(4-1,3);
+assert.equal(9-4,5);
+assert.equal((4.5-3)/5*360,p2024_18.answer);
+for (let x = 0; x <= 360; x += 1) {
+  if ((3 + 5*x/360) === (1 + 5*(360-x)/360)) assert.equal(x,p2024_18.answer);
+}
+
+const p2024_19 = problems['2024-19'];
+assert.equal(p2024_19.number,19);
+assert.equal(p2024_19.answer,'4/15');
+assert.equal(p2024_19.answerLabel,'(C) 4/15');
+assert.deepEqual(p2024_19.options.map((option) => [option.letter,option.value]),[['A','0'],['B','1/5'],['C','4/15'],['D','1/3'],['E','2/5']]);
+assert.equal(15*3/5,9);
+assert.equal(15*2/3,10);
+assert.equal(10-(15-9),4);
+assert.equal(4/15,Number(4/15));
+assert.equal(String(9/15).slice(0,4),'0.6');
+const feasible19 = [];
+for (let x = 0; x <= 15; x += 1) {
+  const redLow = 9-x, whiteHigh = 10-x, whiteLow = 6-whiteHigh;
+  if (redLow >= 0 && whiteHigh >= 0 && whiteLow >= 0) feasible19.push(x);
+}
+assert.equal(Math.min(...feasible19),4);
+assert.equal(Math.max(...feasible19),9);
+assert.equal(9+10-15,4,'Overlap rule gives the same minimum');
+assert.ok(Math.abs(3/5*2/3 - 0.4) < 1e-12,'Multiplying gives the maximum 2/5, which is a distractor');
+
+const p2024_20 = problems['2024-20'];
+assert.equal(p2024_20.number,20);
+assert.equal(p2024_20.answer,3);
+assert.equal(p2024_20.answerLabel,'(D) 3');
+assert.deepEqual(p2024_20.options.map((option) => [option.letter,option.value]),[['A',0],['B',1],['C',2],['D',3],['E',6]]);
+assert.equal(p2024_20.diagram,'./assets/diagram-2024-20.png');
+assert.ok(fs.existsSync(new URL(p2024_20.diagram,root)));
+const cubeVertices = [];
+for (const x of [0,1]) for (const y of [0,1]) for (const z of [0,1]) cubeVertices.push([x,y,z]);
+const sq = (a,b) => a.reduce((total,value,index) => total + (value-b[index])**2,0);
+const corner = [0,0,0];
+let equilateral = 0, allEquilateral = 0;
+for (let i = 0; i < cubeVertices.length; i += 1) {
+  for (let j = i+1; j < cubeVertices.length; j += 1) {
+    for (let k = j+1; k < cubeVertices.length; k += 1) {
+      const [a,b,c] = [cubeVertices[i],cubeVertices[j],cubeVertices[k]];
+      if (sq(a,b) === sq(b,c) && sq(b,c) === sq(a,c)) {
+        allEquilateral += 1;
+        if ([a,b,c].some((v) => v.join() === corner.join())) equilateral += 1;
+      }
+    }
+  }
+}
+assert.equal(equilateral,p2024_20.answer);
+assert.equal(allEquilateral,8);
+assert.equal(8*3/3,allEquilateral,'Each vertex sits in 3 triangles, each triangle counted at 3 vertices');
+
+for (const id of ['2024-16','2024-17','2024-18','2024-19','2024-20']) {
+  assert.equal(walkthroughVideos[id].length,1);
+  assert.equal(walkthroughVideos[id][0].id,'ktzijuZtDas');
+  assert.equal(walkthroughVideos[id][0].channel,'Interstigation');
+  assert.equal(recommendedVideos[id].length,1);
+  assert.equal(walkthroughVideos[id][0].reviewedAt,'2026-10-31');
+  assert.match(walkthroughVideos[id][0].segmentLabel,/^Problem \d+ · \d+:\d\d–\d+:\d\d$/);
+  assert.equal(coachGuides[id].checks.length,2);
+  assert.equal(coachGuides[id].similar.options.length,2);
+  assert.equal(coachGuides[id].similar.reflection.options.filter((option) => option.correct).length,1);
+  assert.match(coachGuides[id].similar.label,/not an official AMC question/);
+}
+// Segment bounds follow the creator's published chapter list for Problems 16-20.
+assert.deepEqual(['2024-16','2024-17','2024-18','2024-19','2024-20'].map((id) => [walkthroughVideos[id][0].startSeconds,walkthroughVideos[id][0].endSeconds]),[[1709,1922],[1922,2045],[2045,2211],[2211,2353],[2353,2562]]);
+const adapted16 = coachGuides['2024-16'].similar;
+assert.equal(100/3|0,33);
+assert.equal(bestSumFor(33,10),adapted16.answer);
+assert.equal(adapted16.answer,12);
+assert.equal(Math.max(...Array.from({length:10},(_,i)=>(i+1)*(11-(i+1)))),30,'a sum of 11 tops out at 5x6=30');
+const adapted17 = coachGuides['2024-17'].similar;
+const board43 = [];
+for (let r = 0; r < 4; r += 1) for (let c = 0; c < 3; c += 1) board43.push([r,c]);
+let legal43 = 0;
+for (const a of board43) for (const b of board43) if (a !== b && !attacks(a,b)) legal43 += 1;
+assert.equal(legal43,adapted17.answer);
+assert.equal(12*11-58,adapted17.answer);
+const adapted18 = coachGuides['2024-18'].similar;
+assert.equal((8-3)/12*360,adapted18.answer);
+assert.equal(adapted18.answer,150);
+const adapted19 = coachGuides['2024-19'].similar;
+assert.equal(10-(20-15),adapted19.answer);
+const feasible19b = [];
+for (let x = 0; x <= 20; x += 1) {
+  const redLow = 15-x, whiteHigh = 10-x, whiteLow = 5-whiteHigh;
+  if (redLow >= 0 && whiteHigh >= 0 && whiteLow >= 0) feasible19b.push(x);
+}
+assert.equal(Math.min(...feasible19b),adapted19.answer);
+const adapted20 = coachGuides['2024-20'].similar;
+assert.equal(adapted20.answer,8);
+assert.ok(adapted20.options.some((option) => option.value === adapted20.answer));
 
 for (const id of ['2024-11','2024-12','2024-13','2024-14','2024-15']) {
   assert.equal(walkthroughVideos[id].length,1);

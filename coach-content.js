@@ -6041,5 +6041,442 @@ export const coachGuides = {
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_15",
       "credit": "Changed-multiplier practice and coaching authored by Hermes Agent, using the 1001-factor method of AoPS Solution 1."
     }
+  },
+  "2024-16": {
+    "intro": "Nothing here needs the products themselves. Ask what makes a whole row's product divisible by 3, and the problem gets much smaller.",
+    "checks": [
+      {
+        "id": "one-factor-enough",
+        "prompt": "A row of the grid contains one multiple of 3. What does that tell you about the product of that row?",
+        "options": [
+          {
+            "id": "a",
+            "label": "The product is divisible by 3, whatever the other eight numbers are",
+            "correct": true,
+            "feedback": "Correct. A factor of 3 in a product always survives, so a single multiple of 3 decides the whole row."
+          },
+          {
+            "id": "b",
+            "label": "The product might still not be divisible by 3, depending on the other numbers",
+            "correct": false,
+            "feedback": "Multiplying by other integers can never remove the factor of 3. One multiple of 3 is enough, and it is also necessary — a row with no multiple of 3 has no factor of 3 at all."
+          }
+        ]
+      },
+      {
+        "id": "where-the-27-go",
+        "prompt": "There are 27 multiples of 3 among 1 through 81. What should you do with them to keep the number of affected rows and columns small?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Gather all 27 of them into as small a block of rows and columns as possible",
+            "correct": true,
+            "feedback": "Right. Once they share rows and columns, those lines are counted once each, and the question becomes how small a block can hold 27 cells."
+          },
+          {
+            "id": "b",
+            "label": "Spread them out one per row so that each row is counted separately",
+            "correct": false,
+            "feedback": "That is the opposite of what the question asks. Spreading them out gives the largest possible count, not the least."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-16-a",
+      "sourceProblem": "2024-16",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Minh enters the numbers 1 through 100 into the cells of a 10 × 10 grid in some order, then takes the product of the ten numbers in each row and in each column. What is the least number of rows and columns that could have a product divisible by 3?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 11,
+          "label": "11"
+        },
+        {
+          "letter": "B",
+          "value": 12,
+          "label": "12"
+        }
+      ],
+      "answer": 12,
+      "answerLabel": "(B) 12",
+      "solution": [
+        "Among 1 through 100 there are 33 multiples of 3, since 99 is the largest and 99 ÷ 3 = 33.",
+        "The multiples of 3 must fill a rectangle a wide and b tall with a × b at least 33, and the count of lines is a + b.",
+        "If a + b were 11, the largest rectangle is 5 × 6 = 30 cells, which is too small for 33 numbers.",
+        "With a + b = 12, a 5 × 7 rectangle holds 35 cells, enough for all 33 multiples of 3.",
+        "So 11 is impossible and 12 is possible, and the least number of rows and columns is 12."
+      ],
+      "reflection": {
+        "id": "adapted-16-square",
+        "prompt": "True or false: in a 10 × 10 grid the answer would be 10 if the 33 multiples of 3 exactly filled a square block.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": false,
+            "feedback": "A square block of side 6 holds only 36 cells but counts as 12 lines (6 rows plus 6 columns), so a filled square still does not make the answer equal to its side length."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": true,
+            "feedback": "Correct. The count adds rows and columns, so a k × k block already costs 2k. That is why the answer is always larger than the side of the block."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_16",
+      "credit": "Changed-grid practice and coaching authored by Hermes Agent, using the rectangle-packing method of AoPS Solutions 1 and 3."
+    }
+  },
+  "2024-17": {
+    "intro": "Thirty-two is bigger than the number of pairs you can see by eye, so the counting has to be organised. Start with the square nobody can use.",
+    "checks": [
+      {
+        "id": "centre-useless",
+        "prompt": "What happens if one king is placed on the centre square of the 3 × 3 grid?",
+        "options": [
+          {
+            "id": "a",
+            "label": "The other king has no legal square, because the centre attacks all eight",
+            "correct": true,
+            "feedback": "Correct. So the centre never appears in a valid placement, and the remaining eight squares split into four corners and four edge middles."
+          },
+          {
+            "id": "b",
+            "label": "The other king still has four legal squares, so the centre is a good starting point",
+            "correct": false,
+            "feedback": "A centre king reaches every square in one step, diagonals included. Count the attacked squares on the diagram: all eight are covered."
+          }
+        ]
+      },
+      {
+        "id": "why-32",
+        "prompt": "A corner king leaves 5 safe squares and an edge-middle king leaves 3. Why does 4 × 5 + 4 × 3 = 32 count every placement exactly once?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Because each case fixes which kind of square holds the first king, and those cases cannot overlap",
+            "correct": true,
+            "feedback": "Right. Every valid placement has its first king in exactly one of the three kinds of square, so the cases add with no double counting."
+          },
+          {
+            "id": "b",
+            "label": "Because the two kings are the same, so each placement has been counted twice and should be halved",
+            "correct": false,
+            "feedback": "The kings differ in colour. Placing white on a corner and black two squares away is a different placement from the reverse, and both are real arrangements, so nothing needs halving."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-17-a",
+      "sourceProblem": "2024-17",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "A white king and a black king are placed on two different squares of a 4 × 3 grid of squares so that neither king attacks the other. In how many ways can this be done?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 74,
+          "label": "74"
+        },
+        {
+          "letter": "B",
+          "value": 78,
+          "label": "78"
+        }
+      ],
+      "answer": 74,
+      "answerLabel": "(A) 74",
+      "solution": [
+        "The grid has 12 squares, so there are 12 × 11 = 132 ordered placements of the two kings.",
+        "Count the attacking placements instead: a corner king attacks 3 squares, an edge king 5, and an interior king 8.",
+        "The 4 × 3 grid has 4 corners, 6 edge squares, and 2 interior squares, so the attacking placements number 4 × 3 + 6 × 5 + 2 × 8 = 12 + 30 + 16 = 58.",
+        "Subtract: 132 − 58 = 74 valid placements."
+      ],
+      "reflection": {
+        "id": "adapted-17-complement",
+        "prompt": "True or false: on a small grid, subtracting the attacking placements from all placements is usually shorter than adding up the safe ones case by case.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. The attacking count only needs one number per kind of square, while the safe count needs a check of every kind of square that is left."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "On a grid with several kinds of square, the complement is usually faster: there are few kinds of attacking square, but many kinds of safe position to sort out."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_17",
+      "credit": "Changed-board practice and coaching authored by Hermes Agent, using the complementary-counting method of AoPS Solution 3."
+    }
+  },
+  "2024-18": {
+    "intro": "Two colours covering the same area. Find the shaded area from the largest circle first; the angle then falls out of a fraction.",
+    "checks": [
+      {
+        "id": "shaded-area",
+        "prompt": "The largest circle has area 9π and the two regions are equal. What is the area of the shaded region?",
+        "options": [
+          {
+            "id": "a",
+            "label": "4.5π, because the shaded region is exactly half of 9π",
+            "correct": true,
+            "feedback": "Correct. Equal areas that together cover the whole 9π circle must each be 4.5π."
+          },
+          {
+            "id": "b",
+            "label": "3π, because the inner shaded ring is the only part that matters",
+            "correct": false,
+            "feedback": "The inner ring is 3π, but the shaded part of the outer ring adds more. The two together must total half of 9π."
+          }
+        ]
+      },
+      {
+        "id": "scale-against-ring",
+        "prompt": "The shaded slice of the outer ring has area 1.5π, and the whole outer ring has area 5π. What do you do with those two numbers?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Take 1.5π ÷ 5π to get the slice's fraction of the ring, then multiply by 360°",
+            "correct": true,
+            "feedback": "Right. A sector's area is the same fraction of its ring as its central angle is of 360°, so 0.3 × 360° = 108°."
+          },
+          {
+            "id": "b",
+            "label": "Take 1.5π ÷ 9π to get the slice's fraction of the whole circle, then multiply by 360°",
+            "correct": false,
+            "feedback": "That compares the slice with the whole circle, but the slice lives inside the outer ring only. Use the ring's own area, 5π, so the fraction is 0.3 and the angle is 108°."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-18-a",
+      "sourceProblem": "2024-18",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Three concentric circles centred at O have radii 1, 2, and 4. The region between the two smaller circles is shaded, and so is the part of the region between the two larger circles inside the central angle ∠BOC. The shaded and unshaded regions have equal area. What is the measure of ∠BOC, in degrees?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 150,
+          "label": "150"
+        },
+        {
+          "letter": "B",
+          "value": 120,
+          "label": "120"
+        }
+      ],
+      "answer": 150,
+      "answerLabel": "(A) 150",
+      "solution": [
+        "The largest circle has area 16π, so each colour covers 8π.",
+        "The shaded inner ring has area 4π − π = 3π.",
+        "The outer ring has area 16π − 4π = 12π, so its shaded slice must be 8π − 3π = 5π.",
+        "The slice is 5π ÷ 12π of the outer ring, so ∠BOC = (5/12) × 360° = 150°."
+      ],
+      "reflection": {
+        "id": "adapted-18-bigger-ring",
+        "prompt": "True or false: making the outer radius 4 instead of 3 raises the angle from 108° to 150° mainly because the outer ring grew.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. The inner ring stays at 3π, but the outer ring grows from 5π to 12π, so a bigger slice is needed and the angle grows with it."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "The inner ring is unchanged at 3π. What changed is the outer ring, which grew from 5π to 12π and so needs a larger share of its own turn to reach 5π."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_18",
+      "credit": "Changed-radius practice and coaching authored by Hermes Agent, using the area-first method of AoPS Solutions 1 and 4."
+    }
+  },
+  "2024-19": {
+    "intro": "The word least is doing the work here. Turn the fractions into counts, then ask what stops the overlap from shrinking further.",
+    "checks": [
+      {
+        "id": "counts-not-fractions",
+        "prompt": "Out of 15 pairs, how many are red and how many are high-top?",
+        "options": [
+          {
+            "id": "a",
+            "label": "9 red and 10 high-top, so 6 are white and 5 are low-top",
+            "correct": true,
+            "feedback": "Correct. Working with whole numbers makes the overlap visible; fractions would hide the limit."
+          },
+          {
+            "id": "b",
+            "label": "9 red and 10 high-top, so 6 are red low-top and 5 are white high-top automatically",
+            "correct": false,
+            "feedback": "Those two numbers are not automatic — that would be the case only if red and high-top were unrelated. The point of the problem is that you get to choose the overlap."
+          }
+        ]
+      },
+      {
+        "id": "what-stops-it",
+        "prompt": "Why can the number of red high-top pairs not be smaller than 4?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Because only 6 white pairs can take high-top places, leaving at least 10 − 6 = 4 red high-tops",
+            "correct": true,
+            "feedback": "Right. The white group is the limit: all 6 white pairs can be high-top, and that still leaves 4 of the 10 high-top places for red pairs."
+          },
+          {
+            "id": "b",
+            "label": "Because 3/5 × 2/3 = 2/5 of the pairs must be both red and high-top",
+            "correct": false,
+            "feedback": "Multiplying gives the largest possible overlap here, not the least. Red and high-top placements can be pushed apart until the smaller group runs out."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-19-a",
+      "sourceProblem": "2024-19",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Jordan owns 20 pairs of sneakers. Three quarters of the pairs are red and the rest are white. Half of the pairs are high-top and the rest are low-top. What is the least possible number of red high-top pairs?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 5,
+          "label": "5"
+        },
+        {
+          "letter": "B",
+          "value": 10,
+          "label": "10"
+        }
+      ],
+      "answer": 5,
+      "answerLabel": "(A) 5",
+      "solution": [
+        "Three quarters of 20 is 15, so 15 pairs are red and 5 are white.",
+        "Half of 20 is 10, so 10 pairs are high-top and 10 are low-top.",
+        "Put as many white pairs as possible into the high-top group: all 5 of them.",
+        "That leaves 10 − 5 = 5 high-top pairs that must be red.",
+        "Check the totals: 5 red high-top and 10 red low-top make 15 red, and 5 + 5 white pairs make 10."
+      ],
+      "reflection": {
+        "id": "adapted-19-larger-white",
+        "prompt": "True or false: if the collection had more white pairs, the least possible number of red high-tops would go down.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. White pairs are the ones that can absorb high-top places, so a larger white group lets fewer red pairs be high-top."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "The limit is high-top total minus the white pairs available. A larger white group subtracts more, so the least number of red high-tops gets smaller."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_19",
+      "credit": "Changed-collection practice and coaching authored by Hermes Agent, using the two-way-table method of AoPS Solutions 1 and 2."
+    }
+  },
+  "2024-20": {
+    "intro": "Three of these triangles look wrong and are right. Trust lengths over the drawing: give the cube a side and sort the possible distances.",
+    "checks": [
+      {
+        "id": "three-lengths",
+        "prompt": "On a cube of side 1, what lengths can a segment joining two vertices have?",
+        "options": [
+          {
+            "id": "a",
+            "label": "1 for an edge, √2 for a face diagonal, √3 for a space diagonal",
+            "correct": true,
+            "feedback": "Correct. Those are the only three possibilities, so an equilateral triangle on the cube must use the same one of them three times."
+          },
+          {
+            "id": "b",
+            "label": "Only 1 and √2, since every vertex can be reached along faces",
+            "correct": false,
+            "feedback": "Opposite vertices are √3 apart — for example U is the space diagonal from P. There are three lengths, and only one of them can be used three times around P."
+          }
+        ]
+      },
+      {
+        "id": "why-three",
+        "prompt": "The face diagonals from P go to T, R, and V. Why does choosing two of them give 3 equilateral triangles?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Because any two of T, R, and V are also √2 apart, so all three sides match",
+            "correct": true,
+            "feedback": "Right. T, R, and V each sit √2 from P and √2 from each other, so any pair with P forms an equilateral triangle — three pairs in total."
+          },
+          {
+            "id": "b",
+            "label": "Because the three points can be paired with each other in 3 ways only if the cube is a square",
+            "correct": false,
+            "feedback": "A cube is not a square, but T, R, and V still form an equilateral triangle of side √2 among themselves. Verify each pair with the Pythagorean theorem."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-20-a",
+      "sourceProblem": "2024-20",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Any three vertices of a cube can be joined to form a triangle. How many of these triangles are equilateral, counting all eight vertices rather than only those containing one fixed corner?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 8,
+          "label": "8"
+        },
+        {
+          "letter": "B",
+          "value": 6,
+          "label": "6"
+        }
+      ],
+      "answer": 8,
+      "answerLabel": "(A) 8",
+      "solution": [
+        "An equilateral triangle on the cube must use three face diagonals, since edges and space diagonals cannot form one.",
+        "Each vertex has exactly 3 face-diagonal neighbours, and every pair of those neighbours is a face diagonal apart.",
+        "So each vertex appears in 3 equilateral triangles, giving 8 × 3 = 24 vertex entries.",
+        "Each triangle is counted once for each of its 3 vertices, so the number of triangles is 24 ÷ 3 = 8."
+      ],
+      "reflection": {
+        "id": "adapted-20-divide",
+        "prompt": "True or false: dividing by 3 at the end is needed because each triangle was counted once at each of its vertices.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. Multiplying by 8 vertices counts a triangle three times, once from each corner, so dividing by 3 gives the real total of 8."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Vertex-by-vertex counting always overcounts a triangle by its number of vertices, which is 3 here. Without the division you would report 24."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_20",
+      "credit": "Whole-cube counting practice and coaching authored by Hermes Agent, using the face-diagonal method of AoPS Solutions 1 and 2."
+    }
   }
 };

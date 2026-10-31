@@ -1646,6 +1646,86 @@ export const recommendedVideos = {
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_15"
     }
   ],
+  "2024-16": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=1709s",
+      "startSeconds": 1709,
+      "endSeconds": 1922,
+      "segmentLabel": "Problem 16 · 28:29–32:02",
+      "reason": "The Problem 16 segment counts the 27 multiples of 3, notices that one multiple of 3 decides a whole row or column, then compares the 4 × 7 and 5 × 5 rectangles to rule out a sum of 10 and settle on 11 for answer D.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the reasoning was read in the English captions before recommending the segment. He tests 5 × 6 explicitly and says out loud that 5 × 5 = 25 is not enough, which is the check that makes 11 the minimum rather than a guess.",
+      "reviewBasis": "Creator's description timestamps and YouTube English captions",
+      "reviewedAt": "2026-10-31",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_16"
+    }
+  ],
+  "2024-17": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=1922s",
+      "startSeconds": 1922,
+      "endSeconds": 2045,
+      "segmentLabel": "Problem 17 · 32:02–34:05",
+      "reason": "The Problem 17 segment rules out the centre square, then splits the remaining squares into corners and edge middles: four corners leaving 5 safe squares and four edge middles leaving 3, for 20 + 12 = 32 and answer E.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the reasoning was read in the English captions before recommending the segment. He draws the five and three safe squares on screen while counting, so the casework is visible rather than asserted.",
+      "reviewBasis": "Creator's description timestamps and YouTube English captions",
+      "reviewedAt": "2026-10-31",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_17"
+    }
+  ],
+  "2024-18": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=2045s",
+      "startSeconds": 2045,
+      "endSeconds": 2211,
+      "segmentLabel": "Problem 18 · 34:05–36:51",
+      "reason": "The Problem 18 segment halves the 9π circle, subtracts the 3π inner ring, and scales the remaining 1.5π against the 5π outer ring to reach 108° for answer A.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the reasoning was read in the English captions before recommending the segment. He writes the sector area as (angle/360) × 5π and divides by 5π rather than by 9π, which is exactly the step learners get wrong.",
+      "reviewBasis": "Creator's description timestamps and YouTube English captions",
+      "reviewedAt": "2026-10-31",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_18"
+    }
+  ],
+  "2024-19": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=2211s",
+      "startSeconds": 2211,
+      "endSeconds": 2353,
+      "segmentLabel": "Problem 19 · 36:51–39:13",
+      "reason": "The Problem 19 segment builds a two-way table, converts the fractions into 9 red, 6 white, 10 high-top, and 5 low-top, then pushes the red high-top corner down to 4 for the fraction 4/15 and answer C.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the reasoning was read in the English captions before recommending the segment. He explains why the corner cannot go lower by pointing out that the neighbouring entry would turn negative, which is the argument the answer depends on.",
+      "reviewBasis": "Creator's description timestamps and YouTube English captions",
+      "reviewedAt": "2026-10-31",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_19"
+    }
+  ],
+  "2024-20": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=2353s",
+      "startSeconds": 2353,
+      "endSeconds": 2562,
+      "segmentLabel": "Problem 20 · 39:13–42:42",
+      "reason": "The Problem 20 segment gives the cube side 1, lists the three possible distances 1, √2, and √3, discards the edges and the space diagonal, and finds the three face-diagonal triangles PRT, PRV, and PTV for answer D.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the reasoning was read in the English captions before recommending the segment. He notes twice that two of the three triangles do not look equilateral on the diagram and invites the viewer to verify with the Pythagorean theorem, which is the habit this problem is teaching.",
+      "reviewBasis": "Creator's description timestamps and YouTube English captions",
+      "reviewedAt": "2026-10-31",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_20"
+    }
+  ]
 };
 
 // Supplied by the parent on 2026-09-27, separately from reviewed recommendations.
