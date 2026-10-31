@@ -1405,7 +1405,167 @@ export const recommendedVideos = {
       "reviewedAt": "2026-10-27",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_25"
     }
-  ]
+  ],
+  "2024-1": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=36s",
+      "startSeconds": 36,
+      "endSeconds": 108,
+      "segmentLabel": "Problem 1 · 0:36–1:48",
+      "reason": "The Problem 1 segment explains why only the ones digits matter, then works 2 − 2 − 2 − 2 − 2 − 2 by borrowing a ten, ending on answer B.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the reasoning was read in the English auto-captions. He reuses the trick of writing 22 − 10 to avoid negatives, which matches Hint 3 here.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-27",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_1"
+    }
+  ],
+  "2024-2": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=108s",
+      "startSeconds": 108,
+      "endSeconds": 158,
+      "segmentLabel": "Problem 2 · 1:48–2:38",
+      "reason": "The Problem 2 segment simplifies each fraction by 11, converts to 4, 10/4, and 4/100, then adds to 6.54 for answer C.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the arithmetic was checked in the English auto-captions. He says the third term aloud as 4 over 100, so the place value is clear.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-27",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_2"
+    }
+  ],
+  "2024-3": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=158s",
+      "startSeconds": 158,
+      "endSeconds": 232,
+      "segmentLabel": "Problem 3 · 2:38–3:52",
+      "reason": "The Problem 3 segment takes the two gray squares, subtracts the white square on each, and adds 33 + 19 to reach 52 for answer E.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the steps were read in the English auto-captions. He circles the visible gray pieces on screen, so watch the diagram while he subtracts.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-27",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_3"
+    }
+  ],
+  "2024-4": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=232s",
+      "startSeconds": 232,
+      "endSeconds": 296,
+      "segmentLabel": "Problem 4 · 3:52–4:56",
+      "reason": "The Problem 4 segment lists the squares up to 49, rules out everything below 36 using the largest possible missing number, and lands on 9 for answer E.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the argument was checked in the English auto-captions. His elimination list is longer than Hint 3, so pause if the choices feel crowded.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-27",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_4"
+    }
+  ],
+  "2024-5": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=296s",
+      "startSeconds": 296,
+      "endSeconds": 386,
+      "segmentLabel": "Problem 5 · 4:56–6:26",
+      "reason": "The Problem 5 segment tests the sums 5, 7, 8, and 9 with a working pair each, then shows that every pair adding to 6 has a product that is not a multiple of 6, giving answer B.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the case checks were read in the English auto-captions. He talks through several false starts before settling on 6, so the clip rewards patience.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-27",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_5"
+    }
+  ],
+  "2024-6": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=386s",
+      "startSeconds": 386,
+      "endSeconds": 578,
+      "segmentLabel": "Problem 6 · 6:26–9:38",
+      "reason": "The Problem 6 segment compares the four skating paths two at a time: R cuts the corners of P, S replaces border travel with straight crossings, and Q swings wider than S. It ends on answer D, R, P, S, Q.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the comparison was read in the English auto-captions. He calls the paths 'red', 'blue' and 'black' while pointing at the screen, so follow his points rather than the colours. A right triangle is sketched to compare Q with S, and that part moves quickly.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-31",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_6"
+    }
+  ],
+  "2024-7": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=578s",
+      "startSeconds": 578,
+      "endSeconds": 791,
+      "segmentLabel": "Problem 7 · 9:38–13:11",
+      "reason": "The Problem 7 segment builds a five-tile tiling, rules out 2, 3, and 4 by area, then uses a column colouring with 12 dark and 9 light squares to show that a single 1 × 1 tile is impossible, giving answer E, 5.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the argument was read in the English auto-captions. He says 'triangle' once where he means 'rectangle'. The colouring step is the heart of the proof, so pause there and redraw the 12-and-9 count yourself.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-31",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_7"
+    }
+  ],
+  "2024-8": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=791s",
+      "startSeconds": 791,
+      "endSeconds": 890,
+      "segmentLabel": "Problem 8 · 13:11–14:50",
+      "reason": "The Problem 8 segment lists the reachable amounts day by day, notes that $8 arrives two different ways on Wednesday, and counts six distinct amounts on Thursday for answer D.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the list was checked in the English auto-captions. He writes the tree on screen and crosses out the repeated 8, so watch for that step; the narration alone can sound as though all eight branches were kept.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-31",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_8"
+    }
+  ],
+  "2024-9": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=890s",
+      "startSeconds": 890,
+      "endSeconds": 938,
+      "segmentLabel": "Problem 9 · 14:50–15:38",
+      "reason": "The Problem 9 segment sets red to x, reads the ratios as green 2x and blue 4x, adds them to 7x, and picks the only multiple of 7 among the choices, answer E, 28.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the reasoning was read in the English auto-captions. It is the shortest segment of the batch, under a minute, because the method is one line once the variable is chosen.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-31",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_9"
+    }
+  ],
+  "2024-10": [
+    {
+      "id": "ktzijuZtDas",
+      "title": "2024 AMC 8 Full Solutions",
+      "channel": "Interstigation",
+      "watchUrl": "https://www.youtube.com/watch?v=ktzijuZtDas&t=938s",
+      "startSeconds": 938,
+      "endSeconds": 1063,
+      "segmentLabel": "Problem 10 · 15:38–17:43",
+      "reason": "The Problem 10 segment counts 50 years from 1980 to 2030, gets 1.515 × 50 by multiplying by 100 and halving, rounds the increase to about 76 ppm, and reaches 414 for answer B.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's description timestamps and the arithmetic was checked in the English auto-captions. He multiplies 1.515 by 100 and divides by two, so the 75.75 is easy to follow. He rounds the increase before adding it, which happens to work here but is worth comparing with rounding only at the end.",
+      "reviewBasis": "Creator's description timestamps and YouTube English auto-captions",
+      "reviewedAt": "2026-10-31",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_10"
+    }
+  ],
 };
 
 // Supplied by the parent on 2026-09-27, separately from reviewed recommendations.

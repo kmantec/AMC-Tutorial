@@ -1,5 +1,15 @@
 # Change history
 
+## 2026-10-31 — 2024 AMC 8 Problems 1–10 (Hermes Agent)
+
+- Added ten 2024 originals with preserved data and A–E choices, each a labeled restatement with a source link. This batch covers Problems 1–5 (ones digit of a long subtraction, three fractions in decimal form, visible gray in four nested squares, the number Yunji left out, and dice products divisible by 6) and Problems 6–10 (shortest skating path, fewest 1 × 1 tiles, Taye's Thursday amounts, Maria's marbles, and the 2030 carbon dioxide reading).
+- Added two figures. `assets/diagram-2024-6.png` is the four-panel skating-path figure, obtained from the Internet Archive copy of the AoPS file because every direct request to `artofproblemsolving.com/wiki/images/...` returned 403. `assets/diagram-2024-7.png` is a redrawn tiling key (2 × 2, 1 × 1, 1 × 4 beside a 3 × 7 grid), because the published file for that question resolves to a 498 × 111 thumbnail that is not legible at page size.
+- Every guide has three hints, a recommended method, written solution steps, a subjective teaching rating with a reason, the tip block credited to Hermes Agent, a common error, a reflection prompt, and an alternative method. The library now holds **90 originals**, so **85 real questions remain**; all of 2019, 2020, 2025 and 2024 Problems 1–10 are integrated.
+- Added two binary Coach checks and one labeled adaptation with a two-choice reasoning follow-up for each: a 3-4-5 shortcut comparison (B is 2 shorter), a 3 × 5 tiling (3), a $4-gain Mr Taye variant (5 amounts), a blue-three-times-green marble set (36), and a 2050 carbon dioxide reading (444).
+- Added one reviewed Interstigation segment per problem. Bounds come from the creator's published chapter timestamps (386–578, 578–791, 791–890, 890–938, 938–1063) and each explanation was read in YouTube's English auto-captions. Review notes record what was actually found: he says "triangle" for "rectangle" in P7, calls the paths by on-screen colours in P6, and rounds the yearly rate before adding it in P10.
+- Updated the ordered key list, adaptation and library-count assertions, and `available-count` to 90. `node verify.mjs` recomputes every new answer and adaptation, including a day-by-day reachable-amount search for P8 (6 and 5 amounts), a dark/light column argument for P7, and float-safe rate arithmetic for P10. `node ui-check.mjs` passes with synthetic records.
+- **Not published yet:** the two earlier 2025 batches (Problems 16–20 and 21–25) and this batch are committed locally only. `C:\Users\aishare\.hermes\.env` still has no `GITHUB_TOKEN`, `gh` is not installed, and the Windows credential store has no GitHub entry, so the push fails with "Invalid username or token". Backups are under `C:\Users\aishare\amc-pending\`.
+
 ## 2026-10-27 — 2025 AMC 8 Problems 21–25 (Hermes Agent)
 
 - Added the last five 2025 originals with preserved data and A–E choices, each a labeled restatement with a source link: the seven-pod grade assignment (A, 12), Paulina's coat hooks (D, 7), four-digit numbers ending in 99 (B, 1), whole-number isosceles trapezoids (E, 4), and the diamond path-area sum (B, 3150).

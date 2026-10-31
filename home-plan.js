@@ -97,7 +97,12 @@ const parentCategory = {
   'Number theory · divisors · equal spacing': 'Number Theory',
   'Number theory · perfect squares · primes': 'Number Theory',
   'Geometry · isosceles trapezoid · 30-60-90 triangles': 'Geometry',
-  'Counting · symmetry · lattice paths': 'Counting'
+  'Counting · symmetry · lattice paths': 'Counting',
+  'Number theory · units digits': 'Number Theory',
+  'Arithmetic · fractions and decimals': 'Arithmetic',
+  'Geometry · nested squares · area': 'Geometry',
+  'Number theory · perfect squares · working backwards': 'Number Theory',
+  'Probability · dice · checking cases': 'Probability'
 };
 
 const categoryColors = {

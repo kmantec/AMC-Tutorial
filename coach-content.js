@@ -4923,5 +4923,684 @@ export const coachGuides = {
       sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_25",
       credit: "Changed-size practice and coaching authored by Hermes Agent, using the pairing argument from AoPS Solutions 1 and 4."
     }
+  },
+  "2024-1": {
+    intro: "This one looks long but only one digit of each number matters. Try it on your own first, then check the two ideas below.",
+    checks: [
+      {
+        id: "units-only",
+        prompt: "Why can you replace 222,222 and 22,222 by just 2 and 2?",
+        options: [
+          { id: "a", label: "Because every higher place value adds a multiple of 10, which never changes the ones digit", correct: true, feedback: "Exactly. Hundreds and thousands only move the tens place and above, so only the last digits decide the last digit of the answer." },
+          { id: "b", label: "Because the numbers are large, so their first digits do not matter", correct: false, feedback: "Size is not the reason. The reason is place value: each higher place is worth 10, 100, 1000, and every one of those is a multiple of 10." }
+        ]
+      },
+      {
+        id: "negative-digit",
+        prompt: "The ones-digit work gives 2 − 10 = −8. What is the ones digit then?",
+        options: [
+          { id: "a", label: "2, because −8 + 10 = 2 brings it into the range 0 to 9", correct: true, feedback: "Right. Borrowing one ten from the higher places turns −8 into the digit 2." },
+          { id: "b", label: "8, because you drop the minus sign", correct: false, feedback: "Dropping the sign would be a coincidence here. The correct step is to add 10, and −8 + 10 = 2, not 8." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2024-1-a",
+      sourceProblem: "2024-1",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "What is the ones digit of 333,333 − 33,333 − 3,333 − 333 − 33 − 3?",
+      expression: "333,333 − 33,333 − 3,333 − 333 − 33 − 3",
+      options: [
+        { letter: "A", value: 8, label: "8" },
+        { letter: "B", value: 2, label: "2" }
+      ],
+      answer: 8,
+      answerLabel: "(A) 8",
+      solution: [
+        "Only the ones digits matter, so the work is 3 − 3 − 3 − 3 − 3 − 3.",
+        "The five subtracted 3s add to 15, so the ones-digit arithmetic is 3 − 15 = −12.",
+        "Add 20, which is two tens borrowed from the higher places: −12 + 20 = 8.",
+        "The answer ends in 8."
+      ],
+      reflection: {
+        id: "adapted-double-borrow",
+        prompt: "True or false: when the ones-digit arithmetic goes below −9, you must add 10 more than once to reach a digit.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct. One borrow must land between 0 and 9. Here −12 + 10 = −2 is still negative, so a second borrow is needed and −12 + 20 = 8." },
+          { id: "false", label: "False", correct: false, feedback: "One borrow of ten is not always enough. Whenever the running value is below −9, keep adding 10 until the result sits between 0 and 9." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_1",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the ones-digit method from AoPS Solutions 1 and 4."
+    }
+  },
+  "2024-2": {
+    intro: "Three fractions, one sum. Simplify before you convert, and the decimals stay easy. Have a go first.",
+    checks: [
+      {
+        id: "common-factor",
+        prompt: "What makes all three fractions easy to simplify?",
+        options: [
+          { id: "a", label: "Each numerator and denominator shares a factor of 11", correct: true, feedback: "Yes. 44, 110, and 1100 are all multiples of 11, so each fraction collapses to a small one." },
+          { id: "b", label: "Each denominator is a multiple of the numerator", correct: false, feedback: "That is not true for 110/44, where the numerator is larger. Look for the shared factor instead." }
+        ]
+      },
+      {
+        id: "small-term",
+        prompt: "44/1100 is worth how much?",
+        options: [
+          { id: "a", label: "0.04, because it simplifies to 4/100", correct: true, feedback: "Correct. Dividing the top and bottom by 11 gives 4/100, which is four hundredths." },
+          { id: "b", label: "0.4, because 1100 is about a thousand", correct: false, feedback: "0.4 would be 440/1100. Dividing by 11 gives exactly 4/100 = 0.04, ten times smaller." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2024-2-a",
+      sourceProblem: "2024-2",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "What is the value of 66/22 + 120/48 + 66/1650 in decimal form?",
+      expression: "66/22 + 120/48 + 66/1650",
+      options: [
+        { letter: "A", value: 5.54, label: "5.54" },
+        { letter: "B", value: 5.504, label: "5.504" }
+      ],
+      answer: 5.54,
+      answerLabel: "(A) 5.54",
+      solution: [
+        "Simplify the first fraction: 66/22 = 3.",
+        "Simplify the second fraction: 120/48 = 5/2 = 2.5.",
+        "Simplify the third fraction: 66/1650 = 1/25 = 0.04.",
+        "Add: 3 + 2.5 = 5.5, and 5.5 + 0.04 = 5.54."
+      ],
+      reflection: {
+        id: "adapted-place-value",
+        prompt: "True or false: adding 0.04 to 5.5 gives 5.54, not 5.9, because 0.04 belongs in the hundredths place.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct. 0.04 has a zero in the tenths place, so it leaves the 5 tenths alone and only fills the hundredths place." },
+          { id: "false", label: "False", correct: false, feedback: "Line up the place values: 0.04 is four hundredths, which is much smaller than one tenth. The tenths digit stays 5." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_2",
+      credit: "Changed-number practice and coaching authored by Hermes Agent, using the simplifying method from AoPS Solutions 1 and 3."
+    }
+  },
+  "2024-3": {
+    intro: "Four squares stacked from a shared corner. Read the figure carefully and decide which square covers which. Try it first.",
+    checks: [
+      {
+        id: "which-covers",
+        prompt: "The gray 7 × 7 square is painted on top of the white 9 × 9 square. Which white square then hides part of the gray 7 × 7?",
+        options: [
+          { id: "a", label: "The white 4 × 4 square, painted last, which hides 16 square units of gray", correct: true, feedback: "Right. The 4 × 4 white square rests on the 7 × 7 gray square, so only 49 − 16 = 33 square units of that gray stay visible." },
+          { id: "b", label: "The white 9 × 9 square, because it is bigger than the gray square", correct: false, feedback: "The 9 × 9 white square is painted first, so the gray 7 × 7 sits on top of it rather than under it. The square hiding gray area is the one painted later, the 4 × 4." }
+        ]
+      },
+      {
+        id: "two-pieces",
+        prompt: "After subtracting, which two visible pieces add to the answer?",
+        options: [
+          { id: "a", label: "49 − 16 = 33 and 100 − 81 = 19, giving 52", correct: true, feedback: "Correct. Both gray squares lose the white square sitting on them, and the two remaining L-shapes do not overlap." },
+          { id: "b", label: "49 and 100 on their own, giving 149", correct: false, feedback: "That counts gray paint hidden under the white squares. Only 33 and 19 square units of gray can actually be seen." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2024-3-a",
+      sourceProblem: "2024-3",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Three squares with side lengths 3, 6, and 8 share a lower-left corner and alternate white, gray, white. What is the area of the visible gray region?",
+      options: [
+        { letter: "A", value: 27, label: "27" },
+        { letter: "B", value: 36, label: "36" }
+      ],
+      answer: 27,
+      answerLabel: "(A) 27",
+      solution: [
+        "With three squares the nesting is 3 inside 6 inside 8, and the colors go white, gray, white.",
+        "The only gray square is the 6 × 6 one, with area 36, and the white 3 × 3 square covers 9 of it.",
+        "Visible gray is 36 − 9 = 27 square units."
+      ],
+      reflection: {
+        id: "adapted-add-difference",
+        prompt: "True or false: the largest square hides no gray area, because no square is painted on top of it.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct. The largest square goes down first, so nothing covers it. Here the white 8 × 8 square is fully visible, and the gray shown is only the 6 × 6 layer with its 3 × 3 white square removed." },
+          { id: "false", label: "False", correct: false, feedback: "Check the order: the biggest square is painted first and sits at the bottom. Everything else is painted on top of it, so it always stays fully visible." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_3",
+      credit: "Changed-size practice and coaching authored by Hermes Agent, using the nested-squares method from AoPS Solutions 1 and 2."
+    }
+  },
+  "2024-4": {
+    intro: "One number missing, and the answer is a perfect square. Work out the sum she expected first. Try it before reading the checks.",
+    checks: [
+      {
+        id: "full-sum",
+        prompt: "What is 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9?",
+        options: [
+          { id: "a", label: "45", correct: true, feedback: "Yes. Pairing gives 1 + 9, 2 + 8, 3 + 7, 4 + 6, and the leftover 5, so 4 × 10 + 5 = 45." },
+          { id: "b", label: "54", correct: false, feedback: "That is the digits reversed. Pair the numbers from the two ends: four pairs of 10 plus the middle 5 makes 45." }
+        ]
+      },
+      {
+        id: "which-square",
+        prompt: "Her sum is a perfect square and only one number is missing. Which square can it be?",
+        options: [
+          { id: "a", label: "36, because 45 − 36 = 9 is one of the numbers", correct: true, feedback: "Correct. 49 is too large, and 25 would need a missing 20, which is not on her list." },
+          { id: "b", label: "25, because it is also a perfect square below 45", correct: false, feedback: "Leaving out a single number can lower 45 by at most 9, so 25 is impossible: it would need a missing 20." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2024-4-a",
+      sourceProblem: "2024-4",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "When Yunji added all the integers from 1 to 11, she mistakenly left out a number. Her incorrect sum turned out to be a square number. What number did she leave out?",
+      options: [
+        { letter: "A", value: 2, label: "2" },
+        { letter: "B", value: 5, label: "5" }
+      ],
+      answer: 2,
+      answerLabel: "(A) 2",
+      solution: [
+        "The full sum from 1 to 11 is 11 × 12 / 2 = 66.",
+        "Leaving out one number lowers the total by at most 11, so her square is at least 66 − 11 = 55.",
+        "The squares near 66 are 64 and 81. Since 81 is larger than 66, her sum is 64.",
+        "The missing number is 66 − 64 = 2, and 2 is one of the numbers she was adding."
+      ],
+      reflection: {
+        id: "adapted-limit-check",
+        prompt: "True or false: before picking a square, you should check that the gap from the full sum is not larger than the biggest number in the list.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct. The gap is exactly the missing number, so a gap bigger than the largest entry cannot happen and rules that square out immediately." },
+          { id: "false", label: "False", correct: false, feedback: "The gap and the missing number are the same value. If the gap exceeds the largest entry, no single omission could produce that square." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_4",
+      credit: "Changed-range practice and coaching authored by Hermes Agent, using the working-backwards method from AoPS Solutions 1 and 2."
+    }
+  },
+  "2024-5": {
+    intro: "A dice question about products and sums. List the pairs that work before you test the choices. Try it first.",
+    checks: [
+      {
+        id: "multiple-of-6",
+        prompt: "When is the product of two dice a multiple of 6?",
+        options: [
+          { id: "a", label: "When the product has both a factor 2 and a factor 3", correct: true, feedback: "Correct. That happens if a die shows 6, or if the dice show 2 and 3 in either order." },
+          { id: "b", label: "Only when one of the dice shows 6", correct: false, feedback: "That misses 2 × 3 = 6, which is also a multiple of 6 even though no die shows 6." }
+        ]
+      },
+      {
+        id: "sum-six",
+        prompt: "The pairs adding to 6 are (1,5), (2,4), (3,3), (4,2), (5,1). What do their products show?",
+        options: [
+          { id: "a", label: "The products are 5, 8, 9, 8, 5, and none is a multiple of 6", correct: true, feedback: "Right. So 6 can never be the sum when the product is a multiple of 6." },
+          { id: "b", label: "The pair (3,3) works because 3 × 3 = 9 and 9 is close to 6", correct: false, feedback: "Being near 6 does not help. A multiple of 6 must be 6, 12, 18, and so on, and 9 is none of those." }
+        ]
+      }
+    ],
+    similar: {
+      id: "adapted-2024-5-a",
+      sourceProblem: "2024-5",
+      label: "Adapted practice — not an official AMC question",
+      prompt: "Aaliyah rolls two standard 6-sided dice, and the product of the two numbers is a multiple of 4. Which of these integers cannot be the sum of the two numbers?",
+      options: [
+        { letter: "A", value: 11, label: "11" },
+        { letter: "B", value: 9, label: "9" }
+      ],
+      answer: 11,
+      answerLabel: "(A) 11",
+      solution: [
+        "A product is a multiple of 4 when the two dice supply at least two factors of 2 between them. That means a die showing 4, two dice both even, or an even die paired with a 4 or a 6.",
+        "Sum 9: 4 + 5 = 9 and 4 × 5 = 20, which is a multiple of 4, so 9 is possible.",
+        "Sum 11: the only pairs are (5,6) and (6,5), and 5 × 6 = 30 is not a multiple of 4, so 11 cannot occur. The sums 4, 5, 6, 7, 8, 9, 10, and 12 each have a working pair, for example (2,2), (1,4), (2,4), (3,4), (2,6), (4,5), (4,6), and (6,6)."
+      ],
+      reflection: {
+        id: "adapted-two-factors",
+        prompt: "True or false: a product is a multiple of 4 exactly when the two dice contribute at least two factors of 2 between them.",
+        options: [
+          { id: "true", label: "True", correct: true, feedback: "Correct. A 4 supplies two 2s, a 2 supplies one, and a 6 supplies one, so pairs like (2,2), (2,4), and (2,6) all reach two factors of 2." },
+          { id: "false", label: "False", correct: false, feedback: "Counting factors of 2 is exactly the right test. Reaching two of them is what makes a product divisible by 4." }
+        ]
+      },
+      sourceUrl: "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_5",
+      credit: "Changed-divisor practice and coaching authored by Hermes Agent, using the case-checking method from AoPS Solutions 1 and 2."
+    }
+  },
+  "2024-6": {
+    "intro": "This one has no numbers to compute. Set the paths side by side and ask which one wastes distance. Try it before checking the ideas below.",
+    "checks": [
+      {
+        "id": "straight-vs-bent",
+        "prompt": "Path P follows the rounded border. Path R joins the same two parts of the rink but cuts straight across the inside corners. Which is shorter?",
+        "options": [
+          {
+            "id": "a",
+            "label": "R, because a straight cut between two points is shorter than a detour",
+            "correct": true,
+            "feedback": "Correct. That single idea decides the first comparison, and the same idea is reused later."
+          },
+          {
+            "id": "b",
+            "label": "P, because it stays on the outside of the rink",
+            "correct": false,
+            "feedback": "Being on the outside makes the path longer, not shorter. R replaces the curved detour with a straight segment."
+          }
+        ]
+      },
+      {
+        "id": "compare-two-at-a-time",
+        "prompt": "There are four paths and no ruler. What makes this question manageable?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Compare them two at a time and chain the results",
+            "correct": true,
+            "feedback": "Right. R < P, then P < S, then S < Q gives R, P, S, Q without ever measuring four paths at once."
+          },
+          {
+            "id": "b",
+            "label": "Estimate all four lengths by eye and sort them",
+            "correct": false,
+            "feedback": "By eye the middle two look almost equal. Chaining short comparisons is what makes the answer reliable."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-6-a",
+      "sourceProblem": "2024-6",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Two paths join the same two points. Path A follows the two legs of a right triangle with legs 3 and 4 units, so it is 7 units long. Path B goes straight along the hypotenuse. Which path is shorter, and how much shorter is it?",
+      "options": [
+        {
+          "letter": "A",
+          "value": "A",
+          "label": "Path B — 5 units, which is 2 shorter"
+        },
+        {
+          "letter": "B",
+          "value": "B",
+          "label": "Path A — 7 units, which is 2 shorter"
+        }
+      ],
+      "answer": "A",
+      "answerLabel": "(A) Path B, 5 units, 2 shorter",
+      "solution": [
+        "The hypotenuse of a 3-4-5 right triangle is 5, so path B is 5 units long.",
+        "Path A walks the two legs, so it is 3 + 4 = 7 units long.",
+        "The straight path is shorter by 7 − 5 = 2 units."
+      ],
+      "reflection": {
+        "id": "adapted-straight-never-longer",
+        "prompt": "True or false: a straight segment between two points is never longer than a bent path between those same two points.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. This is the one idea behind the whole skating-path question, applied three times."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "A bent path always adds distance beyond the straight segment, so the straight route is the shortest possible."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_6",
+      "credit": "Changed-context practice and coaching authored by Hermes Agent, using the straight-versus-bent comparison in AoPS Solutions 2 and 3."
+    }
+  },
+  "2024-7": {
+    "intro": "The area count gets you close, but one more idea finishes the puzzle. Try the tiling yourself first, then check the two ideas below.",
+    "checks": [
+      {
+        "id": "area-mod-four",
+        "prompt": "The rectangle has 21 unit squares and every 2 × 2 or 1 × 4 tile covers 4 of them. What does that tell you about the number of 1 × 1 tiles?",
+        "options": [
+          {
+            "id": "a",
+            "label": "It must leave a remainder of 1 when divided by 4, so it is 1 or 5",
+            "correct": true,
+            "feedback": "Correct. 21 − x is a multiple of 4, so x = 1 or 5 among the choices worth considering."
+          },
+          {
+            "id": "b",
+            "label": "It must be exactly 1, because area is all that matters",
+            "correct": false,
+            "feedback": "Area alone cannot decide it. It only narrows the answer to two candidates, and the colouring then chooses between them."
+          }
+        ]
+      },
+      {
+        "id": "colouring",
+        "prompt": "Colour the seven columns alternately dark and light, starting and ending dark. What does that colouring show?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Every 2 × 2 and 1 × 4 tile covers equal dark and light, so the 1 × 1 tiles must cover the 3-square difference",
+            "correct": true,
+            "feedback": "Exactly. There are 12 dark and 9 light squares, so at least 3 of the 1 × 1 tiles are forced."
+          },
+          {
+            "id": "b",
+            "label": "The colours make no difference, because the tiles can be placed anywhere",
+            "correct": false,
+            "feedback": "The colours matter precisely because every large tile covers the two colours equally, whatever its position."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-7-a",
+      "sourceProblem": "2024-7",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "A 3 × 5 rectangle is covered without overlap by 2 × 2 squares, 1 × 4 rectangles placed horizontally, and 1 × 1 squares. What is the minimum possible number of 1 × 1 squares?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 3,
+          "label": "3"
+        },
+        {
+          "letter": "B",
+          "value": 1,
+          "label": "1"
+        }
+      ],
+      "answer": 3,
+      "answerLabel": "(A) 3",
+      "solution": [
+        "The rectangle has 3 × 5 = 15 unit squares, and each large tile covers 4, so 15 − x is a multiple of 4 and x is 3, 7, 11, or 15.",
+        "Colour the five columns alternately dark and light so the first and last are dark: dark columns hold 3 × 3 = 9 squares and light columns 2 × 3 = 6, a difference of 3.",
+        "Every 2 × 2 tile and every horizontal 1 × 4 tile covers equal dark and light, so the 1 × 1 squares must supply that difference of 3. At least 3 are needed.",
+        "Three is achievable: place two 2 × 2 squares in rows 1–2 across columns 1–4, put one 1 × 4 rectangle in row 3 across columns 1–4, and fill the three remaining squares of column 5 with 1 × 1 squares."
+      ],
+      "reflection": {
+        "id": "adapted-colour-needs-three",
+        "prompt": "True or false: in the 3 × 5 version, the column colouring by itself rules out using a single 1 × 1 square.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. One 1 × 1 square can only cover one extra dark square, but the colouring demands three."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "The colouring alone is enough here. Since the big tiles never change the 3-square imbalance, at least three 1 × 1 squares are forced."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_7",
+      "credit": "Changed-size practice and coaching authored by Hermes Agent, using the area and colouring methods in AoPS Solutions 1–3."
+    }
+  },
+  "2024-8": {
+    "intro": "A small branching problem. The only care needed is not counting the same dollar amount twice. Try three days of choices yourself first.",
+    "checks": [
+      {
+        "id": "duplicate-eight",
+        "prompt": "On Wednesday, $5 can lead to 8 or 10 and $4 can lead to 7 or 8. How many different amounts are there on Wednesday?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Three: 7, 8, and 10, because 8 arrives two different ways",
+            "correct": true,
+            "feedback": "Correct. Counting the four branches would overcount, since two of them land on $8."
+          },
+          {
+            "id": "b",
+            "label": "Four, one for each branch",
+            "correct": false,
+            "feedback": "Four branches do exist, but two of them give the same amount. The question asks how many amounts, not how many sequences."
+          }
+        ]
+      },
+      {
+        "id": "day-count",
+        "prompt": "Monday is the starting day and Thursday is three days later. How many rounds of choosing does Taye make?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Three rounds: Tuesday, Wednesday, and Thursday",
+            "correct": true,
+            "feedback": "Right. Each round applies either +3 or doubling to the amount from the day before."
+          },
+          {
+            "id": "b",
+            "label": "Four rounds, counting Monday as one",
+            "correct": false,
+            "feedback": "Monday is the given starting amount, so no choice is made that day. There are only three rounds of choosing."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-8-a",
+      "sourceProblem": "2024-8",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "On Monday, Taye has $2. Every day he either gains $4 or doubles the amount he had the day before. How many different dollar amounts could he have on Thursday, three days later?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 5,
+          "label": "5"
+        },
+        {
+          "letter": "B",
+          "value": 6,
+          "label": "6"
+        }
+      ],
+      "answer": 5,
+      "answerLabel": "(A) 5",
+      "solution": [
+        "Tuesday: 2 + 4 = 6 or 2 × 2 = 4.",
+        "Wednesday: from 6 he reaches 10 or 12; from 4 he reaches 8 or 8. The amounts are 8, 10, and 12.",
+        "Thursday: 10 gives 14 and 20, 12 gives 16 and 24, 8 gives 12 and 16.",
+        "The distinct amounts are 12, 14, 16, 20, and 24 — five of them, because 16 and 12 each appear twice."
+      ],
+      "reflection": {
+        "id": "adapted-amounts-vs-paths",
+        "prompt": "True or false: the number of different amounts can be smaller than the number of sequences of choices.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. Different sequences often land on the same amount, and this question counts amounts only."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Counting sequences is exactly the mistake to avoid. Here eight sequences give only five amounts."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_8",
+      "credit": "Changed-operations practice and coaching authored by Hermes Agent, using the day-by-day listing in AoPS Solutions 1 and 3."
+    }
+  },
+  "2024-9": {
+    "intro": "This is a ratio question dressed as an arithmetic question. Name the smallest group before you touch the answer choices.",
+    "checks": [
+      {
+        "id": "which-is-smallest",
+        "prompt": "Maria has half as many red marbles as green, and twice as many blue as green. Which colour should you call x?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Red, the smallest group",
+            "correct": true,
+            "feedback": "Correct. Then green is 2x and blue is 4x, and no fraction appears in the arithmetic."
+          },
+          {
+            "id": "b",
+            "label": "Green, because the other two are described from green",
+            "correct": false,
+            "feedback": "That works if you accept g/2, but the total then contains a fraction. Naming red x keeps every count a whole multiple."
+          }
+        ]
+      },
+      {
+        "id": "multiple-of-seven",
+        "prompt": "With red x, green 2x, and blue 4x, what must the total be?",
+        "options": [
+          {
+            "id": "a",
+            "label": "A multiple of 7",
+            "correct": true,
+            "feedback": "Right. 7x with x a whole number, so only 28 among the choices can be the total."
+          },
+          {
+            "id": "b",
+            "label": "A multiple of 3, because there are three colours",
+            "correct": false,
+            "feedback": "Three colours does not mean thirds. The coefficients add to 7, so the divisibility condition is 7."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-9-a",
+      "sourceProblem": "2024-9",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "All the marbles in Maria's collection are red, green, or blue. She has half as many red marbles as green marbles and three times as many blue marbles as green marbles. Which of these could be the total number of marbles?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 36,
+          "label": "36"
+        },
+        {
+          "letter": "B",
+          "value": 40,
+          "label": "40"
+        }
+      ],
+      "answer": 36,
+      "answerLabel": "(A) 36",
+      "solution": [
+        "Let red be x. Then green is 2x, and blue is three times green, so blue is 6x.",
+        "The total is x + 2x + 6x = 9x, a multiple of 9.",
+        "36 is a multiple of 9 but 40 is not, so 36 could be the total.",
+        "With 36 total, x = 4: that is 4 red, 8 green, and 24 blue, and 24 is three times 8."
+      ],
+      "reflection": {
+        "id": "adapted-multiplier-change",
+        "prompt": "True or false: making blue three times green instead of twice green changes the divisibility condition from 7 to 9.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. The coefficient of x on blue goes from 4 to 6, so the total goes from 7x to 9x."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "The blue multiplier feeds straight into the total. Twice gives 7x, three times gives 9x, so the condition does change."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_9",
+      "credit": "Changed-ratio practice and coaching authored by Hermes Agent, using the single-variable method in AoPS Solutions 1 and 3."
+    }
+  },
+  "2024-10": {
+    "intro": "A rate question with two easy slips built in: counting the years, and rounding at the wrong moment. Work it before reading the ideas below.",
+    "checks": [
+      {
+        "id": "year-count",
+        "prompt": "The reading is for January 1980 and the question asks about January 2030. How many years is that?",
+        "options": [
+          {
+            "id": "a",
+            "label": "50 years",
+            "correct": true,
+            "feedback": "Correct. Both dates are in January, so the elapsed time is simply 2030 − 1980."
+          },
+          {
+            "id": "b",
+            "label": "51 years, because both end years count",
+            "correct": false,
+            "feedback": "Counting both endpoints would double-count. From January 1980 to January 1981 is one year, so 1980 to 2030 is 50."
+          }
+        ]
+      },
+      {
+        "id": "round-last",
+        "prompt": "Where should the rounding to the nearest integer happen?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Only at the very end, after adding the increase to 338",
+            "correct": true,
+            "feedback": "Right. Rounding 1.515 to 2 first would give 338 + 100 = 438, which is far from the correct 414."
+          },
+          {
+            "id": "b",
+            "label": "First, by rounding the yearly increase to a friendlier number",
+            "correct": false,
+            "feedback": "That error compounds over 50 years. Keep 1.515 exact and round once at the end."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2024-10-a",
+      "sourceProblem": "2024-10",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "In January 1980 an observatory recorded a carbon dioxide level of 338 ppm, and the average reading has increased by about 1.515 ppm each year. What is the expected level, in ppm, in January 2050? Round to the nearest integer.",
+      "options": [
+        {
+          "letter": "A",
+          "value": 444,
+          "label": "444"
+        },
+        {
+          "letter": "B",
+          "value": 450,
+          "label": "450"
+        }
+      ],
+      "answer": 444,
+      "answerLabel": "(A) 444",
+      "solution": [
+        "From January 1980 to January 2050 is 2050 − 1980 = 70 years.",
+        "The total increase is 1.515 × 70. Since 1.515 × 7 = 10.605, the increase is 106.05 ppm.",
+        "Add the starting level: 338 + 106.05 = 444.05 ppm.",
+        "Rounded to the nearest integer, that is 444 ppm."
+      ],
+      "reflection": {
+        "id": "adapted-round-once",
+        "prompt": "True or false: because the final answer is rounded to the nearest integer, you may safely round the yearly increase before multiplying.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": false,
+            "feedback": "The rate is multiplied by 70, so rounding it to 2 would overstate the increase by about 34 ppm. Carry the exact value and round once at the end."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": true,
+            "feedback": "Correct. The yearly rate is used 70 times, so an early rounding error grows with it. Round only the final result."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_10",
+      "credit": "Changed-end-year practice and coaching authored by Hermes Agent, using the elapsed-years method in AoPS Solutions 1–3."
+    }
   }
 };

@@ -62,7 +62,7 @@ assert.deepEqual([1,2,3].map((value) => matrix.flat().filter((cell) => cell === 
 assert.equal(matrix.flat().reduce((total,value) => total+value,0),problems['2026-2'].answer);
 assert.deepEqual([6*5,4*Math.sqrt(36),6+8+Math.hypot(6,8)],[30,24,24]);
 assert.equal(problems['2026-3'].answer,'D');
-assert.deepEqual(Object.keys(problems),['2026-1','2026-2','2026-3','2026-4','2026-5','2019-1','2019-2','2019-3','2019-4','2019-5','2019-6','2019-7','2019-8','2019-9','2019-10','2019-11','2019-12','2019-13','2019-14','2019-15','2019-16','2019-17','2019-18','2019-19','2019-20','2019-21','2019-22','2019-23','2019-24','2019-25','2020-1','2020-2','2020-3','2020-4','2020-5','2020-6','2020-7','2020-8','2020-9','2020-10','2020-11','2020-12','2020-13','2020-14','2020-15','2020-16','2020-17','2020-18','2020-19','2020-20','2020-21','2020-22','2020-23','2020-24','2020-25','2025-1','2025-2','2025-3','2025-4','2025-5','2025-6','2025-7','2025-8','2025-9','2025-10','2025-11','2025-12','2025-13','2025-14','2025-15','2025-16','2025-17','2025-18','2025-19','2025-20','2025-21','2025-22','2025-23','2025-24','2025-25']);
+assert.deepEqual(Object.keys(problems),['2026-1','2026-2','2026-3','2026-4','2026-5','2019-1','2019-2','2019-3','2019-4','2019-5','2019-6','2019-7','2019-8','2019-9','2019-10','2019-11','2019-12','2019-13','2019-14','2019-15','2019-16','2019-17','2019-18','2019-19','2019-20','2019-21','2019-22','2019-23','2019-24','2019-25','2020-1','2020-2','2020-3','2020-4','2020-5','2020-6','2020-7','2020-8','2020-9','2020-10','2020-11','2020-12','2020-13','2020-14','2020-15','2020-16','2020-17','2020-18','2020-19','2020-20','2020-21','2020-22','2020-23','2020-24','2020-25','2025-1','2025-2','2025-3','2025-4','2025-5','2025-6','2025-7','2025-8','2025-9','2025-10','2025-11','2025-12','2025-13','2025-14','2025-15','2025-16','2025-17','2025-18','2025-19','2025-20','2025-21','2025-22','2025-23','2025-24','2025-25','2024-1','2024-2','2024-3','2024-4','2024-5','2024-6','2024-7','2024-8','2024-9','2024-10']);
 const fourth = problems['2026-4'];
 assert.match(fourth.prompt,/20%/);
 assert.match(fourth.prompt,/50%/);
@@ -550,6 +550,211 @@ for (const id of ['2025-16','2025-17','2025-18','2025-19','2025-20','2025-21','2
   assert.equal(walkthroughVideos[id][0].channel,'SpreadTheMathLove');
   assert.equal(recommendedVideos[id].length,1,'These segments were reviewed from the creator\'s timestamps and captions');
   assert.match(walkthroughVideos[id][0].segmentLabel,/^Problem \d+ · \d+:\d\d–\d+:\d\d$/);
+}
+const p2024_1 = problems['2024-1'];
+assert.equal(p2024_1.year,2024);
+assert.equal(p2024_1.number,1);
+assert.equal(p2024_1.answer,2);
+assert.equal(p2024_1.answerLabel,'(B) 2');
+assert.match(p2024_1.prompt,/222,222/);
+assert.match(p2024_1.prompt,/22,222/);
+assert.deepEqual(p2024_1.options.map((option) => [option.letter,option.value]),[['A',0],['B',2],['C',4],['D',6],['E',8]]);
+// The five subtracted terms are all 2, so the ones-digit work is 2 − 5·2 = −8 ≡ 2 (mod 10).
+assert.equal((2 - 5*2 + 10) % 10,p2024_1.answer);
+assert.equal(((222222 - (22222+2222+222+22+2)) % 10 + 10) % 10,p2024_1.answer);
+assert.equal(p2024_1.hints.length,3);
+const p1Practice = coachGuides['2024-1'].similar;
+assert.equal((3 - 5*3 + 20) % 10,p1Practice.answer);
+assert.equal(p1Practice.answer,8);
+assert.deepEqual(p1Practice.options.map((option) => option.value),[8,2]);
+assert.equal(p1Practice.reflection.options.find((option) => option.correct).id,'true');
+const p2024_2 = problems['2024-2'];
+assert.equal(p2024_2.answer,6.54);
+assert.equal(p2024_2.answerLabel,'(C) 6.54');
+assert.deepEqual(p2024_2.options.map((option) => option.value),[6.4,6.504,6.54,6.9,6.94]);
+assert.equal(44/11,4);
+assert.equal(110/44,2.5);
+assert.ok(Math.abs(44/1100-0.04)<1e-12);
+assert.ok(Math.abs(4+110/44+44/1100-p2024_2.answer)<1e-12);
+const p2Practice = coachGuides['2024-2'].similar;
+assert.equal(66/22,3);
+assert.equal(120/48,2.5);
+assert.ok(Math.abs(66/1650-0.04)<1e-12);
+assert.ok(Math.abs(66/22+120/48+66/1650-p2Practice.answer)<1e-12);
+assert.equal(p2Practice.answerLabel,'(A) 5.54');
+const p2024_3 = problems['2024-3'];
+assert.equal(p2024_3.answer,52);
+assert.equal(p2024_3.diagram,'./assets/diagram-2024-3.png');
+assert.deepEqual(p2024_3.options.map((option) => option.value),[42,45,49,50,52]);
+assert.equal(7*7-4*4,33);
+assert.equal(10*10-9*9,19);
+assert.equal(33+19,p2024_3.answer);
+assert.equal(7*7+10*10-(4*4+9*9),p2024_3.answer,'Both counting orders agree');
+const p3Practice = coachGuides['2024-3'].similar;
+assert.equal(6*6-3*3,27);
+assert.equal(6*6-3*3,p3Practice.answer);
+assert.deepEqual(p3Practice.options.map((option) => option.value),[27,36]);
+const p2024_4 = problems['2024-4'];
+assert.equal(p2024_4.answer,9);
+assert.deepEqual(p2024_4.options.map((option) => option.value),[5,6,7,8,9]);
+assert.equal(1+2+3+4+5+6+7+8+9,45);
+assert.equal(45-p2024_4.answer,36);
+assert.equal(Math.sqrt(36),6,'The remaining sum is 6²');
+// Only 36 is reachable by dropping exactly one of 1..9.
+assert.deepEqual([1,2,3,4,5,6,7,8,9].filter((n) => Math.sqrt(45-n)%1===0),[9]);
+const p4Practice = coachGuides['2024-4'].similar;
+assert.equal(11*12/2,66);
+assert.equal(66-p4Practice.answer,64);
+assert.equal(Math.sqrt(64),8);
+assert.equal(p4Practice.answer,2);
+assert.deepEqual([1,2,3,4,5,6,7,8,9,10,11].filter((n) => Math.sqrt(66-n)%1===0),[2]);
+const p2024_5 = problems['2024-5'];
+assert.equal(p2024_5.answer,6);
+assert.deepEqual(p2024_5.options.map((option) => option.value),[5,6,7,8,9]);
+{
+  const sums = [];
+  for (let a = 1; a <= 6; a++) for (let b = 1; b <= 6; b++) if ((a*b) % 6 === 0) sums.push(a+b);
+  const reachable = new Set(sums);
+  assert.deepEqual([5,6,7,8,9].filter((s) => !reachable.has(s)),[6]);
+  assert.equal([...reachable].filter((s) => [5,7,8,9].includes(s)).length,4);
+}
+const p5Practice = coachGuides['2024-5'].similar;
+assert.equal(p5Practice.answer,11);
+assert.deepEqual(p5Practice.options.map((option) => option.value),[11,9]);
+{
+  const sums = [];
+  for (let a = 1; a <= 6; a++) for (let b = 1; b <= 6; b++) if ((a*b) % 4 === 0) sums.push(a+b);
+  const reachable = new Set(sums);
+  assert.deepEqual([9,11].filter((s) => !reachable.has(s)),[11]);
+  assert.deepEqual([4,5,6,7,8,9,10,12].filter((s) => !reachable.has(s)),[]);
+}
+for (const id of ['2024-1','2024-2','2024-3','2024-4','2024-5']) {
+  assert.equal(walkthroughVideos[id].length,1);
+  assert.equal(walkthroughVideos[id][0].id,'ktzijuZtDas');
+  assert.equal(walkthroughVideos[id][0].channel,'Interstigation');
+  assert.equal(recommendedVideos[id].length,1,'These segments were reviewed from the creator\'s timestamps and captions');
+  assert.match(walkthroughVideos[id][0].segmentLabel,/^Problem \d+ · \d+:\d\d–\d+:\d\d$/);
+}
+// 2024 Problems 6-10: content, mathematics, coaching and reviewed segments.
+const p2024_6 = problems['2024-6'];
+assert.equal(p2024_6.year,2024);
+assert.equal(p2024_6.number,6);
+assert.equal(p2024_6.diagram,'./assets/diagram-2024-6.png');
+assert.deepEqual(p2024_6.options.map((option) => [option.letter,option.value]),[['A','A'],['B','B'],['C','C'],['D','D'],['E','E']]);
+assert.equal(p2024_6.answer,'D');
+assert.match(p2024_6.options.find((option) => option.value === 'D').label,/R, P, S, Q/);
+assert.equal(p2024_6.hints.length,3);
+assert.equal(recommendedVideos['2024-6'].length,1);
+assert.deepEqual(walkthroughVideos['2024-6'].map((video) => [video.startSeconds,video.endSeconds]),[[386,578]]);
+assert.equal(coachGuides['2024-6'].checks.length,2);
+// The adapted path is a 3-4-5 right triangle: legs 7, hypotenuse 5, difference 2.
+const adapted6 = coachGuides['2024-6'].similar;
+assert.equal(Math.hypot(3,4),5);
+assert.equal(3+4-5,2);
+assert.equal(adapted6.answer,'A');
+assert.match(adapted6.solution[2],/7 . 5 = 2/);
+assert.equal(adapted6.reflection.options.find((option) => option.correct).id,'true');
+assert.equal(adapted6.reflection.options.filter((option) => option.correct).length,1);
+
+const p2024_7 = problems['2024-7'];
+assert.equal(p2024_7.number,7);
+assert.equal(p2024_7.diagram,'./assets/diagram-2024-7.png');
+assert.deepEqual(p2024_7.options.map((option) => [option.letter,option.value]),[['A',1],['B',2],['C',3],['D',4],['E',5]]);
+assert.equal(p2024_7.answer,5);
+assert.equal(3*7,21);
+// Area forces the 1x1 count to be 1 or 5; the column colouring requires at least 3.
+assert.equal((21-1)%4,0);
+assert.equal((21-5)%4,0);
+assert.equal((21-3)%4,2);
+const dark7 = 4*3, light7 = 3*3;
+assert.equal(Math.abs(dark7-light7),3);
+for (const tile of ['2x2','1x4']) {
+  const covered = tile === '2x2' ? [[0,0],[0,1],[1,0],[1,1]] : [[0,0],[1,0],[2,0],[3,0]];
+  assert.equal(covered.filter(([c]) => c % 2 === 0).length,covered.filter(([c]) => c % 2 === 1).length,'A large tile covers equal dark and light cells');
+}
+// A valid five-tile covering exists: two 2x2 plus one 1x4 fill a 3x4 block, then one 2x2 plus five 1x1 fill 3x3.
+assert.equal(4*4+5,21);
+assert.equal(2*4+4,12);
+assert.equal(coachGuides['2024-7'].checks.length,2);
+const adapted7 = coachGuides['2024-7'].similar;
+assert.equal(3*5,15);
+assert.equal((15-adapted7.answer)%4,0);
+assert.equal(Math.abs(3*3-2*3),3);
+assert.equal(adapted7.answer,3);
+assert.equal(adapted7.reflection.options.find((option) => option.correct).id,'true');
+
+const p2024_8 = problems['2024-8'];
+assert.equal(p2024_8.number,8);
+assert.deepEqual(p2024_8.options.map((option) => [option.letter,option.value]),[['A',3],['B',4],['C',5],['D',6],['E',7]]);
+assert.equal(p2024_8.answer,6);
+function amounts(start, gain, days) {
+  let cur = new Set([start]);
+  for (let d = 0; d < days; d++) {
+    const next = new Set();
+    for (const v of cur) { next.add(v + gain); next.add(v * 2); }
+    cur = next;
+  }
+  return cur;
+}
+const thursday8 = amounts(2,3,3);
+assert.equal(thursday8.size,6);
+assert.deepEqual([...thursday8].sort((a,b) => a-b),[10,11,13,14,16,20]);
+assert.equal(p2024_8.answer,thursday8.size);
+assert.equal(amounts(2,3,2).size,3,'Wednesday has three amounts because 8 repeats');
+const adapted8 = coachGuides['2024-8'].similar;
+const thursday8b = amounts(2,4,3);
+assert.equal(thursday8b.size,5);
+assert.deepEqual([...thursday8b].sort((a,b) => a-b),[12,14,16,20,24]);
+assert.equal(adapted8.answer,thursday8b.size);
+assert.equal(coachGuides['2024-8'].checks.length,2);
+assert.equal(adapted8.reflection.options.find((option) => option.correct).id,'true');
+
+const p2024_9 = problems['2024-9'];
+assert.equal(p2024_9.number,9);
+assert.deepEqual(p2024_9.options.map((option) => [option.letter,option.value]),[['A',24],['B',25],['C',26],['D',27],['E',28]]);
+assert.equal(p2024_9.answer,28);
+assert.deepEqual([24,25,26,27,28].filter((n) => n % 7 === 0),[28]);
+const r9 = 4, g9 = 8, b9 = 16;
+assert.equal(g9/2,r9);
+assert.equal(g9*2,b9);
+assert.equal(r9+g9+b9,p2024_9.answer);
+const adapted9 = coachGuides['2024-9'].similar;
+assert.equal([36,40].filter((n) => n % 9 === 0)[0],adapted9.answer);
+assert.equal(adapted9.answer,36);
+assert.equal(4+8+24,36);
+assert.equal(24,3*8);
+assert.equal(adapted9.reflection.options.find((option) => option.correct).id,'true');
+
+const p2024_10 = problems['2024-10'];
+assert.equal(p2024_10.number,10);
+assert.deepEqual(p2024_10.options.map((option) => [option.letter,option.value]),[['A',399],['B',414],['C',420],['D',444],['E',459]]);
+assert.equal(p2024_10.answer,414);
+assert.equal(2030-1980,50);
+assert.ok(Math.abs(1.515*100-151.5)<1e-9);
+assert.ok(Math.abs(1.515*50-75.75)<1e-9);
+assert.equal(Math.round(338+75.75),p2024_10.answer);
+assert.equal(Math.round(338+1.515*(2030-1980)),p2024_10.answer);
+assert.notEqual(Math.round(338+2*50),414,'Rounding the rate first would give the wrong answer');
+const adapted10 = coachGuides['2024-10'].similar;
+assert.equal(2050-1980,70);
+assert.ok(Math.abs(1.515*70-106.05)<1e-9);
+assert.equal(Math.round(338+1.515*70),adapted10.answer);
+assert.equal(adapted10.answer,444);
+assert.equal(coachGuides['2024-10'].checks.length,2);
+assert.equal(adapted10.reflection.options.find((option) => option.correct).id,'false','Rounding the rate first is false');
+
+for (const id of ['2024-6','2024-7','2024-8','2024-9','2024-10']) {
+  assert.equal(walkthroughVideos[id].length,1);
+  assert.equal(walkthroughVideos[id][0].id,'ktzijuZtDas');
+  assert.equal(walkthroughVideos[id][0].channel,'Interstigation');
+  assert.equal(recommendedVideos[id].length,1);
+  assert.equal(walkthroughVideos[id][0].reviewedAt,'2026-10-31');
+  assert.match(walkthroughVideos[id][0].segmentLabel,/^Problem \d+ · \d+:\d\d–\d+:\d\d$/);
+  assert.equal(coachGuides[id].similar.options.length,2);
+  assert.equal(coachGuides[id].similar.reflection.options.filter((option) => option.correct).length,1);
+  assert.equal(coachGuides[id].checks.length,2);
+  assert.ok(coachGuides[id].checks.every((check) => check.options.length === 2 && check.options.filter((option) => option.correct).length === 1));
+  assert.match(coachGuides[id].similar.label,/not an official AMC question/);
 }
 assert.equal(gradeAnswer(fifth,newAttempt(),30).independent,true);
 // Wrong answers, hints and video support must stay local to their question.

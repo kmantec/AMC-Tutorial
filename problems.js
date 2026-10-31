@@ -3775,5 +3775,557 @@ export const problems = {
     "reflection": "For a 4 × 4 diamond the same argument gives C(8, 4) × 16/2 = 70 × 8 = 560. Check that the average area there is 8, exactly half the 16 squares, and explain why the average is always half.",
     "alternative": "Average-area view: the pairing shows every path's area averages 25/2, so the total is 252 × 25/2 = 3150. AoPS Solution 2 checks the same average on a 2 × 2 diamond, where the six areas 0, 1, 2, 2, 3, 4 average 2 = 4/2.",
     "reviewedAt": "2026-10-27"
+  },
+  "2024-1": {
+    "id": "2024-1",
+    "year": 2024,
+    "number": 1,
+    "suggestedPace": "1 min",
+    "title": "Only the ones digit matters",
+    "topic": "Number theory · units digits",
+    "prompt": "What is the ones digit of 222,222 − 22,222 − 2,222 − 222 − 22 − 2?",
+    "wording": "restated",
+    "expression": "222,222 − 22,222 − 2,222 − 222 − 22 − 2",
+    "options": [
+      { "letter": "A", "value": 0, "label": "0" },
+      { "letter": "B", "value": 2, "label": "2" },
+      { "letter": "C", "value": 4, "label": "4" },
+      { "letter": "D", "value": 6, "label": "6" },
+      { "letter": "E", "value": 8, "label": "8" }
+    ],
+    "answer": 2,
+    "answerLabel": "(B) 2",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_1",
+    "hints": [
+      "You are not asked for the value of the expression, only its last digit. Which digits of the six numbers can change that last digit?",
+      "Replace each number by its ones digit. You get 2 − 2 − 2 − 2 − 2 − 2, which is 2 minus five 2s.",
+      "Five 2s make 10, so the ones-digit arithmetic is 2 − 10 = −8. A digit cannot be negative, so add 10 to it."
+    ],
+    "method": "Work only with ones digits, then bring a negative result back into the range 0 to 9.",
+    "score": 3,
+    "ratingReason": "The idea is small but it is the first real AMC 8 skill: higher place values cannot affect the ones digit of a sum or difference.",
+    "solution": [
+      "Adding or subtracting whole numbers only moves the ones digit using the ones digits of the terms, because every higher place value contributes a multiple of 10.",
+      "So keep just the last digit of each term: 2 − 2 − 2 − 2 − 2 − 2.",
+      "The five subtracted 2s add to 10, so this is 2 − 10 = −8.",
+      "The ones digit must be between 0 and 9, and −8 + 10 = 2, so the answer ends in 2.",
+      "Answer: B (2)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1, 3, and 4.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "A negative ones digit needs one more step.",
+    "tip": "When the ones-digit arithmetic goes below 0, add 10 once. Losing 8 from a whole number borrows from the tens place, which turns the last digit into 2 rather than 8.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Reporting 8 because the subtraction gave −8, instead of converting −8 into the digit 2.",
+    "reflection": "Would the answer change if the first number were 222,228 instead of 222,222? Explain using only the ones digits.",
+    "alternative": "Do the arithmetic and check: the five numbers being subtracted add to 22,222 + 2,222 + 222 + 22 + 2 = 24,690, and 222,222 − 24,690 = 197,532, which ends in 2. AoPS Solution 2 takes exactly this route and warns that it is too slow for a timed test.",
+    "reviewedAt": "2026-10-27"
+  },
+  "2024-2": {
+    "id": "2024-2",
+    "year": 2024,
+    "number": 2,
+    "suggestedPace": "1 min",
+    "title": "Three fractions in decimal form",
+    "topic": "Arithmetic · fractions and decimals",
+    "prompt": "What is the value of 44/11 + 110/44 + 44/1100 in decimal form?",
+    "wording": "restated",
+    "expression": "44/11 + 110/44 + 44/1100",
+    "options": [
+      { "letter": "A", "value": 6.4, "label": "6.4" },
+      { "letter": "B", "value": 6.504, "label": "6.504" },
+      { "letter": "C", "value": 6.54, "label": "6.54" },
+      { "letter": "D", "value": 6.9, "label": "6.9" },
+      { "letter": "E", "value": 6.94, "label": "6.94" }
+    ],
+    "answer": 6.54,
+    "answerLabel": "(C) 6.54",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_2",
+    "hints": [
+      "Each fraction can be simplified on its own. Look for a common factor in the numerator and denominator.",
+      "All three fractions hide a factor of 11: 44/11 = 4, 110/44 = 10/4, and 44/1100 = 4/100.",
+      "Turn 10/4 into 2.5 and 4/100 into 0.04, then add 4 + 2.5 + 0.04."
+    ],
+    "method": "Simplify each fraction first, then convert the simple results to decimals and add.",
+    "score": 3,
+    "ratingReason": "Straightforward fraction-to-decimal work. The only trap is the tiny third term, which is easy to misplace by a factor of 10.",
+    "solution": [
+      "Simplify the first fraction: 44/11 = 4.",
+      "Simplify the second fraction: 110/44 = 10/4 = 2.5.",
+      "Simplify the third fraction: 44/1100 = 4/100 = 0.04.",
+      "Add in order: 4 + 2.5 = 6.5, and 6.5 + 0.04 = 6.54.",
+      "Answer: C (6.54)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1 and 3.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "A denominator 25 times larger shrinks the value 25 times.",
+    "tip": "44/1100 is not close to 44/110. The denominator grew by a factor of 10 while the numerator stayed the same, so the value shrank by a factor of 10 to 0.04.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Reading 44/1100 as 0.4 or as 4.4 and landing on 6.9 or 6.94.",
+    "reflection": "Which single term decides between the answers 6.504 and 6.54? Explain how that term is written as a decimal.",
+    "alternative": "Keep everything over 100: 4 = 400/100, 2.5 = 250/100, and 0.04 = 4/100. Then 400 + 250 + 4 = 654 hundredths, which is 6.54. AoPS Solution 2 uses the same common-denominator idea.",
+    "reviewedAt": "2026-10-27"
+  },
+  "2024-3": {
+    "id": "2024-3",
+    "year": 2024,
+    "number": 3,
+    "suggestedPace": "1 min 30 sec",
+    "title": "Visible gray in four nested squares",
+    "topic": "Geometry · nested squares · area",
+    "prompt": "Four squares with side lengths 4, 7, 9, and 10 are arranged in increasing size order so that their left edges and bottom edges align. The squares alternate in color white, gray, white, gray, as shown in the figure. What is the area of the visible gray region, in square units?",
+    "wording": "restated",
+    "diagram": "./assets/diagram-2024-3.png",
+    "options": [
+      { "letter": "A", "value": 42, "label": "42" },
+      { "letter": "B", "value": 45, "label": "45" },
+      { "letter": "C", "value": 49, "label": "49" },
+      { "letter": "D", "value": 50, "label": "50" },
+      { "letter": "E", "value": 52, "label": "52" }
+    ],
+    "answer": 52,
+    "answerLabel": "(E) 52",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_3",
+    "hints": [
+      "Each smaller square sits on top of the next larger one, so part of every gray square is hidden. Which square hides which?",
+      "The white 4 × 4 square hides part of the gray 7 × 7 square, and the white 9 × 9 square hides part of the gray 10 × 10 square.",
+      "Find the gray area left in each of the two gray squares, then add those two visible pieces."
+    ],
+    "method": "Subtract each white square from the gray square it covers, then add the two visible gray pieces.",
+    "score": 4,
+    "ratingReason": "A diagram problem where the arithmetic is easy but the overlap must be read correctly. Learners who add both gray squares forget the white squares on top.",
+    "solution": [
+      "All four squares share the lower-left corner, so the squares nest: 4 inside 7, then 9, then 10.",
+      "The gray 7 × 7 square has area 49, and the white 4 × 4 square on top of it covers 16, so 49 − 16 = 33 square units of gray are visible.",
+      "The gray 10 × 10 square has area 100, and the white 9 × 9 square on top of it covers 81, so 100 − 81 = 19 square units of gray are visible.",
+      "The two visible gray pieces do not overlap, so the total visible gray is 33 + 19 = 52 square units.",
+      "Answer: E (52)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1 and 2.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Add the gray squares, then remove what covers them.",
+    "tip": "You can also start with both gray squares and subtract both white squares: (49 + 100) − (16 + 81) = 149 − 97 = 52. Checking the problem a second way protects you from an overlap mistake.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Adding 49 and 100 to get 149, forgetting that the white squares hide most of the gray.",
+    "reflection": "The visible gray pieces are L-shaped rings of different widths. Why can you add their areas directly instead of worrying about overlap?",
+    "alternative": "Total gray paint minus total white paint: 149 − 97 = 52. AoPS Solution 1 uses the same bookkeeping one square at a time.",
+    "reviewedAt": "2026-10-27"
+  },
+  "2024-4": {
+    "id": "2024-4",
+    "year": 2024,
+    "number": 4,
+    "suggestedPace": "1 min",
+    "title": "The number Yunji left out",
+    "topic": "Number theory · perfect squares · working backwards",
+    "prompt": "When Yunji added all the integers from 1 to 9, she mistakenly left out a number. Her incorrect sum turned out to be a square number. What number did Yunji leave out?",
+    "wording": "restated",
+    "options": [
+      { "letter": "A", "value": 5, "label": "5" },
+      { "letter": "B", "value": 6, "label": "6" },
+      { "letter": "C", "value": 7, "label": "7" },
+      { "letter": "D", "value": 8, "label": "8" },
+      { "letter": "E", "value": 9, "label": "9" }
+    ],
+    "answer": 9,
+    "answerLabel": "(E) 9",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_4",
+    "hints": [
+      "First find the sum she would have had if nothing had been left out.",
+      "1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 45. Her answer is smaller than 45 and is a perfect square.",
+      "Which perfect squares are just below 45? Remember she left out only one number, so the drop is at most 9."
+    ],
+    "method": "Find the full sum, then subtract the largest perfect square that is at most 9 below it.",
+    "score": 3,
+    "ratingReason": "Short and friendly, but it asks the learner to combine two facts: the total 45 and the size of a single missing number.",
+    "solution": [
+      "Adding all the integers from 1 to 9 gives 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 45.",
+      "Leaving out one number from 1 to 9 lowers the sum by at most 9, so her square is at least 45 − 9 = 36.",
+      "The perfect squares near 45 are 36 and 49. Since 49 is larger than 45, her sum must be 36.",
+      "The number left out is 45 − 36 = 9, and 9 is one of the numbers she was adding.",
+      "Answer: E (9)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1 and 2.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Use the size of one missing number as a limit.",
+    "tip": "When exactly one item is missing, the total can only drop by an amount between the smallest and largest possible item. Compare that range with the nearby squares instead of testing all nine numbers.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Choosing 25 or 16 because those are also perfect squares below 45, without checking that leaving one number out cannot lower the sum that far.",
+    "reflection": "Could her incorrect sum have been 25? What is the smallest sum she could possibly get by leaving out a single number from 1 to 9?",
+    "alternative": "Test each square from the top: 45 − 36 = 9 works, while 45 − 25 = 20 is not a number from 1 to 9. So 9 is the only possible answer.",
+    "reviewedAt": "2026-10-27"
+  },
+  "2024-5": {
+    "id": "2024-5",
+    "year": 2024,
+    "number": 5,
+    "suggestedPace": "1 min 30 sec",
+    "title": "Which sum is impossible?",
+    "topic": "Probability · dice · checking cases",
+    "prompt": "Aaliyah rolls two standard 6-sided dice. She notices that the product of the two numbers rolled is a multiple of 6. Which of the following integers cannot be the sum of the two numbers rolled?",
+    "wording": "restated",
+    "options": [
+      { "letter": "A", "value": 5, "label": "5" },
+      { "letter": "B", "value": 6, "label": "6" },
+      { "letter": "C", "value": 7, "label": "7" },
+      { "letter": "D", "value": 8, "label": "8" },
+      { "letter": "E", "value": 9, "label": "9" }
+    ],
+    "answer": 6,
+    "answerLabel": "(B) 6",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_5",
+    "hints": [
+      "A product is a multiple of 6 when it contains both a factor 2 and a factor 3. What pairs of dice give that?",
+      "Either one die shows 6, or the two dice show 2 and 3. Test each answer choice by trying to build that sum from one of those pairs.",
+      "The only pairs adding to 6 are (1,5), (2,4), (3,3), (4,2), and (5,1). Multiply each pair and look for a multiple of 6."
+    ],
+    "method": "Describe the dice pairs that make a multiple of 6, then test each answer choice with them.",
+    "score": 4,
+    "ratingReason": "The mathematical content is small, but the learner must understand why 2 × 3 also works and not only a visible 6.",
+    "solution": [
+      "A product is a multiple of 6 exactly when it has a factor 2 and a factor 3. With two dice that happens when one die shows 6, or when the dice show 2 and 3 in either order.",
+      "Sum 5: 2 + 3 = 5, and 2 × 3 = 6 is a multiple of 6, so 5 is possible.",
+      "Sum 7: 1 + 6 = 7, and 1 × 6 = 6, so 7 is possible.",
+      "Sum 8: 2 + 6 = 8, and 2 × 6 = 12, so 8 is possible.",
+      "Sum 9: 3 + 6 = 9, and 3 × 6 = 18, so 9 is possible.",
+      "Sum 6 comes only from (1,5), (2,4), (3,3), (4,2), (5,1), with products 5, 8, 9, 8, 5. None is a multiple of 6, so 6 cannot occur.",
+      "Answer: B (6)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1 and 2.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Read the question's direction twice.",
+    "tip": "This question asks which sum cannot happen, so four of the five choices must be shown to work. Finding one working example for a choice is enough to eliminate it.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Assuming a factor 6 must appear on a die, which makes 5 and 7 look impossible even though 2 × 3 = 6 and 1 × 6 = 6.",
+    "reflection": "Why does the pair (2,4) fail while (2,6) succeeds, even though both pairs contain a 2 and an even number?",
+    "alternative": "List the products that are multiples of 6: 6 from (1,6), (2,3), (3,2), (6,1); 12 from (2,6), (3,4), (4,3), (6,2); 18 from (3,6), (6,3); 24 from (4,6), (6,4); 30 from (5,6), (6,5); 36 from (6,6). The sums 5, 7, 8, 9 all appear; 6 never does.",
+    "reviewedAt": "2026-10-27"
+  },
+  "2024-6": {
+    "id": "2024-6",
+    "year": 2024,
+    "number": 6,
+    "suggestedPace": "1 min 30 sec",
+    "title": "Which skating path is shortest",
+    "topic": "Geometry · comparing path lengths",
+    "prompt": "Sergei skated around an ice rink along four different paths. The four figures show the paths, labeled P, Q, R, and S, as the thick gray line inside the same rounded rink. What is the order of the four paths from shortest to longest?",
+    "wording": "restated",
+    "diagram": "./assets/diagram-2024-6.png",
+    "options": [
+      {
+        "letter": "A",
+        "value": "A",
+        "label": "P, Q, R, S"
+      },
+      {
+        "letter": "B",
+        "value": "B",
+        "label": "P, R, S, Q"
+      },
+      {
+        "letter": "C",
+        "value": "C",
+        "label": "Q, S, P, R"
+      },
+      {
+        "letter": "D",
+        "value": "D",
+        "label": "R, P, S, Q"
+      },
+      {
+        "letter": "E",
+        "value": "E",
+        "label": "R, S, P, Q"
+      }
+    ],
+    "answer": "D",
+    "answerLabel": "(D) R, P, S, Q",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_6",
+    "hints": [
+      "Start with paths P and R. They join roughly the same two parts of the rink, but P follows the rounded border while R cuts straight across the inside corners. Which is shorter?",
+      "A straight segment between two points is always shorter than a detour between those same two points. Use that idea to compare P with R and then P with S.",
+      "Paths Q and S make the same zigzag pattern, but each stroke of Q swings further out before it crosses. Compare a single crossing of each instead of the whole path."
+    ],
+    "method": "Compare the paths two at a time instead of trying to measure all four.",
+    "score": 6,
+    "ratingReason": "There is no arithmetic at all. The whole question is one geometric idea, that a straight cut between two points beats a detour, used three times with care.",
+    "solution": [
+      "Path R replaces the rounded end of path P with a straight cut across the inside, and a straight cut is shorter than the detour, so R is shorter than P.",
+      "Path S replaces some of path P's travel along the border with straight lines across the rink, so P is shorter than S.",
+      "Paths Q and S share the same zigzag pattern, but the diagonals of Q swing further from the center before crossing, so one stroke of S is shorter than one stroke of Q and S is shorter than Q.",
+      "Putting the three comparisons together gives R < P < S < Q.",
+      "Answer: D (R, P, S, Q)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1–3.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Straight beats bent.",
+    "tip": "When two paths join the same two points, the one with more straight travel is shorter. Compare them piece by piece, and ignore the stretches the two paths share.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Judging by how busy a path looks, or trying to measure all four at once, instead of comparing them two at a time.",
+    "reflection": "Paths P and S start and end in the same places but differ in the middle. Explain why swapping a detour for a straight segment always makes a path shorter.",
+    "alternative": "Lay one figure over another. S placed on P shows that S swaps border travel for a straight crossing, so P < S. S placed on Q shows that Q adds an extra outward swing at every crossing, so S < Q. AoPS Solution 3 uses exactly this overlay method, and Solution 2 reaches the same order by noting that a curved line is always longer than the straight line between its endpoints.",
+    "reviewedAt": "2026-10-31"
+  },
+  "2024-7": {
+    "id": "2024-7",
+    "year": 2024,
+    "number": 7,
+    "suggestedPace": "2 min",
+    "title": "Fewest one-by-one tiles",
+    "topic": "Combinatorics · tiling and colouring",
+    "prompt": "A 3 × 7 rectangle is covered without overlap by tiles of three shapes: 2 × 2 squares, 1 × 4 rectangles, and 1 × 1 squares, shown in the figure. What is the minimum possible number of 1 × 1 tiles used?",
+    "wording": "restated",
+    "diagram": "./assets/diagram-2024-7.png",
+    "options": [
+      {
+        "letter": "A",
+        "value": 1,
+        "label": "1"
+      },
+      {
+        "letter": "B",
+        "value": 2,
+        "label": "2"
+      },
+      {
+        "letter": "C",
+        "value": 3,
+        "label": "3"
+      },
+      {
+        "letter": "D",
+        "value": 4,
+        "label": "4"
+      },
+      {
+        "letter": "E",
+        "value": 5,
+        "label": "5"
+      }
+    ],
+    "answer": 5,
+    "answerLabel": "(E) 5",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_7",
+    "hints": [
+      "Every 2 × 2 tile and every 1 × 4 tile covers exactly 4 unit squares, and the rectangle has 21 square units. What does that say about the number of 1 × 1 tiles?",
+      "Write 21 minus the number of 1 × 1 tiles as a multiple of 4. That leaves only 1 and 5 as realistic candidates for the minimum.",
+      "To rule out one tile, colour the columns alternately dark and light. Count the dark and light squares, then ask how many of each a 2 × 2 tile or a 1 × 4 tile covers."
+    ],
+    "method": "Use area to narrow the answer to two candidates, then use a colouring argument to eliminate the smaller one.",
+    "score": 8,
+    "ratingReason": "The area step is routine, but proving that a single 1 × 1 tile is impossible needs a colouring argument that most students will not invent on their own.",
+    "solution": [
+      "The rectangle has 3 × 7 = 21 unit squares. Each 2 × 2 tile and each 1 × 4 tile covers 4 squares, and a 1 × 4 tile cannot stand upright because the rectangle is only 3 squares tall.",
+      "If x is the number of 1 × 1 tiles, then 21 − x is a multiple of 4, so x is 1 or 5 among the possibilities below 9.",
+      "Colour the seven columns alternately dark and light so that the first and last columns are dark. The dark columns hold 4 × 3 = 12 squares and the light columns hold 3 × 3 = 9, a difference of 3.",
+      "Every 2 × 2 tile covers two dark and two light squares, and every horizontal 1 × 4 tile also covers two dark and two light squares. The big tiles never change the dark-minus-light difference.",
+      "So the 1 × 1 tiles must supply that difference of 3, which needs at least 3 of them. In particular a single 1 × 1 tile cannot work.",
+      "Five tiles do work: tile a 3 × 4 block with two 2 × 2 tiles and one 1 × 4 tile, then tile the remaining 3 × 3 block with one 2 × 2 tile and five 1 × 1 tiles.",
+      "Answer: E (5)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1–4.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Area first, colour second.",
+    "tip": "A mod-4 area count can only tell you that the answer is 1 or 5. To decide between them you need a second idea, such as colouring cells so that every big tile covers equal amounts of each colour.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Stopping at 1 because area alone allows it, without checking that a single 1 × 1 tile can actually be placed.",
+    "reflection": "The colouring proves that at least 3 of the 1 × 1 tiles are needed, yet the answer is 5. What does the area count require that the colouring does not?",
+    "alternative": "Count tiles instead of squares. With a 2 × 2 tiles, b 1 × 4 tiles, and c 1 × 1 tiles, 4a + 4b + c = 21, so c ≡ 1 (mod 4) and c is 1 or 5. AoPS Solution 2’s colouring then rules out c = 1, and the construction in the solution shows that c = 5 is possible.",
+    "reviewedAt": "2026-10-31"
+  },
+  "2024-8": {
+    "id": "2024-8",
+    "year": 2024,
+    "number": 8,
+    "suggestedPace": "2 min",
+    "title": "How many amounts on Thursday",
+    "topic": "Counting · branching and duplicates",
+    "prompt": "On Monday, Taye has $2. Every day he either gains $3 or doubles the amount of money he had on the previous day. How many different dollar amounts could Taye have on Thursday, three days later?",
+    "wording": "restated",
+    "options": [
+      {
+        "letter": "A",
+        "value": 3,
+        "label": "3"
+      },
+      {
+        "letter": "B",
+        "value": 4,
+        "label": "4"
+      },
+      {
+        "letter": "C",
+        "value": 5,
+        "label": "5"
+      },
+      {
+        "letter": "D",
+        "value": 6,
+        "label": "6"
+      },
+      {
+        "letter": "E",
+        "value": 7,
+        "label": "7"
+      }
+    ],
+    "answer": 6,
+    "answerLabel": "(D) 6",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_8",
+    "hints": [
+      "Work one day at a time instead of drawing every branch at once. On Monday Taye has only $2.",
+      "On Tuesday he can have 2 + 3 = 5 or 2 × 2 = 4. On Wednesday, $5 leads to 8 or 10 and $4 leads to 7 or 8.",
+      "Notice that $8 appears twice on Wednesday. Keep only the distinct amounts, then take one more day."
+    ],
+    "method": "Build the list of reachable amounts day by day and remove duplicates before moving on.",
+    "score": 4,
+    "ratingReason": "Only adding three and doubling, but the duplicate 8 is easy to miss and the bookkeeping is the whole question.",
+    "solution": [
+      "Monday: the only amount is $2.",
+      "Tuesday: 2 + 3 = 5 or 2 × 2 = 4.",
+      "Wednesday: from $5 Taye can reach 5 + 3 = 8 or 5 × 2 = 10, and from $4 he can reach 4 + 3 = 7 or 4 × 2 = 8. So the amounts are 7, 8, and 10, three values because $8 arrives two ways.",
+      "Thursday: from $7, 7 + 3 = 10 and 7 × 2 = 14. From $8, 8 + 3 = 11 and 8 × 2 = 16. From $10, 10 + 3 = 13 and 10 × 2 = 20.",
+      "The distinct amounts are 10, 11, 13, 14, 16, and 20, which is six different amounts.",
+      "Answer: D (6)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1 and 3.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Count amounts, not branches.",
+    "tip": "Two different sequences can land on the same amount. Write each day’s amounts as a set and cross out repeats before the next day, or you will overcount.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Counting branches instead of amounts, which gives 8 and misses that $8 is reached twice on Wednesday.",
+    "reflection": "How many sequences of choices reach Thursday, and why is the number of different amounts smaller than that?",
+    "alternative": "Draw the tree and cross out repeats. After two days there are four branches but only three amounts, and each of those three amounts has two children on Thursday, all six of them different. AoPS Solution 3 uses the same brute-force tree.",
+    "reviewedAt": "2026-10-31"
+  },
+  "2024-9": {
+    "id": "2024-9",
+    "year": 2024,
+    "number": 9,
+    "suggestedPace": "1 min",
+    "title": "Total must be a multiple of seven",
+    "topic": "Algebra · ratio reasoning",
+    "prompt": "All the marbles in Maria's collection are red, green, or blue. Maria has half as many red marbles as green marbles and twice as many blue marbles as green marbles. Which of the following could be the total number of marbles in Maria's collection?",
+    "wording": "restated",
+    "options": [
+      {
+        "letter": "A",
+        "value": 24,
+        "label": "24"
+      },
+      {
+        "letter": "B",
+        "value": 25,
+        "label": "25"
+      },
+      {
+        "letter": "C",
+        "value": 26,
+        "label": "26"
+      },
+      {
+        "letter": "D",
+        "value": 27,
+        "label": "27"
+      },
+      {
+        "letter": "E",
+        "value": 28,
+        "label": "28"
+      }
+    ],
+    "answer": 28,
+    "answerLabel": "(E) 28",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_9",
+    "hints": [
+      "Give the smallest group a letter. Red is the smallest group here, so let the number of red marbles be x.",
+      "Half as many red as green means green is 2x, not x/2. Twice as many blue as green then makes blue 4x.",
+      "Add the three groups and see what the total must be divisible by. Then test the five choices."
+    ],
+    "method": "Write every group in terms of the smallest one, add, and read off the divisibility condition.",
+    "score": 3,
+    "ratingReason": "One ratio chain and a divisibility check. The only real trap is reading half as many red as green backwards.",
+    "solution": [
+      "Let the number of red marbles be x. Since red is half of green, green is 2x.",
+      "Since blue is twice green, blue is 4x.",
+      "The total is x + 2x + 4x = 7x, so the total must be a multiple of 7.",
+      "Among 24, 25, 26, 27, and 28, only 28 is a multiple of 7.",
+      "With 28 total, x = 4, giving 4 red, 8 green, and 16 blue marbles. Check: 4 is half of 8, and 16 is twice 8.",
+      "Answer: E (28)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1 and 3.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Translate from the smallest group.",
+    "tip": "When a problem says one group is half of another, name the smaller one x. Multiplying is easier to keep straight than dividing, and the total usually comes out as a whole-number multiple.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Letting green be x/2 instead of 2x, which turns the total into a fraction of x and hides the multiple of 7.",
+    "reflection": "If the total were 28, how many marbles of each colour would Maria have? Check that both ratios still hold.",
+    "alternative": "Let green be g. Then red is g/2 and blue is 2g, so the total is g + g/2 + 2g = 7g/2. For the total to be a whole number, g must be even, and then the total is 7 × (g/2), again a multiple of 7. AoPS Solution 2 uses this route.",
+    "reviewedAt": "2026-10-31"
+  },
+  "2024-10": {
+    "id": "2024-10",
+    "year": 2024,
+    "number": 10,
+    "suggestedPace": "1 min 30 sec",
+    "title": "Carbon dioxide in 2030",
+    "topic": "Arithmetic · rates and elapsed years",
+    "prompt": "In January 1980 an observatory recorded a carbon dioxide level of 338 ppm (parts per million). Over the years the average reading has increased by about 1.515 ppm each year. What is the expected level, in ppm, in January 2030? Round your answer to the nearest integer.",
+    "wording": "restated",
+    "options": [
+      {
+        "letter": "A",
+        "value": 399,
+        "label": "399"
+      },
+      {
+        "letter": "B",
+        "value": 414,
+        "label": "414"
+      },
+      {
+        "letter": "C",
+        "value": 420,
+        "label": "420"
+      },
+      {
+        "letter": "D",
+        "value": 444,
+        "label": "444"
+      },
+      {
+        "letter": "E",
+        "value": 459,
+        "label": "459"
+      }
+    ],
+    "answer": 414,
+    "answerLabel": "(B) 414",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_10",
+    "hints": [
+      "First count the years between January 1980 and January 2030. Subtract the years; the dates match, so no extra day is involved.",
+      "Multiply the yearly increase by the number of years to get the total increase.",
+      "1.515 × 50 is awkward by hand, so double and halve: 1.515 × 100 = 151.5, and half of that is 75.75. Add the increase to 338."
+    ],
+    "method": "Find the elapsed years, multiply by the yearly rate, then add to the starting level and round once at the end.",
+    "score": 4,
+    "ratingReason": "Routine rate arithmetic with two easy slips built in: counting the years and knowing when to round.",
+    "solution": [
+      "From January 1980 to January 2030 is 2030 − 1980 = 50 years.",
+      "The total increase is 1.515 × 50.",
+      "Doubling and halving: 1.515 × 100 = 151.5, so 1.515 × 50 = 151.5 ÷ 2 = 75.75 ppm.",
+      "Add the increase to the starting level: 338 + 75.75 = 413.75 ppm.",
+      "Rounded to the nearest integer, the expected level is 414 ppm.",
+      "Answer: B (414)."
+    ],
+    "credit": "AI-authored explanation based on AoPS Solutions 1 and 3.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Doubling and halving beats long multiplication.",
+    "tip": "To multiply by 50, multiply by 100 and halve, or multiply by 5 and add a zero. Here 1.515 × 5 = 7.575, so 1.515 × 50 = 75.75, which needs no calculator.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Counting 51 years instead of 50, or rounding 413.75 down to 413.",
+    "reflection": "If the level had grown by 1.6 ppm each year instead, would the rounded answer change? Estimate first, then calculate.",
+    "alternative": "Round only at the end. Rounding the yearly increase to 2 ppm first would give 338 + 100 = 438, which is wrong, so keep the exact 1.515 until the final step. AoPS Solution 3 makes the same point by treating the average increase as about 1.515 ppm per year over 50 years.",
+    "reviewedAt": "2026-10-31"
   }
 };

@@ -58,7 +58,7 @@ for (const [id,g] of Object.entries(coachGuides)) {
   assert.equal(retry.firstTry,false);
   assert.equal(answerReflection(g,state,reflection.id).firstTry,false);
 }
-assert.equal(adaptationIds.size,80);
+assert.equal(adaptationIds.size,90);
 const expression = coachGuides['2026-1'].similar.expression;
 const terms = expression.replaceAll('−','-').replaceAll(' ','').match(/[+-]?\d+/g).map(Number);
 assert.equal(terms.length,12);
@@ -97,7 +97,7 @@ assert.deepEqual(sandwichPractice.options.map((option) => option.value),[7,9]);
 assert.match(sandwichPractice.facts[0],/40\.00/);
 assert.match(sandwichPractice.facts[1],/7\.50/);
 assert.equal(sandwichPractice.reflection.options.find((option) => option.correct).id,'true');
-assert.equal(Object.keys(problems).length,80);
+assert.equal(Object.keys(problems).length,90);
 assert.equal(16*(1-1/4),12);
 assert.equal(coachGuides['2025-16'].similar.reflection.options.find((option) => option.correct).id,'false');
 assert.equal(coachGuides['2025-17'].similar.reflection.options.find((option) => option.correct).id,'true');
@@ -111,6 +111,33 @@ assert.equal(coachGuides['2025-24'].similar.reflection.options.find((option) => 
 assert.equal(coachGuides['2025-25'].similar.reflection.options.find((option) => option.correct).id,'true');
 assert.equal(coachGuides['2025-21'].checks.length,2);
 assert.equal(coachGuides['2025-25'].similar.reflection.options.filter((option) => option.correct).length,1,'One correct option per reflection');
+assert.equal((3 - 5*3 + 20) % 10,coachGuides['2024-1'].similar.answer);
+assert.equal(coachGuides['2024-1'].similar.answer,8);
+assert.equal(coachGuides['2024-1'].similar.options.length,2);
+assert.equal(coachGuides['2024-1'].checks.length,2);
+assert.equal(coachGuides['2024-1'].similar.reflection.options.find((option) => option.correct).id,'true');
+assert.equal(coachGuides['2024-1'].similar.reflection.options.filter((option) => option.correct).length,1,'One correct option per reflection');
+assert.ok(Math.abs(66/22+120/48+66/1650-coachGuides['2024-2'].similar.answer)<1e-12);
+assert.equal(coachGuides['2024-2'].similar.answer,5.54);
+assert.equal(coachGuides['2024-2'].checks.length,2);
+assert.equal(coachGuides['2024-2'].similar.reflection.options.find((option) => option.correct).id,'true');
+assert.equal(6*6-3*3,coachGuides['2024-3'].similar.answer);
+assert.equal(coachGuides['2024-3'].similar.answer,27);
+assert.deepEqual(coachGuides['2024-3'].similar.options.map((option) => option.value),[27,36]);
+assert.equal(coachGuides['2024-3'].similar.reflection.options.find((option) => option.correct).id,'true');
+assert.equal(66-coachGuides['2024-4'].similar.answer,64);
+assert.equal(coachGuides['2024-4'].similar.answer,2);
+assert.match(coachGuides['2024-4'].similar.prompt,/1 to 11/);
+assert.equal(coachGuides['2024-4'].similar.reflection.options.find((option) => option.correct).id,'true');
+{
+  const sums = [];
+  for (let a = 1; a <= 6; a++) for (let b = 1; b <= 6; b++) if ((a*b) % 4 === 0) sums.push(a+b);
+  const reachable = new Set(sums);
+  assert.ok(!reachable.has(coachGuides['2024-5'].similar.answer),'The adapted answer must be an unreachable sum');
+  assert.ok(reachable.has(coachGuides['2024-5'].similar.options.find((option) => option.value !== coachGuides['2024-5'].similar.answer).value));
+}
+assert.equal(coachGuides['2024-5'].similar.answer,11);
+assert.equal(coachGuides['2024-5'].similar.reflection.options.find((option) => option.correct).id,'true');
 const attempt = newAttempt();
 attempt.coached = true;
 assert.equal(gradeAnswer(problems['2026-1'],attempt,18).independent,false);
