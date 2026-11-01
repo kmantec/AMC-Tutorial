@@ -520,6 +520,17 @@ assert.equal(p2025_25.answerLabel,'(B) 3150');
 assert.match(p2025_25.prompt,/5 × 5 diamond-shaped grid/);
 assert.match(p2025_25.prompt,/northeast or northwest/);
 assert.equal(p2025_25.diagram,'./assets/diagram-2025-25.png');
+
+// 2025 figures added from LIVE by Po-Shen Loh renders: every problem that shows a
+// figure in its statement must carry a diagram asset, and that asset must exist.
+const p2025Figures = ['2025-1','2025-2','2025-5','2025-8','2025-9','2025-10','2025-11','2025-12','2025-13','2025-15'];
+for (const id of p2025Figures) {
+  const d = problems[id].diagram;
+  assert.ok(d, id + ' must have a diagram');
+  assert.ok(fs.existsSync(d.replace('./','')), id + ' diagram file must exist: ' + d);
+}
+assert.match(problems['2025-2'].prompt,/bent-finger|hieroglyph/i);
+assert.doesNotMatch(problems['2025-2'].prompt,/lotus flower = 10,000/);
 assert.deepEqual(p2025_25.options.map((option) => [option.letter,option.value]),[['A',2520],['B',3150],['C',3840],['D',4730],['E',5050]]);
 {
   const fact = (n) => { let r = 1; for (let i = 2; i <= n; i++) r *= i; return r; };

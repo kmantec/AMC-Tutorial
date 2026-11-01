@@ -2668,6 +2668,7 @@ export const problems = {
     "topic": "Geometry · area · percentages",
     "prompt": "The eight-pointed star, shown in the figure below, is a popular quilting pattern. What percent of the entire 4×4 grid is covered by the star?",
     "wording": "restated",
+    "diagram": "./assets/diagram-2025-1.png",
     "options": [
       { "letter": "A", "value": 40, "label": "40" },
       { "letter": "B", "value": 50, "label": "50" },
@@ -2711,8 +2712,9 @@ export const problems = {
     "suggestedPace": "1 min",
     "title": "Egyptian hieroglyphs",
     "topic": "Number representation · place value",
-    "prompt": "The table below shows Ancient Egyptian hieroglyphs used to represent different numbers. For example, the number 32 was represented by ∩∩∩ || (three heel-bone symbols worth 10 each, plus two stroke symbols worth 1 each). What number is represented by the combination shown? (One lotus flower = 10,000, one coiled rope = 100, one heel bone = 10, one stroke = 1.)",
+    "prompt": "The table below shows Ancient Egyptian hieroglyphs used to represent different numbers. For example, the number 32 was represented by ∩∩∩ || (three heel-bone symbols worth 10 each, plus two stroke symbols worth 1 each). What number is represented by the combination shown?",
     "wording": "restated",
+    "diagram": "./assets/diagram-2025-2.png",
     "options": [
       { "letter": "A", "value": 1423, "label": "1,423" },
       { "letter": "B", "value": 10423, "label": "10,423" },
@@ -2725,14 +2727,14 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_2",
     "hints": [
       "Look at the number of each symbol type in the picture. Start with the largest place value.",
-      "There is 1 lotus flower (10,000), then how many coiled ropes? Heel bones? Strokes?",
+      "The first symbol is the bent-finger sign worth 10,000. Then count the coiled ropes, heel bones, and strokes.",
       "Add them up: 10,000 + (number of ropes × 100) + (number of heel bones × 10) + (number of strokes × 1)."
     ],
     "method": "Identify each hieroglyph's value, multiply by count, sum all values.",
     "score": 7,
     "ratingReason": "A straightforward place-value exercise wrapped in an engaging historical context.",
     "solution": [
-      "1 lotus flower = 1 × 10,000 = 10,000.",
+      "1 bent-finger sign = 1 × 10,000 = 10,000. (The table lists it as 10,000; the lotus sign is only 1,000 and does not appear here.)",
       "4 coiled ropes = 4 × 100 = 400.",
       "2 heel bones = 2 × 10 = 20.",
       "3 strokes = 3 × 1 = 3.",
@@ -2845,6 +2847,7 @@ export const problems = {
     "topic": "Geometry · grid paths · Manhattan distance",
     "prompt": "Betty drives a truck to deliver packages in a neighborhood with a grid of streets. She starts at the factory (F), drives to location A, then B, then C, before returning to F. The coordinates on the grid are: F(6,5), A(7,3), B(0,0), C(2,4). What is the shortest distance, in blocks, she can drive to complete the route?",
     "wording": "restated",
+    "diagram": "./assets/diagram-2025-5.png",
     "options": [
       { "letter": "A", "value": 20, "label": "20" },
       { "letter": "B", "value": 22, "label": "22" },
@@ -2978,6 +2981,7 @@ export const problems = {
     "topic": "Geometry · surface area · volume",
     "prompt": "Isaiah cuts open a cardboard cube along some of its edges to form a flat shape (a net) which has an area of 18 square centimeters. What is the volume of the cube in cubic centimeters?",
     "wording": "restated",
+    "diagram": "./assets/diagram-2025-8.png",
     "options": [
       { "letter": "A", "value": "3√3", "label": "3√3" },
       { "letter": "B", "value": 6, "label": "6" },
@@ -3022,6 +3026,7 @@ export const problems = {
     "topic": "Statistics · averages · clock arithmetic",
     "prompt": "Ningli looks at the 6 pairs of numbers directly across from each other on a clock. She takes the average of each pair of numbers. What is the average of the resulting 6 numbers?",
     "wording": "restated",
+    "diagram": "./assets/diagram-2025-9.png",
     "options": [
       { "letter": "A", "value": 5, "label": "5" },
       { "letter": "B", "value": 6.5, "label": "6.5" },
@@ -3067,6 +3072,7 @@ export const problems = {
     "topic": "Geometry · area · rotation",
     "prompt": "In the figure, ABCD is a rectangle with sides AB = 5 inches and AD = 3 inches. Rectangle ABCD is rotated 90° clockwise around the midpoint of side DC to give a second rectangle. What is the total area, in square inches, covered by the two overlapping rectangles?",
     "wording": "restated",
+    "diagram": "./assets/diagram-2025-10.png",
     "options": [
       { "letter": "A", "value": 21, "label": "21" },
       { "letter": "B", "value": 22.25, "label": "22.25" },
@@ -3111,6 +3117,7 @@ export const problems = {
     "topic": "Geometry · tiling · spatial reasoning",
     "prompt": "A tetromino consists of four squares connected along their edges. There are five possible tetromino shapes: I, O, L, T, and S, which can be rotated or flipped over. Three tetrominoes are used to completely cover a 3×4 rectangle. At least one of the tiles is an S tile. What are the other two tiles?",
     "wording": "restated",
+    "diagram": "./assets/diagram-2025-11.png",
     "options": [
       { "letter": "A", "value": "A", "label": "I and L" },
       { "letter": "B", "value": "B", "label": "I and T" },
@@ -3155,6 +3162,7 @@ export const problems = {
     "topic": "Geometry · circles · Pythagorean Theorem",
     "prompt": "The region shown below consists of 24 squares, each with side length 1 centimeter. What is the area, in square centimeters, of the largest circle that can fit inside the region, possibly touching the boundaries?",
     "wording": "restated",
+    "diagram": "./assets/diagram-2025-12.png",
     "options": [
       { "letter": "A", "value": "A", "label": "3π" },
       { "letter": "B", "value": "B", "label": "4π" },
@@ -3200,6 +3208,7 @@ export const problems = {
     "topic": "Number theory · modular arithmetic · patterns",
     "prompt": "Each of the even numbers 2, 4, 6, ..., 50 is divided by 7. The remainders are recorded. Which histogram displays the number of times each remainder occurs?",
     "wording": "restated",
+    "diagram": "./assets/diagram-2025-13.png",
     "options": [
       { "letter": "A", "value": "A", "label": "Histogram A" },
       { "letter": "B", "value": "B", "label": "Histogram B" },
@@ -3290,6 +3299,7 @@ export const problems = {
     "topic": "Combinatorics · optimization · pairing",
     "prompt": "Kei draws a 6-by-6 grid. He colors 13 of the unit squares silver and the remaining squares gold. Kei then folds the grid in half vertically, forming pairs of overlapping unit squares. Let m and M equal the least and greatest possible number of gold-on-gold pairs, respectively. What is the value of m + M?",
     "wording": "restated",
+    "diagram": "./assets/diagram-2025-15.png",
     "options": [
       { "letter": "A", "value": 12, "label": "12" },
       { "letter": "B", "value": 14, "label": "14" },
