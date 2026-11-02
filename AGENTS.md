@@ -85,3 +85,22 @@ this assistant alone — not to ChatGPT or Claude.
 browser at desktop and 390 px width: start, answer, flag, jump, reload-resume,
 checkpoint at 8 minutes, auto-submit on expiry, result screen, notebook history,
 drill grading, error tagging, and distractor display.
+
+## 2026-11-02: source policy for the remaining years
+
+The parent settled how the remaining work is sourced:
+
+- **Problems: AoPS is the authority.** Where our text disagrees with AoPS on a
+  number, unit, option order, or figure relationship, AoPS wins. Restated wording
+  is labelled; numerical data is never paraphrased.
+- **Solutions and techniques: ours.** The key is only a check. Solve
+  independently first, then compare. A disagreement is reported, never papered
+  over. Shortcuts, mental-math moves and named traps are wanted, not decoration.
+- **Target: seven papers.** AoPS holds 2000-2026, but there was no 2021 paper (the
+  contest moved to January). Seven papers back from 2026 gives 2026, 2025, 2024,
+  2023, 2022, 2020, 2019 = 175 problems. 2022 and 2023 are still empty.
+- SOURCES.md is the shared sheet: policy, target table, and the verified keys for
+  2026, 2023 and 2022. Content batches read it before writing anything.
+- verify.mjs no longer pins an exact list of problem ids (that failed on every
+  legitimate addition). It now asserts that each year runs 1..N with no gaps and
+  no reordering, which is the property that actually matters.

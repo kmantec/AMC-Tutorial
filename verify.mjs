@@ -63,7 +63,17 @@ assert.deepEqual([1,2,3].map((value) => matrix.flat().filter((cell) => cell === 
 assert.equal(matrix.flat().reduce((total,value) => total+value,0),problems['2026-2'].answer);
 assert.deepEqual([6*5,4*Math.sqrt(36),6+8+Math.hypot(6,8)],[30,24,24]);
 assert.equal(problems['2026-3'].answer,'D');
-assert.deepEqual(Object.keys(problems),['2026-1','2026-2','2026-3','2026-4','2026-5','2019-1','2019-2','2019-3','2019-4','2019-5','2019-6','2019-7','2019-8','2019-9','2019-10','2019-11','2019-12','2019-13','2019-14','2019-15','2019-16','2019-17','2019-18','2019-19','2019-20','2019-21','2019-22','2019-23','2019-24','2019-25','2020-1','2020-2','2020-3','2020-4','2020-5','2020-6','2020-7','2020-8','2020-9','2020-10','2020-11','2020-12','2020-13','2020-14','2020-15','2020-16','2020-17','2020-18','2020-19','2020-20','2020-21','2020-22','2020-23','2020-24','2020-25','2025-1','2025-2','2025-3','2025-4','2025-5','2025-6','2025-7','2025-8','2025-9','2025-10','2025-11','2025-12','2025-13','2025-14','2025-15','2025-16','2025-17','2025-18','2025-19','2025-20','2025-21','2025-22','2025-23','2025-24','2025-25','2024-1','2024-2','2024-3','2024-4','2024-5','2024-6','2024-7','2024-8','2024-9','2024-10','2024-11','2024-12','2024-13','2024-14','2024-15','2024-16','2024-17','2024-18','2024-19','2024-20','2024-21','2024-22','2024-23','2024-24','2024-25']);
+const byYear = {};
+for (const id of Object.keys(problems)) {
+  const match = /^(\d{4})-(\d{1,2})$/.exec(id);
+  assert.ok(match, `Problem id ${id} must be YEAR-NUMBER`);
+  (byYear[match[1]] ||= []).push(Number(match[2]));
+}
+for (const [year, numbers] of Object.entries(byYear)) {
+  const sorted = [...numbers].sort((a, b) => a - b);
+  assert.deepEqual(numbers, sorted, `${year} problems must be stored in order`);
+  assert.deepEqual(sorted, sorted.map((_, index) => index + 1), `${year} must run 1..${sorted.length} with no gaps`);
+}
 const fourth = problems['2026-4'];
 assert.match(fourth.prompt,/20%/);
 assert.match(fourth.prompt,/50%/);
