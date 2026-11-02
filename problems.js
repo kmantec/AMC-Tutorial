@@ -758,7 +758,7 @@ export const problems = {
     "answerLabel": "(E) 54",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_8",
     "hints": [
-      "After giving 20% away, what percentage does she have left? Multiply the remaining percentages step by step.",
+      "Three deductions in a row, and each one is taken from what is left, not from the original bag. The only number that matters at each step is the fraction that survives.",
       "After giving 20% away, she has 80% left. Then she gives 10% of that, so she keeps 90% of the 80%.",
       "Keep going: after Ebony, she has 0.8 × 0.9 = 0.72 = 72%. Then she gives 25% (keeps 75%) of that: 0.75 × 0.72 = 0.54 = 54%."
     ],
@@ -847,7 +847,7 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_10",
     "diagram": "https://latex.artofproblemsolving.com/e/1/7/e1796ef723acbb9a4cfeacf57e69202cddf3e0d3.png",
     "hints": [
-      "Original sum = 20+26+16+22+16 = 100. Mean = 100/5 = 20. Median (sorted: 16,16,20,22,26) = 20.",
+      "Five weekday counts, and exactly one of them was recorded wrongly. Which of the two averages can a single correction move a lot, and which can it barely move?",
       "New sum = 100 − 16 + 21 = 105. New mean = 105/5 = 21. New sorted data: 16,20,21,22,26. New median = 21.",
       "Mean increases by 1, median increases by 1."
     ],
@@ -891,9 +891,9 @@ export const problems = {
     "answerLabel": "(D) 39",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_11",
     "hints": [
-      "Every student takes at least one class. How many students take a foreign language class (with or without math)?",
-      "Students who do NOT take a foreign language class must take only math. Total 93 − 54 = 39.",
-      "The 70 taking math is a distractor — you don't need it for this approach."
+      "Every student takes at least one class, and the question is about the ones who take no foreign language at all.",
+      "The students you want are the ones left over once the foreign-language takers are removed. Which of the given numbers do you actually need for that?",
+      "Of the 93 students, 54 take a foreign language. Everyone else takes only math — and the 70 taking math is a distractor."
     ],
     "method": "Subtract foreign language students from total — the rest take only math.",
     "score": 8,
@@ -1073,7 +1073,7 @@ export const problems = {
     "answerLabel": "(B) 7/25",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_15",
     "hints": [
-      "P(sunglasses | cap) = (both) / (cap) = 2/5. We know cap = 35, so both = 35 × 2/5 = 14.",
+      "Two overlapping groups of people, and one conditional probability is given. Each question has its own \"given\" group — that group is the denominator.",
       "P(cap | sunglasses) = (both) / (sunglasses) = 14 / 50.",
       "Simplify 14/50 = 7/25."
     ],
@@ -1253,9 +1253,9 @@ export const problems = {
     "answerLabel": "(C) 24",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_19",
     "hints": [
-      "Each game awards at most 3 points (if one team wins). To maximize points for top 3, minimize draws and losses against the bottom 3.",
-      "There are 2 × C(6,2) = 30 total games. Games involving only bottom-3 teams: 2 × C(3,2) = 6. So 24 games involve at least one top-3 team.",
-      "If each top-3 team wins all its games against bottom-3 teams, and the top-3 teams split their games 1 win / 1 loss against each other, each top team gets 18 (vs bottom) + 6 (vs top) = 24 points."
+      "Each game hands out at most 3 points — a win. So the ceiling on everyone's total comes from how many games get a winner.",
+      "How many games are there in total, and how many of them involve none of the top three? Points earned in those games still count against a ceiling you can find.",
+      "Each top-3 team sweeps both games against all three bottom teams — 6 wins, 18 points. The remaining 6 games are the top three playing each other, worth 18 points in total. They must end level, so those 18 split three ways."
     ],
     "method": "Maximize points from games involving top-3 teams: 24 games × 3 points = 72 points total, split among 3 teams gives 24 each.",
     "score": 9,
@@ -1299,7 +1299,7 @@ export const problems = {
     "answerLabel": "(D) 4",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_20",
     "hints": [
-      "If a² = 16, then a = ±4. So x² − 5 = 4 or x² − 5 = −4.",
+      "A square equals 16. Ask first how many values the inside of that square can take, then how many x each one produces.",
       "Solve x² − 5 = 4 → x² = 9 → x = ±3 (2 real solutions).",
       "Solve x² − 5 = −4 → x² = 1 → x = ±1 (2 more real solutions). Total: 4 real solutions."
     ],
@@ -1434,7 +1434,7 @@ export const problems = {
     "answerLabel": "(B) 11",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_23",
     "hints": [
-      "The total points T must be a multiple of LCM(4, 7) = 28 because Alexa and Brittany scored whole numbers of points.",
+      "The team total is cut into quarters and into sevenths. Before any arithmetic, what must the total be a multiple of?",
       "Fraction of points by Alexa + Brittany + Chelsea + others = T. So T/4 + 2T/7 + 15 + x = T, where x ≤ 14 (7 players × 2 points max).",
       "Simplify: x + 15 = 13T/28. Since x ≤ 14, try T = 56 (the smallest multiple of 28 that works). Then x = 13(56)/28 − 15 = 26 − 15 = 11."
     ],
@@ -1481,7 +1481,7 @@ export const problems = {
     "answerLabel": "(B) 30",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_24",
     "hints": [
-      "Since AD:DC = 1:2, area of triangle ABD is 1/3 of ABC and area of DBC is 2/3 of ABC.",
+      "Two triangles that share a height have areas in the same ratio as their bases. Look for pairs in this figure that share a height.",
       "E is the midpoint of BD, so triangles ABE and AED each have half the area of ABD.",
       "Let x = area of EBF. Then DEF also has area x (same base BE=ED and same height). Set up the ratio ADF : DFC = AD : DC = 1:2 and solve for x."
     ],
@@ -1617,7 +1617,7 @@ export const problems = {
     "answerLabel": "(C) $15",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_2",
     "hints": [
-      "Add up all four earnings. What is the total?",
+      "Four unequal earnings shared equally. What does \"equal\" mean for the person who earned the most?",
       "If they split equally, how much does each person get?",
       "The friend who earned $40 needs to keep only the equal share. How much is the difference?"
     ],
@@ -1661,7 +1661,7 @@ export const problems = {
     "answerLabel": "(D) 1920",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_3",
     "hints": [
-      "What is the area of the garden? Multiply length × width.",
+      "Two rates are stacked: plants per square foot, then berries per plant. The units alone tell you the order to apply them.",
       "Area = 6 × 8 = 48 square feet. At 4 plants per square foot, how many plants are there?",
       "48 × 4 = 192 plants. Each plant gives 10 strawberries, so 192 × 10 = ?"
     ],
@@ -1792,9 +1792,9 @@ export const problems = {
     "answerLabel": "(A) Aaron",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_6",
     "hints": [
-      "List the cars from back to front: Maren is in the last car (position 5). So M is last.",
-      "Aaron sat directly behind Sharon, so Sharon is immediately in front of Aaron. Try the arrangement M _ A S _ or M _ _ A S.",
-      "Darren is in front of Aaron, and at least one person sits between Karen and Darren. The only arrangement that works is M K A S D — Aaron is in the middle."
+      "Five cars, front to back. Maren is in the last car, so one position is already fixed.",
+      "Aaron sat directly behind Sharon — so Sharon is immediately in front of Aaron. That locks them into a pair of adjacent seats, but only one placement lets the rest of the clues fit.",
+      "Darren is in front of Aaron, and at least one person sits between Karen and Darren. Test the adjacent S-A placements the clues allow; only one arrangement survives, and it puts one person exactly in the middle car."
     ],
     "method": "Use a diagram with 5 positions and test each possible arrangement.",
     "score": 8,
@@ -1880,7 +1880,7 @@ export const problems = {
     "answerLabel": "(C) 8072",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_8",
     "hints": [
-      "If p = number of pennies and n = number of nickels, then p + n = 2020 and total value = p + 5n = 2020 + 4n.",
+      "Two kinds of coin, 2020 of them, at least one of each. The total money is controlled entirely by one of the two counts.",
       "Since 2020 is fixed, the total depends only on n. The minimum has n = 1 (one nickel), the maximum has n = 2019 (all but one penny).",
       "Difference = (2020 + 4×2019) − (2020 + 4×1) = 4 × (2019 − 1) = 4 × 2018 = 8072."
     ],
@@ -1971,7 +1971,7 @@ export const problems = {
     "answerLabel": "(C) 12",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_10",
     "hints": [
-      "Without any restrictions, 4 distinct items can be arranged in 4! = 24 ways.",
+      "Two of the four marbles must not touch. Which is cheaper to count — the arrangements you want, or the ones you forbid?",
       "Count the arrangements where Steelie and Tiger are next to each other. Treat them as a 'block' — then there are 3! ways to arrange the block plus the other 2 marbles, times 2! for ordering inside the block.",
       "24 − (3! × 2!) = 24 − 12 = 12."
     ],
@@ -2060,9 +2060,9 @@ export const problems = {
     "answerLabel": "(A) 10",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_12",
     "hints": [
-      "5! = 5 × 4 × 3 × 2 × 1 = 120. Can you rewrite 120 as 12 × 10?",
-      "Rewrite the left side: 5! × 9! = (12 × 10) × 9! = 12 × 10 × 9! = 12 × 10!",
-      "Since 12 × 10! = 12 × N!, cancel the 12 to get N! = 10!, so N = 10."
+      "One side is a product of two factorials, the other is 12 times a factorial. Written out, 9! and 10! differ by a single factor.",
+      "Rewrite 5! as 12 × 10, then slide that 10 next to the 9!. What single factorial does 10 × 9! turn into?",
+      "The left side is now 12 times one factorial. Cancel the 12 from both sides, and the two factorials left have to be the same — so match their arguments."
     ],
     "method": "Expand 5! = 120 = 12 × 10, then rewrite as 12 × 10! to match the right side.",
     "score": 7,
@@ -2190,7 +2190,7 @@ export const problems = {
     "answerLabel": "(C) 75",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_15",
     "hints": [
-      "Write the statement as an equation: 0.15x = 0.20y.",
+      "One percent statement links two unknown numbers. The question asks only for a ratio between them, so their actual sizes never matter.",
       "Solve for y: y = (0.15 / 0.20)x = (3/4)x = 0.75x.",
       "0.75 = 75%, so y is 75% of x."
     ],
@@ -2277,7 +2277,7 @@ export const problems = {
     "answerLabel": "(B) 7",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_17",
     "hints": [
-      "2020 = 2² × 5 × 101. List all its factors.",
+      "How many factors a number has depends only on its prime factorization — not on the factors themselves. What does 2020 break into?",
       "The factors are: 1, 2, 4, 5, 10, 20, 101, 202, 404, 505, 1010, 2020.",
       "Count which ones have 1, 2, or 3 factors themselves, then subtract from 12."
     ],
@@ -2320,7 +2320,7 @@ export const problems = {
     "answerLabel": "(A) 240",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_18",
     "hints": [
-      "The diameter FE = FD + DA + AE = 9 + 16 + 9 = 34, so the radius is 17.",
+      "The rectangle sits inside a semicircle, so some of its corners lie on the arc. Which segment is a diameter, and which corner touches the curve?",
       "Let O be the center. O is the midpoint of DA, so OD = OA = 8.",
       "In right triangle ODC, OC = 17, OD = 8, so CD = √(17² − 8²) = 15. Area = 16 × 15."
     ],
@@ -2409,7 +2409,7 @@ export const problems = {
     "answerLabel": "(B) 24.2",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_20",
     "hints": [
-      "Heights are integers. Tree 2 = 11. Tree 1 must be twice or half of Tree 2. 2 × 11 = 22 (integer), 11/2 = 5.5 (not integer). So Tree 1 = 22.",
+      "Each tree is exactly twice or exactly half its neighbour, and every height is a whole number. Start from the height you were given and follow the rule.",
       "Similarly, Tree 3 relates to Tree 2: must be integer, so Tree 3 = 22.",
       "Now test possible integer pairs for Trees 4 and 5 (each is twice or half its neighbor). The average ends in .2, so the sum ends in 1."
     ],
@@ -2499,7 +2499,7 @@ export const problems = {
     "answerLabel": "(E) 83",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_22",
     "hints": [
-      "Work backwards: if the output is O, what could the input I be? If I is even then I = 2O; if I is odd then I = (O−1)/3.",
+      "The machine is easy to run forwards and awkward to undo. The value at the end is tiny — which direction is worth running it?",
       "Start from final output 1. Only the 'even' inverse works: 2×1 = 2. Continue building backwards step by step.",
       "At each step, both inverse rules may produce valid integers. Branch out like a tree, keeping only positive integers."
     ],
@@ -2591,7 +2591,7 @@ export const problems = {
     "answerLabel": "(A) 6/25",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_24",
     "hints": [
-      "With n=24 tiles per row, there are 25 border gaps (between tiles and at edges). The large square side = 24s + 25d.",
+      "A big square is filled with grey tiles separated by white gaps of a fixed width. Can you write the side of the big square using just those two lengths?",
       "Gray tile area = (24s)². Large square area = (24s+25d)². Their ratio is 64/100 = 16/25.",
       "Take the square root: 24s/(24s+25d) = 4/5. Then cross-multiply and solve for d/s."
     ],
@@ -2680,7 +2680,7 @@ export const problems = {
     "answerLabel": "(B) 50",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_1",
     "hints": [
-      "Count the total number of small squares in the 4×4 grid first.",
+      "The grid is 4×4 and the star slices some squares in half. Rather than measure the star, ask what fraction of one square it takes.",
       "The star covers 4 full squares and 8 half-squares. How many full squares is that total?",
       "8 full squares out of 16 total squares → what percent is that?"
     ],
@@ -3038,7 +3038,7 @@ export const problems = {
     "answerLabel": "(B) 6.5",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_9",
     "hints": [
-      "On a clock, opposite numbers always add to 13 (12+1, 11+2, 10+3, etc.).",
+      "Six pairs of numbers sitting opposite each other. The average of the six pair-averages is the average of what collection of numbers?",
       "The average of each pair is the sum divided by 2.",
       "The average of all 6 pair-averages is the same as the average of all numbers 1 to 12."
     ],
@@ -3084,7 +3084,7 @@ export const problems = {
     "answerLabel": "(D) 23.75",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_10",
     "hints": [
-      "Each rectangle has area 5 × 3 = 15, so total without overlap is 30.",
+      "Two copies of one rectangle, the second turned 90° about a point on an edge. Draw the turned copy and the overlap becomes a shape with a name.",
       "The overlap region is a square. Find its side length.",
       "The center of rotation is the midpoint of DC. After 90° rotation, the overlap is a square of side 2.5 inches."
     ],
@@ -3311,7 +3311,7 @@ export const problems = {
     "answerLabel": "(C) 16",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_15",
     "hints": [
-      "The 6×6 grid has 36 squares. After folding vertically, there are 18 pairs of overlapping squares.",
+      "Folding pairs the 36 squares up. The number of gold-gold pairs depends on how the gold squares are spread among the pairs, not on where each one sits.",
       "There are 36 − 13 = 23 gold squares. Think about how to distribute them across the 18 pairs.",
       "For minimum gold pairs (m): spread gold squares across as many pairs as possible. For maximum (M): pair gold squares with each other as much as possible."
     ],
@@ -3537,7 +3537,7 @@ export const problems = {
     "answerLabel": "(A) 4/7",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_20",
     "hints": [
-      "Take the block as 1 and follow one full round: Sarika 1/2, Dev 1/4, Rajiv 1/8. What is left after that round?",
+      "Each turn eats half of what remains. Follow one person's share from round to round instead of tracking the whole block.",
       "One eighth of the block survives, so Sarika's next share is half of that, 1/16. Her shares are 1/2, 1/16, 1/128, and so on — each 1/8 of the previous one.",
       "Add the geometric series: first term divided by (1 − ratio)."
     ],
@@ -3717,7 +3717,7 @@ export const problems = {
     "answerLabel": "(E) 4",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_24",
     "hints": [
-      "Drop perpendiculars from A and D down to BC. Each 60° base angle creates a 30-60-90 triangle, and the two triangles are congruent.",
+      "A trapezoid with 60° base angles and whole-number sides. Those angles force a fixed relation among the four sides — find it before counting anything.",
       "In that triangle the leg AB is the hypotenuse and the piece of the bottom base outside the top base is the side opposite 30°, so each overhang is half a leg.",
       "Let a be the top base and x a leg. Then the bottom base is a + x, so the perimeter is a + (a + x) + 2x = 2a + 3x = 30. Count integer pairs with a > 0."
     ],
@@ -4117,7 +4117,7 @@ export const problems = {
     "answerLabel": "(E) 5",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_7",
     "hints": [
-      "Every 2 × 2 tile and every 1 × 4 tile covers exactly 4 unit squares, and the rectangle has 21 square units. What does that say about the number of 1 × 1 tiles?",
+      "Every tile except the 1×1 covers exactly four squares. The rectangle holds a fixed number of squares, so what does that force about the small tiles?",
       "Write 21 minus the number of 1 × 1 tiles as a multiple of 4. That leaves only 1 and 5 as realistic candidates for the minimum.",
       "To rule out one tile, colour the columns alternately dark and light. Count the dark and light squares, then ask how many of each a 2 × 2 tile or a 1 × 4 tile covers."
     ],
@@ -4313,7 +4313,7 @@ export const problems = {
     "answerLabel": "(B) 414",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_10",
     "hints": [
-      "First count the years between January 1980 and January 2030. Subtract the years; the dates match, so no extra day is involved.",
+      "Two dates fifty years apart and a rate per year. The one thing that must be right is how many years actually pass between them.",
       "Multiply the yearly increase by the number of years to get the total increase.",
       "1.515 × 50 is awkward by hand, so double and halve: 1.515 × 100 = 151.5, and half of that is 75.75. Add the increase to 338."
     ],
@@ -4379,7 +4379,7 @@ export const problems = {
     "answerLabel": "(D) 11",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_11",
     "hints": [
-      "Both A and B sit on the horizontal line y = 7. That makes AB a base you can measure straight off the coordinates.",
+      "Two of the vertices share a y-coordinate, so one side is horizontal. The area formula then needs that base and a perpendicular height.",
       "The height is the vertical gap between C and the line y = 7. Since y > 7, that gap is y − 7, not 7 − y.",
       "Write area = ½ × base × height with the numbers you found and solve the small equation for y."
     ],
@@ -4647,7 +4647,7 @@ export const problems = {
     "answerLabel": "(C) 1107",
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_15",
     "hints": [
-      "A block written twice is worth 1001 times the block: FLYFLY = 1001 × FLY, and the same for BUGBUG.",
+      "Writing a three-digit block twice multiplies it by the same number every time. Find that number once and both six-digit numbers collapse.",
       "Divide the equation by 1001. That turns a six-digit puzzle into 8 × FLY = BUG, and BUG must still be a three-digit number.",
       "BUG is a three-digit number, so 8 × FLY cannot reach 1000. Find the largest FLY that keeps BUG three digits, then test downward until all six digits are different."
     ],

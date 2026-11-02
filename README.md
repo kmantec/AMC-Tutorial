@@ -102,6 +102,9 @@ Run the checks:
     node verify.mjs
     node --check app.js
     node --check serve.cjs
+    node audit-hints.mjs
+
+`audit-hints.mjs` reports on the three-rung hint ladder for every problem (rung 1 names the object, rung 2 the structural move, rung 3 the specific move). It never fails the build — it prints an issue count that must be zero for new content.
 
 Verification checks assets and UI targets, original and adapted mathematics, video metadata, independent/assisted grading, question isolation, coaching transitions, duplicate-answer protection, legacy records, preview isolation, explicit resets, and storage failure handling. Speech tests check voice loading and selection, mathematical symbols, queue replacement, mute, errors, and stale callbacks. All tests use synthetic records and simulated speech only.
 

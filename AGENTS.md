@@ -104,3 +104,33 @@ The parent settled how the remaining work is sourced:
 - verify.mjs no longer pins an exact list of problem ids (that failed on every
   legitimate addition). It now asserts that each year runs 1..N with no gaps and
   no reordering, which is the property that actually matters.
+
+## 2026-11-02 (second batch): the hint ladder, rebuilt
+
+The parent adopted the sourcing policy in `SOURCES.md` ("take it exactly like
+that") and I implemented the one part of it that touches existing content: the
+three-rung hint ladder.
+
+**Why this was not cosmetic.** The old hints were written answer-first. 27 of 105
+problems opened with the method already named ("Multiply length × width") or the
+arithmetic already done ("Sum = 100, mean = 20"). A first hint like that removes
+the only thing the learner was supposed to supply. Four more handed the answer
+over in hint 2.
+
+**What changed**
+
+- Rung 1 rewritten on 27 problems: name the object and the obstacle, no method,
+  no arithmetic.
+- Rungs 1–2 de-leaked on 4 problems (`2019-11`, `2019-19`, `2020-6`, `2020-12`).
+  Rung 3 is still allowed to reach the answer — that is what "almost solves it"
+  looks like.
+- `audit-hints.mjs` added. It checks all 105 problems for: a rung 1 that names a
+  computation verb, a rung 1 that performs arithmetic, rung 2 too thin to be a
+  structural move, the answer appearing in rungs 1–2, duplicate hints, and a hint
+  count other than three. Current state: **0 issues**, 18 problems where rung 3
+  legitimately lands on the answer.
+- `README.md` documents the audit and the ladder.
+
+The ladder itself is adapted from the structure of LIVE by Po-Shen Loh's
+per-problem pages (small hint → big hint → solution). The *content* is ours; his
+pages are a reference and a fallback problem source, never a copy source.
