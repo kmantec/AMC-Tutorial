@@ -6,6 +6,9 @@ import { newCoachState, answerCoachCheck, nextCoachCheck, answerSimilar, retrySi
 import { createLearningStore, learningStorageKeys } from './learning-store.js';
 import { createCoachSpeech, spokenCheck, spokenProblem } from './coach-speech.js';
 import { homePlan, topicBreakdown, getProblemCategory, topicBreakdownByYear } from './home-plan.js';
+import { createExamStore, createExamRoom } from './exam-ui.js';
+import { distractorsByProblem } from './distractors.js';
+import { ERROR_TYPES, ERROR_KEYS } from './error-log.js';
 
 const YEARS = [2026, 2025, 2024, 2023, 2022, 2020, 2019];
 const ids = Object.keys(problems);
@@ -45,6 +48,11 @@ function coachState() {
   return coachStates.get(activeId);
 }
 syncRecords();
+const examStore = createExamStore(browserStorage);
+const examRoom = createExamRoom({
+  problems, $, escape, icon, store: examStore, toast,
+  onProgress: () => renderProgress(),
+});
 
 let renderedVoiceOptions = '';
 function renderSpeechControls(state) {
@@ -117,11 +125,13 @@ $('#available-practice').innerHTML = (() => {
     return '<div class="map-year-group"><div class="map-year-header"><span class="map-year-badge year-' + year + '">' + year + '</span><span class="map-year-count">' + yearIds.length + ' practice problem' + (yearIds.length > 1 ? 's' : '') + '</span></div><div class="map-year-grid">' + yearIds.map(id => '<button type="button" class="map-problem" data-home-problem="' + id + '" aria-pressed="false" aria-controls="home-selection"><span class="map-number">' + problems[id].number + '</span><span class="map-copy"><strong>Problem ' + problems[id].number + '</strong><span class="map-topic"></span></span><span class="map-status"></span></button>').join('') + '</div></div>';
   }).join('');
 })();
-$('#coach-techniques').innerHTML = ids.map((id) => '<article class="white-card"><span class="eyebrow">PROBLEM ' + problems[id].number + '</span><h3>' + escape(problems[id].title) + '</h3><p>' + escape(problems[id].topic) + '</p>' + practiceButton(id, 'Open this practice') + '</article>').join('');
+$('#nav-year-count').textContent = String(new Set(Object.values(problems).map((p) => p.year)).size);
+$('#archive-total').textContent = String(ids.length);
+$('#archive-count').textContent = String(ids.length);
 
 function navigate(view, focus = false) {
   coachSpeech.stop();
-  if (!['home','papers','notebook','coach'].includes(view)) view = 'home';
+  if (!['home','papers','notebook','coach','exam','drills'].includes(view)) view = 'home';
   document.querySelectorAll('.view').forEach((node) => { node.hidden = node.id !== 'view-' + view; });
   document.querySelectorAll('.nav-item').forEach((node) => {
     const active = node.dataset.view === view;
@@ -130,6 +140,8 @@ function navigate(view, focus = false) {
   });
   if (location.hash !== '#' + view) { const url = new URL(location.href); url.hash = view; history.replaceState(null, '', url.href); }
   if (view === 'notebook' || view === 'home') renderProgress();
+  if (view === 'exam') examRoom.renderSetup();
+  if (view === 'drills') examRoom.renderDrillHome();
   if (focus) { $('#main').focus({preventScroll:true}); window.scrollTo({top:0,behavior:'instant'}); }
   return {view};
 }
@@ -191,13 +203,23 @@ function renderSolution() {
   $('#method-score').textContent = String(p.score);
   $('#rating-reason').textContent = p.ratingReason;
   $('#solution-credit').textContent = p.credit + ' Teaching suitability is a subjective AI assessment, not an official AMC rating.';
-  $('#coach-credit-name').textContent = p.creditCoach || 'GPT 6 ASTRA ULTRA';
   $('#tip-title').textContent = p.tipTitle;
   $('#tip-text').textContent = p.tip;
   $('#tip-credit').textContent = p.tipCredit;
   $('#common-error').textContent = p.commonError;
   $('#alternative-text').textContent = p.alternative;
   $('#alternative-method').open = false;
+  // Distractor map: name the mistake behind each wrong option, but only when a
+  // curated note exists for this problem.
+  const map = distractorsByProblem[activeId];
+  const node = $('#distractor-map');
+  if (map) {
+    node.hidden = false;
+    node.innerHTML = '<strong>Where the other options come from</strong>' + Object.entries(map).map(([value, note]) => {
+      const option = p.options.find((o) => String(o.value) === value);
+      return '<span class="dm-row"><b>(' + (option?.letter || '?') + ') ' + escape(option?.label || value) + '</b> ' + escape(note) + '</span>';
+    }).join('');
+  } else node.hidden = true;
 }
 function renderAttempt() {
   const state = attempt(), p = problem();
@@ -250,9 +272,28 @@ function checkAnswer(answer) {
   });
   $('#check-answer').disabled = attempt().submitted;
   renderAttempt();
+  renderErrorTag(result.correct);
   coachSpeech.stop();
   coachNarration = [$('#answer-feedback').textContent];
   return {problem:activeId,...result};
+}
+function renderErrorTag(correct) {
+  const node = $('#error-tag');
+  if (correct) { node.hidden = true; return; }
+  node.hidden = false;
+  $('#error-tag-thanks').hidden = true;
+  $('#error-tag-options').innerHTML = ERROR_KEYS.map((key) =>
+    '<button type="button" class="error-choice" data-error-type="' + key + '">' + escape(ERROR_TYPES[key].label) + '</button>').join('');
+}
+function tagError(type) {
+  if (!Object.hasOwn(ERROR_TYPES, type)) return null;
+  const record = examStore.addDiagnosis({ problem: activeId, type });
+  const node = $('#error-tag-options');
+  node.innerHTML = '';
+  $('#error-tag-thanks').hidden = false;
+  $('#error-tag-thanks').textContent = ERROR_TYPES[type].remedy;
+  renderProgress();
+  return record;
 }
 function retryPractice() {
   requirePractice();
@@ -267,6 +308,7 @@ function renderProgress() {
   syncRecords();
   renderLearningMode();
   renderCoachingHistory();
+  examRoom.renderNotebookExtras();
   const {explored,independent,revisit,latest} = summarizeProgress(records);
   $('#completed-count').textContent = String(explored);
   $('#independent-count').textContent = String(independent);
@@ -656,6 +698,39 @@ $('#home-practice').addEventListener('click',() => {
   if (fresh) retryPractice();
 });
 $('#answer-form').addEventListener('change',(event) => { if (event.target.name === 'answer') attempt().selectedAnswer = event.target.value; });
+$('#error-tag-options').addEventListener('click',(event) => {
+  const button = event.target.closest('[data-error-type]');
+  if (button) tagError(button.dataset.errorType);
+});
+$('#exam-year-list').addEventListener('click',(event) => {
+  const button = event.target.closest('[data-exam-year]');
+  if (button) examRoom.selectYear(button.dataset.examYear);
+});
+$('#exam-start').addEventListener('click',() => { if (examRoom.selectedYear !== null) examRoom.begin(examRoom.selectedYear); });
+$('#exam-options').addEventListener('change',(event) => { if (event.target.name === 'exam-answer') examRoom.choose(event.target.value); });
+$('#exam-grid').addEventListener('click',(event) => {
+  const cell = event.target.closest('[data-exam-jump]');
+  if (cell) examRoom.jump(Number(cell.dataset.examJump));
+});
+$('#exam-prev').addEventListener('click',() => examRoom.jump((examRoom.active?.current ?? 0) - 1));
+$('#exam-next').addEventListener('click',() => {
+  const active = examRoom.active;
+  if (!active) return;
+  examRoom.jump(active.current === active.ids.length - 1 ? 0 : active.current + 1);
+});
+$('#exam-flag').addEventListener('click',() => examRoom.flag());
+$('#exam-submit').addEventListener('click',() => {
+  const active = examRoom.active;
+  if (!active) return;
+  const answered = active.ids.filter((id) => active.answers[id] !== undefined).length;
+  const message = answered < active.ids.length
+    ? 'You have answered ' + answered + ' of ' + active.ids.length + '. A blank scores the same as a wrong answer. Hand in now?'
+    : 'Hand in this paper?';
+  if (window.confirm(message)) examRoom.submitExam(false);
+});
+$('#drill-start').addEventListener('click',() => examRoom.startDrill());
+$('#drill-submit').addEventListener('click',() => examRoom.submitDrill());
+$('#drill-cancel').addEventListener('click',() => examRoom.cancelDrill());
 $('#answer-form').addEventListener('submit',(event) => {
   event.preventDefault();
   const choice = new FormData(event.currentTarget).get('answer');

@@ -36,7 +36,8 @@
   <div class="sidebar-label">YOUR TRAINING ROOM</div>
   <nav class="nav-list" aria-label="Main navigation">
     <button class="nav-item active" data-view="home" aria-current="page"><svg class="icon"><use href="#i-home"/></svg>Today’s practice</button>
-    <button class="nav-item" data-view="papers"><svg class="icon"><use href="#i-book"/></svg>Past papers<span class="nav-count">7</span></button>
+    <button class="nav-item" data-view="papers"><svg class="icon"><use href="#i-book"/></svg>Past papers<span class="nav-count" id="nav-year-count">0</span></button>
+    <button class="nav-item" data-view="exam"><svg class="icon"><use href="#i-clock"/></svg>Timed exam</button>
     <button class="nav-item" data-view="notebook"><svg class="icon"><use href="#i-note"/></svg>My notebook</button>
     <button class="nav-item" data-view="coach"><svg class="icon"><use href="#i-spark"/></svg>Coach’s notes</button>
   </nav>
@@ -57,7 +58,7 @@
             <div id="home-selection" aria-live="polite" aria-atomic="true"><p id="home-problem-meta"></p><h3 id="next-problem-title"></h3><p id="home-reason"></p></div>
             <div class="home-actions"><button id="home-practice" class="button button-primary" type="button">Start Problem 1</button><button id="home-secondary" class="text-button" type="button" hidden></button></div>
           </section>
-          <aside class="home-coach-note" aria-labelledby="home-coach-heading"><span class="home-coach-icon"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg></span><p class="eyebrow" id="home-coach-heading">A NOTE FROM YOUR COACH</p><p id="home-coach-message"></p><p class="home-coach-signature">GPT 6 Astra Ultra</p></aside>
+          <aside class="home-coach-note" aria-labelledby="home-coach-heading"><span class="home-coach-icon"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg></span><p class="eyebrow" id="home-coach-heading">A NOTE FROM YOUR COACH</p><p id="home-coach-message"></p></aside>
         </div>
         <section class="learning-map" aria-labelledby="practice-library-heading">
           <div id="topic-breakdown" class="topic-breakdown"></div>
@@ -68,16 +69,88 @@
         </section>
       </article>
       <section class="training-section" aria-labelledby="training-heading"><div class="section-title"><h2 id="training-heading">Make the practice yours</h2><span>Follow your curiosity.</span></div><div class="path-grid">
-        <button class="path-card" data-view="papers"><span class="path-icon blue-surface"><svg class="icon"><use href="#i-book"/></svg></span><span class="path-copy"><strong>Explore past papers</strong><span>Seven real exams. Different ways to think.</span></span><svg class="icon path-arrow"><use href="#i-arrow"/></svg></button>
-        <button class="path-card" data-view="notebook"><span class="path-icon peach-surface"><svg class="icon"><use href="#i-note"/></svg></span><span class="path-copy"><strong>Revisit an idea</strong><span>Turn a tricky moment into a useful lesson.</span></span><svg class="icon path-arrow"><use href="#i-arrow"/></svg></button>
+        <button class="path-card" data-view="papers"><span class="path-icon blue-surface"><svg class="icon"><use href="#i-book"/></svg></span><span class="path-copy"><strong>Explore past papers</strong><span>Real exams, one year at a time.</span></span><svg class="icon path-arrow"><use href="#i-arrow"/></svg></button>
+        <button class="path-card" data-view="exam"><span class="path-icon peach-surface"><svg class="icon"><use href="#i-clock"/></svg></span><span class="path-copy"><strong>Sit a timed exam</strong><span>40 minutes, 25 problems, one real clock.</span></span><svg class="icon path-arrow"><use href="#i-arrow"/></svg></button>
+        <button class="path-card" data-view="drills"><span class="path-icon mint-surface"><svg class="icon"><use href="#i-target"/></svg></span><span class="path-copy"><strong>Train the basics</strong><span>Three-minute mental arithmetic, no calculator.</span></span><svg class="icon path-arrow"><use href="#i-arrow"/></svg></button>
+      </div><div class="path-grid path-grid-secondary">
+        <button class="path-card" data-view="notebook"><span class="path-icon blue-surface"><svg class="icon"><use href="#i-note"/></svg></span><span class="path-copy"><strong>Revisit an idea</strong><span>Turn a tricky moment into a useful lesson.</span></span><svg class="icon path-arrow"><use href="#i-arrow"/></svg></button>
         <button class="path-card" data-view="coach"><span class="path-icon mint-surface"><svg class="icon"><use href="#i-spark"/></svg></span><span class="path-copy"><strong>Learn a useful technique</strong><span>Understand why a good shortcut works.</span></span><svg class="icon path-arrow"><use href="#i-arrow"/></svg></button>
       </div></section>
-      <section class="coach-strip"><span class="coach-strip-icon"><svg class="icon"><use href="#i-spark"/></svg></span><div><p class="eyebrow">A NOTE FROM YOUR COACH</p><p>Getting an answer is a step. Understanding your thinking is the progress.</p></div><span class="coach-signature">GPT 6 Astra Ultra</span></section>
-      <section class="archive-section" aria-labelledby="archive-heading"><div class="section-title"><div><p class="eyebrow">THE REAL EXAM COLLECTION</p><h2 id="archive-heading">Seven years of good problems</h2></div><button class="text-button" data-view="papers">View collection <svg class="icon"><use href="#i-arrow"/></svg></button></div><div class="year-strip" id="home-years"></div><div class="archive-footnote"><span>175 original questions in the collection · <span id="archive-count">0</span> coaching guides available</span><span>Source: AoPS Wiki</span></div></section>
+      <section class="coach-strip"><span class="coach-strip-icon"><svg class="icon"><use href="#i-spark"/></svg></span><div><p class="eyebrow">A NOTE FROM YOUR COACH</p><p>Getting an answer is a step. Understanding your thinking is the progress.</p></div></section>
+      <section class="archive-section" aria-labelledby="archive-heading"><div class="section-title"><div><p class="eyebrow">THE REAL EXAM COLLECTION</p><h2 id="archive-heading">The problems we have reviewed</h2></div><button class="text-button" data-view="papers">View collection <svg class="icon"><use href="#i-arrow"/></svg></button></div><div class="year-strip" id="home-years"></div><div class="archive-footnote"><span><span id="archive-total">0</span> original questions · <span id="archive-count">0</span> coaching guides</span><span>Source: AoPS Wiki</span></div></section>
     </section>
-    <section id="view-papers" class="view" hidden aria-labelledby="papers-heading"><div class="welcome"><div><p class="eyebrow">THE REAL EXAM COLLECTION</p><h1 id="papers-heading">Find your next challenge<span class="blue">.</span></h1><p>Seven past AMC 8 exams. Coaching guides available for select problems.</p></div></div><div class="exam-facts"><span><svg class="icon"><use href="#i-book"/></svg>25 questions per exam</span><span><svg class="icon"><use href="#i-clock"/></svg>40 minutes</span><span>No calculator</span></div><div class="paper-grid" id="paper-grid"></div><div class="collection-note"><svg class="icon"><use href="#i-spark"/></svg><p><strong>A growing coaching library.</strong> In-app guides are available for select problems. Each card shows which problems have coaching guides ready. The other exam links open the original AoPS collection.</p></div></section>
-    <section id="view-notebook" class="view" hidden aria-labelledby="notebook-heading"><div class="welcome"><div><p class="eyebrow">YOUR LEARNING RECORD</p><h1 id="notebook-heading">Keep the useful moments<span class="blue">.</span></h1><p>A place for your attempts, discoveries, and ideas to revisit.</p></div></div><div id="notebook-content"></div><section id="coaching-history" class="notebook-history" aria-label="Coach and adapted practice records" hidden></section><p class="storage-detail" id="notebook-storage">This learning record is stored in this browser on this device.</p></section>
-    <section id="view-coach" class="view" hidden aria-labelledby="coach-heading"><div class="welcome"><div><p class="eyebrow">GPT 6 ASTRA ULTRA — TIPS & TRICKS</p><h1 id="coach-heading">Make the idea click<span class="blue">.</span></h1><p>Extra guidance to help you understand, check, and explain your thinking.</p></div></div><article class="coach-feature"><span class="label-pill light-pill">TECHNIQUE 01 · GROUPING</span><h2>Look for structure<br>before doing arithmetic.</h2><p>A repeating pattern can tell you how to organize your work. Pause, look at the signs, and choose a small first step.</p><button class="button button-primary" data-action="practice">Try it in 2026 Problem 1 <svg class="icon"><use href="#i-arrow"/></svg></button></article><div class="principle-grid"><article class="white-card"><span class="principle-number">01</span><h3>Keep the sign attached.</h3><p>When you regroup, a negative term stays negative. Moving −6 does not turn it into +6.</p></article><article class="white-card"><span class="principle-number">02</span><h3>Ask why it works.</h3><p>A shortcut becomes a skill when you can explain why it preserves the original calculation.</p></article><article class="white-card"><span class="principle-number">03</span><h3>Give it another try.</h3><p>After reading a solution, come back later and work through the same problem without the steps.</p></article></div><div class="principle-grid" id="coach-techniques"></div><div class="report-note"><svg class="icon"><use href="#i-book"/></svg><div><h3>Patterns across seven exam editions</h3><p>The full report will compare topic frequency, recurring strategies, and study priorities after all 175 questions are reviewed. No topic rankings have been calculated yet.</p></div><span class="status-label">In preparation</span></div></section>
+    <section id="view-exam" class="view" hidden aria-labelledby="exam-heading">
+      <div class="welcome"><div><p class="eyebrow">THE REAL THING</p><h1 id="exam-heading">Forty minutes. Twenty-five problems<span class="blue">.</span></h1><p>No hints, no solutions, no second chances until the clock stops. This is the exam, not the lesson.</p></div></div>
+      <div id="exam-setup">
+        <div class="panel">
+          <h2 class="panel-title">Choose your paper</h2>
+          <p class="panel-note">Only years with all 25 problems are offered. A partial paper would teach the wrong pacing.</p>
+          <div id="exam-year-list" class="exam-year-list"></div>
+          <div id="exam-start-row" class="exam-start-row" hidden>
+            <div><p class="exam-pick-name" id="exam-pick-name"></p><p class="panel-note" id="exam-pick-detail"></p></div>
+            <button class="button button-primary" id="exam-start">Start the 40-minute exam</button>
+          </div>
+        </div>
+        <div class="panel panel-quiet">
+          <h2 class="panel-title">How this works</h2>
+          <ul class="plain-list">
+            <li><strong>The clock does not pause.</strong> Leaving this page does not stop it — the timer runs from the start time, not from the screen.</li>
+            <li><strong>Answers are saved as you go.</strong> Closing the browser is safe; reopening resumes the same paper.</li>
+            <li><strong>Checkpoints are coaching, not rules.</strong> At 8, 20 and 32 minutes a note appears telling you where you should be. Ignore it if you disagree.</li>
+            <li><strong>A blank costs the same as a wrong answer.</strong> When the clock runs out, fill in everything.</li>
+          </ul>
+        </div>
+      </div>
+      <div id="exam-room" hidden>
+        <div class="exam-clock-bar">
+          <div class="clock-block"><span class="clock-label">TIME LEFT</span><strong class="clock-value" id="exam-clock">40:00</strong></div>
+          <div class="clock-progress"><div class="clock-progress-fill" id="exam-progress-fill"></div></div>
+          <div class="clock-meta"><span id="exam-answered-count">0 of 25 answered</span><button class="text-button" id="exam-submit">Hand in</button></div>
+        </div>
+        <p id="exam-checkpoint" class="exam-checkpoint" hidden></p>
+        <div class="exam-layout">
+          <div class="exam-main">
+            <div class="exam-paper-header"><span id="exam-name-live">2024 AMC 8</span><span id="exam-number-live">PROBLEM 1</span></div>
+            <p class="problem-prompt" id="exam-prompt"></p>
+            <div id="exam-data" tabindex="0" role="region" aria-label="Problem data; scroll horizontally if needed"></div>
+            <div class="answer-options exam-options" id="exam-options"></div>
+            <div class="exam-nav-row">
+              <button class="text-button" id="exam-prev">Previous</button>
+              <button class="text-button" id="exam-flag" aria-pressed="false">Flag for later</button>
+              <button class="button button-primary" id="exam-next">Next problem</button>
+            </div>
+          </div>
+          <aside class="exam-side" aria-label="Question grid">
+            <p class="eyebrow">QUESTION GRID</p>
+            <div id="exam-grid" class="exam-grid"></div>
+            <div class="exam-legend"><span><i class="lg lg-answered"></i>Answered</span><span><i class="lg lg-blank"></i>Empty</span><span><i class="lg lg-flag"></i>Flagged</span></div>
+            <p class="panel-note">Tap a number to jump. An amber corner means you marked it to revisit.</p>
+          </aside>
+        </div>
+      </div>
+      <div id="exam-result" hidden></div>
+    </section>
+    <section id="view-drills" class="view" hidden aria-labelledby="drills-heading">
+      <div class="welcome"><div><p class="eyebrow">THE BASICS, ON TIMER</p><h1 id="drills-heading">Fast arithmetic buys you thinking time<span class="blue">.</span></h1><p>Ten questions, no calculator, no hints. Every second you save here is a second you can spend on problem 25.</p></div></div>
+      <div id="drill-home" class="panel">
+        <h2 class="panel-title">Mental-math drill</h2>
+        <p class="panel-note">Target: ten correct in under three minutes. Four minutes is still acceptable AMC 8 pace.</p>
+        <div class="drill-targets"><div class="drill-target"><strong>3:00</strong><span>Strong — the arithmetic stops using your attention.</span></div><div class="drill-target"><strong>4:00</strong><span>On track — enough speed for the real paper.</span></div></div>
+        <button class="button button-primary" id="drill-start">Start a ten-question drill</button>
+      </div>
+      <div id="drill-live" hidden>
+        <div class="exam-clock-bar">
+          <div class="clock-block"><span class="clock-label">ELAPSED</span><strong class="clock-value" id="drill-clock">0:00</strong></div>
+          <div class="clock-meta"><span id="drill-progress">0 of 10</span><button class="text-button" id="drill-cancel">Stop</button></div>
+        </div>
+        <div id="drill-questions" class="drill-questions"></div>
+        <button class="button button-primary" id="drill-submit">Check all ten</button>
+      </div>
+      <div id="drill-result" hidden></div>
+    </section>
+    <section id="view-papers" class="view" hidden aria-labelledby="papers-heading"><div class="welcome"><div><p class="eyebrow">THE REAL EXAM COLLECTION</p><h1 id="papers-heading">Find your next challenge<span class="blue">.</span></h1><p>Real AMC 8 problems with coaching guides, year by year.</p></div></div><div class="exam-facts"><span><svg class="icon"><use href="#i-book"/></svg>25 questions per exam</span><span><svg class="icon"><use href="#i-clock"/></svg>40 minutes</span><span>No calculator</span></div><div class="paper-grid" id="paper-grid"></div><div class="collection-note"><svg class="icon"><use href="#i-spark"/></svg><p><strong>A growing coaching library.</strong> In-app guides are available for select problems. Each card shows which problems have coaching guides ready. The other exam links open the original AoPS collection.</p></div></section>
+    <section id="view-notebook" class="view" hidden aria-labelledby="notebook-heading"><div class="welcome"><div><p class="eyebrow">YOUR LEARNING RECORD</p><h1 id="notebook-heading">Keep the useful moments<span class="blue">.</span></h1><p>A place for your attempts, discoveries, and ideas to revisit.</p></div></div><div id="notebook-content"></div><section id="error-patterns" class="notebook-history" aria-label="What your misses have in common" hidden></section><section id="exam-history" class="notebook-history" aria-label="Timed exam results" hidden></section><section id="coaching-history" class="notebook-history" aria-label="Coach and adapted practice records" hidden></section><p class="storage-detail" id="notebook-storage">This learning record is stored in this browser on this device.</p></section>
+    <section id="view-coach" class="view" hidden aria-labelledby="coach-heading"><div class="welcome"><div><p class="eyebrow">TECHNIQUES &amp; TIPS</p><h1 id="coach-heading">Make the idea click<span class="blue">.</span></h1><p>Extra guidance to help you understand, check, and explain your thinking.</p></div></div><article class="coach-feature"><span class="label-pill light-pill">TECHNIQUE 01 · GROUPING</span><h2>Look for structure<br>before doing arithmetic.</h2><p>A repeating pattern can tell you how to organize your work. Pause, look at the signs, and choose a small first step.</p><button class="button button-primary" data-action="practice">Try it in 2026 Problem 1 <svg class="icon"><use href="#i-arrow"/></svg></button></article><div class="principle-grid"><article class="white-card"><span class="principle-number">01</span><h3>Keep the sign attached.</h3><p>When you regroup, a negative term stays negative. Moving −6 does not turn it into +6.</p></article><article class="white-card"><span class="principle-number">02</span><h3>Ask why it works.</h3><p>A shortcut becomes a skill when you can explain why it preserves the original calculation.</p></article><article class="white-card"><span class="principle-number">03</span><h3>Give it another try.</h3><p>After reading a solution, come back later and work through the same problem without the steps.</p></article></div><div class="report-note"><svg class="icon"><use href="#i-book"/></svg><div><h3>Topic patterns across the papers</h3><p>The topic breakdown on your practice page counts every reviewed problem and updates as the library grows. Tap a bar there to filter the map by topic.</p></div><span class="status-label">Live</span></div></section>
     <footer class="footer"><span>Pingping’s Math Lab <span class="footer-dot">·</span> A place to grow your thinking.</span><span>Independent practice resource. Not affiliated with MAA or AoPS.</span></footer>
   </div>
 </main>
@@ -92,6 +165,7 @@
 <p class="problem-prompt" id="problem-prompt"></p><div id="problem-data" tabindex="0" role="region" aria-label="Problem data; scroll horizontally if needed"></div>
 <form id="answer-form"><fieldset><legend class="visually-hidden">Choose your answer</legend><div class="answer-options" id="answer-options"></div></fieldset><button class="button button-primary check-button" id="check-answer" type="submit">Check my answer <svg class="icon"><use href="#i-check"/></svg></button></form>
 <div id="answer-feedback" class="feedback" aria-live="polite" hidden></div>
+<div id="error-tag" class="error-tag" hidden><p class="error-tag-q">What went wrong? Naming it is the useful part.</p><div class="error-tag-options" id="error-tag-options"></div><p class="error-tag-thanks" id="error-tag-thanks" hidden></p></div>
 <div class="problem-tools"><button class="button button-coach" id="visit-coach"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg>Coach’s Corner</button></div>
 <a class="source-link" id="problem-source" href="https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_1" target="_blank" rel="noopener noreferrer">Original wording & source solutions · AoPS Wiki <svg class="icon"><use href="#i-external"/></svg></a><a class="source-link checked-source" id="checked-source" target="_blank" rel="noopener noreferrer" hidden></a><p class="copyright-note">Original problem © Mathematical Association of America.</p></div>
 <aside class="thinking-column" id="coaching-area" aria-labelledby="coach-corner-heading">
@@ -108,10 +182,11 @@
 <div class="coach-actions"><button class="button button-primary" id="coach-next" hidden>Next small step</button><button class="text-button" id="coach-back">Back to my answer</button></div></section>
 
 <div id="solution-content" hidden><p class="eyebrow">RECOMMENDED SOLUTION</p><button class="text-button" id="solution-listen" type="button">Listen to these steps</button><h3 id="solution-title"></h3><ol id="solution-steps" class="solution-steps"></ol><p class="solution-total" id="solution-answer"></p>
-<div class="rating"><strong><span id="method-score"></span><span>/10</span></strong><div>Teaching suitability<small id="rating-reason"></small></div></div><p class="solution-credit" id="solution-credit"></p>
+<div class="rating" hidden><strong><span id="method-score"></span><span>/10</span></strong><div>Teaching suitability<small id="rating-reason"></small></div></div><p class="solution-credit" id="solution-credit"></p>
 <details class="alternative-method" id="alternative-method"><summary>Compare another approach</summary><p id="alternative-text"></p></details>
-<div class="astra-tip"><p class="eyebrow"><span id="coach-credit-name">GPT 6 ASTRA ULTRA</span> — TIPS & TRICKS</p><strong id="tip-title"></strong><p id="tip-text"></p><p class="solution-credit" id="tip-credit"></p></div>
+<div class="astra-tip"><p class="eyebrow">TIPS &amp; TRICKS</p><strong id="tip-title"></strong><p id="tip-text"></p><p class="solution-credit" id="tip-credit"></p></div>
 <div class="reflection-card"><p><strong>Watch for:</strong> <span id="common-error"></span></p><p>The two-choice coach checks above can help you explain why the method works.</p></div>
+<p class="distractor-map" id="distractor-map" hidden></p>
 <button class="text-button" id="retry-button">Try again without the steps <svg class="icon"><use href="#i-arrow"/></svg></button></div>
 <section class="similar-entry" id="similar-entry" aria-labelledby="similar-heading" hidden>
 <p class="eyebrow">PUT THE IDEA TO WORK</p><h3 id="similar-heading">New numbers. Your own thinking.</h3>
