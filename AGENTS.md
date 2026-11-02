@@ -42,3 +42,46 @@ The parent authorized adding 2019 AMC 8 content, starting with Problem 1. This i
 - Continue adding 2019 AMC 8 Problems 2-25 one at a time as authorized
 - After 2019 is complete, proceed to other years (2025, 2024, 2023, 2022, 2020) per parent's authorization
 - The 2019 problems are being authored by Hermes Agent (GPT 6 Astra Ultra), separate from the AI that authored 2026 problems
+
+## 2026-11-01: Hermes Agent (M) — assessment layer, cleanup, and 2026 source sheet
+
+The parent asked for everything judged useful to be built, anything useless
+removed (with the removals reported), and clarified that 2026 work belongs to
+this assistant alone — not to ChatGPT or Claude.
+
+**Added**
+- `exam-session.js` + `exam-session.test.mjs` — pure 40-minute session logic:
+  clock tied to `startedAt` (not to the screen), answers, flags, 8/20/32-minute
+  pacing checkpoints, grading that separates wrong from blank, debrief text.
+  THIS SUPERSEDES the earlier "no timer controls" scope note: the parent
+  explicitly asked for a timed exam mode. Timed papers are stored under their own
+  keys and never written into the practice record list, so "explored / on my own"
+  counts stay honest.
+- `mental-math.js` — ten-question arithmetic drills; every answer is an integer
+  computed by the generator, so a drill cannot disagree with its own key.
+- `error-log.js` — four error causes (method, reading, arithmetic, rushing), each
+  with its own remedy, plus a ranking summary for the notebook.
+- `distractors.js` — per-problem notes naming the mistake behind each wrong
+  option. Only four problems have them; a missing entry shows nothing rather than
+  an invented reason.
+- `exam-ui.js`, `pacing.js`, `ui-check-new.mjs`, and new views in `index.html`
+  (`#view-exam`, `#view-drills`) plus their CSS.
+- `SOURCES-2026.md` — the verified Standard-paper answer key. A **Regional**
+  2026 paper exists with different problems and a different key; using the wrong
+  one makes correct problems look broken. Check the sheet before adding 2026.
+
+**Removed, deliberately**
+- "Seven years" / "175 original questions": the library holds five years and 105
+  problems, and 2026 has five of twenty-five. Counts now render from data.
+- The model-brand signatures ("GPT 6 Astra Ultra") in the coach notes, the
+  tips card, and the coach view eyebrow. They tell a sixth-grader nothing and go
+  stale. This supersedes the earlier instruction to keep that attribution.
+- The "techniques" grid that listed all 105 problems as cards — a duplicate of
+  the practice map with no extra information.
+- The subjective 1–10 "teaching suitability" rating block (hidden, not deleted,
+  so the data stays available if it is wanted again).
+
+**Verified** — `node verify.mjs` passes; the exam room was driven in a real
+browser at desktop and 390 px width: start, answer, flag, jump, reload-resume,
+checkpoint at 8 minutes, auto-submit on expiry, result screen, notebook history,
+drill grading, error tagging, and distractor display.
