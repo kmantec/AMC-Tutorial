@@ -729,6 +729,7 @@ $('#exam-submit').addEventListener('click',() => {
   if (window.confirm(message)) examRoom.submitExam(false);
 });
 $('#drill-start').addEventListener('click',() => examRoom.startDrill());
+$('#drill-questions').addEventListener('input',() => examRoom.updateDrillProgress());
 $('#drill-submit').addEventListener('click',() => examRoom.submitDrill());
 $('#drill-cancel').addEventListener('click',() => examRoom.cancelDrill());
 $('#answer-form').addEventListener('submit',(event) => {

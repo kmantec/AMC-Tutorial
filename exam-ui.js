@@ -361,7 +361,6 @@ export function createExamRoom({ problems, $, escape, icon, store, toast, onProg
       $('#drill-clock').textContent = clockTextSafe(seconds);
     }, 250);
     $('#drill-progress').textContent = '0 of 10';
-    $('#drill-questions').addEventListener('input', updateDrillProgress);
   }
 
   function updateDrillProgress() {
@@ -430,6 +429,7 @@ export function createExamRoom({ problems, $, escape, icon, store, toast, onProg
     jump,
     choose,
     flag,
+    updateDrillProgress,
     renderDrillHome,
     startDrill,
     submitDrill,
