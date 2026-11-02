@@ -26,6 +26,24 @@ export const distractorsByProblem = {
     '45': 'You subtracted 2h15m of driving instead of 2h30m — a 15-minute slip in the driving time.',
     '60': 'You used 2 hours of driving rather than 2.5. 100 miles at 40 mph takes longer than you think.',
   },
+  '2026-6': {
+    '1/4': 'You counted only the two long strips (10 × 1 each, so 20) and forgot the two short end strips.',
+  },
+  '2026-7': {
+    '48': 'A slip that leaves the used fraction at 5/6 instead of 4/5: 40 ÷ 5/6 = 48.',
+  },
+  '2026-8': {
+    '100': 'You kept the percent over 100 and never reduced it, so 50 never looked large enough.',
+  },
+  '2026-9': {
+    '4/9': 'You took √16 over √81 = 4/9 and ignored both inner square roots.',
+    '1': 'You assumed the mirrored numerator and denominator cancel. The two inner products are 144 and 324.',
+    '3/2': 'You put the larger inner product on top: √324 over √144 is 18/12, the reciprocal of 2/3.',
+    '9/4': 'You took √81 over √16 = 9/4, treating the expression as the two outer numbers only.',
+  },
+  '2026-10': {
+    'B': 'You counted one place short and stopped at Melina, who is third. Luke is one place behind her.',
+  },
   '2026-3': {
     A: 'You checked the triangle and stopped. The 36 cm² square has side 6, so it also uses exactly 24 cm.',
     B: 'You added the hexagon because 5 cm sounds small — but six sides of 5 cm is 30 cm, over budget.',

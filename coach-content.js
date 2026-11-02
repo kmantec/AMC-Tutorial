@@ -427,6 +427,403 @@ export const coachGuides = {
       "credit": "Changed-number practice and coaching authored by GPT 6 Astra Ultra. The driving-time subtraction method is also illustrated in LIVE by Po-Shen Loh's written solution to the original."
     }
   },
+  "2026-6": {
+    "intro": "The shaded region hugs the edge of the field. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "unreachable-shape",
+        "prompt": "Peter reaches everything within 1 meter of an edge. What is left in the middle that he cannot reach?",
+        "options": [
+          {
+            "id": "a",
+            "label": "A rectangle 8 meters by 6 meters.",
+            "correct": true,
+            "feedback": "Yes. The band takes 1 meter off the top and 1 off the bottom of the 8-meter height, and 1 off each end of the 10-meter length, so the middle is 8 by 6."
+          },
+          {
+            "id": "b",
+            "label": "A rectangle 9 meters by 7 meters.",
+            "correct": false,
+            "feedback": "That shrinks each dimension only once. The band runs along both opposite edges, so each dimension loses its width twice: 10 − 2 and 8 − 2, not 10 − 1 and 8 − 1."
+          }
+        ]
+      },
+      {
+        "id": "which-fraction",
+        "prompt": "The middle is 48 square meters and the field is 80. Which fraction answers the question asked?",
+        "options": [
+          {
+            "id": "a",
+            "label": "32/80, because the shaded strip is what he can reach.",
+            "correct": true,
+            "feedback": "Correct. The strip is 80 − 48 = 32 square meters, and 32/80 = 2/5. The shaded part in the figure is the answer, not the middle."
+          },
+          {
+            "id": "b",
+            "label": "48/80, because 48 is the larger of the two areas.",
+            "correct": false,
+            "feedback": "48 is the part Peter cannot reach. The question asks for the reachable fraction, so subtract first: 80 − 48 = 32, and 32/80 = 2/5."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-6-a",
+      "sourceProblem": "2026-6",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "A rectangular garden is 12 meters long and 8 meters wide, and a child can pick any fruit growing within 2 meters of an edge. What fraction of the garden can the child pick from?",
+      "options": [
+        { "letter": "A", "value": "2/3", "label": "2/3" },
+        { "letter": "B", "value": "1/3", "label": "1/3" }
+      ],
+      "answer": "2/3",
+      "answerLabel": "(A) 2/3",
+      "solution": [
+        "The unreachable middle loses 2 meters from each of the two directions: 12 − 4 = 8 meters long and 8 − 4 = 4 meters wide.",
+        "That middle holds 8 × 4 = 32 square meters, and the whole garden holds 12 × 8 = 96 square meters.",
+        "The reachable part is 96 − 32 = 64 square meters, so the fraction is 64/96 = 2/3.",
+        "The other choice is the middle's fraction, 32/96 = 1/3 — the complement of the answer."
+      ],
+      "reflection": {
+        "id": "adapted-band-covers-all",
+        "prompt": "True or false: if the band were 4 meters wide instead of 2, the whole 12-by-8 garden would be reachable.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Right. The middle would be 12 − 8 = 4 meters by 8 − 8 = 0 meters, which has no area, so nothing is out of reach. The farthest a point can sit from an edge in this garden is 4 meters."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Check the middle's narrower dimension: 8 − 2(4) = 0. A rectangle with a zero side has no area, so no part of the garden stays out of reach."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_6",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the unreachable-middle subtraction of AoPS Solutions 1 and 2."
+    }
+  },
+  "2026-7": {
+    "intro": "Both trips drain the same battery. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "combine-fractions",
+        "prompt": "What fraction of one full charge did the two trips use altogether?",
+        "options": [
+          {
+            "id": "a",
+            "label": "4/5, since 1/2 + 3/10 = 5/10 + 3/10.",
+            "correct": true,
+            "feedback": "Yes. Put both fractions over tenths first: one half is five tenths. Five tenths plus three tenths is eight tenths, which reduces to four fifths."
+          },
+          {
+            "id": "b",
+            "label": "4/10, since 1 + 3 over 10 is 4/10.",
+            "correct": false,
+            "feedback": "Adding the top numbers only works when the bottoms already match. One half is 5/10, not 1/10, so the total is 5/10 + 3/10 = 8/10 = 4/5."
+          }
+        ]
+      },
+      {
+        "id": "one-fifth",
+        "prompt": "40 miles is 4/5 of a full charge. What is one fifth of a charge worth?",
+        "options": [
+          {
+            "id": "a",
+            "label": "10 miles, because 40 ÷ 4 = 10.",
+            "correct": true,
+            "feedback": "Yes. Four fifths of the charge bought 40 miles, so each fifth bought 10. A whole charge is five fifths, which is 50 miles."
+          },
+          {
+            "id": "b",
+            "label": "8 miles, because 40 ÷ 5 = 8.",
+            "correct": false,
+            "feedback": "That divides the 40 miles into five parts as if 40 were the whole charge. The 40 miles is only four fifths, so split it into 4 parts of 10 — then a full charge is 5 × 10 = 50."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-7-a",
+      "sourceProblem": "2026-7",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "A delivery drone flew two trips totaling 60 miles on one battery. The first trip used 1/4 of the battery and the second used 1/2. How far can the drone fly on a fully charged battery?",
+      "options": [
+        { "letter": "A", "value": 80, "label": "80" },
+        { "letter": "B", "value": 90, "label": "90" }
+      ],
+      "answer": 80,
+      "answerLabel": "(A) 80",
+      "solution": [
+        "Combine the two fractions over quarters: 1/4 + 1/2 = 1/4 + 2/4 = 3/4.",
+        "So 60 miles is three quarters of a full charge, and each quarter is 60 ÷ 3 = 20 miles.",
+        "A whole charge is four quarters: 4 × 20 = 80 miles.",
+        "Check: 1/4 of 80 is 20 miles and 1/2 of 80 is 40, and 20 + 40 = 60."
+      ],
+      "reflection": {
+        "id": "adapted-quarter-left",
+        "prompt": "True or false: with that battery, a third trip using the last 1/4 would add 20 miles.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. A full charge is 80 miles and the two trips used 3/4 of it. The remaining quarter is 20 miles, the same as the first trip."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Each quarter of 80 miles is 20 miles, and only three quarters were used. The leftover quarter is worth 20 miles."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_7",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the total-fraction method of AoPS Solution 2."
+    }
+  },
+  "2026-8": {
+    "intro": "A count of people cannot be a fraction. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "lowest-terms",
+        "prompt": "What is 74/100 written in lowest terms?",
+        "options": [
+          {
+            "id": "a",
+            "label": "37/50",
+            "correct": true,
+            "feedback": "Yes. Both 74 and 100 are even, so divide by 2. 37 is prime and 50 is not a multiple of 37, so it cannot be reduced further."
+          },
+          {
+            "id": "b",
+            "label": "74/100, because a percent is always out of 100.",
+            "correct": false,
+            "feedback": "The fraction still describes the same amount, but it is not reduced: 74 and 100 share a factor of 2. Reducing to 37/50 is what reveals the smallest possible group."
+          }
+        ]
+      },
+      {
+        "id": "why-multiple",
+        "prompt": "Once the fraction is 37/50, why must the number of people be a multiple of 50?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Because the group is made of whole blocks of 50, with 37 saying yes in each block.",
+            "correct": true,
+            "feedback": "Exactly. 37 of every 50 people said yes. A group of 50 works with 37 yeses, and anything smaller would need a fraction of a person to keep the same ratio."
+          },
+          {
+            "id": "b",
+            "label": "Because 50 is the largest choice below 100.",
+            "correct": false,
+            "feedback": "The size of the choices does not decide the answer. The denominator 50 decides it: the group must contain whole copies of 50 people for 37 out of 50 to be a whole number."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-8-a",
+      "sourceProblem": "2026-8",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "A different poll found that exactly 65% of the people asked said they read for fun. What is the fewest possible number of people who could have been asked?",
+      "options": [
+        { "letter": "A", "value": 20, "label": "20" },
+        { "letter": "B", "value": 40, "label": "40" }
+      ],
+      "answer": 20,
+      "answerLabel": "(A) 20",
+      "solution": [
+        "Write 65% as a fraction: 65/100.",
+        "Divide top and bottom by 5 to reach lowest terms: 13/20.",
+        "So 13 of every 20 people said yes, and 20 is the smallest group in which that can happen with whole people.",
+        "Check: 65% of 20 is 13, a whole number. 65% of 10 would be 6.5, which is impossible."
+      ],
+      "reflection": {
+        "id": "adapted-sixty-percent",
+        "prompt": "True or false: if 60% of a poll said yes, the fewest possible number of people would be 5.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Right. 60/100 reduces to 3/5, so three of every five people said yes. A group of 5 needs no fractional person, and no smaller group works."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Reduce first: 60/100 = 3/5. Then 3 of every 5 people said yes, and 60% of 5 is exactly 3. Five is the smallest group that keeps the count whole."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_8",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the lowest-terms denominator reasoning of AoPS Solution 2."
+    }
+  },
+  "2026-9": {
+    "intro": "One root sits inside another. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "numerator-first",
+        "prompt": "What is the numerator, √(16 · √81)?",
+        "options": [
+          {
+            "id": "a",
+            "label": "12",
+            "correct": true,
+            "feedback": "Yes. The inner root is 9, so the product under the outer root is 16 × 9 = 144, and √144 = 12."
+          },
+          {
+            "id": "b",
+            "label": "36",
+            "correct": false,
+            "feedback": "36 is 16 × 9 with the outer root never taken. That product sits under a square root, so the outer root still has to be applied: √144 = 12."
+          }
+        ]
+      },
+      {
+        "id": "why-split",
+        "prompt": "Why can the inner root be replaced with a plain number before the outer root is evaluated?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Because a root of a product is the product of the roots, so each root acts on its own factor.",
+            "correct": true,
+            "feedback": "Exactly. √(a · b) = √a · √b, so the inner root only affects its own factor. Replace it with a number, multiply, and then take the remaining root."
+          },
+          {
+            "id": "b",
+            "label": "Because 16 and 81 are both perfect squares, so the outer root can be ignored.",
+            "correct": false,
+            "feedback": "Perfect squares make the inner roots easy, but the outer root is still there and still matters. Ignoring it turns 12 into 36 and changes the answer."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-9-a",
+      "sourceProblem": "2026-9",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "What is the value of this expression?",
+      "expression": "√(16·√625) ÷ √(625·√16)",
+      "options": [
+        { "letter": "A", "value": "2/5", "label": "2/5" },
+        { "letter": "B", "value": "5/2", "label": "5/2" }
+      ],
+      "answer": "2/5",
+      "answerLabel": "(A) 2/5",
+      "solution": [
+        "Take the inner roots: √625 = 25 and √16 = 4.",
+        "The numerator becomes √(16 × 25) = √400 = 20.",
+        "The denominator becomes √(625 × 4) = √2500 = 50.",
+        "The value is 20/50 = 2/5. The other choice is its reciprocal, which comes from dividing the denominator by the numerator."
+      ],
+      "reflection": {
+        "id": "adapted-swap-not-same",
+        "prompt": "True or false: swapping 16 and 81 everywhere in the original expression leaves its value unchanged.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": false,
+            "feedback": "Swapping gives √(81 × 4) over √(16 × 9), which is 18/12 = 3/2 — the reciprocal of 2/3, not the same value. The expression is not symmetric in the two numbers."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": true,
+            "feedback": "Correct. The original is 12/18 = 2/3, and swapping gives 18/12 = 3/2. Each number plays a different role, so swapping them flips the fraction."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_9",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the product-splitting method of AoPS Solutions 2 and 4."
+    }
+  },
+  "2026-10": {
+    "intro": "Nobody's finishing time is given — only comparisons. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "anchor-pedro",
+        "prompt": "Suppose Pedro finished at time 0. What offset does Olympia get?",
+        "options": [
+          {
+            "id": "a",
+            "label": "3, because she finished 3 minutes behind Pedro.",
+            "correct": true,
+            "feedback": "Yes. With Pedro at 0, a runner behind him has a positive time. Olympia is 3 minutes behind, so she sits at 3, and everyone else can be measured from her."
+          },
+          {
+            "id": "b",
+            "label": "11, because that is the largest gap in the problem.",
+            "correct": false,
+            "feedback": "The 11 minutes belongs to Nico, not Olympia. Olympia is 3 minutes behind Pedro, so she sits at 3 once Pedro is fixed at 0."
+          }
+        ]
+      },
+      {
+        "id": "who-is-last",
+        "prompt": "Measuring from Pedro, the offsets are Olympia 3, Melina 5, Luke 9, and Nico 11. Who finished last?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Nico, because 11 is the largest offset.",
+            "correct": true,
+            "feedback": "Correct. A bigger offset means a later finish. Nico's 11 minutes is the largest, so he is fifth and Luke's 9 minutes is fourth."
+          },
+          {
+            "id": "b",
+            "label": "Luke, because he is the only runner named once in the statements.",
+            "correct": false,
+            "feedback": "How often a name appears is not evidence. Compare the offsets: Luke is 9 minutes behind Pedro and Nico is 11, so Nico is later and Luke is fourth."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-10-a",
+      "sourceProblem": "2026-10",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Five cyclists finished a race: Ana, Ben, Cara, Dev, and Elena. Ben finished 9 minutes behind Ana. Dev finished 2 minutes ahead of Cara, but 5 minutes behind Ana. Dev finished 4 minutes ahead of Ben. Elena finished 6 minutes behind Ana. Which cyclist finished fourth?",
+      "options": [
+        { "letter": "A", "value": "A", "label": "Cara" },
+        { "letter": "B", "value": "B", "label": "Ben" }
+      ],
+      "answer": "A",
+      "answerLabel": "(A) Cara",
+      "solution": [
+        "Set Ana at 0, since every other rider is described relative to somebody.",
+        "Dev is 5 minutes behind Ana, so Dev is at 5. Elena is 6 minutes behind Ana, so Elena is at 6.",
+        "Dev is 2 minutes ahead of Cara, so Cara is at 5 + 2 = 7.",
+        "Dev is 4 minutes ahead of Ben, so Ben is at 5 + 4 = 9, which agrees with Ben being 9 minutes behind Ana.",
+        "The order is Ana 0, Dev 5, Elena 6, Cara 7, Ben 9, so the fourth cyclist is Cara."
+      ],
+      "reflection": {
+        "id": "adapted-need-elena",
+        "prompt": "True or false: without the statement about Elena, the fourth-place cyclist could not be determined.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Correct. The other three statements place only Ana, Dev, Cara, and Ben. Elena could fit anywhere from second to fifth, and if she were last the fourth place would be Ben instead of Cara."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Try dropping Elena. Then Ana, Dev, Cara and Ben sit at 0, 5, 7 and 9, and Elena could be anywhere — putting her last makes Ben fourth. Elena's placement is what decides it."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_10",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the anchored-offset ordering of AoPS Solutions 2 and 4."
+    }
+  },
   "2019-1": {
     intro: "The problem gives you a budget and two items with different prices. Try working out the numbers yourself first; we can check each step together.",
     checks: [

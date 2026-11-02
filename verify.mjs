@@ -106,6 +106,118 @@ assert.equal(fifth.suggestedPace,'1 min 30 sec');
 assert.equal(recommendedVideos['2026-5'].length,0);
 assert.deepEqual(walkthroughVideos['2026-5'].map(video => [video.id,video.startSeconds,video.endSeconds]),[['gzXlOkLl24U',0,1433]]);
 assert.match(walkthroughVideos['2026-5'][0].segmentLabel,/Full video/);
+const first2026_6 = problems['2026-6'];
+assert.equal(first2026_6.answer,'2/5');
+assert.equal(problems['2026-6'].diagram,'./assets/diagram-2026-6.png');
+assert.ok(fs.existsSync('./assets/diagram-2026-6.png'));
+assert.deepEqual(problems['2026-6'].options.map((option) => [option.letter,option.value]),[['A','1/6'],['B','1/4'],['C','1/3'],['D','3/8'],['E','2/5']]);
+assert.match(problems['2026-6'].prompt,/10 meters long/);
+assert.match(problems['2026-6'].prompt,/8 meters wide/);
+assert.match(problems['2026-6'].prompt,/1 meter of an edge/);
+assert.equal((10 - 2*1) * (8 - 2*1),48);
+assert.equal(10*8,80);
+assert.equal((80-48)/80,2/5);
+assert.equal(2*1*(10+8) - 4*1*1,32,'The band formula 2t(L+W) - 4t² agrees');
+assert.equal((12-4)*(8-4),32);
+assert.equal(12*8,96);
+assert.equal((96-32)/96,2/3);
+assert.ok(Math.abs((96-32)/96 - 2/3) < 1e-12);
+
+const first2026_7 = problems['2026-7'];
+assert.equal(first2026_7.answer,50);
+assert.deepEqual(problems['2026-7'].options.map((option) => [option.letter,option.value]),[['A',45],['B',48],['C',50],['D',52],['E',55]]);
+assert.match(problems['2026-7'].prompt,/40 miles/);
+assert.match(problems['2026-7'].prompt,/1\/2/);
+assert.match(problems['2026-7'].prompt,/3\/10/);
+assert.equal(1/2 + 3/10,4/5);
+assert.equal(40/(4/5),50);
+assert.equal((40/(4/5)) * (1/2 + 3/10),40,'The solved range is consistent with the fraction used');
+assert.equal(40/4*5,50);
+const p7Practice = coachGuides['2026-7'].similar;
+assert.equal(1/4 + 1/2,3/4);
+assert.equal(60/(3/4),80);
+assert.equal(p7Practice.answer,80);
+
+const first2026_8 = problems['2026-8'];
+assert.equal(first2026_8.answer,50);
+assert.equal(first2026_8.answerLabel,'(D) 50');
+assert.deepEqual(problems['2026-8'].options.map((option) => [option.letter,option.value]),[['A',10],['B',20],['C',25],['D',50],['E',100]]);
+assert.equal(74/100,37/50,'74/100 reduces to 37/50');
+assert.equal(74*50/100,37);
+for (const n of [10,20,25]) assert.notEqual((74*n/100) % 1,0,'74% of '+n+' is not a whole number of people');
+assert.equal((74*50/100) % 1,0);
+assert.deepEqual([10,20,25,50,100].filter((n) => Number.isInteger(74*n/100)),[50,100]);
+assert.equal(Math.min(...[10,20,25,50,100].filter((n) => Number.isInteger(74*n/100))),first2026_8.answer);
+assert.equal(65/100,13/20);
+assert.equal(65*20/100,13);
+assert.equal(coachGuides['2026-8'].similar.answer,20);
+assert.equal(60/100,3/5);
+assert.equal(60*5/100,3);
+
+const first2026_9 = problems['2026-9'];
+assert.equal(first2026_9.answer,'2/3');
+assert.equal(first2026_9.answerLabel,'(B) 2/3');
+assert.deepEqual(problems['2026-9'].options.map((option) => option.letter),['A','B','C','D','E']);
+assert.match(first2026_9.expression,/√81/);
+assert.equal(Math.sqrt(16*Math.sqrt(81)),12);
+assert.equal(Math.sqrt(81*Math.sqrt(16)),18);
+assert.equal(Math.sqrt(16*Math.sqrt(81))/Math.sqrt(81*Math.sqrt(16)),2/3);
+assert.equal(Math.sqrt(144/324),2/3);
+assert.deepEqual([Math.sqrt(16*Math.sqrt(81)),Math.sqrt(81*Math.sqrt(16))],[12,18]);
+assert.equal(Math.sqrt(16*Math.sqrt(625)),20);
+assert.equal(Math.sqrt(625*Math.sqrt(16)),50);
+assert.equal(20/50,2/5);
+assert.equal(coachGuides['2026-9'].similar.answer,'2/5');
+
+const first2026_10 = problems['2026-10'];
+assert.equal(first2026_10.answer,'A');
+assert.equal(first2026_10.answerLabel,'(A) Luke');
+assert.deepEqual(first2026_10.options.map((option) => option.label),['Luke','Melina','Nico','Olympia','Pedro']);
+assert.match(first2026_10.prompt,/11 minutes behind Pedro/);
+assert.match(first2026_10.prompt,/2 minutes ahead of Melina, but 3 minutes behind Pedro/);
+assert.match(first2026_10.prompt,/6 minutes ahead of Luke/);
+{
+  const offsets = { Pedro: 0, Olympia: 3, Melina: 5, Luke: 9, Nico: 11 };
+  const order = Object.keys(offsets).sort((a,b) => offsets[a]-offsets[b]);
+  assert.deepEqual(order,['Pedro','Olympia','Melina','Luke','Nico']);
+  assert.equal(order[3],first2026_10.options.find((option) => option.value === first2026_10.answer).label);
+  assert.equal(offsets.Olympia - offsets.Pedro,3,'Olympia is 3 minutes behind Pedro');
+  assert.equal(offsets.Melina - offsets.Olympia,2,'Melina is 2 behind Olympia');
+  assert.equal(offsets.Luke - offsets.Olympia,6,'Luke is 6 behind Olympia');
+  assert.equal(offsets.Nico - offsets.Pedro,11,'Nico is 11 behind Pedro');
+}
+{
+  const offsets10 = { Ana: 0, Dev: 5, Elena: 6, Cara: 7, Ben: 9 };
+  const order10 = Object.keys(offsets10).sort((a,b) => offsets10[a]-offsets10[b]);
+  assert.deepEqual(order10,['Ana','Dev','Elena','Cara','Ben']);
+  assert.equal(offsets10.Ben - offsets10.Ana,9);
+  assert.equal(offsets10.Dev - offsets10.Ana,5);
+  assert.equal(offsets10.Cara - offsets10.Dev,2);
+  assert.equal(offsets10.Ben - offsets10.Dev,4);
+  assert.equal(offsets10.Elena - offsets10.Ana,6);
+  const adapted10 = coachGuides['2026-10'].similar;
+  assert.equal(order10[3],adapted10.options.find((option) => option.value === adapted10.answer).label);
+  assert.equal(adapted10.answer,'A');
+}
+
+for (const id of ['2026-6','2026-7','2026-8','2026-9','2026-10']) {
+  assert.equal(walkthroughVideos[id].length,1);
+  assert.equal(walkthroughVideos[id][0].id,'gzXlOkLl24U');
+  assert.equal(walkthroughVideos[id][0].channel,'Daily Dose of Math');
+  assert.equal(recommendedVideos[id].length,1,'These segments were reviewed from the creator\'s chapter timestamps and captions');
+  assert.equal(walkthroughVideos[id][0].reviewedAt,'2026-11-02');
+  assert.match(walkthroughVideos[id][0].segmentLabel,/^Problem \d+ · \d+:\d\d–\d+:\d\d$/);
+  assert.equal(coachGuides[id].checks.length,2);
+  assert.ok(coachGuides[id].checks.every((check) => check.options.length === 2 && check.options.filter((option) => option.correct).length === 1));
+  assert.equal(coachGuides[id].similar.options.length,2);
+  assert.ok(coachGuides[id].similar.options.some((option) => option.value === coachGuides[id].similar.answer));
+  assert.equal(coachGuides[id].similar.reflection.options.filter((option) => option.correct).length,1);
+  assert.match(coachGuides[id].similar.label,/not an official AMC question/);
+  assert.equal(problems[id].hints.length,3);
+}
+// Segment bounds follow the creator's published chapter list for Problems 6-10.
+assert.deepEqual(['2026-6','2026-7','2026-8','2026-9','2026-10'].map((id) => [walkthroughVideos[id][0].startSeconds,walkthroughVideos[id][0].endSeconds]),[[218,260],[260,303],[303,338],[338,371],[371,424]]);
+
 const first2019 = problems['2019-1'];
 assert.equal(first2019.year,2019);
 assert.match(first2019.prompt,/\$30\.00/);
@@ -1233,7 +1345,7 @@ const videoOnly = newAttempt(); videoOnly.video = true;
 assert.equal(gradeAnswer(problems['2026-2'],videoOnly,53).independent,false);
 // Retain v1 learning records and aggregate the latest record for each problem.
 const old = {problem:'2026-1',result:'correct',hints:0,independent:true,at:'2026-09-10T13:30:48.705Z'};
-const history = validRecords([old,{...old,problem:'2026-2',independent:false},{...old,problem:'2026-3'},{...old,problem:'2026-6'}],problems);
+const history = validRecords([old,{...old,problem:'2026-2',independent:false},{...old,problem:'2026-3'},{...old,problem:'2026-99'}],problems);
 assert.equal(history.length,3);
 assert.deepEqual(history[0],old);
 const summary = summarizeProgress(history);

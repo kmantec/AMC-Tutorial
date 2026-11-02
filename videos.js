@@ -52,6 +52,86 @@ export const recommendedVideos = {
   "2026-4": [],
   // A full-video parent selection is available; no Q5 segment has passed review.
   "2026-5": [],
+  "2026-6": [
+    {
+      "id": "gzXlOkLl24U",
+      "title": "AMC 8 2026: Problems 1-20 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=gzXlOkLl24U&t=218s",
+      "startSeconds": 218,
+      "endSeconds": 260,
+      "segmentLabel": "Problem 6 · 3:38–4:20",
+      "reason": "The Problem 6 segment takes 1 meter off each side of both dimensions, gets an unreachable middle of 8 by 6, subtracts its 48 square meters from the field's 80, and lands on 32/80 = 2/5, answer E.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's published Problem 6 chapter timestamp and the spoken transition into Problem 7, both checked against the English captions before recommending the segment. He says the border is 1 on each side while naming 8 and 6, so the doubled subtraction is stated out loud rather than left implicit.",
+      "reviewBasis": "Creator's published chapter timestamps and YouTube auto-generated English captions",
+      "reviewedAt": "2026-11-02",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_6"
+    }
+  ],
+  "2026-7": [
+    {
+      "id": "gzXlOkLl24U",
+      "title": "AMC 8 2026: Problems 1-20 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=gzXlOkLl24U&t=260s",
+      "startSeconds": 260,
+      "endSeconds": 303,
+      "segmentLabel": "Problem 7 · 4:20–5:03",
+      "reason": "The Problem 7 segment adds 1/2 and 3/10 to 4/5, names the fully charged range x, and solves 4x/5 = 40 for x = 50, answer C.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's published Problem 7 chapter timestamp and the spoken transition into Problem 8, checked against the English captions. The auto-caption renders his spoken 5/4 as \"54\", so the multiplication looks garbled in print; he is multiplying both sides by the reciprocal.",
+      "reviewBasis": "Creator's published chapter timestamps and YouTube auto-generated English captions",
+      "reviewedAt": "2026-11-02",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_7"
+    }
+  ],
+  "2026-8": [
+    {
+      "id": "gzXlOkLl24U",
+      "title": "AMC 8 2026: Problems 1-20 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=gzXlOkLl24U&t=303s",
+      "startSeconds": 303,
+      "endSeconds": 338,
+      "segmentLabel": "Problem 8 · 5:03–5:38",
+      "reason": "The Problem 8 segment writes 74% as 74/100, reduces it to 37/50, and reads the denominator as the smallest possible group of 50 with 37 yeses, answer D.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's published Problem 8 chapter timestamp and the spoken transition into Problem 9, checked against the English captions. He reduces the percent rather than testing the five choices, so this segment teaches the faster method and not the trial-and-error one.",
+      "reviewBasis": "Creator's published chapter timestamps and YouTube auto-generated English captions",
+      "reviewedAt": "2026-11-02",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_8"
+    }
+  ],
+  "2026-9": [
+    {
+      "id": "gzXlOkLl24U",
+      "title": "AMC 8 2026: Problems 1-20 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=gzXlOkLl24U&t=338s",
+      "startSeconds": 338,
+      "endSeconds": 371,
+      "segmentLabel": "Problem 9 · 5:38–6:11",
+      "reason": "The Problem 9 segment takes the inner roots 9 and 4, builds 16 × 9 = 144 and 81 × 4 = 324, reads 12 over 18, and reduces to 2/3, answer B.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's published Problem 9 chapter timestamp and the spoken transition into Problem 10, checked against the English captions. The auto-caption drops the word \"square root\" in several places, so the on-screen working carries part of the explanation; the written solution has the full statements.",
+      "reviewBasis": "Creator's published chapter timestamps and YouTube auto-generated English captions",
+      "reviewedAt": "2026-11-02",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_9"
+    }
+  ],
+  "2026-10": [
+    {
+      "id": "gzXlOkLl24U",
+      "title": "AMC 8 2026: Problems 1-20 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=gzXlOkLl24U&t=371s",
+      "startSeconds": 371,
+      "endSeconds": 424,
+      "segmentLabel": "Problem 10 · 6:11–7:04",
+      "reason": "The Problem 10 segment chains the gaps from Pedro, orders the runners Pedro, Olympia, Melina, Luke, Nico, and names Luke as fourth, answer A.",
+      "reviewNote": "Hermes Agent recommendation: the start is the creator's published Problem 10 chapter timestamp (6:11); the end is where the captions say the answer before he introduces Problem 11, which is a few seconds earlier than the published 7:06 chapter mark. The captions also render Melina as \"Molina\", an auto-caption spelling slip rather than a different runner.",
+      "reviewBasis": "Creator's published chapter timestamps and YouTube auto-generated English captions",
+      "reviewedAt": "2026-11-02",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_10"
+    }
+  ],
   "2019-1": [
     {
       "id": "jo7ME7qg4Sg",
