@@ -177,7 +177,7 @@ function renderProblem() {
   $('#problem-data').className = p.expression ? 'practice-expression' : 'problem-data';
   if (p.expression) $('#problem-data').innerHTML = '<span class="math-line">' + escape(p.expression) + '</span>';
   else if (p.matrix) $('#problem-data').innerHTML = '<table class="number-array" aria-label="Number array, 5 rows and 7 columns"><tbody>' + p.matrix.map((row) => '<tr>' + row.map((value) => '<td>' + value + '</td>').join('') + '</tr>').join('') + '</tbody></table>';
-  else if (p.diagram) $('#problem-data').innerHTML = '<img src="' + escape(p.diagram) + '" alt="Diagram for problem" class="problem-figure" tabindex="0" role="button" aria-label="Enlarge or shrink the diagram">';
+  else if (p.diagram) $('#problem-data').innerHTML = '<figure class="problem-figure-wrap"><img src="' + escape(p.diagram) + '" alt="Diagram for problem" class="problem-figure" tabindex="0" role="button" aria-label="Enlarge or shrink the diagram"><figcaption class="figure-hint">Tap the figure to switch between half and full width.</figcaption></figure>';
   else $('#problem-data').innerHTML = p.facts?.length ? '<ol class="shape-facts" type="I">' + p.facts.map((fact) => '<li>' + escape(fact) + '</li>').join('') + '</ol>' : '';
   $('#problem-data').hidden = !$('#problem-data').innerHTML;
   $('#answer-options').classList.toggle('long-options',p.options.some((option) => option.label.length > 8));

@@ -474,6 +474,18 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
   cursor: zoom-out;
 }
 
+.problem-figure-wrap {
+  margin: 0;
+  text-align: center;
+}
+
+.figure-hint {
+  font-family: Manrope, sans-serif;
+  font-size: .72rem;
+  color: #8b98ac;
+  margin: -6px 0 10px;
+}
+
 @media (max-width: 650px) {
   .problem-figure {
     max-width: 50%;
