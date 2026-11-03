@@ -461,7 +461,7 @@ export const problems = {
     "hints": [
       "A count of people has to be a whole number. The obstacle is that 74 percent of an awkward group size is not one.",
       "Write the percent as a fraction in lowest terms. The group size has to be a multiple of that fraction's denominator, because the numerator counts whole people.",
-      "74/100 = 37/50, and 50 is the smallest multiple of 50, where 37 people saying yes is a whole number. So the fewest possible is 50."
+      "74/100 = 37/50 in lowest terms, so the group size must be a multiple of 50. The smallest such size is 50 itself, which gives exactly 37 yes-answers."
     ],
     "method": "Reduce the percent to lowest terms and read the denominator as the required group size.",
     "credit": "AI-authored explanation of the lowest-terms denominator method; AoPS Solutions 2, 4 and 5 use the same idea.",
