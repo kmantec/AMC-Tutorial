@@ -1025,8 +1025,8 @@ export const problems = {
     "diagram": "https://latex.artofproblemsolving.com/e/1/7/e1796ef723acbb9a4cfeacf57e69202cddf3e0d3.png",
     "hints": [
       "Five weekday counts, and exactly one of them was recorded wrongly. Which of the two averages can a single correction move a lot, and which can it barely move?",
-      "New sum = 100 − 16 + 21 = 105. New mean = 105/5 = 21. New sorted data: 16,20,21,22,26. New median = 21.",
-      "Mean increases by 1, median increases by 1."
+      "The wrong day sits near the middle of the sorted list and above the old mean, so the correction pushes both statistics in the same direction. Work out where it lands in each.",
+      "The corrected value is larger than the old mean, so the mean rises; it is also larger than the old middle value, so the median rises too. Figure out each rise separately."
     ],
     "method": "Compute original mean and median, then recompute with the corrected value.",
     "score": 8,
@@ -1251,8 +1251,8 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_15",
     "hints": [
       "Two overlapping groups of people, and one conditional probability is given. Each question has its own \"given\" group — that group is the denominator.",
-      "P(cap | sunglasses) = (both) / (sunglasses) = 14 / 50.",
-      "Simplify 14/50 = 7/25."
+      "The given 2/5 is a fraction of the cap-wearers, so start by turning it into a count of people wearing both. Then the other question asks about a different group of the same size 50.",
+      "Both-people = 2/5 of the 35 cap-wearers. The second probability divides that same both-count by the 50 sunglasses-wearers. Mind which group is on the bottom."
     ],
     "method": "Find the number wearing both, then compute the reverse conditional probability.",
     "score": 8,
@@ -1477,8 +1477,8 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_20",
     "hints": [
       "A square equals 16. Ask first how many values the inside of that square can take, then how many x each one produces.",
-      "Solve x² − 5 = 4 → x² = 9 → x = ±3 (2 real solutions).",
-      "Solve x² − 5 = −4 → x² = 1 → x = ±1 (2 more real solutions). Total: 4 real solutions."
+      "The squared quantity can only be one of two numbers. Each of them then gives a small equation in x with two real answers, and none of the answers repeat.",
+      "Split it into x² − 5 = 4 and x² − 5 = −4. Each gives a positive and a negative x, and the four are all different — so count them."
     ],
     "method": "Take square roots: (x² − 5)² = 16 → x² − 5 = ±4 → solve both quadratics for x.",
     "score": 8,
@@ -1612,8 +1612,8 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2019_AMC_8_Problems/Problem_23",
     "hints": [
       "The team total is cut into quarters and into sevenths. Before any arithmetic, what must the total be a multiple of?",
-      "Fraction of points by Alexa + Brittany + Chelsea + others = T. So T/4 + 2T/7 + 15 + x = T, where x ≤ 14 (7 players × 2 points max).",
-      "Simplify: x + 15 = 13T/28. Since x ≤ 14, try T = 56 (the smallest multiple of 28 that works). Then x = 13(56)/28 − 15 = 26 − 15 = 11."
+      "Alexa and Brittany must each have scored a whole number of points, which pins the team total to one family of numbers. Chelsea's 15 and the seven low scorers then have to fit inside what is left.",
+      "The total is a multiple of 28, and the seven others contribute at most 14 points. Test the allowed totals in order and keep the smallest that leaves a workable remainder for the seven others."
     ],
     "method": "Use the fact that T must be a multiple of 28, then test the smallest values that satisfy all constraints.",
     "score": 7,
@@ -1795,8 +1795,8 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_2",
     "hints": [
       "Four unequal earnings shared equally. What does \"equal\" mean for the person who earned the most?",
-      "If they split equally, how much does each person get?",
-      "The friend who earned $40 needs to keep only the equal share. How much is the difference?"
+      "Nobody gives anything except from excess, and the only person with excess is the top earner. Their surplus above the fair share is what the others receive in total.",
+      "The fair share is the average of the four earnings. The $40 earner hands over exactly the part of their money above that average — and the others' shortfalls total the same amount."
     ],
     "method": "Find the total, divide by 4, then subtract the equal share from $40.",
     "score": 8,
@@ -1839,8 +1839,8 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_3",
     "hints": [
       "Two rates are stacked: plants per square foot, then berries per plant. The units alone tell you the order to apply them.",
-      "Area = 6 × 8 = 48 square feet. At 4 plants per square foot, how many plants are there?",
-      "48 × 4 = 192 plants. Each plant gives 10 strawberries, so 192 × 10 = ?"
+      "The garden's floor area must be turned into a number of plants before any berry can be counted. Trace one square foot through both rates to see how the units cancel.",
+      "Floor area in square feet × plants per square foot gives plants; plants × berries per plant gives berries. Write the units at every step and they cancel themselves."
     ],
     "method": "Multiply step by step: area → plants → strawberries.",
     "score": 8,
@@ -2058,8 +2058,8 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_8",
     "hints": [
       "Two kinds of coin, 2020 of them, at least one of each. The total money is controlled entirely by one of the two counts.",
-      "Since 2020 is fixed, the total depends only on n. The minimum has n = 1 (one nickel), the maximum has n = 2019 (all but one penny).",
-      "Difference = (2020 + 4×2019) − (2020 + 4×1) = 4 × (2019 − 1) = 4 × 2018 = 8072."
+      "Every coin is worth at least one cent, so the fixed 2020 base is locked in and only the extra 4 cents per nickel can move the total. That makes the extremes a question about the smallest and largest possible number of one coin.",
+      "The money depends only on how many of the five-cent coins there are, so the least is one of them and the greatest is all but one. The gap between those two totals reduces to 4 cents times the number of coins, and the 2020 base cancels."
     ],
     "method": "Write the total as 2020 + 4n, then find the range of n.",
     "score": 8,
@@ -2149,8 +2149,8 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_10",
     "hints": [
       "Two of the four marbles must not touch. Which is cheaper to count — the arrangements you want, or the ones you forbid?",
-      "Count the arrangements where Steelie and Tiger are next to each other. Treat them as a 'block' — then there are 3! ways to arrange the block plus the other 2 marbles, times 2! for ordering inside the block.",
-      "24 − (3! × 2!) = 24 − 12 = 12."
+      "All the arrangements are easy to count. The forbidden ones are also easy once the two marbles that cannot separate are treated as a single object, with an internal choice of which comes first.",
+      "Count all arrangements, then subtract the forbidden ones: glued together they behave as one object plus the other two, and either of the two can sit in front. Subtract, and the difference is the answer."
     ],
     "method": "Use complementary counting: total arrangements minus arrangements where S and T are together.",
     "score": 8,
@@ -2368,8 +2368,8 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_15",
     "hints": [
       "One percent statement links two unknown numbers. The question asks only for a ratio between them, so their actual sizes never matter.",
-      "Solve for y: y = (0.15 / 0.20)x = (3/4)x = 0.75x.",
-      "0.75 = 75%, so y is 75% of x."
+      "Turn the sentence into an equation and solve it for y in terms of x. Because only a ratio is asked, the x will cancel itself out at the end.",
+      "The equation says 15 parts of x equals 20 parts of y. Rearrange to y over x, simplify that fraction, and convert the fraction to a percent."
     ],
     "method": "Set up the equation, solve for y in terms of x, then convert to a percentage.",
     "score": 6,
@@ -2455,8 +2455,8 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_17",
     "hints": [
       "How many factors a number has depends only on its prime factorization — not on the factors themselves. What does 2020 break into?",
-      "The factors are: 1, 2, 4, 5, 10, 20, 101, 202, 404, 505, 1010, 2020.",
-      "Count which ones have 1, 2, or 3 factors themselves, then subtract from 12."
+      "Once the primes are known, how many factors 2020 has in total is a formula, and the question only asks how many of those are themselves big. Decide what counts as small first — it is a much shorter list.",
+      "Factor 2020 completely, count the total number of factors, then count how many of them have three or fewer factors of their own and subtract. The short list is one number, one prime, and the product of two primes."
     ],
     "method": "List the factors of 2020, count how many have 1–3 factors, then subtract.",
     "score": 7,
@@ -2769,8 +2769,8 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_24",
     "hints": [
       "A big square is filled with grey tiles separated by white gaps of a fixed width. Can you write the side of the big square using just those two lengths?",
-      "Gray tile area = (24s)². Large square area = (24s+25d)². Their ratio is 64/100 = 16/25.",
-      "Take the square root: 24s/(24s+25d) = 4/5. Then cross-multiply and solve for d/s."
+      "One side of the big square is 24 tiles plus the 25 gaps between and around them. Length and width are the same, so the square's area can be written twice and set equal.",
+      "The grey region is one big square of side 24s, and the whole region is a square of side 24s + 25d. Their areas are in the ratio 64 to 100, so take the square root to get the ratio of the sides, then solve for d over s."
     ],
     "method": "Set up the area ratio equation, take the square root, and solve for d/s.",
     "score": 9,
@@ -2858,8 +2858,8 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_1",
     "hints": [
       "The grid is 4×4 and the star slices some squares in half. Rather than measure the star, ask what fraction of one square it takes.",
-      "The star covers 4 full squares and 8 half-squares. How many full squares is that total?",
-      "8 full squares out of 16 total squares → what percent is that?"
+      "Count what the star takes from each kind of square: the squares it covers whole, and the squares it cuts in half. Every square falls into one of the two groups.",
+      "Add the whole squares and half of the halved ones. Compare that total to the 16 squares in the grid and convert the ratio to a percent — no measuring needed."
     ],
     "method": "Count shaded area in unit squares, divide by total area, convert to percent.",
     "score": 8,
@@ -3262,8 +3262,8 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_10",
     "hints": [
       "Two copies of one rectangle, the second turned 90° about a point on an edge. Draw the turned copy and the overlap becomes a shape with a name.",
-      "The overlap region is a square. Find its side length.",
-      "The center of rotation is the midpoint of DC. After 90° rotation, the overlap is a square of side 2.5 inches."
+      "The two rectangles are the same size and cross at right angles, so the overlap is a square rather than a sliver. Its side is decided by where the rotation point sits along the edge.",
+      "Work out where the turned rectangle's edges land relative to the original. The overlapping square's side comes out as part of one of the original sides, and the answer is the two full areas minus the overcounted overlap."
     ],
     "method": "Add the two rectangle areas and subtract the overlapping square area.",
     "score": 7,
@@ -3489,8 +3489,8 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_15",
     "hints": [
       "Folding pairs the 36 squares up. The number of gold-gold pairs depends on how the gold squares are spread among the pairs, not on where each one sits.",
-      "There are 36 − 13 = 23 gold squares. Think about how to distribute them across the 18 pairs.",
-      "For minimum gold pairs (m): spread gold squares across as many pairs as possible. For maximum (M): pair gold squares with each other as much as possible."
+      "Each gold square is either paired with another gold square or with a silver one. So the count of gold-gold pairs is decided by how many gold squares are forced to double up.",
+      "Look at the 18 pairs and the number of gold squares. To minimise, spread the gold as thinly as the pairs allow; to maximise, double up as many gold squares as possible — and each doubling uses two gold squares for one pair."
     ],
     "method": "Find min gold-on-gold pairs by spreading gold, max by pairing gold together; then add.",
     "score": 8,
@@ -3715,8 +3715,8 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_20",
     "hints": [
       "Each turn eats half of what remains. Follow one person's share from round to round instead of tracking the whole block.",
-      "One eighth of the block survives, so Sarika's next share is half of that, 1/16. Her shares are 1/2, 1/16, 1/128, and so on — each 1/8 of the previous one.",
-      "Add the geometric series: first term divided by (1 − ratio)."
+      "Between one of Sarika's turns and her next, three halves are eaten, so what survives is a fixed fraction of what she ate. That fixed fraction is the key to the whole sum.",
+      "Sarika's shares form a geometric series whose first term is half the block and whose ratio is that small surviving fraction. The total of such a series is the first term over one minus the ratio — the block size cancels."
     ],
     "method": "Find the leftover after one full round, then sum Sarika's shares as a geometric series with ratio 1/8.",
     "score": 7,
@@ -3895,8 +3895,8 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2025_AMC_8_Problems/Problem_24",
     "hints": [
       "A trapezoid with 60° base angles and whole-number sides. Those angles force a fixed relation among the four sides — find it before counting anything.",
-      "In that triangle the leg AB is the hypotenuse and the piece of the bottom base outside the top base is the side opposite 30°, so each overhang is half a leg.",
-      "Let a be the top base and x a leg. Then the bottom base is a + x, so the perimeter is a + (a + x) + 2x = 2a + 3x = 30. Count integer pairs with a > 0."
+      "The two sloping sides and the difference between the parallel sides are locked together by the angle. Once that relation is written down, the perimeter becomes a short equation in two whole numbers.",
+      "The sloping sides are equal and each contributes a fixed slice to the longer parallel side, so the perimeter reduces to 2a + 3x = 30. Count the whole-number pairs with a positive top base — and check none of them is congruent to another."
     ],
     "method": "Turn the 60° angles into a relation between the bases, then count integer solutions of one linear equation.",
     "score": 8,
@@ -4491,8 +4491,8 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_10",
     "hints": [
       "Two dates fifty years apart and a rate per year. The one thing that must be right is how many years actually pass between them.",
-      "Multiply the yearly increase by the number of years to get the total increase.",
-      "1.515 × 50 is awkward by hand, so double and halve: 1.515 × 100 = 151.5, and half of that is 75.75. Add the increase to 338."
+      "The starting level and the yearly rise combine into an arithmetic picture: a fixed starting point plus the same increase repeated once per year. Turn that into one multiplication.",
+      "January 1980 to January 2030 is 50 yearly steps. Adding 50 copies of the yearly rise to the starting reading is the whole calculation — the only difficulty is doing the product mentally."
     ],
     "method": "Find the elapsed years, multiply by the yearly rate, then add to the starting level and round once at the end.",
     "score": 4,
