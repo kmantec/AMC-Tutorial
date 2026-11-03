@@ -442,3 +442,46 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
   .result-score { font-size:2.9rem; }
   .panel { padding:20px 18px; }
 }
+
+/* ---------------------------------------------------------------
+   Problem diagrams
+   A figure supports the problem; it should not own the screen. At full
+   container width a tall diagram (2025-2 is 1877x3364) pushes the prompt
+   and the answer choices apart and forces scrolling. Half width keeps the
+   figure readable while the prompt, choices and figure stay in view
+   together. Dimensions are capped independently so a very tall figure
+   cannot overflow the dialog either; aspect ratio is never distorted, and
+   a small figure is never upscaled past its natural size.
+
+   Half width cannot fit fine print into a very wide strip (2025-13 is
+   3236x592, five histograms side by side), so a figure can be tapped to
+   toggle back to full width for a closer look.
+---------------------------------------------------------------- */
+.problem-figure {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 50%;
+  max-height: min(30vh, 300px);
+  margin: 12px auto 14px;
+  border-radius: 8px;
+  cursor: zoom-in;
+}
+
+.problem-figure.expanded {
+  max-width: 100%;
+  max-height: none;
+  cursor: zoom-out;
+}
+
+@media (max-width: 650px) {
+  .problem-figure {
+    max-width: 50%;
+    max-height: 30vh;
+    margin: 10px auto 12px;
+  }
+  .problem-figure.expanded {
+    max-width: 100%;
+    max-height: none;
+  }
+}

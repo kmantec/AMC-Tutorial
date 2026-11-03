@@ -163,7 +163,7 @@ export function createExamRoom({ problems, $, escape, icon, store, toast, onProg
     data.className = p.expression ? 'practice-expression' : 'problem-data';
     if (p.expression) data.innerHTML = '<span class="math-line">' + escape(p.expression) + '</span>';
     else if (p.matrix) data.innerHTML = '<table class="number-array"><tbody>' + p.matrix.map((row) => '<tr>' + row.map((v) => '<td>' + v + '</td>').join('') + '</tr>').join('') + '</tbody></table>';
-    else if (p.diagram) data.innerHTML = '<img src="' + escape(p.diagram) + '" alt="Diagram for problem ' + p.number + '" style="max-width:100%;height:auto;display:block;margin:10px auto;border-radius:8px">';
+    else if (p.diagram) data.innerHTML = '<img src="' + escape(p.diagram) + '" alt="Diagram for problem ' + p.number + '" class="problem-figure" tabindex="0" role="button" aria-label="Enlarge or shrink the diagram">';
     else if (p.facts?.length) data.innerHTML = '<ol class="shape-facts" type="I">' + p.facts.map((f) => '<li>' + escape(f) + '</li>').join('') + '</ol>';
     else data.innerHTML = '';
     data.hidden = !data.innerHTML;

@@ -177,7 +177,7 @@ function renderProblem() {
   $('#problem-data').className = p.expression ? 'practice-expression' : 'problem-data';
   if (p.expression) $('#problem-data').innerHTML = '<span class="math-line">' + escape(p.expression) + '</span>';
   else if (p.matrix) $('#problem-data').innerHTML = '<table class="number-array" aria-label="Number array, 5 rows and 7 columns"><tbody>' + p.matrix.map((row) => '<tr>' + row.map((value) => '<td>' + value + '</td>').join('') + '</tr>').join('') + '</tbody></table>';
-  else if (p.diagram) $('#problem-data').innerHTML = '<img src="' + escape(p.diagram) + '" alt="Diagram for problem" style="max-width:100%;height:auto;display:block;margin:12px auto;border-radius:8px">';
+  else if (p.diagram) $('#problem-data').innerHTML = '<img src="' + escape(p.diagram) + '" alt="Diagram for problem" class="problem-figure" tabindex="0" role="button" aria-label="Enlarge or shrink the diagram">';
   else $('#problem-data').innerHTML = p.facts?.length ? '<ol class="shape-facts" type="I">' + p.facts.map((fact) => '<li>' + escape(fact) + '</li>').join('') + '</ol>' : '';
   $('#problem-data').hidden = !$('#problem-data').innerHTML;
   $('#answer-options').classList.toggle('long-options',p.options.some((option) => option.label.length > 8));
@@ -660,6 +660,23 @@ document.addEventListener('click',(event) => {
   if (!target) return;
   if (target.dataset.view) navigate(target.dataset.view,true);
   else if (target.dataset.action === 'practice') openPractice(target.dataset.problem || ids[0]);
+});
+// A figure opens at half width; tapping toggles it back to full width for
+// figures whose labels are too fine to read at half size.
+const toggleFigure = (image) => {
+  const expanded = image.classList.toggle('expanded');
+  image.setAttribute('aria-label',expanded ? 'Shrink the diagram' : 'Enlarge or shrink the diagram');
+};
+document.addEventListener('click',(event) => {
+  const image = event.target.closest('.problem-figure');
+  if (image) toggleFigure(image);
+});
+document.addEventListener('keydown',(event) => {
+  if (event.key !== 'Enter' && event.key !== ' ') return;
+  const image = event.target.closest?.('.problem-figure');
+  if (!image) return;
+  event.preventDefault();
+  toggleFigure(image);
 });
 $('#available-practice').addEventListener('click',event => {
   const button = event.target.closest('[data-home-problem]');
