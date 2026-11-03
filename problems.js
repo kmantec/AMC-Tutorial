@@ -2587,8 +2587,8 @@ export const problems = {
     "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2020_AMC_8_Problems/Problem_20",
     "hints": [
       "Each tree is exactly twice or exactly half its neighbour, and every height is a whole number. Start from the height you were given and follow the rule.",
-      "Similarly, Tree 3 relates to Tree 2: must be integer, so Tree 3 = 22.",
-      "Now test possible integer pairs for Trees 4 and 5 (each is twice or half its neighbor). The average ends in .2, so the sum ends in 1."
+      "The given 11 metres sits in the middle, so the tree to its left and the tree to its right are each either double or half of it. Only one of those two choices keeps the heights whole — and the same argument decides the next tree along.",
+      "Once the neighbours of 11 are fixed, only the last two trees are still open, and they must stay whole numbers too. The average carries a .2, which says something about the sum of all five — use it to pick between the remaining possibilities."
     ],
     "method": "Use integer constraints and the average clue to deduce the only possible sequence.",
     "score": 9,
