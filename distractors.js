@@ -44,6 +44,24 @@ export const distractorsByProblem = {
   '2026-10': {
     'B': 'You counted one place short and stopped at Melina, who is third. Luke is one place behind her.',
   },
+  '2026-11': {
+    '13/2 π': 'Your radius sum came out 13 with the right π/2 factor, so one radius was counted twice.',
+    '13π': 'You summed the radii to 13 and charged π per radius, which prices a half circle instead of a quarter.',
+  },
+  '2026-12': {
+    '2': 'With 2 at the top the 9-box needs 7, and 7 is not one of the digits 1 to 6.',
+    '3': 'With 3 at the top the 6-box needs another 3, and each digit may be used only once.',
+    '4': 'With 4 at the top the 9-box needs 5 and the 6-box needs 2, so the 10-box would need a second 5.',
+    'impossible': 'You stopped as soon as one box had two possible pairs. One ambiguous box does not make the whole ring impossible.',
+  },
+  '2026-14': {
+    '90': 'You used the 20 gap between the sums as the common step, which forces a middle of 30 and a total of 90.',
+    '85': 'You found the middle number 25 and then added it to 60 instead of taking three copies of it.',
+  },
+  '2026-15': {
+    '8': 'You assumed each cube needs more neighbours than it does. Two gray faces need only two neighbours, and four cubes supply them.',
+    '27': 'You assumed a solid 3 × 3 × 3 block was needed to hide every face, which asks for far more than the problem does.',
+  },
   '2026-3': {
     A: 'You checked the triangle and stopped. The 36 cm² square has side 6, so it also uses exactly 24 cm.',
     B: 'You added the hexagon because 5 cm sounds small — but six sides of 5 cm is 30 cm, over budget.',

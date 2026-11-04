@@ -218,6 +218,68 @@ for (const id of ['2026-6','2026-7','2026-8','2026-9','2026-10']) {
 // Segment bounds follow the creator's published chapter list for Problems 6-10.
 assert.deepEqual(['2026-6','2026-7','2026-8','2026-9','2026-10'].map((id) => [walkthroughVideos[id][0].startSeconds,walkthroughVideos[id][0].endSeconds]),[[218,260],[260,303],[303,338],[338,371],[371,424]]);
 
+// 2026 Problems 11-15: printed options, keyed answers, figures, and filmed segments.
+const p2026_11 = problems['2026-11'];
+assert.deepEqual(p2026_11.options.map((option) => [option.letter,option.label]),[['A','4π'],['B','6π'],['C','13/2 π'],['D','8π'],['E','13π']]);
+assert.equal(p2026_11.answer,'6π');
+assert.equal(p2026_11.answerLabel,'(B) 6π');
+assert.equal(p2026_11.diagram,'./assets/diagram-2026-11.png');
+assert.ok(Math.abs(Math.PI/2*(1+1+2+3+5) - 6*Math.PI) < 1e-9,'Quarter arcs 1,1,2,3,5 total 6π');
+const p2026_12 = problems['2026-12'];
+assert.deepEqual(p2026_12.options.map((option) => [option.letter,option.value]),[['A',2],['B',3],['C',4],['D',5],['E','impossible']]);
+assert.equal(p2026_12.answer,5);
+assert.equal(p2026_12.answerLabel,'(D) 5');
+assert.equal(p2026_12.diagram,'./assets/diagram-2026-12.png');
+{
+  // Around the ring, starting at the top and going clockwise through
+  // upper-left, lower-left, lower-middle, lower-right, upper-right, the boxes
+  // read 9, 10, 8, 5, 4, 6. The digits are 5,4,6,2,3,1: top 5, every digit once.
+  const ring = [5,4,6,2,3,1];
+  assert.equal(new Set(ring).size,6,'Every digit 1-6 appears once');
+  assert.deepEqual([0,1,2,3,4,5].map((i) => ring[i]+ring[(i+1)%6]),[9,10,8,5,4,6]);
+}
+const p2026_13 = problems['2026-13'];
+assert.deepEqual(p2026_13.options.map((option) => [option.letter,option.label]),[['A','10'],['B','21/2'],['C','32/3'],['D','11'],['E','34/3']]);
+assert.equal(p2026_13.answer,10);
+assert.equal(p2026_13.diagram,'./assets/diagram-2026-13.png');
+assert.equal(3*3+1*1,10,'A side running 3 across and 1 up squares to the area of the tilted square');
+const p2026_14 = problems['2026-14'];
+assert.deepEqual(p2026_14.options.map((option) => [option.letter,option.value]),[['A',70],['B',75],['C',80],['D',85],['E',90]]);
+assert.equal(p2026_14.answer,75);
+assert.equal((40+60)/4*3,75,'The shared middle is 25 and the total is three copies of it');
+assert.equal((15+25)+(25+35),100,'The pair-sums 40 and 60 give 15, 25, 35');
+const p2026_15 = problems['2026-15'];
+assert.deepEqual(p2026_15.options.map((option) => [option.letter,option.value]),[['A',4],['B',6],['C',8],['D',9],['E',27]]);
+assert.equal(p2026_15.answer,4);
+assert.equal(p2026_15.diagram,'./assets/diagram-2026-15.png');
+for (const id of ['2026-11','2026-12','2026-13','2026-14','2026-15']) {
+  assert.equal(recommendedVideos[id].length,1,'Problems 11-15 have reviewed segments');
+  assert.equal(walkthroughVideos[id][0].id,'gzXlOkLl24U');
+  assert.equal(walkthroughVideos[id][0].reviewedAt,'2026-11-03');
+  assert.match(walkthroughVideos[id][0].segmentLabel,/^Problem \d+ · \d+:\d\d–\d+:\d\d$/);
+  assert.equal(coachGuides[id].similar.options.length,2);
+  assert.ok(coachGuides[id].similar.options.some((option) => option.value === coachGuides[id].similar.answer));
+  assert.equal(coachGuides[id].similar.reflection.options.filter((option) => option.correct).length,1);
+}
+// Segment bounds follow the creator's chapter list for Problems 11-15.
+assert.deepEqual(['2026-11','2026-12','2026-13','2026-14','2026-15'].map((id) => [walkthroughVideos[id][0].startSeconds,walkthroughVideos[id][0].endSeconds]),[[426,471],[471,589],[589,640],[640,712],[712,782]]);
+assert.equal(coachGuides['2026-11'].similar.answer,'5π');
+assert.ok(Math.abs(Math.PI/2*(2+3+5) - 5*Math.PI) < 1e-9);
+assert.equal(coachGuides['2026-13'].similar.answer,13);
+assert.equal(2*2+3*3,13);
+assert.equal(coachGuides['2026-14'].similar.answer,63);
+assert.equal((34+50)/4,21);
+assert.equal(3*21,63);
+assert.equal(coachGuides['2026-12'].similar.answer,3);
+{
+  // Four-circle adaptation: 4, 3, 6, 7 clockwise from the top with 3 on top.
+  const ring = [3,1,2,4];
+  assert.deepEqual([0,1,2,3].map((i) => ring[i]+ring[(i+1)%4]),[4,3,6,7]);
+  assert.equal(new Set(ring).size,4);
+  assert.equal(ring.reduce((a,b) => a+b,0)*2,20,'Four box sums count each digit twice');
+}
+assert.equal(coachGuides['2026-15'].similar.answer,8);
+
 const first2019 = problems['2019-1'];
 assert.equal(first2019.year,2019);
 assert.match(first2019.prompt,/\$30\.00/);

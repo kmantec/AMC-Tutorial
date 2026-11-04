@@ -58,7 +58,7 @@ for (const [id,g] of Object.entries(coachGuides)) {
   assert.equal(retry.firstTry,false);
   assert.equal(answerReflection(g,state,reflection.id).firstTry,false);
 }
-assert.equal(adaptationIds.size,110);
+assert.equal(adaptationIds.size,Object.keys(problems).length);
 const expression = coachGuides['2026-1'].similar.expression;
 const terms = expression.replaceAll('−','-').replaceAll(' ','').match(/[+-]?\d+/g).map(Number);
 assert.equal(terms.length,12);
@@ -97,7 +97,7 @@ assert.deepEqual(sandwichPractice.options.map((option) => option.value),[7,9]);
 assert.match(sandwichPractice.facts[0],/40\.00/);
 assert.match(sandwichPractice.facts[1],/7\.50/);
 assert.equal(sandwichPractice.reflection.options.find((option) => option.correct).id,'true');
-assert.equal(Object.keys(problems).length,110);
+assert.equal(Object.keys(problems).length,115);
 assert.equal(16*(1-1/4),12);
 assert.equal(coachGuides['2025-16'].similar.reflection.options.find((option) => option.correct).id,'false');
 assert.equal(coachGuides['2025-17'].similar.reflection.options.find((option) => option.correct).id,'true');

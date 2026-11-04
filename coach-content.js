@@ -824,6 +824,399 @@ export const coachGuides = {
       "credit": "Changed-number practice and coaching authored by Hermes Agent, using the anchored-offset ordering of AoPS Solutions 2 and 4."
     }
   },
+  "2026-11": {
+    "intro": "The curve is made of several pieces of different sizes. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "what-fraction",
+        "prompt": "Each piece of the curve sits inside one square and turns a right angle. What fraction of its own circle is each piece?",
+        "options": [
+          {
+            "id": "a",
+            "label": "A quarter of a circle, so its length is (2π × radius)/4.",
+            "correct": true,
+            "feedback": "Yes. A right angle is one quarter of a full turn, so each piece is a quarter of the circle drawn on that square's side. The radius changes from square to square, but the one-quarter fraction never does."
+          },
+          {
+            "id": "b",
+            "label": "A full circle, so its length is 2π × radius.",
+            "correct": false,
+            "feedback": "A full circle would close back on itself. These pieces turn only a right angle, which is a quarter turn, so each length is one quarter of the full circumference."
+          }
+        ]
+      },
+      {
+        "id": "add-radii",
+        "prompt": "Which calculation gives the total length of the curve?",
+        "options": [
+          {
+            "id": "a",
+            "label": "π/2 × (1 + 1 + 2 + 3 + 5), because every piece shares the same quarter-circle factor.",
+            "correct": true,
+            "feedback": "Correct. Each quarter arc is πr/2, and the π/2 is the same for all five pieces, so it can be pulled outside the sum of the radii: π/2 × 12 = 6π."
+          },
+          {
+            "id": "b",
+            "label": "π/2 × (1 + 1 + 2 + 3 + 5 + 5 + 3 + 2 + 1 + 1), because each square holds two arcs.",
+            "correct": false,
+            "feedback": "Each square holds one quarter arc, not two. The curve passes through each square once, so the radii to add are exactly 1, 1, 2, 3 and 5."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-11-a",
+      "sourceProblem": "2026-11",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "A curve is made of quarter circles inscribed in three squares of side length 2, 3, and 5, joined from shortest to longest. What is the length of the curve?",
+      "options": [
+        { "letter": "A", "value": "5π", "label": "5π" },
+        { "letter": "B", "value": "10π", "label": "10π" }
+      ],
+      "answer": "5π",
+      "answerLabel": "(A) 5π",
+      "solution": [
+        "Each piece is a quarter circle, so its length is πr/2 for its own radius.",
+        "The radii are 2, 3 and 5, and the shared factor π/2 comes outside the sum.",
+        "π/2 × (2 + 3 + 5) = π/2 × 10 = 5π.",
+        "The other choice is π/2 × 20, which comes from counting each radius twice or from using full circumferences."
+      ],
+      "reflection": {
+        "id": "adapted-double-radius",
+        "prompt": "True or false: doubling every radius in the picture doubles the length of the curve.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Right. Every arc length is πr/2, which is proportional to its own radius, so doubling all the radii doubles the total. That is exactly why the π/2 factor can be pulled out in front."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Look at the formula π/2 × (sum of radii). The π/2 factor does not change, so doubling every radius doubles the total length."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_11",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the quarter-arc sum of AoPS Solutions 2 and 4."
+    }
+  },
+  "2026-12": {
+    "intro": "Six boxes, six digits, and no circle filled in. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "which-box-forced",
+        "prompt": "Which box can be filled from its sum alone, with no trial and error?",
+        "options": [
+          {
+            "id": "a",
+            "label": "The box showing 10, because only 4 + 6 makes 10 from the digits 1 to 6.",
+            "correct": true,
+            "feedback": "Yes. Listing pairs from 1 to 6, only 4 and 6 make 10. The box showing 5 can be made two ways (1 + 4 or 2 + 3), so it cannot decide anything by itself."
+          },
+          {
+            "id": "b",
+            "label": "The box showing 5, because smaller sums are easier to check.",
+            "correct": false,
+            "feedback": "Small is not the same as forced. The sum 5 comes from either 1 + 4 or 2 + 3, so that box leaves two possibilities open. The box showing 10 has only one pair behind it."
+          }
+        ]
+      },
+      {
+        "id": "why-not-4",
+        "prompt": "The box showing 10 must be 4 and 6. Why can the 4 not go in the lower-left circle?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Because the lower-left circle also touches the box showing 8, which would then need another 4.",
+            "correct": true,
+            "feedback": "Correct. That circle is shared by the 10-box and the 8-box. With 4 there, the 8-box would need 8 − 4 = 4 again, and each digit may be used only once. So the lower-left circle is 6."
+          },
+          {
+            "id": "b",
+            "label": "Because the box showing 4 already uses the digit 4 somewhere.",
+            "correct": false,
+            "feedback": "A box's number is a sum of two digits, not a digit itself. The real reason is the shared circle: with 4 in the lower-left circle the 8-box would need a second 4."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-12-a",
+      "sourceProblem": "2026-12",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Four circles are joined in a ring, and each is filled with one of the digits 1, 2, 3, 4, used exactly once. Going clockwise from the top circle, the three box sums after it are 4, 3, and 6, and the last box, which closes the ring back to the top, shows 7. What digit goes in the top circle?",
+      "options": [
+        { "letter": "A", "value": 3, "label": "3" },
+        { "letter": "B", "value": 4, "label": "4" }
+      ],
+      "answer": 3,
+      "answerLabel": "(A) 3",
+      "solution": [
+        "Every box here is forced: from 1, 2, 3, 4 the sum 7 is only 3 + 4, the sum 6 only 2 + 4, the sum 4 only 1 + 3, and the sum 3 only 1 + 2.",
+        "The digit 4 appears in the 7-box and the 6-box, and those two boxes share the bottom circle, so the bottom circle is 4.",
+        "Then the 7-box gives the top circle 7 − 4 = 3, and the 6-box gives the lower-middle circle 6 − 4 = 2.",
+        "Check the rest: the 3-box needs 3 − 2 = 1 for the lower-left circle, and that circle with the top gives 1 + 3 = 4, which matches the first box. The top digit is 3."
+      ],
+      "reflection": {
+        "id": "adapted-ring-total",
+        "prompt": "True or false: in a four-circle ring using the digits 1 to 4, the four box sums must add to 20.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Right. Each of the four digits sits between two boxes, so adding all four box sums counts every digit twice: 2 × (1 + 2 + 3 + 4) = 20. This puzzle's 4 + 3 + 6 + 7 = 20, a quick check on the arithmetic."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Count the appearances: a digit in a ring touches two boxes, one on each side. All four digits are counted twice, so the box sums total 2 × 10 = 20."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_12",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the forced-box elimination of AoPS Solution 1. The puzzle was generated from a known arrangement and its single solution and top value 3 were confirmed by checking all 24 arrangements."
+    }
+  },
+  "2026-13": {
+    "intro": "The square is tilted, so no side of it follows the grid. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "find-side",
+        "prompt": "What shape does one side of the shaded square complete with the grid lines?",
+        "options": [
+          {
+            "id": "a",
+            "label": "A right triangle whose legs follow the grid, with the side as its hypotenuse.",
+            "correct": true,
+            "feedback": "Yes. The side slopes across the tiling, and the horizontal and vertical grid lines through its two ends close it into a right triangle. Both legs can be counted in unit-square sides."
+          },
+          {
+            "id": "b",
+            "label": "A rectangle whose sides are the unit squares themselves.",
+            "correct": false,
+            "feedback": "The side of the shaded square is not parallel to any grid line, so it cannot be a side of a unit square. It is the slanted side of a right triangle built from the grid."
+          }
+        ]
+      },
+      {
+        "id": "legs-count",
+        "prompt": "One side of the shaded square runs 3 unit squares across. How far does it run up?",
+        "options": [
+          {
+            "id": "a",
+            "label": "1 unit up, so its length is √(3² + 1²).",
+            "correct": true,
+            "feedback": "Correct. Follow the side from one corner dot to the next: three squares to the right and one square up. Its length is √10, and because a square's area is its side squared, the area is 10."
+          },
+          {
+            "id": "b",
+            "label": "3 units up as well, so its length is √(3² + 3²).",
+            "correct": false,
+            "feedback": "Check the vertical leg along a grid line: one end of the side rises only one unit above the other. Legs of 3 and 1 give √10, not √18."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-13-a",
+      "sourceProblem": "2026-13",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "A tilted square is drawn on a grid of 1 × 1 unit squares, and each of its sides runs 2 unit squares across and 3 unit squares up. In square units, what is the area of the square?",
+      "options": [
+        { "letter": "A", "value": 13, "label": "13" },
+        { "letter": "B", "value": 6, "label": "6" }
+      ],
+      "answer": 13,
+      "answerLabel": "(A) 13",
+      "solution": [
+        "One side is the hypotenuse of a right triangle with legs 2 and 3, so its length is √(2² + 3²) = √13.",
+        "The area of a square is its side length squared, so the area is (√13)² = 13.",
+        "The other choice, 6, is the product of the two legs — the area of the right triangle, not of the square."
+      ],
+      "reflection": {
+        "id": "adapted-legs-swap",
+        "prompt": "True or false: a side running 2 across and 3 up gives a different area from one running 3 across and 2 up.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": false,
+            "feedback": "Both sides square the same sum: 2² + 3² = 13 and 3² + 2² = 13. Swapping the legs tilts the square the other way, but the area does not change."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": true,
+            "feedback": "Correct. The formula a² + b² does not care which leg is which, so both versions give 13. Only the tilt of the square changes."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_13",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the hypotenuse and subtract-the-corners routes of AoPS Solutions 2 and 4."
+    }
+  },
+  "2026-14": {
+    "intro": "No single number is given — only two sums of neighbouring pairs. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "what-doubled",
+        "prompt": "Add the two given sums, 40 and 60. Which number has been counted twice in that total?",
+        "options": [
+          {
+            "id": "a",
+            "label": "The second (middle) number, because it belongs to both pairs.",
+            "correct": true,
+            "feedback": "Yes. The first pair is numbers 1 and 2; the second pair is numbers 2 and 3. The middle number is the only one in both, so 100 counts it twice."
+          },
+          {
+            "id": "b",
+            "label": "The first number, because it is named first in the problem.",
+            "correct": false,
+            "feedback": "Read which pairs are summed: the first with the second, then the second with the third. The first number appears once, in the first pair only. The middle number is in both."
+          }
+        ]
+      },
+      {
+        "id": "three-middles",
+        "prompt": "Equal spacing means the total of the three numbers is how many copies of the middle number?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Three copies, because the two outer numbers average to the middle one.",
+            "correct": true,
+            "feedback": "Correct. The first and third sit the same distance either side of the middle, so together they make twice the middle, and with the middle itself that is three copies. Then 100 is four copies, so the middle is 25 and the total is 75."
+          },
+          {
+            "id": "b",
+            "label": "One copy plus the step, so the total cannot be found this way.",
+            "correct": false,
+            "feedback": "The step drops out of the total: (m − d) + m + (m + d) = 3m. Equal spacing always makes the total exactly three copies of the middle."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-14-a",
+      "sourceProblem": "2026-14",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Sena picked three equally spaced integer numbers on the number line. The sum of the first and second is 34, and the sum of the second and third is 50. What is the sum of all three numbers?",
+      "options": [
+        { "letter": "A", "value": 63, "label": "63" },
+        { "letter": "B", "value": 60, "label": "60" }
+      ],
+      "answer": 63,
+      "answerLabel": "(A) 63",
+      "solution": [
+        "Adding the two sums counts the middle number twice, and the total is three copies of the middle.",
+        "So 34 + 50 = 84 is four copies of the middle, and the middle is 84 ÷ 4 = 21.",
+        "The total is 3 × 21 = 63. As a check the step is 34 − 2 × 21 = 8, giving 13, 21 and 29; those give pair-sums 34 and 50 as required."
+      ],
+      "reflection": {
+        "id": "adapted-gap-two-steps",
+        "prompt": "True or false: the gap between the two pair-sums equals the common step.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": false,
+            "feedback": "Check with the numbers: 50 − 34 = 16, but the step is 8. The gap is (m + (m + d)) − ((m − d) + m) = 2d, so it is twice the step."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": true,
+            "feedback": "Correct. The second pair swaps the first number for the third, so the gap is two steps: 50 − 34 = 16 means a step of 8. That is why 13, 21, 29 fits both sums."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_14",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the double-counting method of AoPS Solution 1."
+    }
+  },
+  "2026-15": {
+    "intro": "The question is about what each cube needs, not about how many you can pile up. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "what-hides",
+        "prompt": "A gray face stops being visible in only one situation. Which one?",
+        "options": [
+          {
+            "id": "a",
+            "label": "When another cube is glued directly against it.",
+            "correct": true,
+            "feedback": "Yes. Paint disappears only where two faces touch. Rotating the figure does not help by itself, because a gray face on the outside stays on the outside however the block is turned."
+          },
+          {
+            "id": "b",
+            "label": "When the figure is rotated so the gray faces point at the floor.",
+            "correct": false,
+            "feedback": "The problem says no gray face may show however the figure is rotated, so turning a face toward the floor is not enough. Only a glued neighbour hides a gray face."
+          }
+        ]
+      },
+      {
+        "id": "two-neighbours",
+        "prompt": "The two gray faces of a cube share an edge. How many neighbours does one cube need?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Two, on two sides that meet along an edge.",
+            "correct": true,
+            "feedback": "Correct. Because the gray faces are perpendicular, one neighbour can cover at most one of them. Two neighbours on adjacent sides cover both — exactly what a 2 × 2 block gives every cube."
+          },
+          {
+            "id": "b",
+            "label": "One, because the two gray faces meet each other along an edge.",
+            "correct": false,
+            "feedback": "Touching along an edge does not let one face cover the other, since they point in different directions. A single neighbour blocks only one, so a second neighbour is needed."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-15-a",
+      "sourceProblem": "2026-15",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Elijah now has cubes that are white on 3 faces and gray on the other 3 faces, where the three gray faces all meet at one corner. He glues them together face-to-face. What is the fewest cubes he could glue together so that no gray face is visible, no matter how he rotates the figure?",
+      "options": [
+        { "letter": "A", "value": 8, "label": "8" },
+        { "letter": "B", "value": 4, "label": "4" }
+      ],
+      "answer": 8,
+      "answerLabel": "(A) 8",
+      "solution": [
+        "Each cube now has three gray faces, and they point in three perpendicular directions, so each cube needs three neighbours, on three sides meeting at a corner.",
+        "Four cubes are not enough. A 2 × 2 square, or a row, always leaves at least one cube that can only reach one or two neighbours, and one uncovered gray face is already too many.",
+        "Eight cubes in a 2 × 2 × 2 block work: every cube touches three others, on three sides meeting at a corner, so every cube can turn its three gray faces inward.",
+        "The fewest is therefore 8, not 4. The original problem needs only 4 because its gray faces are only two, sharing an edge."
+      ],
+      "reflection": {
+        "id": "adapted-three-gray",
+        "prompt": "True or false: a cube with three gray faces meeting at a corner needs more neighbours than a cube with two gray faces sharing an edge.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Right. Two gray faces sharing an edge need two neighbours; three meeting at a corner need three. More gray faces means more neighbours, because one neighbour can cover only one face."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Count the faces to cover: two for the original cube, three for this one. Since a neighbour covers exactly one face, this cube needs one more neighbour."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_15",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the neighbour-counting argument of AoPS Solution 3. The minimum of 8 was confirmed by searching every polycube of up to 8 cubes that gives each cube three perpendicular face-neighbours."
+    }
+  },
   "2019-1": {
     intro: "The problem gives you a budget and two items with different prices. Try working out the numbers yourself first; we can check each step together.",
     checks: [

@@ -132,6 +132,86 @@ export const recommendedVideos = {
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_10"
     }
   ],
+  "2026-11": [
+    {
+      "id": "gzXlOkLl24U",
+      "title": "AMC 8 2026: Problems 1-20 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=gzXlOkLl24U&t=426s",
+      "startSeconds": 426,
+      "endSeconds": 471,
+      "segmentLabel": "Problem 11 · 7:06–7:51",
+      "reason": "The Problem 11 segment takes the circumference of each square's circle, keeps a quarter of it, and adds 10π/4 + 6π/4 + 4π/4 + 2π/4 + 2π/4 = 24π/4 = 6π, answer B.",
+      "reviewNote": "Hermes Agent recommendation: the start is the creator's published Problem 11 chapter timestamp (7:06); the end is the spoken handover to Problem 12 at 7:51, a few seconds after he says 6π. The English captions garble several numbers, so follow the on-screen working: the two unit squares are added as 2π/4 twice, which is the same as the π/2 × 12 route in Hint 3.",
+      "reviewBasis": "Creator's published chapter timestamps and YouTube auto-generated English captions",
+      "reviewedAt": "2026-11-03",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_11"
+    }
+  ],
+  "2026-12": [
+    {
+      "id": "gzXlOkLl24U",
+      "title": "AMC 8 2026: Problems 1-20 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=gzXlOkLl24U&t=471s",
+      "startSeconds": 471,
+      "endSeconds": 589,
+      "segmentLabel": "Problem 12 · 7:51–9:49",
+      "reason": "The Problem 12 segment rules out 1 and 2 because the 8-box would need a digit above 6, rules out 6 because the 9-box would need 3 twice, then tests 4 and finds it needs a second 2, leaving 5, answer D.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's published Problem 12 chapter timestamp and the spoken handover to Problem 13, checked against the English captions. He works by testing the answer choices at the top rather than by starting from the forced 10-box, so it is a useful second method and not a copy of Hint 3. He does not test 3 exhaustively; the written alternative here covers that case.",
+      "reviewBasis": "Creator's published chapter timestamps and YouTube auto-generated English captions",
+      "reviewedAt": "2026-11-03",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_12"
+    }
+  ],
+  "2026-13": [
+    {
+      "id": "gzXlOkLl24U",
+      "title": "AMC 8 2026: Problems 1-20 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=gzXlOkLl24U&t=589s",
+      "startSeconds": 589,
+      "endSeconds": 640,
+      "segmentLabel": "Problem 13 · 9:49–10:40",
+      "reason": "The Problem 13 segment draws a 4-by-4 square around the shaded one, subtracts four corner triangles of legs 3 and 1 (area 3/2 each), and gets 16 − 6 = 10, answer A.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's published Problem 13 chapter timestamp and the spoken handover to Problem 14, checked against the English captions. This is the subtract-the-corners route, not the hypotenuse route of Hint 3, so it doubles as the written alternative. He reads the corner triangle's legs as 3 and 1 from the picture, which is the step worth copying.",
+      "reviewBasis": "Creator's published chapter timestamps and YouTube auto-generated English captions",
+      "reviewedAt": "2026-11-03",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_13"
+    }
+  ],
+  "2026-14": [
+    {
+      "id": "gzXlOkLl24U",
+      "title": "AMC 8 2026: Problems 1-20 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=gzXlOkLl24U&t=640s",
+      "startSeconds": 640,
+      "endSeconds": 712,
+      "segmentLabel": "Problem 14 · 10:40–11:52",
+      "reason": "The Problem 14 segment writes the three numbers as x, x + y and x + 2y, solves the two equations for 15, 25 and 35, and adds them to 75, answer B.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's published Problem 14 chapter timestamp and the spoken handover to Problem 15, checked against the English captions. He uses the two-letter algebra route rather than the double-counting route of Hint 3, which makes it a genuine second method; the caption writes his spoken step as \"x + y\", where the written solution here calls it d.",
+      "reviewBasis": "Creator's published chapter timestamps and YouTube auto-generated English captions",
+      "reviewedAt": "2026-11-03",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_14"
+    }
+  ],
+  "2026-15": [
+    {
+      "id": "gzXlOkLl24U",
+      "title": "AMC 8 2026: Problems 1-20 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=gzXlOkLl24U&t=712s",
+      "startSeconds": 712,
+      "endSeconds": 782,
+      "segmentLabel": "Problem 15 · 11:52–13:02",
+      "reason": "The Problem 15 segment tries arrangements, settles on a 2 × 2 block, checks that each cube can point both gray faces at a neighbour, and answers 4, choice A.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator's published Problem 15 chapter timestamp and the spoken handover to Problem 16, checked against the English captions. He builds the 2 × 2 block and verifies it face by face, but he does not prove that 3 is impossible; pair this with Hint 3 for the one-sentence reason a chain must fail.",
+      "reviewBasis": "Creator's published chapter timestamps and YouTube auto-generated English captions",
+      "reviewedAt": "2026-11-03",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_15"
+    }
+  ],
   "2019-1": [
     {
       "id": "jo7ME7qg4Sg",
