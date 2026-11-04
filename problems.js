@@ -5754,5 +5754,319 @@ export const problems = {
     "reflection": "The denominator C(12,4) treats the seats as unordered even though the passengers are real, distinct people. Why does labelling the passengers not change the probability?",
     "alternative": "AoPS Solution 1 counts the same 195 arrangements from the eight occupied seats instead, grouping the rows as 3-3-2-0, 3-3-1-1, 3-2-2-1, and 2-2-2-2. Those cases give 0 + 6 + 108 + 81 as well, so the answer is the same 1 − 195/495 = 20/33.",
     "reviewedAt": "2026-11-01"
+  },
+  "2026-16": {
+    "id": "2026-16",
+    "year": 2026,
+    "number": 16,
+    "suggestedPace": "2 min",
+    "title": "Four even digits, one divisor",
+    "topic": "Number theory · divisibility",
+    "prompt": "Consider all positive four-digit integers consisting of only even digits. What fraction of these integers are divisible by 4?",
+    "wording": "original",
+    "options": [
+      {
+        "letter": "A",
+        "value": "1/4",
+        "label": "1/4"
+      },
+      {
+        "letter": "B",
+        "value": "2/5",
+        "label": "2/5"
+      },
+      {
+        "letter": "C",
+        "value": "1/2",
+        "label": "1/2"
+      },
+      {
+        "letter": "D",
+        "value": "3/5",
+        "label": "3/5"
+      },
+      {
+        "letter": "E",
+        "value": "3/4",
+        "label": "3/4"
+      }
+    ],
+    "answer": "3/5",
+    "answerLabel": "(D) 3/5",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_16",
+    "checkedSourceUrl": "https://live.poshenloh.com/past-contests/amc8/2026/problem/16",
+    "hints": [
+      "These four-digit numbers use only even digits, and the question is what share of them 4 divides. The obstacle is that there are hundreds of them, and the leading digits look just as important as the rest even though they are not.",
+      "Divisibility by 4 is decided entirely by the last two digits, so the first two digits can be set aside. Whatever share of the endings works is also the share of the whole collection, because each ending is repeated the same number of times.",
+      "There are 25 endings made of two even digits. For every tens digit the ones digit must be 0, 4, or 8, so 15 endings work, and 15/25 = 3/5 of the numbers are divisible by 4."
+    ],
+    "method": "Let the last two digits decide, then count how many even endings survive.",
+    "solution": [
+      "A number is divisible by 4 exactly when its last two digits form a multiple of 4, so the thousands and hundreds digits cannot change the answer.",
+      "There are 5 choices for the tens digit and 5 for the ones digit, giving 25 endings built from even digits.",
+      "For a tens digit a, the ending 10a + b is a multiple of 4 only when b is a multiple of 4, because 10a is already a multiple of 4 for every even a. From the even digits that leaves b = 0, 4, or 8.",
+      "So 5 × 3 = 15 of the 25 endings work, and since each ending is repeated by the same 20 pairs of leading digits, the fraction is 15/25 = 3/5, choice D."
+    ],
+    "credit": "AI-authored explanation of the last-two-digits count; AoPS Solution 1 and LIVE by Po-Shen Loh’s written solution both count 15 working endings out of 25.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Divisibility by 4 reads only the last two digits.",
+    "tip": "Because 100 is a multiple of 4, everything above the hundreds place is already accounted for, and only the last two digits decide. The second half of the trick is that a fraction of a collection survives when you count one part of each number: every ending appears with the same number of leading-digit pairs, so 15 out of 25 endings is 15 out of 25 of the numbers. This is the same shortcut that makes divisibility by 8 a test on the last three digits.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Treating all 25 even endings as safe, or testing whole four-digit numbers one at a time instead of the endings.",
+    "reflection": "The tens digit never mattered, only the ones digit, once the tens digit was known to be even. Why did the evenness of the tens digit make the choice of ones digit so narrow?",
+    "alternative": "Count both totals and divide. There are 4 choices for the thousands digit, 5 for the hundreds, and 25 even endings, so 4 × 5 × 25 = 500 numbers. Of those, 4 × 5 × 15 = 300 are divisible by 4, and 300/500 = 3/5.",
+    "reviewedAt": "2026-11-04"
+  },
+  "2026-17": {
+    "id": "2026-17",
+    "year": 2026,
+    "number": 17,
+    "suggestedPace": "2 min",
+    "title": "Nobody beside an old neighbour",
+    "topic": "Counting · permutations",
+    "prompt": "Four students are seated in a row. They chat with the people sitting next to them, then rearrange themselves so that they are no longer seated next to any of the same people. How many rearrangements are possible?",
+    "wording": "original",
+    "diagram": "./assets/diagram-2026-17.png",
+    "options": [
+      {
+        "letter": "A",
+        "value": 2,
+        "label": "2"
+      },
+      {
+        "letter": "B",
+        "value": 4,
+        "label": "4"
+      },
+      {
+        "letter": "C",
+        "value": 9,
+        "label": "9"
+      },
+      {
+        "letter": "D",
+        "value": 12,
+        "label": "12"
+      },
+      {
+        "letter": "E",
+        "value": 24,
+        "label": "24"
+      }
+    ],
+    "answer": 2,
+    "answerLabel": "(A) 2",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_17",
+    "checkedSourceUrl": "https://live.poshenloh.com/past-contests/amc8/2026/problem/17",
+    "hints": [
+      "Four students start in a row, so three pairs of them have just been sitting side by side. The obstacle is that a new row must break all three of those pairs at once, and two of the students are far more restricted than the others.",
+      "Name the students by their old order and write down the three pairs that are now banned. What matters is not the arrangements you must avoid but the pairs that are still allowed, because the new row has to be built out of those.",
+      "With the old order A, B, C, D, the banned pairs are AB, BC and CD. B may only sit beside D, and C may only sit beside A, so the row is forced to be C–A–D–B or B–D–A–C: two rearrangements."
+    ],
+    "method": "Ban the old pairs, notice which students have only one allowed partner, and the row builds itself.",
+    "solution": [
+      "Label the students A, B, C, D in the order they first sat, so the banned pairs are AB, BC and CD.",
+      "B is banned from both A and C, so its only possible neighbour is D. In the same way C’s only possible neighbour is A.",
+      "The new row must therefore contain the pair D–B and the pair A–C, and the one legal way to join those two pairs is through A and D.",
+      "That gives C–A–D–B or its reverse B–D–A–C, so there are 2 rearrangements, choice A."
+    ],
+    "credit": "AI-authored explanation of the forced-partner argument; AoPS Solution 1 counts four-letter strings with BC and CD banned and reaches 2, and LIVE by Po-Shen Loh’s written solution counts the three allowed edges.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Look for the student with only one possible neighbour.",
+    "tip": "Problems about forbidden neighbours are graph problems in disguise: allowed pairs are edges, and a row is a chain of them. The fastest entry is a student who is banned from everyone except one person, because that pair becomes a block you can treat as a single object. Counting all 24 arrangements and crossing out the bad ones works too, but it is slower and it is where 12 and 24 come from.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Subtracting the bad arrangements from 24 instead of rebuilding the row from allowed pairs, or forgetting that a reversal is a different seating only if the row has a left and right end — here both reversals are valid, so both must be counted.",
+    "reflection": "Both valid rows use the pair A–D, who never sat together before. Why is that pair doing so much work?",
+    "alternative": "Count chains in the allowed graph. Legal pairs are AC, AD and BD — exactly enough to link four students — and the only way to string all three together is C–A–D–B or B–D–A–C. Two edges are forced by B and C, so the third has no freedom at all.",
+    "reviewedAt": "2026-11-04"
+  },
+  "2026-18": {
+    "id": "2026-18",
+    "year": 2026,
+    "number": 18,
+    "suggestedPace": "2 min 30 sec",
+    "title": "Runs of odd numbers that make 60",
+    "topic": "Arithmetic sequences",
+    "prompt": "In how many ways can 60 be written as the sum of two or more consecutive odd positive integers that are arranged in increasing order?",
+    "wording": "original",
+    "options": [
+      {
+        "letter": "A",
+        "value": 1,
+        "label": "1"
+      },
+      {
+        "letter": "B",
+        "value": 2,
+        "label": "2"
+      },
+      {
+        "letter": "C",
+        "value": 3,
+        "label": "3"
+      },
+      {
+        "letter": "D",
+        "value": 4,
+        "label": "4"
+      },
+      {
+        "letter": "E",
+        "value": 5,
+        "label": "5"
+      }
+    ],
+    "answer": 2,
+    "answerLabel": "(B) 2",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_18",
+    "checkedSourceUrl": "https://live.poshenloh.com/past-contests/amc8/2026/problem/18",
+    "hints": [
+      "Sixty is to be reached using consecutive odd numbers written in increasing order, with at least two terms. The obstacle is that longer runs start lower and shorter runs start higher, so there is no obvious place to stop trying.",
+      "Fix the length of the run first. Once the length is chosen, the average is fixed too, and the first term is the average pulled down by the gaps — so most lengths can be rejected without adding anything.",
+      "For a run of k terms the first term must be 60/k − (k − 1). Only two divisors of 60 give an odd positive start: k = 2 starts at 29, and k = 6 starts at 5, so there are 2 ways."
+    ],
+    "method": "Choose the length, then let the average and the gaps decide the first term.",
+    "solution": [
+      "A run of k consecutive odd integers starting at a is a, a + 2, …, a + 2(k − 1), whose sum is k·a + 2(1 + 2 + … + (k − 1)) = k·a + k(k − 1).",
+      "So k·a + k(k − 1) = 60, which means a = 60/k − (k − 1): the length must divide 60, and the start is then forced.",
+      "For k = 2, a = 29 and 29 + 31 = 60. For k = 6, a = 5 and 5 + 7 + 9 + 11 + 13 + 15 = 60.",
+      "The other divisors fail: k = 3, 4 and 5 give an even start (18, 12 and 8), and k = 10 or more gives a start of zero or below. Only 2 runs work, choice B."
+    ],
+    "credit": "AI-authored explanation of the length-first count; AoPS Solutions 1, 5 and 6 test lengths or use the divisor/mean idea, and LIVE by Po-Shen Loh’s written solution tests the lengths against the divisors of 60.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Fix the length; the start is then forced.",
+    "tip": "A run of consecutive odds is fully described by its length and its first term, and the sum is length × (first + last)/2. Once the length is picked, the sum equation hands you the start, so there is nothing left to guess — and the parity of that start throws out most lengths instantly. This is the same \"solve for what is forced\" habit that cracks most consecutive-integer problems, and it generalises to evens and to consecutive integers.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Trying runs by hand, stopping at the first one that works, and reporting 1 without checking that a six-term run also works.",
+    "reflection": "The length had to be a divisor of 60, and then the parity of the start did the rest. Why did the length have to divide the sum?",
+    "alternative": "Use averages. A run of length k has average 60/k, so k divides 60; the first term is the average minus (k − 1) because each step up is 2. k = 2 gives 30 − 1 = 29, k = 6 gives 10 − 5 = 5, and k = 3, 4, 5 leave an even first term.",
+    "reviewedAt": "2026-11-04"
+  },
+  "2026-19": {
+    "id": "2026-19",
+    "year": 2026,
+    "number": 19,
+    "suggestedPace": "2 min",
+    "title": "The dog who runs five times as fast",
+    "topic": "Rate-Speed-Distance",
+    "prompt": "Miguel is walking with his dog, Luna. When they reach the entrance to a park, Miguel throws a ball straight ahead and continues to walk at a steady pace. Luna sprints toward the ball, which stops by a tree. As soon as the dog reaches the ball, she brings it back to Miguel. Luna runs 5 times faster than Miguel walks. What fraction of the distance between the entrance and the tree does Miguel cover by the time Luna brings him the ball?",
+    "wording": "original",
+    "diagram": "./assets/diagram-2026-19.png",
+    "options": [
+      {
+        "letter": "A",
+        "value": "1/6",
+        "label": "1/6"
+      },
+      {
+        "letter": "B",
+        "value": "1/5",
+        "label": "1/5"
+      },
+      {
+        "letter": "C",
+        "value": "1/4",
+        "label": "1/4"
+      },
+      {
+        "letter": "D",
+        "value": "1/3",
+        "label": "1/3"
+      },
+      {
+        "letter": "E",
+        "value": "2/5",
+        "label": "2/5"
+      }
+    ],
+    "answer": "1/3",
+    "answerLabel": "(D) 1/3",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_19",
+    "checkedSourceUrl": "https://live.poshenloh.com/past-contests/amc8/2026/problem/19",
+    "hints": [
+      "Luna runs out to the ball and back while Miguel keeps walking forward, and the question asks how far Miguel got when she catches up. The obstacle is that the return leg is shorter than the outward leg because Miguel has been moving the whole time, so the two trips are not equal halves.",
+      "Stop tracking the two legs and track ground covered instead. When Luna reaches Miguel again, her outward run plus her short return, added to Miguel’s walk, make a total that is easy to name — and the two speeds fix how that total splits.",
+      "Luna covers 5 times what Miguel covers in the same time, and together they cover twice the park-to-tree distance. So 5 × Miguel’s distance plus his own equals two lengths, giving Miguel one third of the way."
+    ],
+    "method": "Compare total distances instead of stages: the two paths together make twice the park-to-tree length, and they split in the ratio of the speeds.",
+    "solution": [
+      "Let d be the distance from the entrance to the tree and let M be how far Miguel walks before Luna is back beside him.",
+      "Luna runs d out to the tree and then d − M back, since Miguel has already closed M of that gap by the time she turns. Adding Miguel’s own M, the two together cover d + (d − M) + M = 2d.",
+      "They move for exactly the same length of time, and Luna is 5 times as fast, so Luna covers 5M while Miguel covers M. That gives 5M + M = 2d.",
+      "So 6M = 2d, which makes M = d/3: Miguel covers one third of the distance, choice D."
+    ],
+    "credit": "AI-authored explanation of the combined-distance split; AoPS Solutions 3 and 5 set the distance to a convenient length, and LIVE by Po-Shen Loh’s written solution runs the same 2d total that splits 5 to 1.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Same clock means distances split in the speed ratio.",
+    "tip": "Whenever two movers start and stop together, their distances are in the same ratio as their speeds — that is one sentence, and it replaces a variable for time. The second half is finding something the distances add up to: here Luna’s round trip plus Miguel’s walk is exactly twice the park-to-tree length, because her outward leg is that length and the two pieces of the return and walk join to make it again. Numbers the problem never mentions, like 2d, are usually where the clean split hides.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Reading \"five times faster\" as the answer and picking 1/5, or halving the trip as if Luna ran out and back over two equal distances.",
+    "reflection": "The problem never mentions time, yet time is what links the two distances. Why does the same clock let you skip the time variable entirely?",
+    "alternative": "Pick numbers and follow the clock. Take d = 5 and Miguel’s speed as 1, so Luna runs at 5. She reaches the tree at time 1, when Miguel has walked 1 unit, leaving a gap of 4; they close it at 6 units per hour, which takes 2/3 more. Miguel has walked 1 + 2/3 = 5/3 out of 5, which is 1/3.",
+    "reviewedAt": "2026-11-04"
+  },
+  "2026-20": {
+    "id": "2026-20",
+    "year": 2026,
+    "number": 20,
+    "suggestedPace": "2 min 30 sec",
+    "title": "Stacks of gold and silver coins",
+    "topic": "Combinatorics · counting cases",
+    "prompt": "The land of Catania uses gold coins and silver coins. Gold coins are 1 mm thick and silver coins are 3 mm thick. In how many ways can Taylor make a stack of coins that is 8 mm tall using any arrangement of gold and silver coins, assuming order matters?",
+    "wording": "original",
+    "options": [
+      {
+        "letter": "A",
+        "value": 3,
+        "label": "3"
+      },
+      {
+        "letter": "B",
+        "value": 7,
+        "label": "7"
+      },
+      {
+        "letter": "C",
+        "value": 10,
+        "label": "10"
+      },
+      {
+        "letter": "D",
+        "value": 13,
+        "label": "13"
+      },
+      {
+        "letter": "E",
+        "value": 16,
+        "label": "16"
+      }
+    ],
+    "answer": 13,
+    "answerLabel": "(D) 13",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_20",
+    "checkedSourceUrl": "https://live.poshenloh.com/past-contests/amc8/2026/problem/20",
+    "hints": [
+      "The stack is a sequence of 1 mm gold coins and 3 mm silver coins whose thicknesses add to 8 mm, and two stacks that use the same coins in different orders count separately. The obstacle is that coins of the same metal cannot be told apart, so the order is only about which positions the silver coins take.",
+      "The number of silver coins settles everything else: it fixes how many gold coins are needed, so it fixes how many coins the stack has. All that is left is choosing which of those positions hold a silver coin.",
+      "At most two silvers fit, because three already measure 9 mm. No silver: one stack. One silver: the silver sits in any of the 6 seats of a six-coin stack. Two silvers: choose 2 of the 4 seats, which is 6 ways. Total 13."
+    ],
+    "method": "Split by the number of thick coins, then choose which seats they occupy.",
+    "solution": [
+      "Three silver coins already measure 9 mm, so a stack of 8 mm holds 0, 1, or 2 silver coins.",
+      "No silver: eight gold coins, and only 1 stack.",
+      "One silver: five golds and one silver make a six-coin stack, and the silver can occupy any of its 6 seats.",
+      "Two silvers: two golds and two silvers make a four-coin stack, and the two silvers can take any 2 of the 4 seats, which is C(4,2) = 6 stacks.",
+      "That is 1 + 6 + 6 = 13 stacks, choice D."
+    ],
+    "credit": "AI-authored explanation of the count-the-thick-coins casework; AoPS Solution 1 and LIVE by Po-Shen Loh’s written solution both case on 0, 1 and 2 silver coins.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Count the thick coin, then choose its seats.",
+    "tip": "When order matters but coins of one kind are identical, choose the positions of the rare kind and the rest is forced — that is exactly what C(n, k) counts, and it beats listing stacks. The other half of the trick is that the case split should be on something that pins the rest down: the number of silver coins fixes the gold count, the stack height in coins, and the number of seats all at once.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Counting the three cases instead of the arrangements inside them, or dropping the two-silver case because 2 + 2 looked too small to reach 8 mm.",
+    "reflection": "The one-silver case and the two-silver case both give 6. Is that a coincidence, or is each of them a \"choose 6 of something\" in disguise?",
+    "alternative": "Build the stack from the bottom. A stack of height n starts with either a gold coin, leaving n − 1 mm, or a silver coin, leaving n − 3 mm, so S(n) = S(n − 1) + S(n − 3) with S(0) = 1. Working up: 1, 1, 1, 2, 3, 4, 6, 9, 13 — the 8 mm answer is 13.",
+    "reviewedAt": "2026-11-04"
   }
+
 };

@@ -4,6 +4,7 @@ import { problems } from './problems.js';
 import { recommendedVideos, parentSelectedVideos, walkthroughVideos } from './videos.js';
 import { newAttempt, gradeAnswer, validRecords, summarizeProgress } from './practice-state.js';
 import { coachGuides } from './coach-content.js';
+import { distractorsByProblem, checkDistractorMap } from './distractors.js';
 import './coaching-state.test.mjs';
 import './learning-store.test.mjs';
 import './coach-speech.test.mjs';
@@ -279,6 +280,142 @@ assert.equal(coachGuides['2026-12'].similar.answer,3);
   assert.equal(ring.reduce((a,b) => a+b,0)*2,20,'Four box sums count each digit twice');
 }
 assert.equal(coachGuides['2026-15'].similar.answer,8);
+
+// 2026 Problems 16-20: printed options, keyed answers, figures, and filmed segments.
+const p2026_16 = problems['2026-16'];
+assert.deepEqual(p2026_16.options.map((option) => [option.letter,option.value]),[['A','1/4'],['B','2/5'],['C','1/2'],['D','3/5'],['E','3/4']]);
+assert.equal(p2026_16.answer,'3/5');
+assert.equal(p2026_16.answerLabel,'(D) 3/5');
+{
+  // Every four-digit number built from even digits, counted by brute force.
+  let total = 0, divisible = 0;
+  for (let n = 1000; n <= 9999; n += 1) {
+    if (!String(n).split('').every((digit) => Number(digit) % 2 === 0)) continue;
+    total += 1;
+    if (n % 4 === 0) divisible += 1;
+  }
+  assert.equal(total,500,'5 × 5 × 5 × 4 even four-digit numbers exist');
+  assert.equal(divisible,300);
+  assert.equal(divisible / total,3/5,'The answer fraction matches the brute-force count');
+}
+const p2026_17 = problems['2026-17'];
+assert.deepEqual(p2026_17.options.map((option) => [option.letter,option.value]),[['A',2],['B',4],['C',9],['D',12],['E',24]]);
+assert.equal(p2026_17.answer,2);
+assert.equal(p2026_17.answerLabel,'(A) 2');
+assert.equal(p2026_17.diagram,'./assets/diagram-2026-17.png');
+{
+  // All 24 orderings, keeping only those with no repeat of the pairs AB, BC, CD.
+  const perms = (items) => items.length <= 1 ? [items] : items.flatMap((x,index) => perms([...items.slice(0,index),...items.slice(index+1)]).map((rest) => [x,...rest]));
+  const banned = ['AB','BC','CD'];
+  const valid = perms(['A','B','C','D']).filter((row) => row.every((student,index) => index === 0 || !banned.includes([row[index-1],student].sort().join(''))));
+  assert.deepEqual(valid.map((row) => row.join('')),['BDAC','CADB'],'Exactly two rows break all three old pairs');
+}
+const p2026_18 = problems['2026-18'];
+assert.deepEqual(p2026_18.options.map((option) => [option.letter,option.value]),[['A',1],['B',2],['C',3],['D',4],['E',5]]);
+assert.equal(p2026_18.answer,2);
+assert.equal(p2026_18.answerLabel,'(B) 2');
+{
+  const runs = [];
+  for (let length = 2; length <= 20; length += 1) {
+    const start = 60 / length - (length - 1);
+    if (Number.isInteger(start) && start > 0 && start % 2 === 1) {
+      let sum = 0;
+      for (let step = 0; step < length; step += 1) sum += start + 2 * step;
+      assert.equal(sum,60,'A surviving run must really sum to 60');
+      runs.push(length + ':' + start);
+    }
+  }
+  assert.deepEqual(runs,['2:29','6:5'],'Only the 2-term and 6-term runs work');
+}
+const p2026_19 = problems['2026-19'];
+assert.deepEqual(p2026_19.options.map((option) => [option.letter,option.value]),[['A','1/6'],['B','1/5'],['C','1/4'],['D','1/3'],['E','2/5']]);
+assert.equal(p2026_19.answer,'1/3');
+assert.equal(p2026_19.answerLabel,'(D) 1/3');
+assert.equal(p2026_19.diagram,'./assets/diagram-2026-19.png');
+{
+  // Step the motion in small time slices: Luna runs at 5, Miguel at 1, distance 1.
+  const dt = 1/100000;
+  let miguel = 0, dog = 0, outbound = true;
+  while (true) {
+    miguel += dt;
+    dog += outbound ? 5*dt : -5*dt;
+    if (outbound && dog >= 1) { dog = 1; outbound = false; }
+    if (!outbound && dog <= miguel) break;
+  }
+  assert.ok(Math.abs(miguel - 1/3) < 1e-3,'Simulated Miguel distance matches one third of the way');
+}
+const p2026_20 = problems['2026-20'];
+assert.deepEqual(p2026_20.options.map((option) => [option.letter,option.value]),[['A',3],['B',7],['C',10],['D',13],['E',16]]);
+assert.equal(p2026_20.answer,13);
+assert.equal(p2026_20.answerLabel,'(D) 13');
+{
+  let stacks = 0;
+  const build = (height) => {
+    if (height === 8) { stacks += 1; return; }
+    if (height > 8) return;
+    build(height + 1);
+    build(height + 3);
+  };
+  build(0);
+  assert.equal(stacks,13,'Recursion over 1 mm and 3 mm coins gives 13 ordered stacks');
+}
+for (const id of ['2026-16','2026-17','2026-18','2026-19','2026-20']) {
+  assert.equal(recommendedVideos[id].length,1,'Problems 16-20 have reviewed segments');
+  assert.equal(walkthroughVideos[id][0].id,'gzXlOkLl24U');
+  assert.equal(walkthroughVideos[id][0].reviewedAt,'2026-11-04');
+  assert.match(walkthroughVideos[id][0].segmentLabel,/^Problem \d+ · \d+:\d\d–\d+:\d\d( \(end of video\))?$/);
+  assert.equal(coachGuides[id].similar.options.length,2);
+  assert.ok(coachGuides[id].similar.options.some((option) => option.value === coachGuides[id].similar.answer));
+  assert.equal(coachGuides[id].similar.reflection.options.filter((option) => option.correct).length,1);
+}
+// Segment bounds follow the creator's published chapter list for Problems 16-20.
+assert.deepEqual(['2026-16','2026-17','2026-18','2026-19','2026-20'].map((id) => [walkthroughVideos[id][0].startSeconds,walkthroughVideos[id][0].endSeconds]),[[782,880],[880,1078],[1078,1253],[1253,1298],[1298,1433]]);
+assert.equal(coachGuides['2026-16'].similar.answer,'1/2');
+{
+  let total = 0, divisible = 0;
+  for (let n = 100; n <= 999; n += 1) {
+    if (!String(n).split('').every((digit) => [0,2,4,6].includes(Number(digit)))) continue;
+    total += 1;
+    if (n % 4 === 0) divisible += 1;
+  }
+  assert.equal(total,48);
+  assert.equal(divisible,24);
+  assert.equal(divisible / total,0.5,'The three-digit adaptation is 1/2, not 1/4');
+}
+assert.equal(coachGuides['2026-17'].similar.answer,8);
+{
+  // Four students, banned pairs AB and CD: only alternating rows survive.
+  const perms = (items) => items.length <= 1 ? [items] : items.flatMap((x,index) => perms([...items.slice(0,index),...items.slice(index+1)]).map((rest) => [x,...rest]));
+  const banned = ['AB','CD'];
+  const rows = perms(['A','B','C','D']).filter((row) => row.every((student,index) => index === 0 || !banned.includes([row[index-1],student].sort().join(''))));
+  assert.equal(rows.length,8,'Desk-mates must alternate, giving 2 × 2 × 2 rows');
+}
+assert.equal(coachGuides['2026-18'].similar.answer,4);
+{
+  const runs = [];
+  for (let length = 2; length <= 20; length += 1) {
+    const start = 96 / length - (length - 1);
+    if (Number.isInteger(start) && start > 0 && start % 2 === 1) runs.push(length + ':' + start);
+  }
+  assert.deepEqual(runs,['2:47','4:21','6:11','8:5'],'96 admits four odd runs');
+}
+assert.equal(coachGuides['2026-19'].similar.answer,'1/4');
+assert.equal(2 / (7 + 1),1/4,'A seven-times-faster dog leaves the walker one quarter');
+assert.equal(coachGuides['2026-20'].similar.answer,10);
+{
+  let stacks = 0;
+  const build = (height) => {
+    if (height === 9) { stacks += 1; return; }
+    if (height > 9) return;
+    build(height + 1);
+    build(height + 4);
+  };
+  build(0);
+  assert.equal(stacks,10,'1 mm and 4 mm coins make ten ordered stacks of 9 mm');
+}
+assert.equal(distractorsByProblem['2026-18']['2'],undefined,'The correct answer is never a distractor');
+assert.equal(Object.keys(distractorsByProblem['2026-19']).length,3);
+assert.deepEqual(checkDistractorMap(problems),[],'Every distractor names a real option, never the key');
 
 const first2019 = problems['2019-1'];
 assert.equal(first2019.year,2019);

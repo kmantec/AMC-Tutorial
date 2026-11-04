@@ -68,6 +68,28 @@ export const distractorsByProblem = {
     C: 'You allowed the hexagon again. Perimeter is side × 6, so 30 cm cannot fit in 24 cm of wire.',
     E: 'You assumed all three shapes fit. Only the two whose perimeters equal 24 cm can be made.',
   },
+  "2026-16": {
+    "2/5": "You accepted only 0 and 4 as the ones digit; 8 works too, since 8 is a multiple of 4, and that missing digit costs a fifth of the endings."
+  },
+  "2026-17": {
+    "12": "You started from 24 and removed only the arrangements that keep two old pairs, leaving rows where one old pair still sits together.",
+    "24": "You counted every arrangement of the four students and never applied the rule."
+  },
+  "2026-18": {
+    "1": "You found 29 + 31 and stopped; 5 + 7 + 9 + 11 + 13 + 15 also adds to 60.",
+    "3": "You counted 60 on its own as a sum, but the problem asks for two or more terms.",
+    "4": "You kept one even-start run such as 18 + 20 + 22 or 12 + 14 + 16 + 18; the terms must be odd.",
+    "5": "You added 60 on its own to the two real runs and the two even-start runs, so the parity filter never ran."
+  },
+  "2026-19": {
+    "1/5": "You read the speed ratio 5 to 1 as the answer. It splits the distance they cover together, and that total is 2d, not d.",
+    "1/6": "You split the 2d total correctly and then halved Miguel’s share, or divided d by 6 instead of by 3.",
+    "2/5": "You doubled 1/5 after noticing the round trip — the extra distance on the return belongs to Luna, not to Miguel."
+  },
+  "2026-20": {
+    "3": "You stopped at the three cases (0, 1 or 2 silver coins) without counting the orders inside them.",
+    "7": "You added the no-silver and one-silver cases and stopped: 1 + 6 = 7 leaves out the two-silver stacks."
+  }
 };
 
 // Per-problem guard for the problems above: the answer is never a distractor.

@@ -1965,6 +1965,86 @@ export const recommendedVideos = {
       "reviewedAt": "2026-11-01",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_25"
     }
+  ],
+  "2026-16": [
+    {
+      "id": "gzXlOkLl24U",
+      "title": "AMC 8 2026: Problems 1-20 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=gzXlOkLl24U&t=782s",
+      "startSeconds": 782,
+      "endSeconds": 880,
+      "segmentLabel": "Problem 16 · 13:02–14:40",
+      "reason": "The Problem 16 segment ignores the first two digits, lists the endings 04, 08, 20, 24, 28 and so on, sees only 0, 4, 8 as ones digits, counts 15 working endings out of 25 and answers 3/5, choice D.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator’s published Problem 16 chapter timestamp (13:02) and the spoken handover to Problem 17 (14:40), checked against the English captions. He works from the endings, exactly the route of Hint 3; the captions garble “even digits” a few times, so follow the on-screen numbers.",
+      "reviewBasis": "Creator’s published chapter timestamps and YouTube auto-generated English captions",
+      "reviewedAt": "2026-11-04",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_16"
+    }
+  ],
+  "2026-17": [
+    {
+      "id": "gzXlOkLl24U",
+      "title": "AMC 8 2026: Problems 1-20 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=gzXlOkLl24U&t=880s",
+      "startSeconds": 880,
+      "endSeconds": 1078,
+      "segmentLabel": "Problem 17 · 14:40–17:58",
+      "reason": "The Problem 17 segment classifies the end students and the middle students, tries each starting student, discards the cases that force an old pair back together, and reaches 2 rearrangements, choice A.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator’s published Problem 17 chapter timestamp and the spoken handover to Problem 18. He caseworks on which student takes the first seat rather than on the forced-partner argument of Hint 3, so it is a genuine second method and a long one; the captions lose the spoken “2” at the very end, where he says the total answer before starting Problem 18.",
+      "reviewBasis": "Creator’s published chapter timestamps and YouTube auto-generated English captions",
+      "reviewedAt": "2026-11-04",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_17"
+    }
+  ],
+  "2026-18": [
+    {
+      "id": "gzXlOkLl24U",
+      "title": "AMC 8 2026: Problems 1-20 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=gzXlOkLl24U&t=1078s",
+      "startSeconds": 1078,
+      "endSeconds": 1253,
+      "segmentLabel": "Problem 18 · 17:58–20:53",
+      "reason": "The Problem 18 segment writes runs of 2, 3, 4, 5, 6, 7 and 8 terms, solves each for the first term, throws out the even starts, and keeps 29 + 31 and 5 + 7 + 9 + 11 + 13 + 15 for an answer of 2, choice B.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator’s published Problem 18 chapter timestamp and the spoken handover to Problem 19. He tests lengths in order, which is the same filter as Hint 3 but without the divisor formula; he checks k up to 8 and notes that longer runs go negative. The captions drop several spoken coefficients, so read the working on screen.",
+      "reviewBasis": "Creator’s published chapter timestamps and YouTube auto-generated English captions",
+      "reviewedAt": "2026-11-04",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_18"
+    }
+  ],
+  "2026-19": [
+    {
+      "id": "gzXlOkLl24U",
+      "title": "AMC 8 2026: Problems 1-20 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=gzXlOkLl24U&t=1253s",
+      "startSeconds": 1253,
+      "endSeconds": 1298,
+      "segmentLabel": "Problem 19 · 20:53–21:38",
+      "reason": "The Problem 19 segment sets the distance to 1, says the two paths together cover 2, splits it 5 to 1 with 6x = 2, and answers 1/3, choice D.",
+      "reviewNote": "Hermes Agent recommendation: boundaries are the creator’s published Problem 19 chapter timestamp and the spoken handover to Problem 20. This is the shortest segment in the batch and the only one that matches Hint 3 almost word for word, so it works well as a confirmation after she has tried the problem.",
+      "reviewBasis": "Creator’s published chapter timestamps and YouTube auto-generated English captions",
+      "reviewedAt": "2026-11-04",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_19"
+    }
+  ],
+  "2026-20": [
+    {
+      "id": "gzXlOkLl24U",
+      "title": "AMC 8 2026: Problems 1-20 Breakdown",
+      "channel": "Daily Dose of Math",
+      "watchUrl": "https://www.youtube.com/watch?v=gzXlOkLl24U&t=1298s",
+      "startSeconds": 1298,
+      "endSeconds": 1433,
+      "segmentLabel": "Problem 20 · 21:38–23:53 (end of video)",
+      "reason": "The Problem 20 segment splits by the number of silver coins, counts one stack for all gold, six for one silver, and six for two silvers, and adds them to 13, choice D.",
+      "reviewNote": "Hermes Agent recommendation: the start is the creator’s published Problem 20 chapter timestamp and the end is the end of the video, whose 1433-second duration was checked in the public player metadata. He narrates C(4,2) as 4 × 3 ÷ 2 on screen. The captions lose the final addition, so the last seconds are worth watching rather than only listening.",
+      "reviewBasis": "Creator’s published chapter timestamps, public video duration, and YouTube auto-generated English captions",
+      "reviewedAt": "2026-11-04",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_20"
+    }
   ]
 };
 

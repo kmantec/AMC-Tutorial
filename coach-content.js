@@ -7729,5 +7729,439 @@ export const coachGuides = {
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2024_AMC_8_Problems/Problem_25",
       "credit": "Changed-number practice and coaching authored by Hermes Agent, using the free-seat casework of AoPS Solution 2."
     }
+  },
+  "2026-16": {
+    "intro": "Lots of numbers, one divisor. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "which-digits-decide",
+        "prompt": "Which part of a four-digit number decides whether 4 divides it?",
+        "options": [
+          {
+            "id": "a",
+            "label": "The last two digits.",
+            "correct": true,
+            "feedback": "Yes. 100 is a multiple of 4, so the thousands and hundreds digits have already contributed a multiple of 4 and can be ignored. Only the number made by the last two digits decides."
+          },
+          {
+            "id": "b",
+            "label": "The last digit alone.",
+            "correct": false,
+            "feedback": "That rule belongs to 2 and to 5. For 4 you need the last two digits: 34 is divisible by 2 but not by 4, and 12 is divisible by 4."
+          }
+        ]
+      },
+      {
+        "id": "how-many-endings",
+        "prompt": "Two even digits can be put together in 25 ways. How many of those endings are multiples of 4?",
+        "options": [
+          {
+            "id": "a",
+            "label": "15 of them, because the ones digit must be 0, 4, or 8.",
+            "correct": true,
+            "feedback": "Correct. For every even tens digit, the ones digit 0, 4 or 8 is the only way to finish a multiple of 4, so 5 × 3 = 15 endings work and the fraction is 15/25 = 3/5."
+          },
+          {
+            "id": "b",
+            "label": "All 25 of them, because every digit used is even.",
+            "correct": false,
+            "feedback": "Even digits do not make a number divisible by 4. The ending 26 is even but not a multiple of 4, while 24 is. Only three of the five even ones digits work."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-16-a",
+      "sourceProblem": "2026-16",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Consider all positive three-digit integers built from the digits 0, 2, 4 and 6 only, with repeats allowed. What fraction of these integers are divisible by 4?",
+      "options": [
+        {
+          "letter": "A",
+          "value": "1/2",
+          "label": "1/2"
+        },
+        {
+          "letter": "B",
+          "value": "1/4",
+          "label": "1/4"
+        }
+      ],
+      "answer": "1/2",
+      "answerLabel": "(A) 1/2",
+      "solution": [
+        "Divisibility by 4 still depends only on the last two digits, and the hundreds digit can be 2, 4 or 6 — three choices that leave the fraction unchanged.",
+        "The last two digits come from four possible digits each, so there are 16 endings; the ones digit must be 0 or 4, which gives 4 × 2 = 8 working endings.",
+        "So 8 of 16 endings work, and the fraction is 8/16 = 1/2, not 1/4."
+      ],
+      "reflection": {
+        "id": "adapted-digits-narrow",
+        "prompt": "True or false: with the allowed digits changed from 0, 2, 4, 6, 8 to 0, 2, 4, 6, the fraction of numbers divisible by 4 is unchanged.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Right. The tens digit is even in both versions, so the ones digit must be a multiple of 4 either way. Five ends digits give 0, 4, 8; four give 0, 4. The count of endings drops but the fraction stays 1/2."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Check both: 15 of 25 endings work with 0, 2, 4, 6, 8 and 8 of 16 work with 0, 2, 4, 6. Both fractions are 1/2, so removing the digit 8 changed the count, not the share."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_16",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the last-two-digits count of AoPS Solution 1. The 1/2 was confirmed by checking all 48 three-digit numbers that can be built."
+    }
+  },
+  "2026-17": {
+    "intro": "Three old pairs are banned at once. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "who-can-b-sit-beside",
+        "prompt": "Call the students A, B, C, D in their first order. B sat between A and C. Who may B sit beside now?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Only D.",
+            "correct": true,
+            "feedback": "Yes. B must avoid both A and C, and D is the only student left. That single fact shrinks the whole problem: wherever B sits, D is beside it."
+          },
+          {
+            "id": "b",
+            "label": "A or D, because only one of the two old neighbours has to change.",
+            "correct": false,
+            "feedback": "The rule is that B may not sit beside A and may not sit beside C — both are banned, not just one. D is B’s only possible neighbour."
+          }
+        ]
+      },
+      {
+        "id": "how-many-rows",
+        "prompt": "The row must contain the pair D–B and the pair A–C. How many rows can be built from those two pairs?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Two: C–A–D–B and B–D–A–C.",
+            "correct": true,
+            "feedback": "Correct. The only way to join the two pairs uses the allowed pair A–D, and that leaves exactly those two rows, which are reverses of each other."
+          },
+          {
+            "id": "b",
+            "label": "Four: each pair could also be written in the other order.",
+            "correct": false,
+            "feedback": "Reversing a pair on its own would put B beside A or C beside D, which is banned. Both pairs keep their internal order, so only the two overall reverses survive."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-17-a",
+      "sourceProblem": "2026-17",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Four students sit at two desks side by side, two at each desk, so A and B chat with each other and C and D chat with each other. After the break they sit in one row of four, and no student may sit beside anyone they chatted with. How many rows are possible?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 8,
+          "label": "8"
+        },
+        {
+          "letter": "B",
+          "value": 24,
+          "label": "24"
+        }
+      ],
+      "answer": 8,
+      "answerLabel": "(A) 8",
+      "solution": [
+        "The banned pairs are AB and CD, so the four allowed neighbours are A–C, A–D, B–C and B–D. Every allowed pair puts one student from each desk together.",
+        "In an allowed row, students from the two desks must alternate: a desk-one student, a desk-two student, a desk-one student, a desk-two student. Any other pattern would put two desk-mates side by side.",
+        "Choose which desk goes first (2 ways), then arrange the two students of that desk (2 ways), then the two students of the other desk (2 ways): 2 × 2 × 2 = 8 rows.",
+        "24 is every arrangement of the four students, which ignores the rule completely."
+      ],
+      "reflection": {
+        "id": "adapted-alternating",
+        "prompt": "True or false: in this version the two desks must alternate along the row.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Right. Only pairs from different desks are allowed, so neighbours always come from opposite desks. That alternating pattern is what turns 24 arrangements into 8."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Try two desk-mates side by side and you have used a banned pair. Since every allowed pair mixes the desks, the row must alternate, which is exactly 2 × 2 × 2 = 8."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_17",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the allowed-pair counting of AoPS Solution 1. The 8 was confirmed by listing all 24 arrangements."
+    }
+  },
+  "2026-18": {
+    "intro": "A run of odd numbers has to land exactly on 60. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "length-or-start",
+        "prompt": "Which choice makes the run easy to pin down?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Choose the length of the run first.",
+            "correct": true,
+            "feedback": "Yes. Once the length k is chosen, the sum tells you the first term: it must be 60/k − (k − 1). Most lengths fail immediately because that start is not an odd count."
+          },
+          {
+            "id": "b",
+            "label": "Choose the first term first and add until you reach 60.",
+            "correct": false,
+            "feedback": "There are many odd starting values and each one needs its own addition. Choosing the length reduces the problem to a handful of divisors of 60."
+          }
+        ]
+      },
+      {
+        "id": "why-parity",
+        "prompt": "For a run of three odd numbers, the first term would be 60/3 − 2. What does that tell you?",
+        "options": [
+          {
+            "id": "a",
+            "label": "The run is impossible, because 18 is even and the terms must be odd.",
+            "correct": true,
+            "feedback": "Correct. 18 + 20 + 22 does add to 60, but those are even numbers. Three consecutive odds always sum to an odd multiple of 3, and 60/3 = 20 cannot be the middle of an odd run."
+          },
+          {
+            "id": "b",
+            "label": "The run works, because 18 + 20 + 22 = 60.",
+            "correct": false,
+            "feedback": "That sum is correct but the terms are even. The problem asks for odd integers, so this length has to be thrown out — the parity check is the filter that kills it."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-18-a",
+      "sourceProblem": "2026-18",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "In how many ways can 96 be written as the sum of two or more consecutive odd positive integers arranged in increasing order?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 4,
+          "label": "4"
+        },
+        {
+          "letter": "B",
+          "value": 2,
+          "label": "2"
+        }
+      ],
+      "answer": 4,
+      "answerLabel": "(A) 4",
+      "solution": [
+        "For a run of k terms the first term is 96/k − (k − 1), so the length must divide 96 and the start must come out odd and positive.",
+        "The lengths that survive are k = 2 (start 47), k = 4 (start 21), k = 6 (start 11) and k = 8 (start 5).",
+        "For example 47 + 49 = 96 and 5 + 7 + 9 + 11 + 13 + 15 + 17 + 19 = 96.",
+        "The other divisors of 96 give an even start or no positive start at all, so there are 4 ways; 96 has more divisors that work than 60 did."
+      ],
+      "reflection": {
+        "id": "adapted-divisor-count",
+        "prompt": "True or false: the number of valid runs depends on which divisors of the total give an odd positive start.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Right. The length must divide the total, and then the parity and sign of the forced start decide whether that divisor counts. That is why 96 gives 4 runs and 60 gave only 2."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Compare the two problems: every length comes from a divisor of the total, so the divisors are the only candidates, and the parity filter chooses among them."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_18",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the length-first divisor test of AoPS Solution 1. The 4 was confirmed by checking every run of up to 20 terms."
+    }
+  },
+  "2026-19": {
+    "intro": "Two speeds, one clock, and a return trip. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "what-to-compare",
+        "prompt": "Which quantity is easiest to compare between Miguel and Luna?",
+        "options": [
+          {
+            "id": "a",
+            "label": "The total distance each one covers in the same time.",
+            "correct": true,
+            "feedback": "Yes. They start together and finish together, so the times match and their distances are in the ratio of their speeds: 5 to 1."
+          },
+          {
+            "id": "b",
+            "label": "The time each one spends running.",
+            "correct": false,
+            "feedback": "The times are identical by definition — they stop at the same moment. The useful comparison is distance, because their distances differ by the speed ratio."
+          }
+        ]
+      },
+      {
+        "id": "what-is-the-total",
+        "prompt": "Luna runs to the tree and back partway while Miguel walks forward. What do their two distances add up to?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Twice the entrance-to-tree distance.",
+            "correct": true,
+            "feedback": "Correct. Luna’s outward leg is the full distance d, and the return leg plus Miguel’s walk together make another d, so the total is 2d. Splitting 2d in the ratio 5 to 1 gives Miguel 2d/6 = d/3."
+          },
+          {
+            "id": "b",
+            "label": "One entrance-to-tree distance, since they meet in the middle of it.",
+            "correct": false,
+            "feedback": "They do not meet in the middle. Luna runs the full distance out, so her trip alone already uses up all of d; the return adds more, and with Miguel’s walk the total is 2d."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-19-a",
+      "sourceProblem": "2026-19",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Nadia walks from the gate of a park to a bench and throws a stick ahead for her dog Rex, who runs 7 times faster than she walks. Rex sprints to the stick and brings it straight back to Nadia, who never stops walking. What fraction of the gate-to-bench distance has Nadia covered when Rex reaches her?",
+      "options": [
+        {
+          "letter": "A",
+          "value": "1/4",
+          "label": "1/4"
+        },
+        {
+          "letter": "B",
+          "value": "1/7",
+          "label": "1/7"
+        }
+      ],
+      "answer": "1/4",
+      "answerLabel": "(A) 1/4",
+      "solution": [
+        "Their distances still add to twice the gate-to-bench distance, and they split in the ratio 7 to 1.",
+        "So 7M + M = 2d, giving 8M = 2d and M = d/4.",
+        "Nadia covers 1/4 of the distance. The answer 1/7 would come from reading the speed ratio as the fraction of distance."
+      ],
+      "reflection": {
+        "id": "adapted-more-speed",
+        "prompt": "True or false: if Rex ran 9 times faster instead of 7, Nadia would cover a smaller fraction of the distance.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Right. The fraction is 2/(speed ratio + 1), so a bigger ratio means a smaller share for Nadia. At 9 times she covers 2/10 = 1/5."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Check the formula: the total is always 2d and it splits as ratio to 1, so the walker’s share is 2/(ratio + 1). A faster dog means less time for the walker, so a smaller fraction."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_19",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the 2d combined-distance split of the written solution. The 1/4 was confirmed by stepping the motion in unit time."
+    }
+  },
+  "2026-20": {
+    "intro": "Thicknesses of 1 mm and 3 mm have to add to 8 mm, and order matters. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "what-to-split-on",
+        "prompt": "What is the best thing to fix before counting anything?",
+        "options": [
+          {
+            "id": "a",
+            "label": "The number of silver coins in the stack.",
+            "correct": true,
+            "feedback": "Yes. Each silver adds 3 mm, so choosing how many there are fixes the gold count, the height in coins, and therefore the number of seats to fill."
+          },
+          {
+            "id": "b",
+            "label": "The position of the first coin in the stack.",
+            "correct": false,
+            "feedback": "That commits you to a branch before you know how many coins the stack holds. Counting the silver coins first gives only three cases, each with a short count."
+          }
+        ]
+      },
+      {
+        "id": "two-silvers",
+        "prompt": "A stack with two silver coins also has two gold coins. How many such stacks are there?",
+        "options": [
+          {
+            "id": "a",
+            "label": "6, because the two silver coins can take any 2 of the 4 seats.",
+            "correct": true,
+            "feedback": "Correct. Four coins in a row, and choosing which two seats are silver decides the whole stack: C(4,2) = 6. Adding 1 + 6 + 6 gives the total 13."
+          },
+          {
+            "id": "b",
+            "label": "2, because the silvers can sit together or apart.",
+            "correct": false,
+            "feedback": "Those are two patterns, but each pattern has several placements: the silvers may sit in seats 1-2, 1-3, 1-4, 2-3, 2-4 or 3-4. That is 6, not 2."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-20-a",
+      "sourceProblem": "2026-20",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Gold coins are 1 mm thick and silver coins are 4 mm thick. In how many ways can a stack 9 mm tall be made, if order matters and coins of the same metal are identical?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 10,
+          "label": "10"
+        },
+        {
+          "letter": "B",
+          "value": 3,
+          "label": "3"
+        }
+      ],
+      "answer": 10,
+      "answerLabel": "(A) 10",
+      "solution": [
+        "Two silver coins already measure 8 mm, and three would be 12 mm, so the stack holds 0, 1 or 2 silvers.",
+        "No silver: nine gold coins, 1 stack.",
+        "One silver: five golds and one silver make 6 coins, and the silver takes any of the 6 seats.",
+        "Two silvers: one gold and two silvers make 3 coins, and the two silvers take any 2 of the 3 seats, which is 3 stacks. Total 1 + 6 + 3 = 10."
+      ],
+      "reflection": {
+        "id": "adapted-fewer-golds",
+        "prompt": "True or false: making the silver coin thicker leaves fewer gold coins, so each case has fewer seats to fill.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Right. A 4 mm silver eats more of the height, so more silver means much fewer golds. The one-silver case drops from six seats in the original to six here only because the total height changed too."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Count the coins: with a 4 mm silver the two-silver case is two silvers plus one gold, only 3 coins, against 4 coins in the original. Thicker silvers mean fewer coins overall."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_20",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, using the thick-coin casework of AoPS Solution 1. The 10 was confirmed by listing every ordered stack of 9 mm."
+    }
   }
+
 };

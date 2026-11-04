@@ -97,7 +97,7 @@ assert.deepEqual(sandwichPractice.options.map((option) => option.value),[7,9]);
 assert.match(sandwichPractice.facts[0],/40\.00/);
 assert.match(sandwichPractice.facts[1],/7\.50/);
 assert.equal(sandwichPractice.reflection.options.find((option) => option.correct).id,'true');
-assert.equal(Object.keys(problems).length,115);
+assert.equal(Object.keys(problems).length,Object.keys(coachGuides).length,'Every problem has exactly one coach guide');
 assert.equal(16*(1-1/4),12);
 assert.equal(coachGuides['2025-16'].similar.reflection.options.find((option) => option.correct).id,'false');
 assert.equal(coachGuides['2025-17'].similar.reflection.options.find((option) => option.correct).id,'true');
