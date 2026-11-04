@@ -2045,7 +2045,87 @@ export const recommendedVideos = {
       "reviewedAt": "2026-11-04",
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_20"
     }
-  ]
+  ],
+  "2026-21":   [
+    {
+      "id": "3GmtxMC-W1I",
+      "title": "2026 AMC 8 Walkthrough: Full Solutions & Tricks",
+      "channel": "Ava R. Zhou",
+      "watchUrl": "https://www.youtube.com/watch?v=3GmtxMC-W1I&t=2474s",
+      "startSeconds": 2474,
+      "endSeconds": 2691,
+      "segmentLabel": "Problem 21 · 41:14–44:51",
+      "reason": "The segment starts on Problem 21, notes that an outer point has only inner neighbours, walks the two-type chain, and answers 1/4, choice B.",
+      "reviewNote": "Hermes Agent recommendation: bounds are the creator’s published Problem 21 and Problem 22 chapter timestamps. He describes the outer/inner alternation correctly, then divides 8 favourable routes by 32 — which gives the right answer for a route-count that does not actually justify it, since the routes are not equally likely. The creator has since pinned a correction to that step. Worth watching after a first try for the outer/inner framing, with our written solution supplying the probability chain his route count skips.",
+      "reviewBasis": "Creator’s published chapter timestamps and YouTube English captions",
+      "reviewedAt": "2026-11-04",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_21"
+    }
+  ],
+  "2026-22":   [
+    {
+      "id": "3GmtxMC-W1I",
+      "title": "2026 AMC 8 Walkthrough: Full Solutions & Tricks",
+      "channel": "Ava R. Zhou",
+      "watchUrl": "https://www.youtube.com/watch?v=3GmtxMC-W1I&t=2691s",
+      "startSeconds": 2691,
+      "endSeconds": 2827,
+      "segmentLabel": "Problem 22 · 44:51–47:07",
+      "reason": "The segment restates Problem 22, argues that each median forces three numbers at or below it, multiplies 3 × 3, and answers 9, choice A.",
+      "reviewNote": "Hermes Agent recommendation: bounds are the creator’s published Problem 22 and Problem 23 chapter timestamps. This is the shortest segment in the batch and it gives the counting bound without the regrouping example, so it pairs well with the written solution rather than replacing it.",
+      "reviewBasis": "Creator’s published chapter timestamps and YouTube English captions",
+      "reviewedAt": "2026-11-04",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_22"
+    }
+  ],
+  "2026-23":   [
+    {
+      "id": "3GmtxMC-W1I",
+      "title": "2026 AMC 8 Walkthrough: Full Solutions & Tricks",
+      "channel": "Ava R. Zhou",
+      "watchUrl": "https://www.youtube.com/watch?v=3GmtxMC-W1I&t=2827s",
+      "startSeconds": 2827,
+      "endSeconds": 3015,
+      "segmentLabel": "Problem 23 · 47:07–50:15",
+      "reason": "The segment connects the coin centres, reads off the straight stretches as five diameters, finds the arcs total one full circle, and answers 4π + 20, choice C.",
+      "reviewNote": "Hermes Agent recommendation: bounds are the creator’s published Problem 23 and Problem 24 chapter timestamps. He draws the centre connections on screen, which is the one step that is hard to follow from text alone; the captions drop some of the arithmetic, so the last two minutes are worth watching rather than only listening.",
+      "reviewBasis": "Creator’s published chapter timestamps and YouTube English captions",
+      "reviewedAt": "2026-11-04",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_23"
+    }
+  ],
+  "2026-24":   [
+    {
+      "id": "3GmtxMC-W1I",
+      "title": "2026 AMC 8 Walkthrough: Full Solutions & Tricks",
+      "channel": "Ava R. Zhou",
+      "watchUrl": "https://www.youtube.com/watch?v=3GmtxMC-W1I&t=3015s",
+      "startSeconds": 3015,
+      "endSeconds": 3200,
+      "segmentLabel": "Problem 24 · 50:15–53:20",
+      "reason": "The segment splits 1! through 51! at the multiples of 7, adds the block totals, handles the extra sevens at 49, and answers 171.",
+      "reviewNote": "Hermes Agent recommendation: bounds are the creator’s published Problem 24 and Problem 25 chapter timestamps. He reads out the running totals 21, 42, 70, 105, 140, 147, 168, 171, so the arithmetic can be checked line by line; the captions garble “51” as “seven” once, which is worth knowing before watching.",
+      "reviewBasis": "Creator’s published chapter timestamps and YouTube English captions",
+      "reviewedAt": "2026-11-04",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_24"
+    }
+  ],
+  "2026-25":   [
+    {
+      "id": "3GmtxMC-W1I",
+      "title": "2026 AMC 8 Walkthrough: Full Solutions & Tricks",
+      "channel": "Ava R. Zhou",
+      "watchUrl": "https://www.youtube.com/watch?v=3GmtxMC-W1I&t=3200s",
+      "startSeconds": 3200,
+      "endSeconds": 3558,
+      "segmentLabel": "Problem 25 · 53:20–59:18 (to the end of the video)",
+      "reason": "The segment reduces the hexagon to three equilateral corner cuts, sets the pair-sum limit, lists the triples from the largest cut down, and answers 8, choice E.",
+      "reviewNote": "Hermes Agent recommendation: the start is the creator’s published Problem 25 chapter timestamp and the end is the end of the video, whose 59:19 (3559-second) duration was read from the page metadata. His systematic descending list is a good model for not losing cases; the sign-off after 59:02 is included in the bound and can be skipped.",
+      "reviewBasis": "Creator’s published chapter timestamps and YouTube English captions",
+      "reviewedAt": "2026-11-04",
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_25"
+    }
+  ],
 };
 
 // Supplied by the parent on 2026-09-27, separately from reviewed recommendations.

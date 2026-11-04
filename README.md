@@ -73,7 +73,7 @@ After starting learning, subsequent visits to the normal app link save and resto
 
 ## Scope and unfinished work
 
-The target is **175 real questions** from seven editions: **2026, 2025, 2024, 2023, 2022, 2020, 2019**. Archive links are available for all seven, **120 guides are integrated**: all of 2019 (25), all of 2020 (25), all of 2025 (25), all of 2024 (25), and 2026 Problems 1–20. **55 real questions remain**: 2026 Problems 21–25, then all of 2023 and 2022. Each original has one labeled adaptation kept outside the real-question count.
+The target is **175 real questions** from seven editions: **2026, 2025, 2024, 2023, 2022, 2020, 2019**. Archive links are available for all seven, **125 guides are integrated**: all of 2019 (25), all of 2020 (25), all of 2025 (25), all of 2024 (25), and all of 2026 (25). **50 real questions remain**: all of 2023 and 2022. Each original has one labeled adaptation kept outside the real-question count.
 
 The parent wants short, reviewable batches and will explicitly authorize a full-year run later. Firebase authentication and cross-device progress, complete in-app papers, timed practice, and the 175-question topic/strategy report are not implemented. No fabricated mastery, streaks, or completed analyses are displayed.
 

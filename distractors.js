@@ -89,7 +89,37 @@ export const distractorsByProblem = {
   "2026-20": {
     "3": "You stopped at the three cases (0, 1 or 2 silver coins) without counting the orders inside them.",
     "7": "You added the no-silver and one-silver cases and stopped: 1 + 6 = 7 leaves out the two-silver stacks."
-  }
+  },
+  "2026-21":   {
+    "1/5": "You used the number of outer points, or one of the five choices, as the probability. Five-fold symmetry does not make each point equally likely on the third move.",
+    "2/5": "You took the chance of an outer point at move two, 1/2, and treated it as an answer to the three-move question, then nudged it. The third move starts from an inner point half the time only.",
+    "1/2": "You stopped at the chance after the second move. That is the probability of being outside after two moves, not after three.",
+    "3/5": "You added the outer chance at move two to something, or counted three of the five outer points. The moves compound by multiplication, not addition."
+  },
+  "2026-22":   {
+    "10": "You placed the middle median a little above 9 without checking that six numbers below it plus the two smaller medians are all distinct.",
+    "12": "You allowed the smaller medians to reuse the low numbers from the other groups, so the count below M came out too small.",
+    "13": "You split 1–25 into five consecutive blocks of five, read 3, 8, 13, 18, 23, and took the middle. Legal, but not the smallest M that can be arranged.",
+    "14": "You counted the two smaller medians as needing only one low number each, so the bound came out one group too high."
+  },
+  "2026-23":   {
+    "2π + 20": "You counted only the two curved halves at the ends and left the four inner corners out.",
+    "5/2 π + 20": "You kept the arcs at the two outer coins and gave each inner corner a quarter, so the total turning came up short.",
+    "9/2 π + 20": "You added one extra quarter circle, usually by counting one corner twice where the two rows meet.",
+    "5π + 20": "You counted the straight parts correctly and then added a full circumference for each of the five coins, or one per corner plus change."
+  },
+  "2026-24":   {
+    "147": "You added the plain multiples of 7 once each — 7 + 14 + 21 + 28 + 35 + 42 — and never counted the factorials above 49.",
+    "150": "You added a single extra seven for the 49 rather than one for each of the three factorials that contain it.",
+    "156": "You counted the sevens up to 42 correctly, then added only the multiples of 7 among 49, 50 and 51.",
+    "168": "You finished the band at 49 and added the three factorials at level seven, but never gave 49 its second seven."
+  },
+  "2026-25":   {
+    "4": "You listed only the triples with all three cuts equal or nearly so, dropping every case with two different sizes.",
+    "5": "You stopped after the triples with smallest cut 1, or forgot that (2,2,2) is inside the pair-sum limit.",
+    "6": "You counted only the six triples whose smallest cut is 1 and missed the two starting with 2.",
+    "7": "You found the eight triples and then discarded one that is actually legal, usually (1,1,4) or (2,2,3)."
+  },
 };
 
 // Per-problem guard for the problems above: the answer is never a distractor.

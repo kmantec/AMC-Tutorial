@@ -8162,6 +8162,436 @@ export const coachGuides = {
       "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_20",
       "credit": "Changed-number practice and coaching authored by Hermes Agent, using the thick-coin casework of AoPS Solution 1. The 10 was confirmed by listing every ordered stack of 9 mm."
     }
-  }
-
+  },
+  "2026-21":   {
+    "intro": "A star-shaped web, three random steps, and a question about where she ends up. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "whichtype",
+        "prompt": "What is worth tracking as Charlotte moves?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Whether she is on an outer point or an inner point.",
+            "correct": true,
+            "feedback": "Yes. Every outer point behaves the same way and every inner point behaves the same way, so the type of point carries all the information the next move needs."
+          },
+          {
+            "id": "b",
+            "label": "The exact name of the point she is standing on.",
+            "correct": false,
+            "feedback": "That is the most detail possible and the least useful here: ten points would mean ten numbers to follow. The symmetry lets two numbers do the same job."
+          }
+        ]
+      },
+      {
+        "id": "threeway",
+        "prompt": "There are three moves, and the first is forced. What has to be true at move two for her to finish on an outer point?",
+        "options": [
+          {
+            "id": "a",
+            "label": "She has to be on an inner point after the second move.",
+            "correct": true,
+            "feedback": "Correct. Only inner points have outer neighbours, so the third move can end outside only if she is inside at move two — and she is inside half the time. Then half of those inner exits lead out."
+          },
+          {
+            "id": "b",
+            "label": "It does not matter where she is at move two, since she only needs to finish outside.",
+            "correct": false,
+            "feedback": "It matters a great deal: an outer point at move two has no outer neighbours at all, so from there the third move cannot end outside. Half the positions at move two are dead ends for her goal."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-21-a",
+      "sourceProblem": "2026-21",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "A web is shaped like a 5-pointed star with 5 outer points and 5 inner points, as in the original. Charlotte starts on an outer point and this time makes 4 moves instead of 3. What is the probability she is on an outer point at the end?",
+      "options": [
+        {
+          "letter": "A",
+          "value": "3/8",
+          "label": "3/8"
+        },
+        {
+          "letter": "B",
+          "value": "1/4",
+          "label": "1/4"
+        }
+      ],
+      "answer": "3/8",
+      "answerLabel": "(A) 3/8",
+      "solution": [
+        "The outer chance after each move runs 1, 0, 1/2, 1/4, 3/8, because each new value is half of the previous inner chance — only inner points can step out.",
+        "The inner chance after three moves is 3/4, and half of that steps out on the fourth move: 3/8.",
+        "So a fourth move raises the chance from 1/4 to 3/8 rather than lowering it."
+      ],
+      "reflection": {
+        "id": "adapted-longer-walk",
+        "prompt": "True or false: as the number of moves grows, the chance of ending on an outer point settles near 1/3 rather than drifting to 0.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Right. The outer chance runs 1, 0, 1/2, 1/4, 3/8, 5/16 …, closing in on 1/3 from both sides. Each outer point offers two inner exits while each inner point offers only two outer ones out of four, and 1/3 is where those pull in opposite directions."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Look at the run of values: 0, 1/2, 1/4, 3/8, 5/16. It is not shrinking to 0 — it is closing in on 1/3."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_21",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, running the two-type chain of the original solution one move further. The 3/8 was confirmed by iterating the outer/inner recurrence."
+    }
+  },
+  "2026-22":   {
+    "intro": "Five groups, five medians, and the middle of those medians to be pushed as low as it will go. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "what-to-count",
+        "prompt": "What does a median of a five-number group force?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Two numbers at or below it and two at or above it.",
+            "correct": true,
+            "feedback": "Yes, and that promise is the whole problem. Three medians at or below M then force three separate pairs of low numbers, which is a count, not a guess."
+          },
+          {
+            "id": "b",
+            "label": "Nothing beyond its own value.",
+            "correct": false,
+            "feedback": "A median is the middle of five, so it always drags two smaller and two larger numbers with it. Ignoring that is exactly what makes 13 look like the answer."
+          }
+        ]
+      },
+      {
+        "id": "lower-bound",
+        "prompt": "To make M as small as possible, how many different numbers must sit strictly below it?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Eight.",
+            "correct": true,
+            "feedback": "Correct. Three groups contribute two numbers each below M, and the two smaller medians are themselves below M: 6 + 2 = 8. So M can be no smaller than the ninth number."
+          },
+          {
+            "id": "b",
+            "label": "Two, one for each of the smaller medians.",
+            "correct": false,
+            "feedback": "The smaller medians need low numbers of their own: each sits in a group whose two lower members are also below M. Counting only the two medians ignores six numbers that must also be small."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-22-a",
+      "sourceProblem": "2026-22",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "The integers from 1 through 25 are separated into five groups of 5 numbers each, and the median of each group is found. Let M be the median of the five medians. This time, what is the greatest possible value of M?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 17,
+          "label": "17"
+        },
+        {
+          "letter": "B",
+          "value": 19,
+          "label": "19"
+        }
+      ],
+      "answer": 17,
+      "answerLabel": "(A) 17",
+      "solution": [
+        "Run the same count from above: two medians are larger than M, each bringing two numbers above it, M’s own group brings two more, and those two larger medians are themselves above M. That is eight numbers above M, so M is at most the seventeenth number, 17.",
+        "It is reached by mirroring the smallest arrangement, replacing every number x with 26 − x: (9,10,23,24,25), (7,8,20,21,22), (5,6,17,18,19), (3,4,14,15,16), (1,2,11,12,13).",
+        "Those medians are 23, 20, 17, 14, 11, whose median is 17. So 17 is both the bound and attainable, while 19 is not."
+      ],
+      "reflection": {
+        "id": "adapted-symmetry",
+        "prompt": "True or false: the greatest possible M plus the least possible M equals 26.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Right. Replacing every number x by 26 − x turns a grouping with median-of-medians M into one with 26 − M, so the two extremes are mirror images. 9 + 17 = 26."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Try the mirror: x → 26 − x reverses the order of all 25 numbers, so the greatest arrangement of the original becomes the smallest of the reflected one. The pair therefore sums to 26."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_22",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, reversing the count-below bound of the original. The 17 was confirmed both by the mirrored grouping shown and by an exhaustive search on the 15-number analogue."
+    }
+  },
+  "2026-23":   {
+    "intro": "Five coins, one taut band, and a length made of straight runs and arcs. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "straight",
+        "prompt": "How long is one straight stretch of band between two touching coins?",
+        "options": [
+          {
+            "id": "a",
+            "label": "4 cm, the same as the distance between the two centres.",
+            "correct": true,
+            "feedback": "Yes. The band leaves one rim and touches the next exactly where the coins touch, so the straight run has the same length as the segment joining the centres — one diameter, 4 cm."
+          },
+          {
+            "id": "b",
+            "label": "8 cm, twice the diameter.",
+            "correct": false,
+            "feedback": "Twice the diameter would be 8 cm, but the band never spans two whole coins. Between two touching coins the straight piece is exactly one diameter, 4 cm."
+          }
+        ]
+      },
+      {
+        "id": "arcs",
+        "prompt": "The four arcs at the corners of the centre figure add up to what?",
+        "options": [
+          {
+            "id": "a",
+            "label": "One whole circle of radius 2, so 4π cm.",
+            "correct": true,
+            "feedback": "Correct. A band that goes all the way round turns through one full revolution in total, however the turning is split between corners. With radius 2 that is 2π · 2 = 4π."
+          },
+          {
+            "id": "b",
+            "label": "Two whole circles, since four corners each give a half.",
+            "correct": false,
+            "feedback": "The corners do not each give a half. Total turning is one revolution, not two, so the arcs add to exactly one circumference — counting the corners as halves is where the 2π and 5π answers come from."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-23-a",
+      "sourceProblem": "2026-23",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Five round coins of diameter 6 centimeters are arranged in 2 rows, 2 on top and 3 below, exactly as in the original, and a band is wrapped tightly around them. In centimeters, what is the length of the band?",
+      "options": [
+        {
+          "letter": "A",
+          "value": "6π + 30",
+          "label": "6π + 30"
+        },
+        {
+          "letter": "B",
+          "value": "6π + 24",
+          "label": "6π + 24"
+        }
+      ],
+      "answer": "6π + 30",
+      "answerLabel": "(A) 6π + 30",
+      "solution": [
+        "The arrangement is unchanged, so the straight stretches are still five diameters — now 5 · 6 = 30 cm.",
+        "The arcs still total one full circle, now of radius 3, giving 6π cm.",
+        "Total 30 + 6π cm. The 6π + 24 answer counts only four of the five straight stretches and loses the sloping joins between the rows."
+      ],
+      "reflection": {
+        "id": "adapted-scale",
+        "prompt": "True or false: doubling every coin’s diameter exactly doubles the length of the band.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Right. Both pieces scale with the diameter — the straight parts are multiples of it and the arcs are π times it — so the whole band is proportional to the coin size. Doubling 4 cm to 8 cm would give 40 + 8π."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Check each ingredient: five diameters, plus one circumference of radius half a diameter. Every term contains the diameter exactly once, so doubling it doubles the total."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_23",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, applying the centres-outline decomposition to a new diameter. The 6π + 30 was confirmed by the hull-plus-one-turn argument and by scaling the original answer by 6/4."
+    }
+  },
+  "2026-24":   {
+    "intro": "Fifty-one factorials multiplied together, and only the 7s matter. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "where-sevens",
+        "prompt": "Where do the 7s in the superfactorial of 51 come from?",
+        "options": [
+          {
+            "id": "a",
+            "label": "From the multiples of 7 among 1 to 51, counted once for each factorial they appear in.",
+            "correct": true,
+            "feedback": "Yes. A 7 can only enter through a multiple of 7, and the same multiple is multiplied in again by every factorial from its own value upward. That “upward” is the count."
+          },
+          {
+            "id": "b",
+            "label": "From 7!, 14!, 21! and so on, one 7 each.",
+            "correct": false,
+            "feedback": "Those are only the first appearances. Each multiple of 7 also sits inside every larger factorial, so 42 alone is already multiplying a 7 into ten different factorials."
+          }
+        ]
+      },
+      {
+        "id": "the-49",
+        "prompt": "Which number makes this problem more than a straight multiple count?",
+        "options": [
+          {
+            "id": "a",
+            "label": "49, because 7 · 7 puts a second 7 in the factorials from 49! upward.",
+            "correct": true,
+            "feedback": "Correct. 49 is a multiple of 7 twice over, so 49!, 50! and 51! each hold one more 7 than a plain multiple count allows — three extra, which is what separates 168 from 171."
+          },
+          {
+            "id": "b",
+            "label": "51, because it is the largest factorial in the product.",
+            "correct": false,
+            "feedback": "51 contributes no 7 at all — it is not divisible by 7. The only number that doubles up is 49, the square of 7."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-24-a",
+      "sourceProblem": "2026-24",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Using the same definition of superfactorial, how many factors of 5 appear in the prime factorization of 26^!, the superfactorial of 26?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 62,
+          "label": "62"
+        },
+        {
+          "letter": "B",
+          "value": 60,
+          "label": "60"
+        }
+      ],
+      "answer": 62,
+      "answerLabel": "(A) 62",
+      "solution": [
+        "A multiple of 5 sits inside every factorial from its own value upward: 5 in 22 factorials, 10 in 17, 15 in 12, 20 in 7 and 25 in 2 — that is 22 + 17 + 12 + 7 + 2 = 60.",
+        "But 25 = 5 · 5, so the factorials 25! and 26! each hold a second 5 as well: 2 more.",
+        "Total 60 + 2 = 62. The 60 answer is the plain multiple count, which sees 25 only once."
+      ],
+      "reflection": {
+        "id": "adapted-square",
+        "prompt": "True or false: whenever the cap passes a square of the prime, an extra pass is needed beyond the plain multiple count.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Right, and the same idea repeats at cubes. Each power of the prime is its own narrow band at the very top of the range, so it must be added separately rather than folded into the multiple count."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "Look at 25 here: the plain count sees one 5 inside 25!, but 25 is 5 · 5. Any power p², p³ … contributes an extra factor that the multiple count cannot see."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_24",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, applying the banded count to a different prime and cap. The 62 was computed by summing the 5-adic valuation of every factorial from 1! to 26!."
+    }
+  },
+  "2026-25":   {
+    "intro": "A hexagon whose corners are cut from a triangle, and the question is how many such hexagons exist. Try a first step on paper; we can check your reasoning together.",
+    "checks": [
+      {
+        "id": "what-is-the-hexagon",
+        "prompt": "What is an equiangular hexagon inscribed in an equilateral triangle?",
+        "options": [
+          {
+            "id": "a",
+            "label": "The triangle with three equilateral corner triangles cut off.",
+            "correct": true,
+            "feedback": "Yes. A 120° interior angle against a 60° corner of the triangle forces the gap at each vertex to be equilateral, so the hexagon is described by three cut sizes."
+          },
+          {
+            "id": "b",
+            "label": "Any hexagon with all sides equal.",
+            "correct": false,
+            "feedback": "Equiangular means the angles are 120°; the sides are free to differ, and that is exactly why there are several of these hexagons. Equal sides would give only the regular hexagon."
+          }
+        ]
+      },
+      {
+        "id": "duplicates",
+        "prompt": "Two different cut triples can describe the same hexagon. What is the cleanest way to stop counting such hexagons twice?",
+        "options": [
+          {
+            "id": "a",
+            "label": "List each triple with its three cut sizes in increasing order.",
+            "correct": true,
+            "feedback": "Correct. Rotation and reflection of the triangle permute the three cuts, so every hexagon has exactly one increasing representative. No division needed, and triples with repeated sizes are handled automatically."
+          },
+          {
+            "id": "b",
+            "label": "Count all ordered triples and divide by 6.",
+            "correct": false,
+            "feedback": "Dividing by 6 over-corrects the triples with two equal entries, such as (1,1,2), which only have three distinct arrangements, not six. Fixing an order avoids that trap entirely."
+          }
+        ]
+      }
+    ],
+    "similar": {
+      "id": "adapted-2026-25-a",
+      "sourceProblem": "2026-25",
+      "label": "Adapted practice — not an official AMC question",
+      "prompt": "Equiangular hexagons with positive integer side lengths are inscribed in an equilateral triangle whose side is 5, with all six vertices on the sides of the triangle. Counting hexagons that differ only by a rotation or a reflection as the same, how many are there?",
+      "options": [
+        {
+          "letter": "A",
+          "value": 5,
+          "label": "5"
+        },
+        {
+          "letter": "B",
+          "value": 8,
+          "label": "8"
+        }
+      ],
+      "answer": 5,
+      "answerLabel": "(A) 5",
+      "solution": [
+        "The corner-cut argument is unchanged, but the budget shrinks: with triangle side 5, any two cut sizes may sum to at most 4, not 5.",
+        "With x ≤ y ≤ z and every pair sum at most 4: (1,1,1), (1,1,2), (1,1,3), (1,2,2) and (2,2,2).",
+        "(1,1,4), (2,2,3) and (1,2,3) all fail now, because each contains a pair summing to 5 or more.",
+        "That is 5 hexagons. The 8 from the original does not carry over: a smaller triangle admits fewer."
+      ],
+      "reflection": {
+        "id": "adapted-side-5",
+        "prompt": "True or false: shrinking the triangle from side 6 to side 5 leaves fewer hexagons.",
+        "options": [
+          {
+            "id": "true",
+            "label": "True",
+            "correct": true,
+            "feedback": "Right. A shorter side means a tighter pair-sum limit, so three of the eight triples that were legal at side 6 disappear. The count drops from 8 to 5."
+          },
+          {
+            "id": "false",
+            "label": "False",
+            "correct": false,
+            "feedback": "The side length is the budget for the three cuts, and every side of the hexagon must stay positive. A smaller budget means fewer possible triples, not the same number."
+          }
+        ]
+      },
+      "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_25",
+      "credit": "Changed-number practice and coaching authored by Hermes Agent, applying the corner-cut enumeration to a smaller triangle. The 5 was confirmed by an exhaustive search over all triples at side 5."
+    }
+  },
 };

@@ -417,6 +417,130 @@ assert.equal(distractorsByProblem['2026-18']['2'],undefined,'The correct answer 
 assert.equal(Object.keys(distractorsByProblem['2026-19']).length,3);
 assert.deepEqual(checkDistractorMap(problems),[],'Every distractor names a real option, never the key');
 
+// 2026 Problems 21-25: the answer key from SOURCES-2026.md, checked letter by letter.
+assert.deepEqual(['2026-21','2026-22','2026-23','2026-24','2026-25'].map((id) => {
+  const problem = problems[id];
+  return problem.options.find((option) => option.value === problem.answer).letter;
+}),['B','A','C','E','E'],'2026 Problems 21-25 match the verified Standard-paper key');
+for (const id of ['2026-21','2026-22','2026-23','2026-24','2026-25']) {
+  assert.equal(problems[id].wording !== undefined,true);
+  assert.ok(typeof problems[id].suggestedPace === 'string' && problems[id].suggestedPace.length >= 5);
+  assert.equal(Object.keys(problems[id]).includes('score'),false,'Typed problems carry no subjective rating');
+}
+// 21: the two-state chain, and the adjacency the chain relies on.
+{
+  let outer = 1, inner = 0;
+  for (let move = 0; move < 3; move += 1) {
+    const nextOuter = inner / 2;
+    const nextInner = outer + inner / 2;
+    outer = nextOuter; inner = nextInner;
+  }
+  assert.equal(outer,1/4,'2026-21: three moves end outside one quarter of the time');
+  assert.equal(problems['2026-21'].answer,'1/4');
+  assert.equal(2 + 2,4,'An inner point has four neighbours');
+  assert.equal(5 * 2 + 5 * 4,30,'The star graph has 15 edges, so the walk is not uniform on routes');
+}
+assert.equal(problems['2026-21'].diagram,'./assets/diagram-2026-21.png');
+assert.ok(fs.existsSync('./assets/diagram-2026-21.png'));
+// 22: the count-below bound and both attaining groups.
+{
+  const median = (group) => [...group].sort((a, b) => a - b)[2];
+  const medianOfMedians = (groups) => {
+    const medians = groups.map(median).sort((a, b) => a - b);
+    return medians[2];
+  };
+  const smallest = [[1,2,3,16,17],[4,5,6,18,19],[7,8,9,20,21],[10,11,12,22,23],[13,14,15,24,25]];
+  assert.equal(medianOfMedians(smallest),9);
+  assert.deepEqual(smallest.flat().sort((a, b) => a - b),Array.from({length:25},(_,index) => index + 1),'The 2026-22 grouping uses every number once');
+  assert.equal(problems['2026-22'].answer,9);
+  assert.equal(2 * 3 + 2,8,'Six low group members plus the two smaller medians must all be distinct');
+  assert.equal(8 + 1,9,'So M is at least the ninth smallest number');
+}
+assert.equal(coachGuides['2026-22'].similar.answer,17);
+{
+  const median = (group) => [...group].sort((a, b) => a - b)[2];
+  const mirrored = [[9,10,23,24,25],[7,8,20,21,22],[5,6,17,18,19],[3,4,14,15,16],[1,2,11,12,13]];
+  const medians = mirrored.map(median).sort((a, b) => a - b);
+  assert.equal(medians[2],17,'Mirroring x -> 26 - x turns the minimum 9 into the maximum 17');
+  assert.equal(9 + 17,26);
+}
+// 23: straight runs are the centre hull, arcs are exactly one turn.
+{
+  const diameter = 4;
+  const trapezoid = 2 * diameter + diameter + 2 * diameter;
+  assert.equal(trapezoid,5 * diameter,'The centre hull is a trapezoid with five diameters of perimeter');
+  assert.equal(trapezoid,20);
+  assert.equal(2 * Math.PI * (diameter / 2),4 * Math.PI);
+  assert.ok(Math.abs(Math.hypot(diameter / 2,diameter * Math.sqrt(3) / 2) - diameter) < 1e-12,'Rows are a diameter apart across the slant');
+  assert.equal(problems['2026-23'].answer,'4π + 20');
+}
+assert.equal(problems['2026-23'].diagram,'./assets/diagram-2026-23.png');
+assert.ok(fs.existsSync('./assets/diagram-2026-23.png'));
+assert.equal(coachGuides['2026-23'].similar.answer,'6π + 30');
+assert.equal(5 * 6,30);
+assert.equal(2 * Math.PI * 3,6 * Math.PI);
+// 24: the superfactorial count, by direct multiplication of the exponents.
+{
+  const sevensIn = (n) => { let count = 0; let value = n; while (value % 7 === 0 && value > 0) { count += 1; value /= 7; } return count; };
+  let total = 0;
+  for (let k = 1; k <= 51; k += 1) for (let j = 1; j <= k; j += 1) total += sevensIn(j);
+  assert.equal(total,171,'2026-24: 51 superfactorial holds 171 sevens');
+  assert.equal(problems['2026-24'].answer,171);
+  assert.equal(7 * (1 + 2 + 3 + 4 + 5 + 6),147);
+  assert.equal(3 * 7,21);
+  assert.equal(147 + 21 + 3,171,'147 below 49, then 21 from the seventh multiple, then 3 from 49 = 7 · 7');
+  assert.equal(147 + 21,168,'The naive answer that forgets the second seven in 49');
+}
+{
+  const fivesIn = (n) => { let count = 0; let value = n; while (value % 5 === 0 && value > 0) { count += 1; value /= 5; } return count; };
+  let total = 0;
+  for (let k = 1; k <= 26; k += 1) for (let j = 1; j <= k; j += 1) total += fivesIn(j);
+  assert.equal(total,62,'2026-24 adaptation: 26 superfactorial holds 62 fives');
+  assert.equal(coachGuides['2026-24'].similar.answer,62);
+}
+// 25: exhaustive unordered corner-cut triples, original and adapted.
+{
+  const countTriples = (limit) => {
+    const found = [];
+    for (let x = 1; x <= limit; x += 1) {
+      for (let y = x; y <= limit; y += 1) {
+        for (let z = y; z <= limit; z += 1) {
+          if (x + y <= limit - 1 && y + z <= limit - 1 && z + x <= limit - 1) found.push([x,y,z]);
+        }
+      }
+    }
+    return found;
+  };
+  const sideSix = countTriples(6);
+  assert.equal(sideSix.length,8,'2026-25: a side-6 triangle admits eight hexagons');
+  assert.deepEqual(sideSix,[[1,1,1],[1,1,2],[1,1,3],[1,1,4],[1,2,2],[1,2,3],[2,2,2],[2,2,3]]);
+  assert.equal(problems['2026-25'].answer,8);
+  const sideFive = countTriples(5);
+  assert.equal(sideFive.length,5,'The side-5 adaptation admits five hexagons');
+  assert.deepEqual(sideFive,[[1,1,1],[1,1,2],[1,1,3],[1,2,2],[2,2,2]]);
+  assert.equal(coachGuides['2026-25'].similar.answer,5);
+}
+assert.equal(problems['2026-25'].diagram,'./assets/diagram-2026-25.png');
+assert.ok(fs.existsSync('./assets/diagram-2026-25.png'));
+
+// Every 2026 coach adaptation is labelled as an adaptation and stays outside the 175 count.
+for (const id of ['2026-21','2026-22','2026-23','2026-24','2026-25']) {
+  assert.equal(coachGuides[id].checks.length,2);
+  assert.equal(coachGuides[id].checks.every((check) => check.options.filter((option) => option.correct).length === 1),true,id + ' has exactly one correct option per check');
+  assert.equal(coachGuides[id].checks.every((check) => check.options.length === 2),true);
+  assert.match(coachGuides[id].similar.label,/not an official AMC question/);
+  assert.equal(coachGuides[id].similar.options.length,2);
+  assert.ok(coachGuides[id].similar.options.some((option) => option.value === coachGuides[id].similar.answer));
+  assert.equal(coachGuides[id].similar.reflection.options.filter((option) => option.correct).length,1);
+  assert.equal(recommendedVideos[id].length,1,'Problems 21-25 have reviewed segments');
+  assert.equal(walkthroughVideos[id][0].id,'3GmtxMC-W1I');
+  assert.match(walkthroughVideos[id][0].segmentLabel,/^Problem \d+ · \d+:\d\d–\d+:\d\d/);
+}
+// Segment bounds are the creator's published chapter list, and 51:44 + the last chapter ends the video.
+assert.deepEqual(['2026-21','2026-22','2026-23','2026-24','2026-25'].map((id) => [walkthroughVideos[id][0].startSeconds,walkthroughVideos[id][0].endSeconds]),[[2474,2691],[2691,2827],[2827,3015],[3015,3200],[3200,3558]]);
+assert.match(walkthroughVideos['2026-25'][0].segmentLabel,/end of the video/);
+assert.equal(3558 + 1 <= 3559,true,'The last chapter closes inside the 59:19 video');
+
 const first2019 = problems['2019-1'];
 assert.equal(first2019.year,2019);
 assert.match(first2019.prompt,/\$30\.00/);

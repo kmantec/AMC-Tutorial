@@ -61,15 +61,15 @@ seven *papers* from 2026:
 
 | Year | In the library | Notes |
 |------|----------------|-------|
-| 2026 | 5 / 25 | in progress; Standard paper only |
+| 2026 | 25 / 25 | complete; Standard paper only |
 | 2025 | 25 / 25 | complete |
 | 2024 | 25 / 25 | complete |
-| 2023 | 0 / 25 | **next after 2026** |
-| 2022 | 0 / 25 | **after 2023** |
+| 2023 | 0 / 25 | **next** |
+| 2022 | 0 / 25 | after 2023 |
 | 2020 | 25 / 25 | complete |
 | 2019 | 25 / 25 | complete |
 
-Target 175; currently 105. 2018 and earlier are out of scope unless asked.
+Target 175; currently 125. 2018 and earlier are out of scope unless asked.
 
 ## 4. Verified answer keys on file
 

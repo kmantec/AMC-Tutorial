@@ -6067,6 +6067,318 @@ export const problems = {
     "reflection": "The one-silver case and the two-silver case both give 6. Is that a coincidence, or is each of them a \"choose 6 of something\" in disguise?",
     "alternative": "Build the stack from the bottom. A stack of height n starts with either a gold coin, leaving n − 1 mm, or a silver coin, leaving n − 3 mm, so S(n) = S(n − 1) + S(n − 3) with S(0) = 1. Working up: 1, 1, 1, 2, 3, 4, 6, 9, 13 — the 8 mm answer is 13.",
     "reviewedAt": "2026-11-04"
-  }
-
+  },
+  "2026-21":   {
+    "id": "2026-21",
+    "year": 2026,
+    "number": 21,
+    "suggestedPace": "2 min 30 sec",
+    "title": "Charlotte’s three steps on the star web",
+    "topic": "Probability · symmetry",
+    "prompt": "Charlotte the spider is walking along a web shaped like a 5-pointed star, shown in the figure below. The web has 5 outer points and 5 inner points. Each time Charlotte reaches a point, she randomly chooses a neighboring point and moves to that point. Charlotte starts at one of the outer points and makes 3 moves (re-visiting points is allowed). What is the probability she is now at one of the outer points of the star?",
+    "wording": "original",
+    "diagram": "./assets/diagram-2026-21.png",
+    "options": [
+      {
+        "letter": "A",
+        "value": "1/5",
+        "label": "1/5"
+      },
+      {
+        "letter": "B",
+        "value": "1/4",
+        "label": "1/4"
+      },
+      {
+        "letter": "C",
+        "value": "2/5",
+        "label": "2/5"
+      },
+      {
+        "letter": "D",
+        "value": "1/2",
+        "label": "1/2"
+      },
+      {
+        "letter": "E",
+        "value": "3/5",
+        "label": "3/5"
+      }
+    ],
+    "answer": "1/4",
+    "answerLabel": "(B) 1/4",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_21",
+    "hints": [
+      "Charlotte moves on a web where every outer point touches only inner points, while every inner point touches a mixture of inner and outer ones. The obstacle is that the points do not all offer the same number of exits, so the possible routes are not equally likely to be followed.",
+      "Because the web is symmetric, only the type of point matters: keep track of whether Charlotte is on an outer point or an inner point, and record the chance of standing on each type after each move.",
+      "The first move is forced: from an outer point both neighbours are inner. After two moves she is on an outer point half the time and on an inner point half the time, and from an inner point two of the four exits lead to an outer point. Only the inner half contributes, so the chance is half of a half."
+    ],
+    "method": "Collapse the ten points to two types and follow the chance of each type move by move.",
+    "solution": [
+      "An outer point has two neighbours, both inner. An inner point has four neighbours: two inner and two outer.",
+      "After the first move Charlotte is certainly on an inner point.",
+      "From an inner point, half of the four exits lead to an outer point and half to an inner point, so after the second move she is outer with probability 1/2 and inner with probability 1/2.",
+      "In the third move only the inner starting points can reach an outer point, and they do so half the time: 1/2 × 1/2 = 1/4.",
+      "So the probability is 1/4, choice B."
+    ],
+    "credit": "AI-authored explanation of the outer/inner type chain; AoPS Solutions 2 and 3 use the same two-state idea, and the figure is the contest’s own.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Chain the probabilities, not the routes.",
+    "tip": "When different points have different numbers of exits, counting routes and dividing does not work, because the routes are not equally likely. Chains of probability do work, and the web’s five-fold symmetry is what makes a two-line chain enough: every outer point behaves alike and every inner point behaves alike, so the geometry collapses to a single coin-flip question at each step.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Counting eight good routes out of some total number of routes and dividing. The routes do not have equal probability, because a point with four exits spreads probability differently from a point with two.",
+    "reflection": "The moves alternate between inner and outer points, yet the chance of finishing outer is not 1/2. What does the third move’s starting type do to that guess?",
+    "alternative": "Let o(n) and i(n) be the chances of standing on each type after n moves. An outer point always steps to an inner one and an inner point steps out half the time, so o(n + 1) = i(n)/2 and i(n + 1) = o(n) + i(n)/2, with o(0) = 1 and i(0) = 0. Working forward: o = 1, 0, 1/2, 1/4 and i = 0, 1, 1/2, 3/4.",
+    "reviewedAt": "2026-11-04"
+  },
+  "2026-22":   {
+    "id": "2026-22",
+    "year": 2026,
+    "number": 22,
+    "suggestedPace": "2 min",
+    "title": "The smallest possible median of medians",
+    "topic": "Statistics · mean & median",
+    "prompt": "The integers from 1 through 25 are arbitrarily separated into five groups of 5 numbers each. The median of each group is identified. Let M equal the median of the five medians. What is the least possible value of M?",
+    "wording": "original",
+    "options": [
+      {
+        "letter": "A",
+        "value": 9,
+        "label": "9"
+      },
+      {
+        "letter": "B",
+        "value": 10,
+        "label": "10"
+      },
+      {
+        "letter": "C",
+        "value": 12,
+        "label": "12"
+      },
+      {
+        "letter": "D",
+        "value": 13,
+        "label": "13"
+      },
+      {
+        "letter": "E",
+        "value": 14,
+        "label": "14"
+      }
+    ],
+    "answer": 9,
+    "answerLabel": "(A) 9",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_22",
+    "hints": [
+      "Five groups of five are cut from the numbers 1 through 25, and the middle of their five medians is to be made as small as possible. The obstacle is that no number can be spent twice: the three groups sitting at or below M all draw from the same small pool.",
+      "Work out what has to lie strictly below M before M can sit where it does. The two groups whose medians are smaller each need their own low numbers, M’s own group needs its two, and the two smaller medians are themselves numbers below M.",
+      "That is six low numbers plus two medians, eight different values strictly below M, so M cannot be smaller than the ninth number. It is achievable: (1,2,3,16,17), (4,5,6,18,19), (7,8,9,20,21), (10,11,12,22,23), (13,14,15,24,25) has medians 3, 6, 9, 12, 15."
+    ],
+    "method": "Count the numbers that must lie below M, then exhibit a grouping that reaches the bound.",
+    "solution": [
+      "Call the five medians m1 < m2 < M < m4 < m5, so M is the middle one.",
+      "The group with median m1 has two numbers below m1, and the group with median m2 has two numbers below m2: four numbers, all below M.",
+      "The group with median M has two numbers below M as well, and these six numbers are all different.",
+      "The medians m1 and m2 are also different values below M and different from those six, so eight different numbers must lie below M. Hence M is at least the ninth smallest value, namely 9.",
+      "Nine is reached by grouping consecutively: (1,2,3,16,17), (4,5,6,18,19), (7,8,9,20,21), (10,11,12,22,23), (13,14,15,24,25) gives medians 3, 6, 9, 12, 15 and M = 9, choice A."
+    ],
+    "credit": "AI-authored explanation of the count-below bound, with an explicit regrouping that attains it; AoPS Solution 2 argues the same way and Solution 1 draws it as a 5 × 5 grid.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "A median is a promise about how many numbers sit below it.",
+    "tip": "Stop thinking of a median as a middle value and start counting what it forces: k numbers at or below it and k at or above. Three medians at or below M then force a block of numbers below M, and that block is where the minimum comes from. This counting move answers “least possible” and “greatest possible” questions without testing any grouping.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Cutting 1–25 into five consecutive blocks of five, reading off 3, 8, 13, 18, 23, and answering 13. That grouping is legal, but it is not the smallest M that can be arranged.",
+    "reflection": "The bound came from counting, and then one example proved it could be reached. Why is an example needed at all, once the counting argument is finished?",
+    "alternative": "Reflect every number with x → 26 − x. A grouping with median-of-medians M becomes one with median-of-medians 26 − M, so the greatest possible value is 26 − 9 = 17 by the same bound read from the top.",
+    "reviewedAt": "2026-11-04"
+  },
+  "2026-23":   {
+    "id": "2026-23",
+    "year": 2026,
+    "number": 23,
+    "suggestedPace": "2 min 30 sec",
+    "title": "One elastic band around five coins",
+    "topic": "Geometry · perimeter and area",
+    "prompt": "Lakshmi has 5 round coins of diameter 4 centimeters. She arranges the coins in 2 rows on a table top, as shown below, and wraps an elastic band tightly around them. In centimeters, what will be the length of the band?",
+    "wording": "original",
+    "diagram": "./assets/diagram-2026-23.png",
+    "options": [
+      {
+        "letter": "A",
+        "value": "2π + 20",
+        "label": "2π + 20"
+      },
+      {
+        "letter": "B",
+        "value": "5/2 π + 20",
+        "label": "5/2 π + 20"
+      },
+      {
+        "letter": "C",
+        "value": "4π + 20",
+        "label": "4π + 20"
+      },
+      {
+        "letter": "D",
+        "value": "9/2 π + 20",
+        "label": "9/2 π + 20"
+      },
+      {
+        "letter": "E",
+        "value": "5π + 20",
+        "label": "5π + 20"
+      }
+    ],
+    "answer": "4π + 20",
+    "answerLabel": "(C) 4π + 20",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_23",
+    "hints": [
+      "A tight band round five touching coins is part straight and part curved, and the straight stretches are set by where the coins touch their neighbours. The obstacle is that the band skips most of each circle, so it is not five circumferences with some straight bits added.",
+      "Draw the five centres and join the ones whose coins the band runs between. The straight stretches become the outer edges of that centre figure, and what is left of the band is the set of arcs where it turns a corner.",
+      "The straight stretches are five diameters, so 20 cm. The arcs sit at four corners and together they turn through one full circle; with radius 2 that is 4π cm. The band is 20 + 4π, choice C."
+    ],
+    "method": "Replace the band by the outline of the centres, then add up the turning done on the arcs.",
+    "solution": [
+      "Join the five coin centres. Two coins that touch have centres a diameter apart, so each straight stretch of band between two touching coins is 4 cm long.",
+      "The band runs straight along the outside of the centre figure. That figure is a trapezoid: its long base is the three bottom coins, so two diameters; its short base is the two top coins, so one diameter; and the two sloping sides are one diameter each. The straight stretches therefore add up to five diameters, 20 cm.",
+      "Every remaining piece of band is an arc on a coin’s rim, and at each of the four corners of the centre figure the band turns by a fixed angle before running straight again.",
+      "A band wrapped tightly round a convex arrangement turns through a total of one full revolution, so all four arcs together make one complete circle of radius 2 cm, length 4π cm.",
+      "Total length 20 + 4π cm, choice C."
+    ],
+    "credit": "AI-authored explanation of the centres-outline split; AoPS Solutions 1 and 3 use the same decomposition and the same “arcs add to one circle” observation. The figure is the contest’s own.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "For a band round circles: straight parts follow the centres, arcs add to one turn.",
+    "tip": "Any taut band around a convex cluster of circles is the convex hull of the centres, pushed out by one radius, with round corners. So its straight parts are hull edge lengths and its arcs, however many there are, add up to a full 360° — one circumference. That kills the “is it four quarters or three thirds?” worry: the number of corners never matters, only the radius.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Multiplying the rim of every coin by some fraction and hoping it adds up, which usually produces 5π + 20 or 2π + 20. The band touches each coin for a different fraction of its rim, and only the total turning is fixed.",
+    "reflection": "The answer depends on the coin’s size but not on how many corners the band turns at, as long as it goes all the way round. Why can the corners be redistributed freely?",
+    "alternative": "Shrink each coin to its centre and then push the band out by one radius everywhere. The shrunk band is the perimeter of the centre trapezoid: an 8 cm long base, a 4 cm short base and two 4 cm slanted sides, so 20 cm. Pushing out by radius 2 rounds every vertex, and the four arcs total one full turn, 2π · 2 = 4π. Same total.",
+    "reviewedAt": "2026-11-04"
+  },
+  "2026-24":   {
+    "id": "2026-24",
+    "year": 2026,
+    "number": 24,
+    "suggestedPace": "2 min 30 sec",
+    "title": "Counting the sevens inside a superfactorial",
+    "topic": "Algebra · factorials",
+    "prompt": "The notation n! (read “n factorial”) is defined as the product of the first n positive integers. (For example, 3! = 1 · 2 · 3 = 6.) Define the superfactorial of a positive integer, denoted n^! (an n with a raised exclamation mark), to be the product of the factorials of the first n integers. (For example, 3^! = 1! · 2! · 3! = 12.) How many factors of 7 appear in the prime factorization of 51^!, the superfactorial of 51?",
+    "wording": "restated",
+    "options": [
+      {
+        "letter": "A",
+        "value": 147,
+        "label": "147"
+      },
+      {
+        "letter": "B",
+        "value": 150,
+        "label": "150"
+      },
+      {
+        "letter": "C",
+        "value": 156,
+        "label": "156"
+      },
+      {
+        "letter": "D",
+        "value": 168,
+        "label": "168"
+      },
+      {
+        "letter": "E",
+        "value": 171,
+        "label": "171"
+      }
+    ],
+    "answer": 171,
+    "answerLabel": "(E) 171",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_24",
+    "hints": [
+      "The superfactorial of 51 multiplies fifty-one factorials together, and the question is how many 7s survive in the prime factorization of that tower. The obstacle is that the same 7 is built into many different factorials, and one of the numbers carries a second copy.",
+      "Charge every 7 to the number that supplies it. A multiple of 7 appears inside every factorial from that multiple upward, so the question becomes how many of the fifty-one factorials each multiple sits in, and 49 has to be handled twice.",
+      "Below 49 the multiples of 7 sit in bands of seven factorials that shrink as the multiple grows, and those bands add to 147 sevens. The last three factorials form one more band, holding seven sevens each, and 49 = 7 · 7 puts one extra seven in each of them."
+    ],
+    "method": "Count how many factorials contain each multiple of 7, then add the extra sevens hiding in 49.",
+    "solution": [
+      "Every 7 in the product comes from a number in 1 to 51 that is divisible by 7, counted once for each factorial it appears in.",
+      "Count per factorial instead. As k runs from 1 to 51, the number of 7s in k! rises by one each time k passes a multiple of 7: it is 0 for 1! through 6!, then 1 from 7! to 13!, 2 from 14! to 20!, and so on, with exactly seven factorials at each level.",
+      "Six whole levels follow, each covering seven factorials: 7!–13!, 14!–20!, 21!–27!, 28!–34!, 35!–41! and 42!–48!. They contribute 7(1 + 2 + 3 + 4 + 5 + 6) = 147 sevens.",
+      "The last three factorials, 49!, 50! and 51!, have passed all seven multiples of 7 up to 49, so each holds 7 sevens: 3 × 7 = 21 more, taking the running total to 168.",
+      "But 49 = 7 · 7, so each of those three factorials carries a second 7 that the multiple count never sees: 3 more. The total is 171, choice E."
+    ],
+    "credit": "AI-authored explanation of the block count; AoPS Solution 1 and LIVE by Po-Shen Loh split the factorials at multiples of 7 in the same way. The wording is restated only to spell out the raised-exclamation notation in plain text.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "A quotient counted over a range is a sum of block widths.",
+    "tip": "Legendre’s count of p’s in n! looks like one division, but over many factorials the same count turns into blocks: the multiples of p occupy the top n − p + 1 factorials, the multiples of p² a narrower top band, and so on. Adding the block totals is faster and safer than dividing fifty-one times — and it makes the p² term impossible to forget, because it is its own narrow band at the very top.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Adding the multiples of 7 once each and stopping at 147, or adding up to 168 and forgetting that 49 contributes a second 7 in each of the three factorials that contain it.",
+    "reflection": "The superfactorial and the single factorial 51! both count sevens, but the superfactorial counts far more. Where exactly does the extra come from in this block picture?",
+    "alternative": "Count per factorial instead: v7(k!) is 0 up to 6!, then 1 for 7!–13!, 2 for 14!–20!, and so on, rising by one every seven factorials, with an extra jump at 49!. Seven factorials at each level give 7(1 + 2 + 3 + 4 + 5 + 6) = 147, and the last three factorials sit at level 7 instead of level 6, contributing 21, plus 3 more for the 49. Total 171.",
+    "reviewedAt": "2026-11-04"
+  },
+  "2026-25":   {
+    "id": "2026-25",
+    "year": 2026,
+    "number": 25,
+    "suggestedPace": "3 min",
+    "title": "Equiangular hexagons inside a triangle",
+    "topic": "Combinatorics · counting cases",
+    "prompt": "In an equiangular hexagon, all interior angles measure 120°. An example of such a hexagon with side lengths 2, 3, 1, 3, 2, and 2 is shown below, inscribed in equilateral triangle ABC. Consider all equiangular hexagons with positive integer side lengths that can be inscribed in triangle ABC, with all six vertices on the sides of the triangle. What is the total number of such hexagons? Hexagons that differ only by a rotation or a reflection are considered the same.",
+    "wording": "original",
+    "diagram": "./assets/diagram-2026-25.png",
+    "options": [
+      {
+        "letter": "A",
+        "value": 4,
+        "label": "4"
+      },
+      {
+        "letter": "B",
+        "value": 5,
+        "label": "5"
+      },
+      {
+        "letter": "C",
+        "value": 6,
+        "label": "6"
+      },
+      {
+        "letter": "D",
+        "value": 7,
+        "label": "7"
+      },
+      {
+        "letter": "E",
+        "value": 8,
+        "label": "8"
+      }
+    ],
+    "answer": 8,
+    "answerLabel": "(E) 8",
+    "sourceUrl": "https://artofproblemsolving.com/wiki/index.php?title=2026_AMC_8_Problems/Problem_25",
+    "hints": [
+      "Each hexagon in the triangle is the triangle with three equilateral corners cut away, and the size of each cut is a positive whole number of centimetres. The obstacle is that different cuts can produce the same hexagon once rotations and reflections are ignored.",
+      "Describe each corner cut by its side length, and translate “all six sides positive” into a limit on how large two of the cuts may be together. Then list the cut sizes in a fixed order, smallest first, so that rotated and reflected copies never get counted twice.",
+      "With triangle side 6, the piece left on each side of the triangle is 6 minus its two neighbouring cuts, so any two cuts may sum to at most 5. Listing x ≤ y ≤ z: six triples start with 1, two start with 2, none can start with 3. That is the whole count, choice E."
+    ],
+    "method": "Trade the hexagon for its three corner cuts, then list unordered triples of cut sizes.",
+    "solution": [
+      "Because every interior angle is 120°, consecutive sides of the hexagon turn by 60°, so the three corner gaps against the triangle are equilateral triangles.",
+      "Call the side lengths of those three corner triangles x, y and z, all positive integers. Along a side of the triangle, the two neighbouring cuts shorten it, and what remains is a side of the hexagon.",
+      "In the example the triangle’s side is 2 + 3 + 1 = 6, so the sides of the hexagon are 6 − x − y, y, 6 − y − z, z, 6 − z − x and x. All six are positive exactly when each pair of cuts sums to at most 5.",
+      "Rotating or reflecting the triangle permutes x, y, z, so count only the triples with x ≤ y ≤ z. With x = 1: (1,1,1), (1,1,2), (1,1,3), (1,1,4), (1,2,2), (1,2,3). With x = 2: (2,2,2), (2,2,3). With x = 3 no pair sum stays at most 5.",
+      "That is 6 + 2 = 8 hexagons, choice E."
+    ],
+    "credit": "AI-authored explanation of the corner-cut enumeration; AoPS Solutions 1 and 2 both reduce the hexagon to three cut sizes. The figure is redrawn from the contest’s own Asymptote coordinates.",
+    "creditCoach": "Hermes Agent",
+    "tipTitle": "Cut the big shape, then count unordered triples.",
+    "tip": "A 120° hexagon inscribed in an equilateral triangle is the triangle with three equilateral corners removed, so the hexagon carries three numbers, not six. Whenever a shape is built by cutting corners, translating “all sides positive” into “pairwise sums small enough” turns a geometry question into an inequality, and fixing the order of the three numbers removes the rotation and reflection duplicates in one stroke.",
+    "tipCredit": "Additional coaching by Hermes Agent.",
+    "commonError": "Counting ordered triples and dividing by 6, which over-divides the triples with two equal entries, or stopping at the two equal-sided hexagons and missing (1,2,3).",
+    "reflection": "Six of the eight answers begin with a cut of 1. Is that a sign of a shortcut, or a sign that small corners simply leave more room for the other two?",
+    "alternative": "Count ordered triples and then sort them out: the pairs (x, z) with x + z at most 5 number 10 by a triangular count, and each choice then fixes y’s range. Doing it that way gives the 8 unordered hexagons without any geometry beyond the pair-sum rule.",
+    "reviewedAt": "2026-11-04"
+  },
 };
