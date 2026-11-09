@@ -40,8 +40,10 @@ for (const p of Object.values(problems)) {
   // short solution, so only presence and type are enforced here.
   assert.ok(p.solution.every((step) => typeof step === 'string' && step.trim().length > 0), 'Empty solution step: ' + p.id);
   assert.ok(typeof p.method === 'string' && p.method.length > 5, 'Missing method: ' + p.id);
-  assert.ok(typeof p.score === 'number' && p.score >= 1 && p.score <= 10, 'Missing or invalid score: ' + p.id);
-  assert.ok(typeof p.ratingReason === 'string' && p.ratingReason.length > 20, 'Missing ratingReason: ' + p.id);
+  // The 1-10 suitability block is hidden in the UI (see AGENTS.md), so score and
+  // ratingReason are optional; validate them only when a problem carries them.
+  if (p.score !== undefined) assert.ok(typeof p.score === 'number' && p.score >= 1 && p.score <= 10, 'Invalid score: ' + p.id);
+  if (p.ratingReason !== undefined) assert.ok(typeof p.ratingReason === 'string' && p.ratingReason.length > 20, 'Thin ratingReason: ' + p.id);
   assert.ok(typeof p.answerLabel === 'string' && p.answerLabel.length > 0, 'Missing answerLabel: ' + p.id);
   assert.ok(typeof p.credit === 'string' && p.credit.length > 10, 'Missing credit: ' + p.id);
   const videos = walkthroughVideos[p.id];
