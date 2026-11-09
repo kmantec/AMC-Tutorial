@@ -285,10 +285,10 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 .map-year-badge.year-2019 { background:linear-gradient(135deg,#f59e0b,#ef4444); color:#fff; }
 .map-year-count { font-size:.8rem; color:var(--muted); }
 .map-year-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:8px; }
-.map-copy { display:flex; flex-direction:column; gap:5px; }
+.map-copy { display:flex; flex-direction:column; gap:5px; min-width:0; flex:1 1 auto; }
 .map-copy strong { font-size:.875rem; }
 .map-topic { color:var(--muted); font-size:.8rem; line-height:1.5; }
-.map-status { font-size:.75rem; color:var(--muted); line-height:1.5; margin-top:auto; }
+.map-status { font-size:.75rem; color:var(--muted); line-height:1.5; margin-top:auto; text-align:right; flex:0 0 auto; max-width:44%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .learning-map-footer { margin-top:18px; gap:12px; }
 .learning-map-footer>p { display:flex; flex-wrap:wrap; gap:10px 22px; font-size:.875rem; color:var(--muted); }
 .learning-map-footer strong { color:var(--navy); }
@@ -497,3 +497,70 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
     max-height: none;
   }
 }
+/* ------------------------------------------------------------------
+   Year colour system
+   Every year owns one hue, and the same hue is used by the home year
+   strip, the papers view and the learning-map badge, so a colour means
+   the same year wherever it appears. Previously the strip tinted only
+   the first card (:first-child), which happened to be 2026 — that is
+   why 2026 looked special and the rest looked plain.
+------------------------------------------------------------------ */
+.year-2026 { --yc:#5b57e8; --yc-2:#8b5cf6; --year-soft:#eef0ff; --year-ink:#4338ca; }
+.year-2025 { --yc:#2f6fe0; --yc-2:#0891b2; --year-soft:#e9f2fe; --year-ink:#1d4ed8; }
+.year-2024 { --yc:#0d9a6c; --yc-2:#34d399; --year-soft:#e7f7f0; --year-ink:#047857; }
+.year-2023 { --yc:#dd8a08; --yc-2:#f97316; --year-soft:#fdf4e4; --year-ink:#b45309; }
+.year-2022 { --yc:#e0479b; --yc-2:#f43f5e; --year-soft:#fdebf4; --year-ink:#be185d; }
+.year-2020 { --yc:#7c5cf0; --yc-2:#a78bfa; --year-soft:#f3eeff; --year-ink:#6d28d9; }
+.year-2019 { --yc:#e8603c; --yc-2:#ef4444; --year-soft:#fdeee8; --year-ink:#c2410c; }
+
+/* Home year strip */
+.year-card { background:var(--year-soft,#fff); border-color:var(--yc,#d9e1ef); box-shadow:inset 0 -3px var(--yc,transparent); }
+.year-card:first-child { background:var(--year-soft,#fff); border-color:var(--yc,#d9e1ef); }
+.year-card strong { color:var(--year-ink,var(--navy)); }
+.year-card small { color:var(--year-ink,#97a1b1); opacity:.72; }
+.year-card .icon { color:var(--yc,#90a0bc); }
+
+/* Papers view keeps its gradient header, now driven by the same tokens */
+.paper-card-top.year-2026-bg { background:linear-gradient(135deg,var(--yc),var(--yc-2)); }
+.paper-card-top.year-2025-bg { background:linear-gradient(135deg,var(--yc),var(--yc-2)); }
+.paper-card-top.year-2024-bg { background:linear-gradient(135deg,var(--yc),var(--yc-2)); }
+.paper-card-top.year-2023-bg { background:linear-gradient(135deg,var(--yc),var(--yc-2)); }
+.paper-card-top.year-2022-bg { background:linear-gradient(135deg,var(--yc),var(--yc-2)); }
+.paper-card-top.year-2020-bg { background:linear-gradient(135deg,var(--yc),var(--yc-2)); }
+.paper-card-top.year-2019-bg { background:linear-gradient(135deg,var(--yc),var(--yc-2)); }
+
+/* Learning-map year badge: same hue for every year, not just two */
+.map-year-badge.year-2026,
+.map-year-badge.year-2025,
+.map-year-badge.year-2024,
+.map-year-badge.year-2023,
+.map-year-badge.year-2022,
+.map-year-badge.year-2020,
+.map-year-badge.year-2019 { background:linear-gradient(135deg,var(--yc),var(--yc-2)); color:#fff; }
+
+/* ------------------------------------------------------------------
+   Per-year topic shares
+   "● 24%" made the reader scroll up to a legend to learn what the dot
+   meant. The topic name now sits beside its own percentage, so each
+   pill reads as one sentence: Geometry 24%. Only the three largest
+   categories are shown; the remainder collapses into "+n", whose
+   tooltip lists what is left.
+------------------------------------------------------------------ */
+.yrb-pills { display:flex; flex-wrap:wrap; gap:5px 7px; margin-left:auto; align-items:center; }
+.yrb-pill { display:inline-flex; align-items:center; gap:5px; font-size:.72rem; font-weight:600; color:#4e607c; background:var(--quiet-bg,#f7f9fc); border:1px solid var(--line); border-radius:20px; padding:3px 9px 3px 7px; white-space:nowrap; }
+.yrb-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; background:var(--yrb-c,#94a3b8); }
+.yrb-name { color:#41536e; }
+.yrb-pct { color:var(--yrb-c,#475569); font-weight:750; font-variant-numeric:tabular-nums; }
+.yrb-more { font-size:.68rem; font-weight:700; color:var(--muted); border:1px dashed var(--line); border-radius:20px; padding:3px 8px; cursor:help; }
+
+@media(max-width:940px) { .yrb-pills { margin-left:0; width:100%; } }
+@media(max-width:650px) { .yrb-pill { font-size:.68rem; padding:2px 8px 2px 6px; } .yrb-name { max-width:82px; overflow:hidden; text-overflow:ellipsis; } }
+/* Two fixes to the year strip after review: 2020's violet sat too close to
+   2026's indigo, and an empty year looked as complete as a finished one. */
+.year-2020 { --yc:#0e9aa7; --yc-2:#22d3ee; --year-soft:#e6f7fa; --year-ink:#0e7490; }
+.year-2019 { --yc:#e8603c; --yc-2:#f97316; --year-soft:#fdeee8; --year-ink:#c2410c; }
+
+.year-card.year-empty { background:#fff; border-color:var(--line); box-shadow:none; }
+.year-card.year-empty strong { color:#9aa7bc; }
+.year-card.year-empty small { color:#a8b3c4; opacity:1; }
+.year-card.year-empty .icon { color:#c3ccda; }

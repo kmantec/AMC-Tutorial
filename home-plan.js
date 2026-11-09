@@ -122,11 +122,37 @@ const categoryColors = {
 
 const categoryOrder = ['Arithmetic','Geometry','Algebra','Number Theory','Logic','Probability','Rates & Speed','Counting','Statistics','Set Theory','Spatial','Patterns'];
 
+// The table above matches whole topic strings, so a newly written problem with
+// a slightly different phrasing silently fell into "Other" (20 of 125 at one
+// point, including ten of 2026's twenty-five). Fall back to the leading word of
+// the topic, which is how every topic string is written, so a new problem is
+// categorised by the same rule its author already followed.
+const leadingCategory = {
+  'arithmetic': 'Arithmetic', 'fractions': 'Arithmetic', 'fraction': 'Arithmetic',
+  'percentages': 'Arithmetic', 'percentage': 'Arithmetic', 'ratios': 'Arithmetic',
+  'ratio': 'Arithmetic', 'number representation': 'Number Theory', 'decimals': 'Arithmetic',
+  'geometry': 'Geometry', 'spatial': 'Spatial', 'spatial reasoning': 'Spatial',
+  'algebra': 'Algebra', 'number theory': 'Number Theory', 'number': 'Number Theory',
+  'rates': 'Rates & Speed', 'rate': 'Rates & Speed', 'rate-speed-distance': 'Rates & Speed',
+  'speed & time': 'Rates & Speed', 'logic': 'Logic',
+  'probability': 'Probability', 'counting': 'Counting', 'combinatorics': 'Counting',
+  'statistics': 'Statistics', 'data analysis': 'Statistics',
+  'set theory': 'Set Theory', 'patterns': 'Patterns'
+};
+function inferCategory(raw) {
+  if (!raw) return 'Other';
+  const head = String(raw).split('·')[0].trim().toLowerCase();
+  return leadingCategory[head] || 'Other';
+}
+export function categoryFor(raw) {
+  return parentCategory[raw] || inferCategory(raw);
+}
+
 export function topicBreakdown(problems) {
   const counts = {};
   for (const id of Object.keys(problems)) {
     const raw = homeTopics[id]?.[0] || problems[id].topic;
-    const cat = parentCategory[raw] || 'Other';
+    const cat = categoryFor(raw);
     counts[cat] = (counts[cat] || 0) + 1;
   }
   const total = Object.keys(problems).length;
@@ -143,7 +169,7 @@ export function topicBreakdown(problems) {
 
 export function getProblemCategory(id, problems) {
   const raw = homeTopics[id]?.[0] || problems[id].topic;
-  return parentCategory[raw] || 'Other';
+  return categoryFor(raw);
 }
 
 export function topicBreakdownByYear(problems, year) {

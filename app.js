@@ -101,7 +101,17 @@ function practiceButton(id, label, className = 'text-button') {
   return '<button class="' + className + '" data-action="practice" data-problem="' + id + '">' + escape(label) + '</button>';
 }
 $('#today-date').textContent = new Intl.DateTimeFormat('en', {weekday:'long',month:'long',day:'numeric'}).format(new Date()).toUpperCase();
-$('#home-years').innerHTML = YEARS.map((year) => '<a class="year-card" href="' + source(year) + '" target="_blank" rel="noopener noreferrer" aria-label="Open ' + year + ' AMC 8 on AoPS"><strong>' + year + '</strong><small>25 problems</small>' + icon('external') + '</a>').join('');
+$('#home-years').innerHTML = (() => {
+  const perYear = {};
+  for (const id of ids) perYear[problems[id].year] = (perYear[problems[id].year] || 0) + 1;
+  return YEARS.map((year) => {
+    // The count must come from the data: two of the seven papers are still
+    // empty, and a hard-coded "25 problems" told the learner otherwise.
+    const count = perYear[year] || 0;
+    const label = count ? count + ' problem' + (count === 1 ? '' : 's') : 'In preparation';
+    return '<a class="year-card year-' + year + (count ? '' : ' year-empty') + '" href="' + source(year) + '" target="_blank" rel="noopener noreferrer" aria-label="Open ' + year + ' AMC 8 on AoPS"><strong>' + year + '</strong><small>' + label + '</small>' + icon('external') + '</a>';
+  }).join('');
+})();
 $('#paper-grid').innerHTML = (() => {
   const byYear = {};
   for (const id of ids) {
@@ -357,12 +367,19 @@ function rebuildMapGrid() {
   $('#available-practice').innerHTML = Object.keys(byYear).sort().reverse().map(year => {
     const yearIds = byYear[year];
     const yrBreakdown = topicBreakdownByYear(problems, +year);
-    const yrPills = yrBreakdown.map(c =>
+    // A bare coloured dot forces the reader to hunt for a legend. Name the
+    // topic next to its share instead, and keep only the three biggest so the
+    // year header stays one line; the rest are summarised in a count.
+    const TOP = 3;
+    const shown = yrBreakdown.slice(0, TOP);
+    const rest = yrBreakdown.length - shown.length;
+    const yrPills = shown.map(c =>
       '<span class="yrb-pill" style="--yrb-c:' + c.color + '">' +
-        '<span class="yrb-dot" style="background:' + c.color + '"></span>' +
-        c.pct + '%' +
+        '<span class="yrb-dot"></span>' +
+        '<span class="yrb-name">' + escape(c.category) + '</span>' +
+        '<span class="yrb-pct">' + c.pct + '%</span>' +
       '</span>'
-    ).join('');
+    ).join('') + (rest > 0 ? '<span class="yrb-more" title="' + escape(yrBreakdown.slice(TOP).map(c => c.category + ' ' + c.pct + '%').join(' · ')) + '">+' + rest + '</span>' : '');
     return '<div class="map-year-group">' +
       '<div class="map-year-header">' +
         '<span class="map-year-badge year-' + year + '">' + year + '</span>' +
