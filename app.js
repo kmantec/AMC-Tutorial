@@ -23,6 +23,9 @@ let records = [];
 let storageAvailable = true;
 let toastTimer;
 let homeSelection = null;
+// Which year headers have their full topic mix open. Kept outside the render so
+// a re-render (filtering, opening a problem) does not silently collapse it.
+const expandedYearMixes = new Set();
 let filterCategories = []; // empty = show all
 const problem = () => problems[activeId];
 const attempt = () => {
@@ -373,13 +376,25 @@ function rebuildMapGrid() {
     const TOP = 3;
     const shown = yrBreakdown.slice(0, TOP);
     const rest = yrBreakdown.length - shown.length;
+    const hiddenPills = yrBreakdown.slice(TOP).map(c =>
+      '<span class="yrb-pill yrb-pill-extra" style="--yrb-c:' + c.color + '">' +
+        '<span class="yrb-dot"></span>' +
+        '<span class="yrb-name">' + escape(c.category) + '</span>' +
+        '<span class="yrb-pct">' + c.pct + '%</span>' +
+      '</span>'
+    ).join('');
     const yrPills = shown.map(c =>
       '<span class="yrb-pill" style="--yrb-c:' + c.color + '">' +
         '<span class="yrb-dot"></span>' +
         '<span class="yrb-name">' + escape(c.category) + '</span>' +
         '<span class="yrb-pct">' + c.pct + '%</span>' +
       '</span>'
-    ).join('') + (rest > 0 ? '<span class="yrb-more" title="' + escape(yrBreakdown.slice(TOP).map(c => c.category + ' ' + c.pct + '%').join(' · ')) + '">+' + rest + '</span>' : '');
+    ).join('') + (rest > 0
+      // A tooltip alone hid seven of 2026's ten categories behind a hover that
+      // a tablet cannot perform. The chip is a real button: it reveals the rest.
+      ? '<span class="yrb-rest"' + (expandedYearMixes.has(String(year)) ? '' : ' hidden') + '>' + hiddenPills + '</span>' +
+        '<button type="button" class="yrb-more" data-yrb-more data-count="+' + rest + '" data-expand-label="Show the other ' + rest + ' topic' + (rest === 1 ? '' : 's') + '" aria-expanded="' + (expandedYearMixes.has(String(year)) ? 'true' : 'false') + '" aria-label="Show the other ' + rest + ' topic' + (rest === 1 ? '' : 's') + '">' + (expandedYearMixes.has(String(year)) ? '−' : '+' + rest) + '</button>'
+      : '');
     return '<div class="map-year-group">' +
       '<div class="map-year-header">' +
         '<span class="map-year-badge year-' + year + '">' + year + '</span>' +
@@ -696,6 +711,21 @@ document.addEventListener('keydown',(event) => {
   toggleFigure(image);
 });
 $('#available-practice').addEventListener('click',event => {
+  const more = event.target.closest('[data-yrb-more]');
+  if (more) {
+    // Expanding a summary is a read, not a navigation: toggle the hidden pills
+    // in place and remember the state so a later re-render keeps them open.
+    const group = more.closest('.map-year-group');
+    const year = group.querySelector('.map-year-badge').textContent.trim();
+    const rest = group.querySelector('.yrb-rest');
+    const open = more.getAttribute('aria-expanded') !== 'true';
+    more.setAttribute('aria-expanded', String(open));
+    more.textContent = open ? '−' : more.dataset.count;
+    more.setAttribute('aria-label', open ? 'Show fewer topics' : more.dataset.expandLabel);
+    rest.hidden = !open;
+    if (open) expandedYearMixes.add(year); else expandedYearMixes.delete(year);
+    return;
+  }
   const button = event.target.closest('[data-home-problem]');
   if (!button) return;
   homeSelection = null;

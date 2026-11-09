@@ -551,7 +551,11 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 .yrb-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; background:var(--yrb-c,#94a3b8); }
 .yrb-name { color:#41536e; }
 .yrb-pct { color:var(--yrb-c,#475569); font-weight:750; font-variant-numeric:tabular-nums; }
-.yrb-more { font-size:.68rem; font-weight:700; color:var(--muted); border:1px dashed var(--line); border-radius:20px; padding:3px 8px; cursor:help; }
+.yrb-more { font:inherit; font-size:.68rem; font-weight:700; color:#5b6b85; background:#fff; border:1px dashed #b9c6da; border-radius:20px; padding:3px 8px; cursor:pointer; transition:background .12s,border-color .12s,color .12s; }
+.yrb-more:hover { background:#eef2f9; border-color:#8fa3c0; color:#31435e; }
+.yrb-more[aria-expanded="true"] { border-style:solid; border-color:#8fa3c0; background:#eef2f9; }
+.yrb-rest { display:contents; }
+.yrb-rest[hidden] { display:none; }
 
 @media(max-width:940px) { .yrb-pills { margin-left:0; width:100%; } }
 @media(max-width:650px) { .yrb-pill { font-size:.68rem; padding:2px 8px 2px 6px; } .yrb-name { max-width:82px; overflow:hidden; text-overflow:ellipsis; } }
